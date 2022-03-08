@@ -31,7 +31,7 @@ namespace AAB_Furniture_Rentals
         private void LoginAsEmployeeBtn_Click(object sender, EventArgs e)
         {
             this.employeeSelection = "Employee";
-            View.LoginCredentials loginCredentials = new View.LoginCredentials(this) ;
+            View.LoginCredentials loginCredentials = new View.LoginCredentials(this);
             loginCredentials.Show();
             this.Hide();
         }
@@ -49,10 +49,5 @@ namespace AAB_Furniture_Rentals
             Application.Exit();
         }
 
-        private void LoginSelector_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            Application.Exit();
-        }
     }
 }

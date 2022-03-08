@@ -15,14 +15,16 @@ namespace AAB_Furniture_Rentals.Controller
         /// <summary>
         /// Initializes the <see cref="EmployeeController"/> class.
         /// </summary>
-        static EmployeeController() { 
+        static EmployeeController()
+        {
         }
 
         /// <summary>
         /// Validates the employee login.
         /// </summary>
         /// <returns>True if the login credentials correspond to valid Employee</returns>
-        public static bool ValidateEmployeeLogin() {
+        public static bool ValidateEmployeeLogin()
+        {
             return true;
         }
         /// <summary>
