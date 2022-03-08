@@ -10,9 +10,19 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals
 {
+    /// <summary>
+    /// The initial screen that enables either an employee or a system Admin to log in
+    /// </summary>
+    /// <seealso cref="System.Windows.Forms.Form" />
     public partial class LoginSelector : Form
     {
-       public string employeeSelection;
+        /// <summary>
+        /// The employee/admin selection
+        /// </summary>
+        public string employeeSelection;
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginSelector"/> class.
+        /// </summary>
         public LoginSelector()
         {
             InitializeComponent();
