@@ -23,7 +23,8 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <returns>True if the login credentials correspond to valid Employee</returns>
         public static bool ValidateEmployeeLogin() {
-            return true;
+           // return true;
+            return false;
         }
         /// <summary>
         /// Validates the admin login.
@@ -31,7 +32,8 @@ namespace AAB_Furniture_Rentals.Controller
         /// <returns>True if the login credentials correspond to valid system admin</returns>
         public static bool ValidateAdminLogin()
         {
-            return true;
+            //  return true;
+            return false;
         }
 
     }

@@ -36,8 +36,11 @@ namespace AAB_Furniture_Rentals.View
                     //After Validating they are an Employee, do somthing...
                     MessageBox.Show("Hi Employee");
                 }
-                else { 
+                else {
                     // After Failed Employee Validation, do something...
+                    this.PasswordTextBox.Text = "";
+                    this.UserNameTextBox.Text = "";
+                    MessageBox.Show("Incorrect Username and/or Password. Please try again.", "Employee Validation Error", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 }
             } else if (this.loginSelectorInstance.employeeSelection == "Admin") {
                 if (Controller.EmployeeController.ValidateAdminLogin()) {
@@ -47,6 +50,9 @@ namespace AAB_Furniture_Rentals.View
                 else
                 {
                     // After Failed Admin Validation, do something...
+                    this.PasswordTextBox.Text = "";
+                    this.UserNameTextBox.Text = "";
+                    MessageBox.Show("Incorrect Username and/or Password. Please try again.", "Employee Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             
