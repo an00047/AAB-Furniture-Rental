@@ -30,17 +30,22 @@ namespace AAB_Furniture_Rentals.View
 
         private void LoginAsBtn_Click(object sender, EventArgs e)
         {
-            if (this.loginSelectorInstance.employeeSelection == "Employee") {
+            if (this.loginSelectorInstance.employeeSelection == "Employee")
+            {
                 if (Controller.EmployeeController.ValidateEmployeeLogin())
                 {
                     //After Validating they are an Employee, do somthing...
                     MessageBox.Show("Hi Employee");
                 }
-                else { 
+                else
+                {
                     // After Failed Employee Validation, do something...
                 }
-            } else if (this.loginSelectorInstance.employeeSelection == "Admin") {
-                if (Controller.EmployeeController.ValidateAdminLogin()) {
+            }
+            else if (this.loginSelectorInstance.employeeSelection == "Admin")
+            {
+                if (Controller.EmployeeController.ValidateAdminLogin())
+                {
                     //After Validating they are an Admin, do somthing...
                     MessageBox.Show("Hi Admin");
                 }
@@ -49,7 +54,7 @@ namespace AAB_Furniture_Rentals.View
                     // After Failed Admin Validation, do something...
                 }
             }
-            
+
         }
 
 
@@ -59,7 +64,7 @@ namespace AAB_Furniture_Rentals.View
             this.loginSelectorInstance.Show();
         }
 
-        
+
 
         private void LoginCredentials_FormClosed(object sender, FormClosedEventArgs e)
         {

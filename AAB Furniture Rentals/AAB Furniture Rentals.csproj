@@ -46,11 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="View\LoginCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\LoginCredentials.Designer.cs">
+      <DependentUpon>LoginCredentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginSelector.Designer.cs">
+      <DependentUpon>LoginSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +70,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LoginCredentials.resx">
+      <DependentUpon>LoginCredentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginSelector.resx">
+      <DependentUpon>LoginSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,14 +87,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="View\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controller\" />
     <Folder Include="DAL\" />
     <Folder Include="DB\" />
     <Folder Include="Model\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
