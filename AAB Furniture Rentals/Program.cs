@@ -16,7 +16,7 @@ namespace AAB_Furniture_Rentals
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginSelector());
+            Application.Run(new Form1());
         }
     }
 }
