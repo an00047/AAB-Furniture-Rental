@@ -46,15 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginSelector.cs">
+    <Compile Include="View\LoginCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginSelector.Designer.cs">
+    <Compile Include="View\LoginCredentials.Designer.cs">
+      <DependentUpon>LoginCredentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginSelector.Designer.cs">
       <DependentUpon>LoginSelector.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="LoginSelector.resx">
+    <EmbeddedResource Include="View\LoginCredentials.resx">
+      <DependentUpon>LoginCredentials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginSelector.resx">
       <DependentUpon>LoginSelector.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,7 +93,6 @@
     <Folder Include="DAL\" />
     <Folder Include="DB\" />
     <Folder Include="Model\" />
-    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

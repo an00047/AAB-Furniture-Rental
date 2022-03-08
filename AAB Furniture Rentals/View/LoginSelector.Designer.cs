@@ -66,6 +66,7 @@ namespace AAB_Furniture_Rentals
             this.LoginAsEmployeeBtn.TabIndex = 0;
             this.LoginAsEmployeeBtn.Text = "Employee";
             this.LoginAsEmployeeBtn.UseVisualStyleBackColor = true;
+            this.LoginAsEmployeeBtn.Click += new System.EventHandler(this.LoginAsEmployeeBtn_Click);
             // 
             // LoginAsAdminBtn
             // 
@@ -77,6 +78,7 @@ namespace AAB_Furniture_Rentals
             this.LoginAsAdminBtn.TabIndex = 1;
             this.LoginAsAdminBtn.Text = "Admin";
             this.LoginAsAdminBtn.UseVisualStyleBackColor = true;
+            this.LoginAsAdminBtn.Click += new System.EventHandler(this.LoginAsAdminBtn_Click);
             // 
             // LoginTextLabel
             // 
@@ -98,6 +100,7 @@ namespace AAB_Furniture_Rentals
             this.Name = "LoginSelector";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AAB Furniture Store: Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginSelector_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
