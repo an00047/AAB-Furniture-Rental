@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals
 {
-    public partial class Form1 : Form
+    public partial class LoginSelector : Form
     {
-        public Form1()
+        public LoginSelector()
         {
             InitializeComponent();
         }
