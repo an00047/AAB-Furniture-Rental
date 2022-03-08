@@ -127,6 +127,7 @@ namespace AAB_Furniture_Rentals.View
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(193, 20);
             this.PasswordTextBox.TabIndex = 6;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
             // 
             // GoBackBtn
             // 
