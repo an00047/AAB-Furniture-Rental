@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="View\AdminMainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminMainDashboard.Designer.cs">
+      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AdminMainDashboard.resx">
+      <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginCredentials.resx">
       <DependentUpon>LoginCredentials.cs</DependentUpon>
     </EmbeddedResource>
