@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="Model\Furniture.cs" />
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\Rental.cs" />
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +113,6 @@
   <ItemGroup>
     <Folder Include="DAL\" />
     <Folder Include="DB\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
