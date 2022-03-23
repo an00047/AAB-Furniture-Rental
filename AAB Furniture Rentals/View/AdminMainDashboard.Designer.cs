@@ -92,6 +92,7 @@ namespace AAB_Furniture_Rentals.View
             this.logoutLabel.Size = new System.Drawing.Size(59, 20);
             this.logoutLabel.TabIndex = 2;
             this.logoutLabel.Text = "Logout";
+            this.logoutLabel.Click += new System.EventHandler(this.logoutLabel_Click);
             // 
             // AdminMainDashboard
             // 
@@ -103,6 +104,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.AdminTabControl);
             this.Name = "AdminMainDashboard";
             this.Text = "AdminMainDashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMainDashboard_FormClose);
             this.AdminTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
