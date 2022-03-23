@@ -34,8 +34,11 @@ namespace AAB_Furniture_Rentals.View
             {
                 if (Controller.EmployeeController.ValidateEmployeeLogin())
                 {
-                    //After Validating they are an Employee, do somthing...
-                    MessageBox.Show("Hi Employee");
+                    //Add validation
+                    //Get Employee name from database after login.
+                    View.EmployeeMainDashboard adminDashboard = new View.EmployeeMainDashboard(this);
+                    adminDashboard.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -46,7 +49,8 @@ namespace AAB_Furniture_Rentals.View
             {
                 if (Controller.EmployeeController.ValidateAdminLogin())
                 {
-                    //After Validating they are an Admin, do somthing...
+                    //Add validation
+                    //Get Admin name from database after login.
                     View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
                     adminDashboard.Show();
                     this.Hide();

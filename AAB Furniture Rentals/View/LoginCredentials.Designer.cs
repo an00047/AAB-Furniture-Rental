@@ -32,8 +32,8 @@ namespace AAB_Furniture_Rentals.View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.LoginBtn = new System.Windows.Forms.Button();
             this.LoginAsLabel = new System.Windows.Forms.Label();
+            this.UsernameLabel = new System.Windows.Forms.Label();
             this.PasswordLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.GoBackBtn = new System.Windows.Forms.LinkLabel();
@@ -52,8 +52,8 @@ namespace AAB_Furniture_Rentals.View
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
             this.tableLayoutPanel1.Controls.Add(this.LoginBtn, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.LoginAsLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.PasswordLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.UsernameLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PasswordLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.UserNameTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.PasswordTextBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.GoBackBtn, 2, 0);
@@ -90,27 +90,27 @@ namespace AAB_Furniture_Rentals.View
             this.LoginAsLabel.Text = "?";
             this.LoginAsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // UsernameLabel
+            // 
+            this.UsernameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameLabel.Location = new System.Drawing.Point(12, 62);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(87, 20);
+            this.UsernameLabel.TabIndex = 4;
+            this.UsernameLabel.Text = "Username:";
+            // 
             // PasswordLabel
             // 
             this.PasswordLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.Location = new System.Drawing.Point(12, 62);
+            this.PasswordLabel.Location = new System.Drawing.Point(17, 109);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(87, 20);
-            this.PasswordLabel.TabIndex = 4;
-            this.PasswordLabel.Text = "Username:";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Password:";
+            this.PasswordLabel.Size = new System.Drawing.Size(82, 20);
+            this.PasswordLabel.TabIndex = 5;
+            this.PasswordLabel.Text = "Password:";
             // 
             // UserNameTextBox
             // 
@@ -162,8 +162,8 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Label LoginAsLabel;
+        private System.Windows.Forms.Label UsernameLabel;
         private System.Windows.Forms.Label PasswordLabel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox UserNameTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.LinkLabel GoBackBtn;
