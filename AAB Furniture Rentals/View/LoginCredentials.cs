@@ -47,7 +47,9 @@ namespace AAB_Furniture_Rentals.View
                 if (Controller.EmployeeController.ValidateAdminLogin())
                 {
                     //After Validating they are an Admin, do somthing...
-                    MessageBox.Show("Hi Admin");
+                    View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
+                    adminDashboard.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -65,6 +67,14 @@ namespace AAB_Furniture_Rentals.View
         }
 
 
+        /// <summary>
+        /// Shows the LoginCredentials again after a logout.
+        /// </summary>
+
+        public void LogOut()
+        {
+            this.loginSelectorInstance.Show();
+        }
 
         private void LoginCredentials_FormClosed(object sender, FormClosedEventArgs e)
         {
