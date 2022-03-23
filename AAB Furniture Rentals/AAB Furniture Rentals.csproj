@@ -53,6 +53,12 @@
     <Compile Include="View\AdminMainDashboard.Designer.cs">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EmployeeMainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeMainDashboard.Designer.cs">
+      <DependentUpon>EmployeeMainDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginCredentials.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeMainDashboard.resx">
+      <DependentUpon>EmployeeMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginCredentials.resx">
       <DependentUpon>LoginCredentials.cs</DependentUpon>
