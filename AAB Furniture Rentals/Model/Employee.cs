@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.Model
 {
-    class Employee
+    public class Employee
     {
         public string EmployeeID { get; set; }
         public string Fname { get; set; }

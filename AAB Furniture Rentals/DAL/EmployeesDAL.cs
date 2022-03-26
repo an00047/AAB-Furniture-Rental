@@ -8,7 +8,7 @@ using AAB_Furniture_Rentals.Model;
 
 namespace AAB_Furniture_Rentals.DAL
 {
-    class EmployeesDAL
+    public class EmployeesDAL
     {
 
         /// <summary>
