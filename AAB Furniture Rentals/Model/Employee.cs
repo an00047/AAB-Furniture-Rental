@@ -8,18 +8,19 @@ namespace AAB_Furniture_Rentals.Model
 {
     class Employee
     {
-        public string employeeID { get; set; }
-        public string fname { get; set; }
-        public string lname { get; set; }
-        public string sex { get; set; }
-        public DateTime dob { get; set; }
-        public string address { get; set; }
-        public string city { get; set; }
-        public string state { get; set; }
-        public string zip { get; set; }
-        public string phone { get; set; }
-        public bool active { get; set; }
-        public string login_data_username { get; set; }
+        public string EmployeeID { get; set; }
+        public string Fname { get; set; }
+        public string Lname { get; set; }
+        public string Sex { get; set; }
+        public DateTime Dob { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public string Phone { get; set; }
+        public bool Active { get; set; }
+        public string Username { get; set; }
+        public bool Admin { get; set; }
 
         public Employee(
             string employeeID,
@@ -33,9 +34,28 @@ namespace AAB_Furniture_Rentals.Model
             string zip,
             string phone,
             bool active,
-            string login_data_username
+            string username,
+            bool admin
             )
         {
+            this.EmployeeID = employeeID;
+            this.Active = active;
+            this.Address = address;
+            this.Admin = admin;
+            this.City = city;
+            this.Fname = fname;
+            this.Lname = lname;
+            this.Dob = dob;
+            this.Phone = phone;
+            this.Sex = sex;
+            this.Zip = zip;
+            this.State = state;
+            this.Username = username;
+
+
+
+
+
         }
     }
 }

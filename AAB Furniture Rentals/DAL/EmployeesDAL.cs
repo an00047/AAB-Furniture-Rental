@@ -29,18 +29,19 @@ namespace AAB_Furniture_Rentals.DAL
                 {
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        int employeeID = reader.GetOrdinal("employeeID");
-                        int fname = reader.GetOrdinal("fname");
-                        int lname = reader.GetOrdinal("lname");
-                        int sex = reader.GetOrdinal("sex");
-                        int dob = reader.GetOrdinal("dob");
-                        int address = reader.GetOrdinal("address");
-                        int city = reader.GetOrdinal("city");
-                        int state = reader.GetOrdinal("state");
-                        int zip = reader.GetOrdinal("zip");
-                        int phone = reader.GetOrdinal("phone");
-                        int active = reader.GetOrdinal("active");
-                        int login_data_username = reader.GetOrdinal("login_data_username");
+                        var employeeID = reader.GetOrdinal("employeeID");
+                        var fname = reader.GetOrdinal("fname");
+                        var lname = reader.GetOrdinal("lname");
+                        var sex = reader.GetOrdinal("sex");
+                        var dob = reader.GetOrdinal("dob");
+                        var address = reader.GetOrdinal("address");
+                        var city = reader.GetOrdinal("city");
+                        var state = reader.GetOrdinal("state");
+                        var zip = reader.GetOrdinal("zip");
+                        var phone = reader.GetOrdinal("phone");
+                        var active = reader.GetOrdinal("active");
+                        var login_data_username = reader.GetOrdinal("login_data_username");
+                        var admin = reader.GetOrdinal("admin");
 
                         while (reader.Read())
                         {
@@ -56,7 +57,8 @@ namespace AAB_Furniture_Rentals.DAL
                             string _zip = reader.GetString(zip);
                             string _phone = reader.GetString(phone);
                             bool _active = reader.GetBoolean(active);
-                            string _login_data_username = reader.GetString(login_data_username);
+                            string _username = reader.GetString(login_data_username);
+                            bool _admin = reader.GetBoolean(admin);
 
 
                             Employee Employee = new Employee(
@@ -71,7 +73,8 @@ namespace AAB_Furniture_Rentals.DAL
                                 zip: _zip.Trim(),
                                 phone: _phone.Trim(),
                                 active: _active,
-                                login_data_username: _login_data_username.Trim()
+                                username: _username.Trim(),
+                                admin: _admin
                                 );
 
                             EmployeeList.Add(Employee);
