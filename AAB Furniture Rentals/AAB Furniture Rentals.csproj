@@ -47,6 +47,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="DAL\EmployeesDAL.cs" />
+    <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
+    <Compile Include="DAL\FurnitureStyleDAL.cs" />
+    <Compile Include="DAL\IsRentedDAL.cs" />
+    <Compile Include="DAL\LoginDataDAL.cs" />
+    <Compile Include="DAL\MembersDAL.cs" />
+    <Compile Include="DAL\RentalsDAL.cs" />
+    <Compile Include="DAL\RentMeDBConnection.cs" />
+    <Compile Include="Model\Employee.cs" />
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,10 +107,9 @@
   <ItemGroup>
     <None Include="View\App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="DAL\" />
-    <Folder Include="DB\" />
-    <Folder Include="Model\" />
+    <Content Include="DB\DB_INIT_SQL.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
