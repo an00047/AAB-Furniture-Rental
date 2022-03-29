@@ -1,28 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
-    public partial class AdminMainDashboard : Form
-
-       
+    public partial class EmployeeMainDashboard : Form
     {
         bool logOut;
         LoginCredentials currentLogin;
-        public AdminMainDashboard(LoginCredentials newLoginCredentials)
+        public EmployeeMainDashboard(LoginCredentials newLoginCredentials)
         {
             //Get Name from Database after logging in.
-            
+
             InitializeComponent();
             this.currentLogin = newLoginCredentials;
-            this.nameLabel.Text = "Admin Name";
+            this.nameLabel.Text = "Employee Name";
             logOut = false;
 
         }
@@ -32,16 +23,17 @@ namespace AAB_Furniture_Rentals.View
             logOut = true;
             this.currentLogin.LogOut();
             this.Close();
-            
-            
+
+
         }
 
-        private void AdminMainDashboard_FormClose(object sender, FormClosedEventArgs e)
+        private void EmployeeMainDashboard_FormClose(object sender, FormClosedEventArgs e)
         {
             if (!logOut)
             {
                 Application.Exit();
             }
         }
+
     }
 }
