@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\StyleController.cs" />
+    <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="DAL\EmployeesDAL.cs" />
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
@@ -56,6 +58,8 @@
     <Compile Include="DAL\RentalsDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
     <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\FurnitureStyle.cs" />
+    <Compile Include="Model\FurnitureCategory.cs" />
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
