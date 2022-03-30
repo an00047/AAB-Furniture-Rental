@@ -20,7 +20,7 @@ namespace AAB_Furniture_Rentals.DAL
 
             List<Employee> EmployeeList = new List<Employee>();
 
-            string selectStatement = "SELECT * FROM Employees";
+            string selectStatement = "SELECT * FROM employee";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
@@ -46,7 +46,7 @@ namespace AAB_Furniture_Rentals.DAL
                         while (reader.Read())
                         {
 
-                            string _employeeID = reader.GetString(employeeID);
+                            int _employeeID = reader.GetInt32(employeeID);
                             string _fname = reader.GetString(fname);
                             string _lname = reader.GetString(lname);
                             string _sex = reader.GetString(sex);
@@ -56,13 +56,13 @@ namespace AAB_Furniture_Rentals.DAL
                             string _state = reader.GetString(state);
                             string _zip = reader.GetString(zip);
                             string _phone = reader.GetString(phone);
-                            bool _active = reader.GetBoolean(active);
+                            bool _active = ((int)reader.GetInt16(active) == 1) ? true : false;
                             string _username = reader.GetString(login_data_username);
-                            bool _admin = reader.GetBoolean(admin);
+                            bool _admin = ((int)reader.GetInt16(admin) == 1) ? true : false;
 
 
                             Employee Employee = new Employee(
-                                employeeID: _employeeID.Trim(),
+                                employeeID: _employeeID,
                                 fname: _fname.Trim(),
                                 lname: _lname.Trim(),
                                 sex: _sex.Trim(),

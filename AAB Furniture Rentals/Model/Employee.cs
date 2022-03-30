@@ -8,7 +8,7 @@ namespace AAB_Furniture_Rentals.Model
 {
     public class Employee
     {
-        public string EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
         public string Sex { get; set; }
@@ -23,7 +23,7 @@ namespace AAB_Furniture_Rentals.Model
         public bool Admin { get; set; }
 
         public Employee(
-            string employeeID,
+            int employeeID,
             string fname,
             string lname,
             string sex,

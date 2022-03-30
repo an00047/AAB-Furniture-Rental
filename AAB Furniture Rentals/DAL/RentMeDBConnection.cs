@@ -15,8 +15,7 @@ namespace AAB_Furniture_Rentals.DAL
         public static SqlConnection GetConnection()
         {
             string connectionString =
-                "Data Source=localhost;Initial Catalog=rentme;" +
-                "Integrated Security=True";
+                "Data Source=localhost;Initial Catalog=cs6232-g4;Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
