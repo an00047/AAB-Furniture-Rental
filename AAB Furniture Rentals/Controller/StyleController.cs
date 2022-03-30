@@ -12,21 +12,22 @@ namespace AAB_Furniture_Rentals.Controller
     /// <summary>
     /// A static controller class that should be utilized for all employee related queries
     /// </summary>
-    public static class CategoryController
+    public static class StyleController
     {
-        private static FurnitureCategoriesDAL localCategoriesDAL;
+        private static FurnitureStyleDAL localStylesDAL;
         /// <summary>
-        /// Initializes the <see cref="CategoryController"/> class.
+        /// Initializes the <see cref="EmployeeController"/> class.
         /// </summary>
-        static CategoryController()
+        static StyleController()
         {
-            localCategoriesDAL = new FurnitureCategoriesDAL();
+            localStylesDAL = new FurnitureStyleDAL();
         }
 
-        public static List<FurnitureCategory> GetAllCategories()
+
+        public static List<FurnitureStyle> GetAllStyles()
         {
-            var test = localCategoriesDAL.GetAllCategories();
-            return localCategoriesDAL.GetAllCategories();
+            var test = localStylesDAL.GetAllStyles();
+            return localStylesDAL.GetAllStyles();
         }
 
     }

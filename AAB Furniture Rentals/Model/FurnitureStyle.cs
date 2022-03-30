@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.Model
 {
-   public class FurnitureCategory
+   public class FurnitureStyle
     {
-       string Category { get; set; }
+       string Style { get; set; }
 
-
-        public FurnitureCategory(string newCategory) {
-            this.Category = newCategory;
+        public FurnitureStyle(string newStyle) {
+            this.Style = newStyle;
         }
     }
 }
