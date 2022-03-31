@@ -34,13 +34,13 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchButton = new System.Windows.Forms.Button();
             this.customerListView = new System.Windows.Forms.ListView();
             this.newCustomerButton = new System.Windows.Forms.Button();
-            this.addCustomerButton = new System.Windows.Forms.Button();
+            this.editCustomerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // customerLabel
             // 
             this.customerLabel.AutoSize = true;
-            this.customerLabel.Location = new System.Drawing.Point(54, 13);
+            this.customerLabel.Location = new System.Drawing.Point(82, 20);
             this.customerLabel.Name = "customerLabel";
             this.customerLabel.Size = new System.Drawing.Size(54, 13);
             this.customerLabel.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // customerTextBox
             // 
-            this.customerTextBox.Location = new System.Drawing.Point(114, 10);
+            this.customerTextBox.Location = new System.Drawing.Point(142, 16);
             this.customerTextBox.Name = "customerTextBox";
             this.customerTextBox.Size = new System.Drawing.Size(97, 20);
             this.customerTextBox.TabIndex = 1;
@@ -56,7 +56,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // searchButton
             // 
             this.searchButton.AutoSize = true;
-            this.searchButton.Location = new System.Drawing.Point(233, 8);
+            this.searchButton.Location = new System.Drawing.Point(262, 13);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(57, 23);
             this.searchButton.TabIndex = 2;
@@ -68,40 +68,42 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerListView.HideSelection = false;
             this.customerListView.Location = new System.Drawing.Point(28, 48);
             this.customerListView.Name = "customerListView";
-            this.customerListView.Size = new System.Drawing.Size(309, 111);
+            this.customerListView.Size = new System.Drawing.Size(333, 162);
             this.customerListView.TabIndex = 3;
             this.customerListView.UseCompatibleStateImageBehavior = false;
             // 
             // newCustomerButton
             // 
-            this.newCustomerButton.Location = new System.Drawing.Point(140, 176);
+            this.newCustomerButton.Location = new System.Drawing.Point(191, 233);
             this.newCustomerButton.Name = "newCustomerButton";
             this.newCustomerButton.Size = new System.Drawing.Size(93, 23);
             this.newCustomerButton.TabIndex = 4;
             this.newCustomerButton.Text = "New Customer";
             this.newCustomerButton.UseVisualStyleBackColor = true;
+            this.newCustomerButton.Click += new System.EventHandler(this.NewCustomerButton_Click);
             // 
-            // addCustomerButton
+            // editCustomerButton
             // 
-            this.addCustomerButton.Location = new System.Drawing.Point(239, 176);
-            this.addCustomerButton.Name = "addCustomerButton";
-            this.addCustomerButton.Size = new System.Drawing.Size(85, 23);
-            this.addCustomerButton.TabIndex = 5;
-            this.addCustomerButton.Text = "Add Customer";
-            this.addCustomerButton.UseVisualStyleBackColor = true;
+            this.editCustomerButton.Location = new System.Drawing.Point(308, 233);
+            this.editCustomerButton.Name = "editCustomerButton";
+            this.editCustomerButton.Size = new System.Drawing.Size(85, 23);
+            this.editCustomerButton.TabIndex = 5;
+            this.editCustomerButton.Text = "Edit Customer";
+            this.editCustomerButton.UseVisualStyleBackColor = true;
+            this.editCustomerButton.Click += new System.EventHandler(this.EditCustomerButton_Click);
             // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.addCustomerButton);
+            this.Controls.Add(this.editCustomerButton);
             this.Controls.Add(this.newCustomerButton);
             this.Controls.Add(this.customerListView);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.customerTextBox);
             this.Controls.Add(this.customerLabel);
             this.Name = "EmployeeCustomersTabUserControl";
-            this.Size = new System.Drawing.Size(370, 220);
+            this.Size = new System.Drawing.Size(411, 278);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +116,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ListView customerListView;
         private System.Windows.Forms.Button newCustomerButton;
-        private System.Windows.Forms.Button addCustomerButton;
+        private System.Windows.Forms.Button editCustomerButton;
     }
 }

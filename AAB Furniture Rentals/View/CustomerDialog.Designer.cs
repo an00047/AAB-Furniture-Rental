@@ -41,7 +41,7 @@ namespace AAB_Furniture_Rentals.View
             this.addressLabel = new System.Windows.Forms.Label();
             this.birthdateBox = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.addButton = new System.Windows.Forms.Button();
+            this.CustomerButton = new System.Windows.Forms.Button();
             this.customerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -142,14 +142,15 @@ namespace AAB_Furniture_Rentals.View
             this.comboBox1.Size = new System.Drawing.Size(200, 21);
             this.comboBox1.TabIndex = 13;
             // 
-            // addButton
+            // CustomerButton
             // 
-            this.addButton.Location = new System.Drawing.Point(336, 369);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 14;
-            this.addButton.Text = "Add";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.CustomerButton.Location = new System.Drawing.Point(299, 369);
+            this.CustomerButton.Name = "CustomerButton";
+            this.CustomerButton.Size = new System.Drawing.Size(112, 23);
+            this.CustomerButton.TabIndex = 14;
+            this.CustomerButton.Text = "Add Customer";
+            this.CustomerButton.UseVisualStyleBackColor = true;
+            this.CustomerButton.Click += new System.EventHandler(this.CustomerButton_Click);
             // 
             // customerLabel
             // 
@@ -167,7 +168,7 @@ namespace AAB_Furniture_Rentals.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 446);
             this.Controls.Add(this.customerLabel);
-            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.CustomerButton);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.birthdateBox);
             this.Controls.Add(this.addressLabel);
@@ -202,7 +203,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.DateTimePicker birthdateBox;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button addButton;
+        private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Label customerLabel;
     }
 }
