@@ -144,7 +144,6 @@
   <ItemGroup>
     <None Include="View\App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Folder Include="DAL\" />
     <Folder Include="DB\" />
