@@ -59,7 +59,6 @@
     <Compile Include="DAL\MembersDAL.cs" />
     <Compile Include="DAL\RentalsDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
-    <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\FurnitureStyle.cs" />
     <Compile Include="Model\FurnitureCategory.cs" />
@@ -144,9 +143,6 @@
   <ItemGroup>
     <None Include="View\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-    <Folder Include="DB\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
