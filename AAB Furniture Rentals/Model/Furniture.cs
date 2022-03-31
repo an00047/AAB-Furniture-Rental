@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AAB_Furniture_Rentals.Model
 {
     public class Furniture
@@ -27,7 +28,7 @@ namespace AAB_Furniture_Rentals.Model
             double fineRate
            
             )
-        {
+    {
             this.FurnitureID = furnitureID;
             this.Style = style;
             this.Category = category;
@@ -39,7 +40,7 @@ namespace AAB_Furniture_Rentals.Model
 
 
 
-
-        }
+        
     }
+}
 }
