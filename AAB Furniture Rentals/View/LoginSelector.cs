@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AAB_Furniture_Rentals.Controller;
 
 namespace AAB_Furniture_Rentals
 {
@@ -49,5 +50,9 @@ namespace AAB_Furniture_Rentals
             Application.Exit();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EmployeeController.GetAllEmployees();
+        }
     }
 }
