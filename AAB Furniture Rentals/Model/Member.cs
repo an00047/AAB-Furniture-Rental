@@ -27,7 +27,7 @@ namespace AAB_Furniture_Rentals.Model
             this.Address = address;
             this.FirstName = fname;
             this.LastName = lname;
-            this.DateOfBirth = dob.ToString();
+            this.DateOfBirth = dob;
             this.PhoneNumber = phone;
             this.Gender = sex;
         }

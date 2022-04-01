@@ -35,5 +35,9 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
+        private void CustomersTab_Enter(object sender, EventArgs e)
+        {
+            this.employeeCustomersTabUserControl.LoadCustomersTab();
+        }
     }
 }

@@ -9,13 +9,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
 {
     public partial class EmployeeCustomersTabUserControl : UserControl
     {
-        private MemberController memController;
+        private MemberController localMemberController;
         private Member currentCustomer;
         public EmployeeCustomersTabUserControl()
         {
             InitializeComponent();
-            this.memController = new MemberController();
+            this.localMemberController = new MemberController();
             this.editCustomerButton.Enabled = false;
+            this.LoadCustomersTab();
         }
 
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
@@ -23,16 +24,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
             Form newCustomerDialog = new CustomerDialog();
             DialogResult result = newCustomerDialog.ShowDialog();
 
-            //Add validation
-            //if (result == DialogResult.OK)
-            //{
-            //    //Ok
-            //}
-            //else if (result == DialogResult.Cancel)
-            //{
-            //    //Cancel
-
-            //}
         }
 
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
@@ -41,16 +32,11 @@ namespace AAB_Furniture_Rentals.View.UserControls
             Form editCustomerDialog = new CustomerDialog(currentCustomer);
             DialogResult result = editCustomerDialog.ShowDialog();
 
-            //Add validation
-            //if (result == DialogResult.OK)
-            //{
-            //    //Ok
-            //}
-            //else if (result == DialogResult.Cancel)
-            //{
-            //    //Cancel
+            if (result == DialogResult.OK)
+            {
+                this.RefreshDataGrid(int.Parse(this.customerTextBox.Text));
+            }
 
-            //}
         }
 
         private void SearchButton_Click(object sender, System.EventArgs e)
@@ -71,15 +57,21 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         }
 
+        public void LoadCustomersTab()
+        {
+            List<Member> customerList = this.localMemberController.GetAllCustomers();
+            
+            this.customerDataGridView.DataSource = customerList;
+        }
 
 
         private void RefreshDataGrid(int customerID)
         {   
       
             List<Member> customerList = new List<Member>();
-            currentCustomer = this.memController.GetCustomerByID(customerID);
+            currentCustomer = this.localMemberController.GetCustomerByID(customerID);
           
-            customerList.Add(this.memController.GetCustomerByID(customerID));
+            customerList.Add(this.localMemberController.GetCustomerByID(customerID));
             this.customerDataGridView.DataSource = customerList;}
 
         private void CustomerTextBox_Changed(object sender, EventArgs e)
