@@ -6,8 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using AAB_Furniture_Rentals.Model;
 
+
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// Data access layer that interracts ONLY with the employee MSSQL table
+    /// </summary>
     public class EmployeesDAL
     {
 
@@ -86,6 +90,12 @@ namespace AAB_Furniture_Rentals.DAL
             return EmployeeList;
         }
 
+        /// <summary>
+        /// checks that the employee credentials exist
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns> true is the employee credentials exist, false otherwise </returns>
         public bool ValidateEmployeeLogin(string userName, string password)
         {
             if (userName == null || password == null)
@@ -110,8 +120,11 @@ namespace AAB_Furniture_Rentals.DAL
             }
         }
 
-        //            string selectStatement = "SELECT * FROM employee WHERE login_data_username = @USERNAME ";
-
+        /// <summary>
+        /// Builds an Employee Object based on the database / username information
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>employee Object</returns>
         public Employee GetEmployeeByUserName(string userName)
         {
             Employee currentEmployee = null;

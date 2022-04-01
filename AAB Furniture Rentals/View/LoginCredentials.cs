@@ -17,7 +17,10 @@ namespace AAB_Furniture_Rentals.View
     /// <seealso cref="System.Windows.Forms.Form" />
     public partial class LoginCredentials : Form
     {
-        Employee CurrentEmployee { get; set; }
+        /// <summary>
+        /// CurrentEmployee is assigned after validation; null otherwise.
+        /// </summary>
+       public Employee CurrentEmployee { get; set; }
         LoginSelector loginSelectorInstance;
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginCredentials"/> class.
@@ -28,6 +31,7 @@ namespace AAB_Furniture_Rentals.View
             InitializeComponent();
             loginSelectorInstance = selectorInstance;
             this.LoginAsLabel.Text = selectorInstance.employeeSelection + " Login:";
+           
         }
 
         private void LoginAsBtn_Click(object sender, EventArgs e)
@@ -62,9 +66,9 @@ namespace AAB_Furniture_Rentals.View
                             case "Admin":
                                 if (isEmployee )
                                 {
-                                Employee currentEmployee = Controller.EmployeeController.GetEmployeeByUserName(this.UserNameTextBox.Text);
+                               this.CurrentEmployee = Controller.EmployeeController.GetEmployeeByUserName(this.UserNameTextBox.Text);
                                 //ValidateEmployeeIsAdmin
-                                    if (currentEmployee.Admin) {
+                                    if (this.CurrentEmployee.Admin) {
 
                                         //Get Admin name from database after login.
                                         View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
