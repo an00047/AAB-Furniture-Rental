@@ -34,17 +34,17 @@ namespace AAB_Furniture_Rentals.Controller
     /// Validates the employee login.
     /// </summary>
     /// <returns>True if the login credentials correspond to valid Employee</returns>
-    public static bool ValidateEmployeeLogin()
+    public static bool ValidateEmployeeLogin(string userName, string password)
         {
-            return true;
+            return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
         }
         /// <summary>
         /// Validates the admin login.
         /// </summary>
         /// <returns>True if the login credentials correspond to valid system admin</returns>
-        public static bool ValidateAdminLogin()
+        public static bool ValidateAdminLogin(string userName, string password)
         {
-            return true;
+            return localEmployeeDAL.ValidateAdminLogin( userName,  password); ;
         }
 
     }

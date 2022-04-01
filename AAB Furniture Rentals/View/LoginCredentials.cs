@@ -30,37 +30,50 @@ namespace AAB_Furniture_Rentals.View
 
         private void LoginAsBtn_Click(object sender, EventArgs e)
         {
-            if (this.loginSelectorInstance.employeeSelection == "Employee")
-            {
-                if (Controller.EmployeeController.ValidateEmployeeLogin())
-                {
-                    //Add validation
-                    //Get Employee name from database after login.
-                    View.EmployeeMainDashboard adminDashboard = new View.EmployeeMainDashboard(this);
-                    adminDashboard.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    // After Failed Employee Validation, do something...
-                }
-            }
-            else if (this.loginSelectorInstance.employeeSelection == "Admin")
-            {
-                if (Controller.EmployeeController.ValidateAdminLogin())
-                {
-                    //Add validation
-                    //Get Admin name from database after login.
-                    View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
-                    adminDashboard.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    // After Failed Admin Validation, do something...
-                }
-            }
+            try { 
+            if (this.UserNameTextBox.Text.Length == 0) {
+            
+            } else if (this.PasswordTextBox.Text.Length == 0) {
+            
+            } else {
+                    switch (this.loginSelectorInstance.employeeSelection) {
+                        case "Employee":
+                            if (Controller.EmployeeController.ValidateEmployeeLogin(this.UserNameTextBox.Text, this.PasswordTextBox.Text))
+                            {
+                                //Add validation
+                                //Get Employee name from database after login.
+                                View.EmployeeMainDashboard adminDashboard = new View.EmployeeMainDashboard(this);
+                                // set username on agmin dashboard. 
+                                adminDashboard.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                // After Failed Employee Validation, do something...
+                                MessageBox.Show("Username and/or Password incorrect", "Bad Login Credentials", MessageBoxButtons.OK);
+                            }
+                            break;
+                        case "Admin":
+                            if (Controller.EmployeeController.ValidateAdminLogin(this.UserNameTextBox.Text, this.PasswordTextBox.Text))
+                            {
 
+                                //Get Admin name from database after login.
+                                View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
+                                adminDashboard.Show();
+                                this.Hide();
+                            }
+                            else
+                            {
+                                // After Failed Admin Validation, do something...
+                                MessageBox.Show("Username and/or Password incorrect", "Bad Login Credentials", MessageBoxButtons.OK);
+                            }
+                            break;
+                    }
+            }
+            }
+            catch {
+                MessageBox.Show("ERROR MESSAGE GOES HERE", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
 

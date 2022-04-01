@@ -86,6 +86,33 @@ namespace AAB_Furniture_Rentals.DAL
             return EmployeeList;
         }
 
+        public bool ValidateEmployeeLogin(string userName, string password) {
+            if (userName == null || password == null) {
+                throw new ArgumentException("username and password Cannot be empty"); 
+            }
 
+            string validateUserAndPassStatement = "SELECT COUNT(*) FROM login_data WHERE username = @USERNAME and password = @PASSWORD";
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection()) {
+                connection.Open();
+                using (SqlCommand validationCommand = new SqlCommand(validateUserAndPassStatement, connection)) {
+                    validationCommand.Parameters.AddWithValue("@USERNAME",userName);
+                    validationCommand.Parameters.AddWithValue("@PASSWORD", password);
+
+                    int count = Convert.ToInt32(validationCommand.ExecuteScalar());
+                    return count > 0 ? true: false;
+
+                }
+                        
+            }
+
+
+
+        }
+
+        public bool ValidateAdminLogin(string userName, string password)
+        {
+
+        }
     }
 }
