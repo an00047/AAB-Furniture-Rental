@@ -34,7 +34,6 @@ namespace AAB_Furniture_Rentals.View
             this.reportTab = new System.Windows.Forms.TabPage();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoutLabel = new System.Windows.Forms.Label();
-            this.UserNameLabel = new System.Windows.Forms.Label();
             this.AdminTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,21 +94,11 @@ namespace AAB_Furniture_Rentals.View
             this.logoutLabel.Text = "Logout";
             this.logoutLabel.Click += new System.EventHandler(this.LogoutLabel_Click);
             // 
-            // UserNameLabel
-            // 
-            this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Location = new System.Drawing.Point(753, 15);
-            this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(13, 13);
-            this.UserNameLabel.TabIndex = 3;
-            this.UserNameLabel.Text = "?";
-            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.UserNameLabel);
             this.Controls.Add(this.logoutLabel);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.AdminTabControl);
@@ -129,6 +118,5 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TabPage reportTab;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Label logoutLabel;
-        private System.Windows.Forms.Label UserNameLabel;
     }
 }
