@@ -5,17 +5,28 @@ using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
+    /// <summary>
+    /// A static controller class that should be utilized for all member related queries
+    /// </summary>
 
-    class MemberController
+    public static class MemberController
     {
         private static MembersDAL localMemberDAL;
-
+     
+        /// <summary>
+        /// Initializes the <see cref="MemberController"/> class.
+        /// </summary>
         static MemberController() 
             {
             localMemberDAL = new MembersDAL();
             }
 
-        public Member GetCustomerByID(int customerID)
+        /// <summary>
+        /// Returns a member by the customerID
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
+        public static Member GetCustomerByID(int customerID)
         {
             if (!(customerID > 0))
             {
@@ -24,8 +35,11 @@ namespace AAB_Furniture_Rentals.Controller
             localMemberDAL.CheckCustomerID(customerID);
            return localMemberDAL.GetCustomerByID(customerID);
         }
-
-        public void CheckCustomerID(int customerID)
+        /// <summary>
+        /// Checks to make sure that customerID exists in the database.
+        /// </summary>
+        /// <param name="customerID"></param>
+        public static void CheckCustomerID(int customerID)
         {
             if (!(customerID > 0))
             {
@@ -33,8 +47,11 @@ namespace AAB_Furniture_Rentals.Controller
             }
             localMemberDAL.CheckCustomerID(customerID);
         }
-
-        public void AddCustomer(Member customer)
+        /// <summary>
+        /// Adds a member to the database
+        /// </summary>
+        /// <param name="customer"></param>
+        public static void AddCustomer(Member customer)
         {
             if (customer == null)
             {
@@ -43,8 +60,11 @@ namespace AAB_Furniture_Rentals.Controller
 
             localMemberDAL.AddCustomer(customer);
         }
-
-        public void EditCustomer(Member customer)
+        /// <summary>
+        /// Edits a member in the database
+        /// </summary>
+        /// <param name="customer"></param>
+        public static void EditCustomer(Member customer)
         {
             if (customer == null)
             {
@@ -53,8 +73,11 @@ namespace AAB_Furniture_Rentals.Controller
 
             localMemberDAL.EditCustomer(customer);
         }
-
-        public List<Member> GetAllCustomers()
+        /// <summary>
+        /// Returns all members in the database
+        /// </summary>
+        /// <returns></returns>
+        public static List<Member> GetAllCustomers()
         {
             return localMemberDAL.GetAllMembers();
         }

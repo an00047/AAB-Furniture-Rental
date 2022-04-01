@@ -9,13 +9,13 @@ namespace AAB_Furniture_Rentals.View.UserControls
 {
     public partial class EmployeeCustomersTabUserControl : UserControl
     {
-        private MemberController localMemberController;
+     
         private Member currentCustomer;
 
         public EmployeeCustomersTabUserControl()
         {
             InitializeComponent();
-            this.localMemberController = new MemberController();
+         
             this.editCustomerButton.Enabled = false;
      
         }
@@ -65,7 +65,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void RefreshDataGrid(int customerID)
         {   
             List<Member> customerList = new List<Member>();
-            currentCustomer = this.localMemberController.GetCustomerByID(customerID);
+            currentCustomer = MemberController.GetCustomerByID(customerID);
             customerList.Add(currentCustomer);
             this.customerDataGridView.DataSource = customerList;
         }

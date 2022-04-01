@@ -12,30 +12,44 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
-   
+   /// <summary>
+   /// A dialog form for editing or adding a new customer.
+   /// </summary>
     public partial class CustomerDialog : Form
     {
 
-        MemberController localMemberController;
+        
         Member editMember;
+        /// <summary>
+        /// Constructor for the CustomerDialog. Assumes a new customer is being added. 
+        /// A
+        /// </summary>
         public CustomerDialog()
         {
             InitializeComponent();
-            localMemberController = new MemberController();
+            
             this.CustomerLabel.Text = "New Customer";
             this.CustomerButton.Text = "Add Customer";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-            this.editMember = new Member();
-           
+
 
         }
 
+        /// <summary>
+        /// Overloaded constructor for editing a customer. 
+        /// Takes customer to be edited and pre-fills out form with information.
+        /// </summary>
+        /// <param name="currentMember"></param>
         public CustomerDialog(Member currentMember)
         {
+            if (currentMember == null)
+            {
+                throw new Exception("Member is invalid.");
+            }
             InitializeComponent();
-            localMemberController = new MemberController();
+            
             this.editMember = currentMember;
             this.CustomerLabel.Text = "Edit Customer";
             this.CustomerButton.Text = "Edit Customer";
@@ -43,12 +57,12 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-            this.firstNameTextBox.Text = currentMember.FirstName;
-            this.lastNameTextBox.Text = currentMember.LastName;
+            this.firstNameTextBox.Text = this.editMember.FirstName;
+            this.lastNameTextBox.Text = this.editMember.LastName;
             this.genderComboBox.SelectedIndex = this.genderComboBox.FindStringExact(currentMember.Gender.ToString());
-            this.birthdateBox.Value = currentMember.DateOfBirth;
-            this.phoneTextBox.Text = currentMember.PhoneNumber;
-            this.addressTextBox.Text = currentMember.Address;
+            this.birthdateBox.Value = this.editMember.DateOfBirth;
+            this.phoneTextBox.Text = this.editMember.PhoneNumber;
+            this.addressTextBox.Text = this.editMember.Address;
         }
 
         private void CustomerButton_Click(object sender, EventArgs e)
@@ -144,7 +158,7 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
-                    this.localMemberController.AddCustomer(newMember);
+                    MemberController.AddCustomer(newMember);
                     MessageBox.Show("Successfully added customer.");
                     DialogResult = DialogResult.OK;
                 }
@@ -172,7 +186,7 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
-                    this.localMemberController.EditCustomer(newMember);
+                    MemberController.EditCustomer(newMember);
                     MessageBox.Show("Successfully edited customer.");
                     DialogResult = DialogResult.OK;
                 }

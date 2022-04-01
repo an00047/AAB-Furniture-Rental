@@ -10,6 +10,11 @@ namespace AAB_Furniture_Rentals.DAL
 {
     class MembersDAL
     {
+        /// <summary>
+        /// Gets the member with a designated memberID.
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
         public Member GetCustomerByID(int customerID)
         {
 
@@ -54,7 +59,10 @@ namespace AAB_Furniture_Rentals.DAL
 
             }
         }
-
+        /// <summary>
+        /// Edits a member with a designated memberID.
+        /// </summary>
+        /// <param name="customer"></param>
         public void EditCustomer(Member customer)
         {
 
@@ -96,7 +104,10 @@ namespace AAB_Furniture_Rentals.DAL
                 }
             }
         }
-
+        /// <summary>
+        /// Adds a new member to the database.
+        /// </summary>
+        /// <param name="customer"></param>
         public void AddCustomer(Member customer)
         {
 
@@ -130,7 +141,10 @@ namespace AAB_Furniture_Rentals.DAL
             }
 
         }
-
+        /// <summary>
+        /// Returns a list of all members in the database.
+        /// </summary>
+        /// <returns></returns>
         public List<Member> GetAllMembers() {
             List<Member> allMembers = new List<Member>();
             string query = "SELECT  memberID, fName, lName, sex, dob, address, phone " +
@@ -166,6 +180,11 @@ namespace AAB_Furniture_Rentals.DAL
             }
             return allMembers;
         }
+        /// <summary>
+        /// Checks to see if a designated memberID exists in the database.
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
         public int CheckCustomerID(int customerID)
         {
 
