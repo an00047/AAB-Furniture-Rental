@@ -78,7 +78,7 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl.SelectedIndex = 0;
             this.AdminTabControl.Size = new System.Drawing.Size(796, 355);
             this.AdminTabControl.TabIndex = 3;
-            this.AdminTabControl.Enter += new System.EventHandler(this.CustomersTab_Enter);
+         
             // 
             // furnitureTab
             // 

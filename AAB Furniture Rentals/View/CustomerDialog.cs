@@ -57,11 +57,11 @@ namespace AAB_Furniture_Rentals.View
             {
                 if (this.CustomerButton.Text == "Add Customer")
                 {
-                    this.addCustomer();
+                    this.AddCustomer();
                 }
                 else
                 {
-                    this.editCustomer();
+                    this.EditCustomer();
                 }
             }
             catch(Exception ex)
@@ -71,7 +71,7 @@ namespace AAB_Furniture_Rentals.View
         }
 
 
-        private bool validateForm()
+        private bool ValidateForm()
         {
             int error = 0;
             if (this.firstNameTextBox.Text == "")
@@ -104,47 +104,82 @@ namespace AAB_Furniture_Rentals.View
                 this.phoneError.Text = "Phone cannot be empty.";
                 error++;
             }
+           
+
+            try
+            {
+                string[] validNumber = this.phoneTextBox.Text.Split(' ');
+                if (this.phoneTextBox.Text.Length != 12)
+                {
+                    this.phoneError.Text = "Must be in 8 digits long";
+                    error++;
+                }
+               
+                int.Parse(validNumber[0]);
+                int.Parse(validNumber[1]);
+                int.Parse(validNumber[2]);
+
+            }
+            catch (Exception)
+            {
+                this.phoneError.Text = "Must be in '555 555 5555' format";
+                error++;
+            }
+            
 
             return error == 0;
             
         }
-        private void addCustomer()
+        private void AddCustomer()
         {
 
-            if (this.validateForm())
+            if (this.ValidateForm())
             {
-                Member newMember = new Member();
-                newMember.FirstName = this.firstNameTextBox.Text;
-                newMember.LastName = this.lastNameTextBox.Text;
-                newMember.DateOfBirth = this.birthdateBox.Value;
-                newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
-                newMember.Address = this.addressTextBox.Text;
-                newMember.PhoneNumber = this.phoneTextBox.Text;
-                this.localMemberController.AddCustomer(newMember);
-                MessageBox.Show("Successfully added customer.");
-                DialogResult = DialogResult.OK;
+                try
+                {
+                    Member newMember = new Member();
+                    newMember.FirstName = this.firstNameTextBox.Text;
+                    newMember.LastName = this.lastNameTextBox.Text;
+                    newMember.DateOfBirth = this.birthdateBox.Value;
+                    newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
+                    newMember.Address = this.addressTextBox.Text;
+                    newMember.PhoneNumber = this.phoneTextBox.Text;
+                    this.localMemberController.AddCustomer(newMember);
+                    MessageBox.Show("Successfully added customer.");
+                    DialogResult = DialogResult.OK;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error!");
+                }
                 
             }
          
           
         }
 
-        private void editCustomer()
+        private void EditCustomer()
         {
-            if (this.validateForm())
+            if (this.ValidateForm())
             {
-                Member newMember = new Member();
-                newMember.MemberID = this.editMember.MemberID;
-                newMember.FirstName = this.firstNameTextBox.Text;
-                newMember.LastName = this.lastNameTextBox.Text;
-                newMember.DateOfBirth = this.birthdateBox.Value;
-                newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
-                newMember.Address = this.addressTextBox.Text;
-                newMember.PhoneNumber = this.phoneTextBox.Text;
-                this.localMemberController.EditCustomer(newMember);
-                MessageBox.Show("Successfully edited customer.");
-                DialogResult = DialogResult.OK;
-                
+                try
+                {
+                    Member newMember = new Member();
+                    newMember.MemberID = this.editMember.MemberID;
+                    newMember.FirstName = this.firstNameTextBox.Text;
+                    newMember.LastName = this.lastNameTextBox.Text;
+                    newMember.DateOfBirth = this.birthdateBox.Value;
+                    newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
+                    newMember.Address = this.addressTextBox.Text;
+                    newMember.PhoneNumber = this.phoneTextBox.Text;
+                    this.localMemberController.EditCustomer(newMember);
+                    MessageBox.Show("Successfully edited customer.");
+                    DialogResult = DialogResult.OK;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error!");
+                }
             }
 
         }

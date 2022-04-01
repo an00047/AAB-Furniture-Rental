@@ -111,7 +111,6 @@ namespace AAB_Furniture_Rentals.DAL
 
                 {
            
-
                     command.Parameters.AddWithValue("@firstName", customer.FirstName);
                    
                     command.Parameters.AddWithValue("@lastName", customer.LastName);
