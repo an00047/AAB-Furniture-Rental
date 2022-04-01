@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using AAB_Furniture_Rentals.DAL;
+﻿using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
+using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
@@ -42,9 +37,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// Validates the admin login.
         /// </summary>
         /// <returns>True if the login credentials correspond to valid system admin</returns>
-        public static bool ValidateAdminLogin(string userName, string password)
+        public static Employee GetEmployeeByUserName(string userName)
         {
-            return localEmployeeDAL.ValidateAdminLogin( userName,  password); ;
+           return localEmployeeDAL.GetEmployeeByUserName(userName);
+           
         }
 
     }
