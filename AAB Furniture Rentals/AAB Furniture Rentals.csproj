@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -104,6 +105,9 @@
     </Compile>
     <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.Designer.cs">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cs6232_g4DataSet.cs">
+      <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="_cs6232_g4DataSet.Designer.cs">
       <AutoGen>True</AutoGen>

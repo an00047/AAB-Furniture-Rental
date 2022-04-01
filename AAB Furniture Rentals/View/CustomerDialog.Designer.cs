@@ -33,14 +33,14 @@ namespace AAB_Furniture_Rentals.View
             this.addressTextBox = new System.Windows.Forms.TextBox();
             this.lastNameTextBox = new System.Windows.Forms.MaskedTextBox();
             this.phoneTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.sexLabel = new System.Windows.Forms.Label();
+            this.genderLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.birthdateLabel = new System.Windows.Forms.Label();
             this.phoneLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
             this.birthdateBox = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.customerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -73,14 +73,14 @@ namespace AAB_Furniture_Rentals.View
             this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.phoneTextBox.TabIndex = 4;
             // 
-            // sexLabel
+            // genderLabel
             // 
-            this.sexLabel.AutoSize = true;
-            this.sexLabel.Location = new System.Drawing.Point(104, 189);
-            this.sexLabel.Name = "sexLabel";
-            this.sexLabel.Size = new System.Drawing.Size(28, 13);
-            this.sexLabel.TabIndex = 6;
-            this.sexLabel.Text = "Sex:";
+            this.genderLabel.AutoSize = true;
+            this.genderLabel.Location = new System.Drawing.Point(104, 189);
+            this.genderLabel.Name = "genderLabel";
+            this.genderLabel.Size = new System.Drawing.Size(45, 13);
+            this.genderLabel.TabIndex = 6;
+            this.genderLabel.Text = "Gender:";
             // 
             // lastNameLabel
             // 
@@ -134,13 +134,13 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Size = new System.Drawing.Size(200, 20);
             this.birthdateBox.TabIndex = 12;
             // 
-            // comboBox1
+            // genderComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(180, 181);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 13;
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Location = new System.Drawing.Point(180, 181);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(200, 21);
+            this.genderComboBox.TabIndex = 13;
             // 
             // CustomerButton
             // 
@@ -169,14 +169,14 @@ namespace AAB_Furniture_Rentals.View
             this.ClientSize = new System.Drawing.Size(492, 446);
             this.Controls.Add(this.customerLabel);
             this.Controls.Add(this.CustomerButton);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.genderComboBox);
             this.Controls.Add(this.birthdateBox);
             this.Controls.Add(this.addressLabel);
             this.Controls.Add(this.phoneLabel);
             this.Controls.Add(this.birthdateLabel);
             this.Controls.Add(this.firstNameLabel);
             this.Controls.Add(this.lastNameLabel);
-            this.Controls.Add(this.sexLabel);
+            this.Controls.Add(this.genderLabel);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.addressTextBox);
@@ -195,14 +195,14 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TextBox addressTextBox;
         private System.Windows.Forms.MaskedTextBox lastNameTextBox;
         private System.Windows.Forms.MaskedTextBox phoneTextBox;
-        private System.Windows.Forms.Label sexLabel;
+        private System.Windows.Forms.Label genderLabel;
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.Label birthdateLabel;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label addressLabel;
         private System.Windows.Forms.DateTimePicker birthdateBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.Button CustomerButton;
         private System.Windows.Forms.Label customerLabel;
     }
