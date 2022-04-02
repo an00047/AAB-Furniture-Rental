@@ -51,11 +51,10 @@ namespace AAB_Furniture_Rentals.Model
             this.Zip = zip;
             this.State = state;
             this.Username = username;
+        }
 
-
-
-
-
+        public Employee()
+        {
         }
     }
 }
