@@ -36,7 +36,7 @@ namespace AAB_Furniture_Rentals.DAL
 
 
 
-                            FurnitureCategory Category = new FurnitureCategory(   _category.Trim()  ) ; ;
+                            FurnitureCategory Category = new FurnitureCategory(_category.Trim());
 
                             FurnitureCategoryList.Add(Category);
                         }

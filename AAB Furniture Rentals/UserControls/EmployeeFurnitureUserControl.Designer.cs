@@ -32,10 +32,10 @@ namespace AAB_Furniture_Rentals.UserControls
             this.FurnitureListBox = new System.Windows.Forms.ListBox();
             this.clear = new System.Windows.Forms.Button();
             this.buttaddToCartButton = new System.Windows.Forms.Button();
-            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.styleComboBox = new System.Windows.Forms.ComboBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.idComboBox = new System.Windows.Forms.ComboBox();
-            this.typeLabel = new System.Windows.Forms.Label();
+            this.styleLabel = new System.Windows.Forms.Label();
             this.categoryLabel = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
@@ -45,72 +45,74 @@ namespace AAB_Furniture_Rentals.UserControls
             // FurnitureListBox
             // 
             this.FurnitureListBox.FormattingEnabled = true;
-            this.FurnitureListBox.Location = new System.Drawing.Point(429, 137);
+            this.FurnitureListBox.Location = new System.Drawing.Point(454, 121);
             this.FurnitureListBox.MultiColumn = true;
             this.FurnitureListBox.Name = "FurnitureListBox";
-            this.FurnitureListBox.Size = new System.Drawing.Size(324, 173);
+            this.FurnitureListBox.Size = new System.Drawing.Size(224, 134);
             this.FurnitureListBox.TabIndex = 0;
             // 
             // clear
             // 
-            this.clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.clear.Location = new System.Drawing.Point(517, 326);
+            this.clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.clear.Location = new System.Drawing.Point(509, 271);
             this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(105, 31);
+            this.clear.Size = new System.Drawing.Size(70, 21);
             this.clear.TabIndex = 1;
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
             // 
             // buttaddToCartButton
             // 
-            this.buttaddToCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.buttaddToCartButton.Location = new System.Drawing.Point(642, 326);
+            this.buttaddToCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.buttaddToCartButton.Location = new System.Drawing.Point(585, 271);
             this.buttaddToCartButton.Name = "buttaddToCartButton";
-            this.buttaddToCartButton.Size = new System.Drawing.Size(111, 31);
+            this.buttaddToCartButton.Size = new System.Drawing.Size(93, 21);
             this.buttaddToCartButton.TabIndex = 2;
             this.buttaddToCartButton.Text = "Add to Cart";
             this.buttaddToCartButton.UseVisualStyleBackColor = true;
             // 
-            // typeComboBox
+            // styleComboBox
             // 
-            this.typeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(140, 163);
-            this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(202, 28);
-            this.typeComboBox.TabIndex = 3;
+            this.styleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.styleComboBox.FormattingEnabled = true;
+            this.styleComboBox.Location = new System.Drawing.Point(246, 148);
+            this.styleComboBox.Name = "styleComboBox";
+            this.styleComboBox.Size = new System.Drawing.Size(176, 21);
+            this.styleComboBox.TabIndex = 3;
             // 
             // categoryComboBox
             // 
-            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(140, 224);
+            this.categoryComboBox.Location = new System.Drawing.Point(246, 189);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(202, 28);
+            this.categoryComboBox.Size = new System.Drawing.Size(176, 21);
             this.categoryComboBox.TabIndex = 4;
             // 
             // idComboBox
             // 
-            this.idComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.idComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.idComboBox.FormattingEnabled = true;
-            this.idComboBox.Location = new System.Drawing.Point(140, 282);
+            this.idComboBox.Location = new System.Drawing.Point(246, 234);
             this.idComboBox.Name = "idComboBox";
-            this.idComboBox.Size = new System.Drawing.Size(202, 28);
+            this.idComboBox.Size = new System.Drawing.Size(176, 21);
             this.idComboBox.TabIndex = 5;
             // 
-            // typeLabel
+            // styleLabel
             // 
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(69, 171);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(31, 13);
-            this.typeLabel.TabIndex = 7;
-            this.typeLabel.Text = "Type";
+            this.styleLabel.AutoSize = true;
+            this.styleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.styleLabel.Location = new System.Drawing.Point(191, 151);
+            this.styleLabel.Name = "styleLabel";
+            this.styleLabel.Size = new System.Drawing.Size(30, 13);
+            this.styleLabel.TabIndex = 7;
+            this.styleLabel.Text = "Style";
             // 
             // categoryLabel
             // 
             this.categoryLabel.AutoSize = true;
-            this.categoryLabel.Location = new System.Drawing.Point(69, 232);
+            this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.categoryLabel.Location = new System.Drawing.Point(191, 192);
             this.categoryLabel.Name = "categoryLabel";
             this.categoryLabel.Size = new System.Drawing.Size(49, 13);
             this.categoryLabel.TabIndex = 8;
@@ -119,7 +121,8 @@ namespace AAB_Furniture_Rentals.UserControls
             // ID
             // 
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(69, 290);
+            this.ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.ID.Location = new System.Drawing.Point(191, 237);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(18, 13);
             this.ID.TabIndex = 9;
@@ -127,10 +130,10 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             // searchButton
             // 
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchButton.Location = new System.Drawing.Point(232, 326);
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.searchButton.Location = new System.Drawing.Point(350, 271);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(110, 31);
+            this.searchButton.Size = new System.Drawing.Size(72, 21);
             this.searchButton.TabIndex = 10;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -138,10 +141,10 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchByLabel
             // 
             this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchByLabel.Location = new System.Drawing.Point(182, 130);
+            this.searchByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.searchByLabel.Location = new System.Drawing.Point(269, 113);
             this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(84, 20);
+            this.searchByLabel.Size = new System.Drawing.Size(76, 17);
             this.searchByLabel.TabIndex = 11;
             this.searchByLabel.Text = "Search by:";
             // 
@@ -153,15 +156,16 @@ namespace AAB_Furniture_Rentals.UserControls
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.ID);
             this.Controls.Add(this.categoryLabel);
-            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.styleLabel);
             this.Controls.Add(this.idComboBox);
             this.Controls.Add(this.categoryComboBox);
-            this.Controls.Add(this.typeComboBox);
+            this.Controls.Add(this.styleComboBox);
             this.Controls.Add(this.buttaddToCartButton);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.FurnitureListBox);
             this.Name = "EmployeeFurnitureUserControl";
-            this.Size = new System.Drawing.Size(826, 515);
+            this.Size = new System.Drawing.Size(867, 419);
+            this.Load += new System.EventHandler(this.EmployeeFurnitureUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,10 +176,10 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.ListBox FurnitureListBox;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button buttaddToCartButton;
-        private System.Windows.Forms.ComboBox typeComboBox;
+        private System.Windows.Forms.ComboBox styleComboBox;
         private System.Windows.Forms.ComboBox categoryComboBox;
         private System.Windows.Forms.ComboBox idComboBox;
-        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label styleLabel;
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Button searchButton;
