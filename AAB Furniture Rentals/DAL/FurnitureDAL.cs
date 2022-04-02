@@ -44,10 +44,10 @@ namespace AAB_Furniture_Rentals.DAL
                             string _style_type = reader.GetString(style_type);
                             string _category_type = reader.GetString(category_type);
                             string _description = reader.GetString(description);
-                            double _daily_rental_rate = reader.GetDouble(daily_rental_rate);
+                            double _daily_rental_rate = Decimal.ToDouble( reader.GetDecimal(daily_rental_rate));
                             int _quantity = reader.GetInt32(quantity);
-                            double _fine_rate = reader.GetDouble(fine_rate);
-                          
+                            double _fine_rate = Decimal.ToDouble(reader.GetDecimal(fine_rate));
+
 
                             Furniture Furniture = new Furniture(
                                 furnitureID: _furnitureID,

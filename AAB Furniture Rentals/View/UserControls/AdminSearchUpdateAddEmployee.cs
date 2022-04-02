@@ -18,25 +18,25 @@ namespace AAB_Furniture_Rentals.View.UserControls
         public AdminSearchUpdateAddEmployee()
         {
             InitializeComponent();
-            this.editCustomerButton.Enabled = false;
+            this.editEmployeeButton.Enabled = false;
         }
 
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
         {
-            Form newCustomerDialog = new CustomerDialog();
-            newCustomerDialog.ShowDialog();
+            Form newEmployeeDialog = new EmployeeDialog();
+            newEmployeeDialog.ShowDialog();
 
         }
 
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
         {
 
-            Form editCustomerDialog = new CustomerDialog(this.currentEmployee);
-            DialogResult result = editCustomerDialog.ShowDialog();
+            Form editEmployeeDialog = new EmployeeDialog(this.currentEmployee);
+            DialogResult result = editEmployeeDialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                this.RefreshDataGrid(int.Parse(this.customerTextBox.Text));
+                this.RefreshDataGrid(int.Parse(this.employeeTextBox.Text));
             }
 
         }
@@ -46,9 +46,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             try
             {
 
-                var customerID = int.Parse(this.customerTextBox.Text);
+                var customerID = int.Parse(this.employeeTextBox.Text);
                 this.RefreshDataGrid(customerID);
-                this.editCustomerButton.Enabled = true;
+                this.editEmployeeButton.Enabled = true;
 
             }
             catch (FormatException)
@@ -73,7 +73,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void CustomerTextBox_Changed(object sender, EventArgs e)
         {
-            this.editCustomerButton.Enabled = false;
+            this.editEmployeeButton.Enabled = false;
         }
     }
 }

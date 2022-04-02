@@ -46,5 +46,8 @@ namespace AAB_Furniture_Rentals.Controller
            
         }
 
+        public static void EditEmployee(Employee newEmployee) {
+        // do something... 
+        }
     }
 }
