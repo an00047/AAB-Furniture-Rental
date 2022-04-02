@@ -38,7 +38,8 @@ namespace AAB_Furniture_Rentals.UserControls
             this.idComboBox.DataSource = furnitures;
             this.idComboBox.DisplayMember = "FurnitureID";
             this.idComboBox.ValueMember = "FurnitureID";
-            
+
+
         }
 
     }

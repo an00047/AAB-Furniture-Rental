@@ -33,10 +33,10 @@ namespace AAB_Furniture_Rentals.DAL
                         var style_type = reader.GetOrdinal("style_type");
                         var category_type = reader.GetOrdinal("category_type");
                         var description = reader.GetOrdinal("description");
-                        //var daily_rental_rate = reader.GetOrdinal("daily_rental_rate");
+                        var daily_rental_rate = reader.GetOrdinal("daily_rental_rate");
                         var quantity = reader.GetOrdinal("quantity");
-                        //var fine_rate = reader.GetOrdinal("fine_rate");
-
+                        var fine_rate = reader.GetOrdinal("fine_rate");
+                       
                         while (reader.Read())
                         {
 
@@ -44,9 +44,9 @@ namespace AAB_Furniture_Rentals.DAL
                             string _style_type = reader.GetString(style_type);
                             string _category_type = reader.GetString(category_type);
                             string _description = reader.GetString(description);
-                            //double _daily_rental_rate = reader.GetDouble(daily_rental_rate);
+                            double _daily_rental_rate = reader.GetDouble(daily_rental_rate);
                             int _quantity = reader.GetInt32(quantity);
-                            //double _fine_rate = reader.GetDouble(fine_rate);
+                            double _fine_rate = reader.GetDouble(fine_rate);
                           
 
                             Furniture Furniture = new Furniture(
@@ -54,9 +54,9 @@ namespace AAB_Furniture_Rentals.DAL
                                 style: _style_type.Trim(),
                                 category: _category_type.Trim(),
                                 description: _description.Trim(),
-                                dailyRentalRate: 1.1,
+                                dailyRentalRate: _daily_rental_rate,
                                 quantityOnHand: _quantity,
-                                fineRate: 1.1
+                                fineRate: _fine_rate
                                
                                 );
 
@@ -68,6 +68,8 @@ namespace AAB_Furniture_Rentals.DAL
 
             return FurnitureList;
         }
+
+
 
 
     }
