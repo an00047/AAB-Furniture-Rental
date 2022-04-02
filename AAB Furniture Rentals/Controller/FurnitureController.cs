@@ -30,6 +30,11 @@ namespace AAB_Furniture_Rentals.Controller
             return localFurnitureDAL.GetAllFurniture();
         }
 
+        public static List<Furniture> GetFurnitureByParameter(string style, string category, int? id)
+        {
+            return localFurnitureDAL.GetFurnitureByParameter(style, category, id);
+        }
+
   
 
     }

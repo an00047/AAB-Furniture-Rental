@@ -29,7 +29,6 @@ namespace AAB_Furniture_Rentals.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.FurnitureListBox = new System.Windows.Forms.ListBox();
             this.clear = new System.Windows.Forms.Button();
             this.buttaddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -40,16 +39,9 @@ namespace AAB_Furniture_Rentals.UserControls
             this.ID = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchByLabel = new System.Windows.Forms.Label();
+            this.searchDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // FurnitureListBox
-            // 
-            this.FurnitureListBox.FormattingEnabled = true;
-            this.FurnitureListBox.Location = new System.Drawing.Point(454, 121);
-            this.FurnitureListBox.MultiColumn = true;
-            this.FurnitureListBox.Name = "FurnitureListBox";
-            this.FurnitureListBox.Size = new System.Drawing.Size(224, 134);
-            this.FurnitureListBox.TabIndex = 0;
             // 
             // clear
             // 
@@ -137,6 +129,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchButton.TabIndex = 10;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // searchByLabel
             // 
@@ -148,10 +141,21 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchByLabel.TabIndex = 11;
             this.searchByLabel.Text = "Search by:";
             // 
+            // searchDataGridView
+            // 
+            this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchDataGridView.Location = new System.Drawing.Point(438, 115);
+            this.searchDataGridView.Name = "searchDataGridView";
+            this.searchDataGridView.ReadOnly = true;
+            this.searchDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.searchDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.searchDataGridView.TabIndex = 12;
+            // 
             // EmployeeFurnitureUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchDataGridView);
             this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.ID);
@@ -162,18 +166,16 @@ namespace AAB_Furniture_Rentals.UserControls
             this.Controls.Add(this.styleComboBox);
             this.Controls.Add(this.buttaddToCartButton);
             this.Controls.Add(this.clear);
-            this.Controls.Add(this.FurnitureListBox);
             this.Name = "EmployeeFurnitureUserControl";
             this.Size = new System.Drawing.Size(867, 419);
             this.Load += new System.EventHandler(this.EmployeeFurnitureUserControl_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox FurnitureListBox;
         private System.Windows.Forms.Button clear;
         private System.Windows.Forms.Button buttaddToCartButton;
         private System.Windows.Forms.ComboBox styleComboBox;
@@ -184,5 +186,6 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.Label ID;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchByLabel;
+        private System.Windows.Forms.DataGridView searchDataGridView;
     }
 }
