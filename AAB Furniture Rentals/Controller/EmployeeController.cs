@@ -53,5 +53,14 @@ namespace AAB_Furniture_Rentals.Controller
         public static Employee GetEmployeeByID(int employeeID) {
             return localEmployeeDAL.GetEmployeeByID(employeeID);
         }
+
+        public static void AddNewEmployee(Employee newEmployee)
+        {
+            localEmployeeDAL.AddEmployee(newEmployee);
+        }
+
+        public static void AddUser(string username, string  password) {
+            localEmployeeDAL.AddUser(username, password);
+        }
     }
 }

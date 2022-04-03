@@ -279,9 +279,10 @@ namespace AAB_Furniture_Rentals.DAL
             return currentEmployee;
         }
 
-        public void SaveEmployee(Employee newEmployee) {
+        public void SaveEmployee(Employee updatedEmployee) {
 
             string query = "UPDATE employee SET " +
+              
                 "fName=@FIRST_NAME, " +
                 "lname=@LAST_NAME, " +
                 "sex=@GENDER, " +
@@ -292,6 +293,7 @@ namespace AAB_Furniture_Rentals.DAL
                 "city=@CITY, "+
                 "state=@STATE, "+
                 "zip=@ZIP, " +
+                "admin=@ADMIN, " +
                 "login_data_username=@USERNAME " +
                 "WHERE employeeID=@EMPLOYEE_ID ";
 
@@ -301,21 +303,20 @@ namespace AAB_Furniture_Rentals.DAL
                 using (SqlCommand command = new SqlCommand(query, connection))
 
                 {
-
-                    command.Parameters.AddWithValue("@FIRST_NAME", newEmployee.Fname);
-                   // command.Parameters["@firstName"].Value = newEmployee.FirstName;
-                    command.Parameters.AddWithValue("@LAST_NAME", newEmployee.Lname);
-                    command.Parameters.AddWithValue("@GENDER", newEmployee.Sex);
-                    command.Parameters.AddWithValue("@DOB", newEmployee.Dob);
-                    command.Parameters.AddWithValue("@ADDRESS", newEmployee.Address);
-                    command.Parameters.AddWithValue("@PHONE_NUMBER", newEmployee.Phone);
-                    command.Parameters.AddWithValue("@ACTIVE", newEmployee.Active);
-
-                    command.Parameters.AddWithValue("@CITY", newEmployee.City);
-                    command.Parameters.AddWithValue("@STATE", newEmployee.State);
-                    command.Parameters.AddWithValue("@ZIP", newEmployee.Zip);
-                    command.Parameters.AddWithValue("@USERNAME", newEmployee.Username);
-                    command.Parameters.AddWithValue("@EMPLOYEE_ID", newEmployee.EmployeeID);
+                    command.Parameters.AddWithValue("@EMPLOYEE_ID", updatedEmployee.EmployeeID);
+                    command.Parameters.AddWithValue("@FIRST_NAME", updatedEmployee.Fname);
+                    command.Parameters.AddWithValue("@LAST_NAME", updatedEmployee.Lname);
+                    command.Parameters.AddWithValue("@GENDER", updatedEmployee.Sex);
+                    command.Parameters.AddWithValue("@DOB", updatedEmployee.Dob);
+                    command.Parameters.AddWithValue("@ADDRESS", updatedEmployee.Address);
+                    command.Parameters.AddWithValue("@PHONE_NUMBER", updatedEmployee.Phone);
+                    command.Parameters.AddWithValue("@ACTIVE", updatedEmployee.Active);
+                    command.Parameters.AddWithValue("@CITY", updatedEmployee.City);
+                    command.Parameters.AddWithValue("@ADMIN", updatedEmployee.Admin);
+                    command.Parameters.AddWithValue("@STATE", updatedEmployee.State);
+                    command.Parameters.AddWithValue("@ZIP", updatedEmployee.Zip);
+                    command.Parameters.AddWithValue("@USERNAME", updatedEmployee.Username);
+                    
 
                     command.ExecuteScalar(); 
 
@@ -324,6 +325,63 @@ namespace AAB_Furniture_Rentals.DAL
             }
         }
 
-        public void AddEmployee() { }
+     
+        public void AddEmployee(Employee newEmployee) {
+            string query = "INSERT INTO " +
+                "Employee (fName, lName, sex, dob, address, phone, active, city, state, admin, zip, login_data_username ) " +
+                "VALUES(@FIRST_NAME, @LAST_NAME, @GENDER, @DOB, @ADDRESS, @PHONE_NUMBER, @ACTIVE, @CITY, @STATE, @ADMIN, @ZIP,@USERNAME )";
+
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+
+                {
+                    command.Parameters.AddWithValue("@FIRST_NAME", newEmployee.Fname);
+                    command.Parameters.AddWithValue("@LAST_NAME", newEmployee.Lname);
+                    command.Parameters.AddWithValue("@GENDER", newEmployee.Sex);
+                    command.Parameters.AddWithValue("@DOB", newEmployee.Dob);
+                    command.Parameters.AddWithValue("@ADDRESS", newEmployee.Address);
+                    command.Parameters.AddWithValue("@PHONE_NUMBER", newEmployee.Phone);
+                    command.Parameters.AddWithValue("@ACTIVE", newEmployee.Active);
+                    command.Parameters.AddWithValue("@CITY", newEmployee.City);
+                    command.Parameters.AddWithValue("@STATE", newEmployee.State);
+                    command.Parameters.AddWithValue("@ZIP", newEmployee.Zip);
+                    command.Parameters.AddWithValue("@ADMIN", newEmployee.Admin);
+                    command.Parameters.AddWithValue("@USERNAME", newEmployee.Username);
+
+                    command.ExecuteScalar();
+
+
+                }
+            }
+
+        }
+
+
+        public void AddUser(string username, string password) {
+
+            string query = "INSERT INTO " +
+                  "login_data (username, password ) " +
+                  "VALUES(@USERNAME, @PASSWORD )";
+
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+
+                {
+                    command.Parameters.AddWithValue("@USERNAME", username);
+                    command.Parameters.AddWithValue("@PASSWORD", password);
+
+                    command.ExecuteScalar();
+
+
+                }
+            }
+
+        }
     }
  }

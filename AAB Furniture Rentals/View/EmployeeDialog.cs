@@ -23,6 +23,7 @@ namespace AAB_Furniture_Rentals.View
             this.EmployeeButton.Text = "Add Employee";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
+        
         }
 
        
@@ -42,7 +43,7 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-           // theEmployee.EmployeeID = this.editEmployee.EmployeeID;
+            
             this.firstNameTextBox.Text = theEmployee.Fname;
             this.lastNameTextBox.Text = theEmployee.Lname;
             this.genderComboBox.SelectedItem = theEmployee.Sex;
@@ -56,6 +57,8 @@ namespace AAB_Furniture_Rentals.View
            this.userNameTextBox.Text = theEmployee.Username;
            this.adminCheckBox.Checked = theEmployee.Admin;
 
+
+            this.passwordTextBox.Enabled = false;
             this.SetViewOnly();
         }
 
@@ -93,8 +96,6 @@ namespace AAB_Furniture_Rentals.View
             this.adminCheckBox.Enabled = true;
         }
 
-
-      
         private bool ValidateForm()
         {
             int error = 0;
@@ -145,11 +146,11 @@ namespace AAB_Furniture_Rentals.View
             if (this.zipTextBox.Text == "")
             {
                 MessageBox.Show("Zip cannot be empty");
-               // this.zipError.Text = "Zip cannot be empty.";
+                // this.zipError.Text = "Zip cannot be empty.";
                 error++;
             }
 
-         
+
             if (this.userNameTextBox.Text == "")
             {
                 MessageBox.Show("User Name cannot be empty");
@@ -192,15 +193,24 @@ namespace AAB_Furniture_Rentals.View
             {
                 try
                 {
-                    Member newMember = new Member();
-                    newMember.FirstName = this.firstNameTextBox.Text;
-                    newMember.LastName = this.lastNameTextBox.Text;
-                    newMember.DateOfBirth = this.birthdateBox.Value;
-                    newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
-                    newMember.Address = this.addressTextBox.Text;
-                    newMember.PhoneNumber = this.phoneTextBox.Text;
-                    MemberController.AddCustomer(newMember);
-                    MessageBox.Show("Successfully added customer.");
+                    Employee newEmployee = new Employee();
+                    
+                    newEmployee.Fname = this.firstNameTextBox.Text;
+                    newEmployee.Lname = this.lastNameTextBox.Text;
+                    newEmployee.Sex = Convert.ToString(this.genderComboBox.SelectedItem);
+                    newEmployee.Dob = this.birthdateBox.Value;
+                    newEmployee.Address = this.addressTextBox.Text;
+                    newEmployee.City = this.cityTextBox.Text;
+                    newEmployee.State = this.stateTextBox.Text;
+                    newEmployee.Zip = this.zipTextBox.Text;
+                    newEmployee.Phone = this.phoneTextBox.Text;
+                    newEmployee.Active = this.activeCheckBox.Checked;
+                    newEmployee.Username = this.userNameTextBox.Text;
+                    newEmployee.Admin = this.adminCheckBox.Checked;
+
+
+                    EmployeeController.AddNewEmployee(newEmployee);
+                    MessageBox.Show("Successfully added employee.");
                     DialogResult = DialogResult.OK;
                 }
                 catch (Exception ex)
@@ -259,10 +269,13 @@ namespace AAB_Furniture_Rentals.View
                 
                 if (this.EmployeeButton.Text == "Add Employee")
                 {
+                    this.AddUser();
                     this.AddEmployee();
                 }
                 else if (this.EmployeeButton.Text == "Edit Employee") {
                     this.SetEditable();
+                    this.passwordTextBox.Enabled = false;
+                    this.userNameTextBox.Enabled = false;
                     this.EmployeeButton.Text = "Save Employee";
                 }
                 else if (this.EmployeeButton.Text == "Save Employee")
@@ -273,10 +286,7 @@ namespace AAB_Furniture_Rentals.View
                         this.SetViewOnly();
                         this.EmployeeButton.Text = "Edit Employee";
                     }
-                   
-                   
                 }
-              
             }
             catch (Exception ex)
             {
@@ -287,6 +297,17 @@ namespace AAB_Furniture_Rentals.View
         private void cancelButton_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+
+        private void AddUser() {
+
+            string username = this.userNameTextBox.Text;
+            string password = this.passwordTextBox.Text;
+
+            EmployeeController.AddUser(username, password);
+         
+
         }
     }
 }

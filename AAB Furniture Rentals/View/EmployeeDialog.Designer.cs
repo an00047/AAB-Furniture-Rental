@@ -64,6 +64,8 @@ namespace AAB_Furniture_Rentals.View
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.activeCheckBox = new System.Windows.Forms.CheckBox();
             this.adminCheckBox = new System.Windows.Forms.CheckBox();
+            this.passwordLabel = new System.Windows.Forms.Label();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -349,7 +351,7 @@ namespace AAB_Furniture_Rentals.View
             // activeCheckBox
             // 
             this.activeCheckBox.AutoSize = true;
-            this.activeCheckBox.Location = new System.Drawing.Point(187, 371);
+            this.activeCheckBox.Location = new System.Drawing.Point(187, 383);
             this.activeCheckBox.Name = "activeCheckBox";
             this.activeCheckBox.Size = new System.Drawing.Size(111, 17);
             this.activeCheckBox.TabIndex = 57;
@@ -359,7 +361,7 @@ namespace AAB_Furniture_Rentals.View
             // adminCheckBox
             // 
             this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.Location = new System.Drawing.Point(378, 371);
+            this.adminCheckBox.Location = new System.Drawing.Point(377, 384);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.adminCheckBox.Size = new System.Drawing.Size(87, 17);
@@ -367,11 +369,30 @@ namespace AAB_Furniture_Rentals.View
             this.adminCheckBox.Text = "Is an Admin?";
             this.adminCheckBox.UseVisualStyleBackColor = true;
             // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(157, 361);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(59, 13);
+            this.passwordLabel.TabIndex = 60;
+            this.passwordLabel.Text = "Password: ";
+            // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(239, 358);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '#';
+            this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
+            this.passwordTextBox.TabIndex = 59;
+            // 
             // EmployeeDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 450);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.adminCheckBox);
             this.Controls.Add(this.activeCheckBox);
             this.Controls.Add(this.label7);
@@ -451,5 +472,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.CheckBox activeCheckBox;
         private System.Windows.Forms.CheckBox adminCheckBox;
+        private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.TextBox passwordTextBox;
     }
 }

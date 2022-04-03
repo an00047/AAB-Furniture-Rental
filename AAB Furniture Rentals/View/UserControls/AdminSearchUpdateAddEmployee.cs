@@ -58,12 +58,16 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+            this.RefreshDataGrid();
         }
 
         private void newEmployeeButton_Click(object sender, EventArgs e)
         {
             Form newEmployeeDialog = new EmployeeDialog();
             newEmployeeDialog.ShowDialog();
+            this.RefreshDataGrid();
         }
+
+     
     }
 }
