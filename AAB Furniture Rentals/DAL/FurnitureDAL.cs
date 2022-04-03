@@ -69,6 +69,13 @@ namespace AAB_Furniture_Rentals.DAL
             return FurnitureList;
         }
 
+        /// <summary>
+        /// Gets the furniture by parameters.
+        /// </summary>
+        /// <param name="style">The style.</param>
+        /// <param name="category">The category.</param>
+        /// <param name="id">The identifier.</param>
+        /// <returns>A list of furniture</returns>
         public List<Furniture> GetFurnitureByParameter(string style, string category, int? id)
         {
 

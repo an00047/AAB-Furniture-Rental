@@ -52,6 +52,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.clear.TabIndex = 1;
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // buttaddToCartButton
             // 
