@@ -81,7 +81,8 @@ namespace AAB_Furniture_Rentals.DAL
 
             List<Furniture> FurnitureList = new List<Furniture>();
 
-            string selectStatement = @"SELECT * FROM furniture 
+            string selectStatement = @"SELECT *
+                       FROM furniture 
                        WHERE furnitureID IS NOT NULL ";
 
             if (style != "")
