@@ -1,20 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AAB_Furniture_Rentals.Model
 {
-    class Member
+    public class Member
     {
-        int memberID { get; set; }
-        int firstName { get; set; }
-        int lastName { get; set; }
-        char gender { get; set; }
-        string dateOfBirth { get; set; }
-        string address { get; set; }
-        string phoneNumber { get; set; }
+        public int MemberID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public char Gender { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string Address { get; set; }
+        public string PhoneNumber { get; set; }
 
+        public Member(
+            int memberID,
+            string fname,
+            string lname,
+            char sex,
+            DateTime dob,
+            string address,
+            string phone
+            )
+        {
+            this.MemberID = memberID;
+            this.Address = address;
+            this.FirstName = fname;
+            this.LastName = lname;
+            this.DateOfBirth = dob;
+            this.PhoneNumber = phone;
+            this.Gender = sex;
+        }
+
+        public Member() { }
     }
+
 }
