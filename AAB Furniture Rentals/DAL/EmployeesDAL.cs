@@ -278,5 +278,52 @@ namespace AAB_Furniture_Rentals.DAL
 
             return currentEmployee;
         }
+
+        public void SaveEmployee(Employee newEmployee) {
+
+            string query = "UPDATE employee SET " +
+                "fName=@FIRST_NAME, " +
+                "lname=@LAST_NAME, " +
+                "sex=@GENDER, " +
+                "dob=@DOB, " +
+                "address=@ADDRESS," +
+                "phone=@PHONE_NUMBER,  " +
+                "active=@ACTIVE, "+
+                "city=@CITY, "+
+                "state=@STATE, "+
+                "zip=@ZIP, " +
+                "login_data_username=@USERNAME " +
+                "WHERE employeeID=@EMPLOYEE_ID ";
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+
+                {
+
+                    command.Parameters.AddWithValue("@FIRST_NAME", newEmployee.Fname);
+                   // command.Parameters["@firstName"].Value = newEmployee.FirstName;
+                    command.Parameters.AddWithValue("@LAST_NAME", newEmployee.Lname);
+                    command.Parameters.AddWithValue("@GENDER", newEmployee.Sex);
+                    command.Parameters.AddWithValue("@DOB", newEmployee.Dob);
+                    command.Parameters.AddWithValue("@ADDRESS", newEmployee.Address);
+                    command.Parameters.AddWithValue("@PHONE_NUMBER", newEmployee.Phone);
+                    command.Parameters.AddWithValue("@ACTIVE", newEmployee.Active);
+
+                    command.Parameters.AddWithValue("@CITY", newEmployee.City);
+                    command.Parameters.AddWithValue("@STATE", newEmployee.State);
+                    command.Parameters.AddWithValue("@ZIP", newEmployee.Zip);
+                    command.Parameters.AddWithValue("@USERNAME", newEmployee.Username);
+                    command.Parameters.AddWithValue("@EMPLOYEE_ID", newEmployee.EmployeeID);
+
+                    command.ExecuteScalar(); 
+
+
+                }
+            }
+        }
+
+        public void AddEmployee() { }
     }
  }

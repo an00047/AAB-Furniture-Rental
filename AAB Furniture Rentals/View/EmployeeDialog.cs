@@ -234,7 +234,7 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Admin = this.adminCheckBox.Checked;
 
 
-                    EmployeeController.EditEmployee(newEmployee);
+                    EmployeeController.SaveEmployee(newEmployee);
                     MessageBox.Show("Successfully edited employee.");
                     DialogResult = DialogResult.OK;
                 }
