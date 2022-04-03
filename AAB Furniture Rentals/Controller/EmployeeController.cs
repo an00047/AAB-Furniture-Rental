@@ -19,7 +19,7 @@ namespace AAB_Furniture_Rentals.Controller
         }
 
         /// <summary>
-        /// Gets teh full list of employees form the database
+        /// Gets the full list of employees form the database
         /// </summary>
         /// <returns>List of employees</returns>
         public static List<Employee> GetAllEmployees()
@@ -46,21 +46,40 @@ namespace AAB_Furniture_Rentals.Controller
            
         }
 
+        /// <summary>
+        /// saveemployee methods interract with the database access layer
+        /// </summary>
+        /// <param name="newEmployee"></param>
         public static void SaveEmployee(Employee newEmployee) {
             localEmployeeDAL.SaveEmployee(newEmployee);
         }
 
+        /// <summary>
+        /// saveEmployee methods interract with the database access layer
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
         public static Employee GetEmployeeByID(int employeeID) {
             return localEmployeeDAL.GetEmployeeByID(employeeID);
         }
 
+        /// <summary>
+        /// AddNewEmployee to the database via database access layer.
+        /// </summary>
+        /// <param name="newEmployee"></param>
         public static void AddNewEmployee(Employee newEmployee)
         {
             localEmployeeDAL.AddEmployee(newEmployee);
         }
 
+        /// <summary>
+        ///  Adds user visa the adatabce accesslayer
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public static void AddUser(string username, string  password) {
             localEmployeeDAL.AddUser(username, password);
         }
+
     }
 }

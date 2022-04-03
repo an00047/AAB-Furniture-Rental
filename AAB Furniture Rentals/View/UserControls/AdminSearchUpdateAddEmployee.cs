@@ -11,27 +11,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.UserControls
-{
+{/// <summary>
+/// class that does admin stuff
+/// </summary>
     public partial class AdminSearchUpdateAddEmployee : UserControl
     {
-
+        /// <summary>
+        /// current employee constructor
+        /// </summary>
         private Employee currentEmployee;
         public AdminSearchUpdateAddEmployee()
         {
             InitializeComponent();
-           
             this.RefreshDataGrid();
         }
 
-
-
+        /// <summary>
+        /// really cool magical gridhandler that fixes everything
+        /// </summary>
         private void RefreshDataGrid()
         {    
             this.customerDataGridView.DataSource = EmployeeController.GetAllEmployees();
         }
 
-       
-
+        /// <summary>
+        /// button that searches 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchButton_Click_1(object sender, EventArgs e)
         {
             try

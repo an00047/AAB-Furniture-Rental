@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AAB_Furniture_Rentals.Model;
 
 
@@ -202,6 +199,11 @@ namespace AAB_Furniture_Rentals.DAL
             return currentEmployee;
         }
 
+        /// <summary>
+        /// get employee by identification
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns>an employee </returns>
         public Employee GetEmployeeByID(int employeeID)
         {
             Employee currentEmployee = null;
@@ -279,6 +281,10 @@ namespace AAB_Furniture_Rentals.DAL
             return currentEmployee;
         }
 
+        /// <summary>
+        /// saves employee to the database
+        /// </summary>
+        /// <param name="updatedEmployee"></param>
         public void SaveEmployee(Employee updatedEmployee) {
 
             string query = "UPDATE employee SET " +
@@ -325,7 +331,10 @@ namespace AAB_Furniture_Rentals.DAL
             }
         }
 
-     
+     /// <summary>
+     /// addemployee to the database
+     /// </summary>
+     /// <param name="newEmployee"></param>
         public void AddEmployee(Employee newEmployee) {
             string query = "INSERT INTO " +
                 "Employee (fName, lName, sex, dob, address, phone, active, city, state, admin, zip, login_data_username ) " +
@@ -360,6 +369,11 @@ namespace AAB_Furniture_Rentals.DAL
         }
 
 
+        /// <summary>
+        /// adds user to the database
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         public void AddUser(string username, string password) {
 
             string query = "INSERT INTO " +

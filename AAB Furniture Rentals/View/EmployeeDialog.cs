@@ -12,10 +12,17 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
+    /// <summary>
+    /// 
+    /// a dialog of employee data
+    /// </summary>
     public partial class EmployeeDialog : Form
     {
 
         Employee editEmployee;
+        /// <summary>
+        /// employee dialog constrictor
+        /// </summary>
         public EmployeeDialog()
         {
             InitializeComponent();
@@ -26,8 +33,10 @@ namespace AAB_Furniture_Rentals.View
         
         }
 
-       
-
+        /// <summary>
+        /// other constructer
+        /// </summary>
+        /// <param name="theEmployee"></param>
         public EmployeeDialog(Employee theEmployee)
         {
             if (theEmployee == null)
