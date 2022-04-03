@@ -31,53 +31,70 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             this.customerTransactionDataGridView = new System.Windows.Forms.DataGridView();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchCustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.searchCustomerIDLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // customerTransactionDataGridView
             // 
             this.customerTransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerTransactionDataGridView.Location = new System.Drawing.Point(77, 76);
+            this.customerTransactionDataGridView.Location = new System.Drawing.Point(124, 114);
             this.customerTransactionDataGridView.Name = "customerTransactionDataGridView";
-            this.customerTransactionDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.customerTransactionDataGridView.Size = new System.Drawing.Size(238, 97);
             this.customerTransactionDataGridView.TabIndex = 0;
             // 
             // searchComboBox
             // 
+            this.searchComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(171, 38);
+            this.searchComboBox.Location = new System.Drawing.Point(248, 72);
             this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(80, 21);
+            this.searchComboBox.Size = new System.Drawing.Size(62, 21);
             this.searchComboBox.TabIndex = 1;
             // 
-            // searchTextBox
+            // searchCustomerIDTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(65, 38);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(100, 20);
-            this.searchTextBox.TabIndex = 2;
+            this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(167, 72);
+            this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
+            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(75, 20);
+            this.searchCustomerIDTextBox.TabIndex = 2;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(257, 38);
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.searchButton.Location = new System.Drawing.Point(316, 71);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.Size = new System.Drawing.Size(60, 22);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // searchCustomerIDLabel
+            // 
+            this.searchCustomerIDLabel.AutoSize = true;
+            this.searchCustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.searchCustomerIDLabel.Location = new System.Drawing.Point(102, 76);
+            this.searchCustomerIDLabel.Name = "searchCustomerIDLabel";
+            this.searchCustomerIDLabel.Size = new System.Drawing.Size(65, 13);
+            this.searchCustomerIDLabel.TabIndex = 4;
+            this.searchCustomerIDLabel.Text = "Customer ID";
             // 
             // EmployeeRentalsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchCustomerIDLabel);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.searchCustomerIDTextBox);
             this.Controls.Add(this.searchComboBox);
             this.Controls.Add(this.customerTransactionDataGridView);
             this.Name = "EmployeeRentalsUserControl";
-            this.Size = new System.Drawing.Size(400, 250);
+            this.Size = new System.Drawing.Size(499, 297);
+            this.Load += new System.EventHandler(this.EmployeeRentalsUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -88,7 +105,8 @@ namespace AAB_Furniture_Rentals.UserControls
 
         private System.Windows.Forms.DataGridView customerTransactionDataGridView;
         private System.Windows.Forms.ComboBox searchComboBox;
-        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.TextBox searchCustomerIDTextBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label searchCustomerIDLabel;
     }
 }
