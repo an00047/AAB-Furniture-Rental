@@ -65,10 +65,10 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
-    <Compile Include="UserControls\EmployeeFurnitureUserControl.cs">
+    <Compile Include="View\UserControls\EmployeeFurnitureUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\EmployeeFurnitureUserControl.Designer.cs">
+    <Compile Include="View\UserControls\EmployeeFurnitureUserControl.Designer.cs">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMainDashboard.cs">
@@ -111,7 +111,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\EmployeeFurnitureUserControl.resx">
+    <EmbeddedResource Include="View\UserControls\EmployeeFurnitureUserControl.resx">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
