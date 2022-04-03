@@ -115,5 +115,11 @@ namespace AAB_Furniture_Rentals.UserControls
             this.RefreshSearchComboBoxes();
             this.searchDataGridView.DataSource = null;
         }
+
+        private void ButtaddToCartButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("No cart yet! Come back soon!",
+                   "Cart", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
     }
 }

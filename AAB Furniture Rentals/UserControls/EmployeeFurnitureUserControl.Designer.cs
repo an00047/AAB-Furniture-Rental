@@ -63,6 +63,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.buttaddToCartButton.TabIndex = 2;
             this.buttaddToCartButton.Text = "Add to Cart";
             this.buttaddToCartButton.UseVisualStyleBackColor = true;
+            this.buttaddToCartButton.Click += new System.EventHandler(this.ButtaddToCartButton_Click);
             // 
             // styleComboBox
             // 
