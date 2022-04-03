@@ -66,10 +66,10 @@
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
-    <Compile Include="UserControls\EmployeeRentalsUserControl.cs">
+    <Compile Include="View\UserControls\EmployeeRentalsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\EmployeeRentalsUserControl.Designer.cs">
+    <Compile Include="View\UserControls\EmployeeRentalsUserControl.Designer.cs">
       <DependentUpon>EmployeeRentalsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -136,7 +136,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\EmployeeRentalsUserControl.resx">
+    <EmbeddedResource Include="View\UserControls\EmployeeRentalsUserControl.resx">
       <DependentUpon>EmployeeRentalsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
