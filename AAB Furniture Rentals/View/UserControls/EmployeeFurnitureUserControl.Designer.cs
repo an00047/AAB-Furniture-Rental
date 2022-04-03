@@ -29,6 +29,8 @@ namespace AAB_Furniture_Rentals.UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clear = new System.Windows.Forms.Button();
             this.buttaddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -46,9 +48,9 @@ namespace AAB_Furniture_Rentals.UserControls
             // clear
             // 
             this.clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.clear.Location = new System.Drawing.Point(509, 271);
+            this.clear.Location = new System.Drawing.Point(475, 241);
             this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(70, 21);
+            this.clear.Size = new System.Drawing.Size(51, 21);
             this.clear.TabIndex = 1;
             this.clear.Text = "Clear";
             this.clear.UseVisualStyleBackColor = true;
@@ -57,9 +59,9 @@ namespace AAB_Furniture_Rentals.UserControls
             // buttaddToCartButton
             // 
             this.buttaddToCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.buttaddToCartButton.Location = new System.Drawing.Point(585, 271);
+            this.buttaddToCartButton.Location = new System.Drawing.Point(532, 241);
             this.buttaddToCartButton.Name = "buttaddToCartButton";
-            this.buttaddToCartButton.Size = new System.Drawing.Size(93, 21);
+            this.buttaddToCartButton.Size = new System.Drawing.Size(65, 21);
             this.buttaddToCartButton.TabIndex = 2;
             this.buttaddToCartButton.Text = "Add to Cart";
             this.buttaddToCartButton.UseVisualStyleBackColor = true;
@@ -69,34 +71,34 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.styleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.styleComboBox.FormattingEnabled = true;
-            this.styleComboBox.Location = new System.Drawing.Point(246, 148);
+            this.styleComboBox.Location = new System.Drawing.Point(320, 146);
             this.styleComboBox.Name = "styleComboBox";
-            this.styleComboBox.Size = new System.Drawing.Size(176, 21);
+            this.styleComboBox.Size = new System.Drawing.Size(99, 21);
             this.styleComboBox.TabIndex = 3;
             // 
             // categoryComboBox
             // 
             this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(246, 189);
+            this.categoryComboBox.Location = new System.Drawing.Point(320, 179);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(176, 21);
+            this.categoryComboBox.Size = new System.Drawing.Size(99, 21);
             this.categoryComboBox.TabIndex = 4;
             // 
             // idComboBox
             // 
             this.idComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.idComboBox.FormattingEnabled = true;
-            this.idComboBox.Location = new System.Drawing.Point(246, 234);
+            this.idComboBox.Location = new System.Drawing.Point(320, 209);
             this.idComboBox.Name = "idComboBox";
-            this.idComboBox.Size = new System.Drawing.Size(176, 21);
+            this.idComboBox.Size = new System.Drawing.Size(99, 21);
             this.idComboBox.TabIndex = 5;
             // 
             // styleLabel
             // 
             this.styleLabel.AutoSize = true;
             this.styleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.styleLabel.Location = new System.Drawing.Point(191, 151);
+            this.styleLabel.Location = new System.Drawing.Point(265, 149);
             this.styleLabel.Name = "styleLabel";
             this.styleLabel.Size = new System.Drawing.Size(30, 13);
             this.styleLabel.TabIndex = 7;
@@ -106,7 +108,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.categoryLabel.AutoSize = true;
             this.categoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.categoryLabel.Location = new System.Drawing.Point(191, 192);
+            this.categoryLabel.Location = new System.Drawing.Point(265, 182);
             this.categoryLabel.Name = "categoryLabel";
             this.categoryLabel.Size = new System.Drawing.Size(49, 13);
             this.categoryLabel.TabIndex = 8;
@@ -116,7 +118,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.ID.AutoSize = true;
             this.ID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.ID.Location = new System.Drawing.Point(191, 237);
+            this.ID.Location = new System.Drawing.Point(265, 212);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(18, 13);
             this.ID.TabIndex = 9;
@@ -125,7 +127,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.searchButton.Location = new System.Drawing.Point(350, 271);
+            this.searchButton.Location = new System.Drawing.Point(347, 241);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(72, 21);
             this.searchButton.TabIndex = 10;
@@ -137,7 +139,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchByLabel.AutoSize = true;
             this.searchByLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.searchByLabel.Location = new System.Drawing.Point(269, 113);
+            this.searchByLabel.Location = new System.Drawing.Point(306, 113);
             this.searchByLabel.Name = "searchByLabel";
             this.searchByLabel.Size = new System.Drawing.Size(76, 17);
             this.searchByLabel.TabIndex = 11;
@@ -147,13 +149,29 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.searchDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.searchDataGridView.ColumnHeadersHeight = 41;
             this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.searchDataGridView.Location = new System.Drawing.Point(438, 115);
             this.searchDataGridView.Name = "searchDataGridView";
             this.searchDataGridView.ReadOnly = true;
             this.searchDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.searchDataGridView.Size = new System.Drawing.Size(240, 150);
+            this.searchDataGridView.Size = new System.Drawing.Size(159, 117);
             this.searchDataGridView.TabIndex = 12;
             // 
             // EmployeeFurnitureUserControl
