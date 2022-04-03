@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -71,11 +72,19 @@
     <Compile Include="View\UserControls\EmployeeFurnitureUserControl.Designer.cs">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AdminMainDashboard.Designer.cs">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CustomerDialog.Designer.cs">
+      <DependentUpon>CustomerDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EmployeeMainDashboard.cs">
       <SubType>Form</SubType>
@@ -97,11 +106,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.Designer.cs">
+      <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cs6232_g4DataSet.cs">
+      <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="_cs6232_g4DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.LoginSelector.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.View.AdminMainDashboard.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.View.CustomerDialog.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.View.EmployeeMainDashboard.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.View.LoginCredentials.resources" />
+    <EmbeddedResource Include="obj\Debug\AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,6 +142,9 @@
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CustomerDialog.resx">
+      <DependentUpon>CustomerDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\EmployeeMainDashboard.resx">
       <DependentUpon>EmployeeMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,8 +154,19 @@
     <EmbeddedResource Include="View\LoginSelector.resx">
       <DependentUpon>LoginSelector.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\EmployeeCustomersTabUserControl.resx">
+      <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />
+    <None Include="DB\cs6232-g4.bak" />
     <None Include="DB\cs6232-g4_v1.bak" />
+    <None Include="DB\KERNAN_UPDATED_DATABASE_MODEL_V6.mwb" />
+    <None Include="obj\Debug\AAB Furniture Rentals.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\AAB Furniture Rentals.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\AAB Furniture Rentals.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,6 +191,17 @@
   <ItemGroup>
     <None Include="View\App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Debug\AAB Furniture Rentals.exe" />
+    <Content Include="bin\Debug\AAB Furniture Rentals.pdb" />
+    <Content Include="DB\DB_INIT_V6.sql" />
+    <Content Include="obj\Debug\AAB Furniture Rentals.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\AAB Furniture Rentals.exe" />
+    <Content Include="obj\Debug\AAB Furniture Rentals.pdb" />
+    <Content Include="obj\Debug\TempPE\_cs6232_g4DataSet.Designer.cs.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
