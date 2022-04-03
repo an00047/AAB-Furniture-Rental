@@ -74,7 +74,7 @@ namespace AAB_Furniture_Rentals.View
             this.LoginBtn.Location = new System.Drawing.Point(138, 151);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(126, 41);
-            this.LoginBtn.TabIndex = 1;
+            this.LoginBtn.TabIndex = 8;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = true;
             this.LoginBtn.Click += new System.EventHandler(this.LoginAsBtn_Click);
@@ -135,7 +135,7 @@ namespace AAB_Furniture_Rentals.View
             this.GoBackBtn.Location = new System.Drawing.Point(311, 0);
             this.GoBackBtn.Name = "GoBackBtn";
             this.GoBackBtn.Size = new System.Drawing.Size(61, 13);
-            this.GoBackBtn.TabIndex = 7;
+            this.GoBackBtn.TabIndex = 10;
             this.GoBackBtn.TabStop = true;
             this.GoBackBtn.Text = "Go Back....";
             this.GoBackBtn.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GoBack_LinkClicked);

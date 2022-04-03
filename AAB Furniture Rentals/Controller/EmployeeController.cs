@@ -49,5 +49,9 @@ namespace AAB_Furniture_Rentals.Controller
         public static void EditEmployee(Employee newEmployee) {
         // do something... 
         }
+
+        public static Employee GetEmployeeByID(int employeeID) {
+            return localEmployeeDAL.GetEmployeeByID(employeeID);
+        }
     }
 }

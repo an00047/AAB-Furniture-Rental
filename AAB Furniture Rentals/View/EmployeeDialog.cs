@@ -19,57 +19,82 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog()
         {
             InitializeComponent();
-            this.CustomerLabel.Text = "New Customer";
-            this.CustomerButton.Text = "Add Customer";
+            this.CustomerLabel.Text = "New Employee";
+            this.EmployeeButton.Text = "Add Employee";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
         }
 
+       
 
-
-        public EmployeeDialog(Employee employeeMember)
+        public EmployeeDialog(Employee theEmployee)
         {
-            if (employeeMember == null)
+            if (theEmployee == null)
             {
-                throw new Exception("Member is invalid.");
+                throw new Exception("Employee is invalid.");
             }
             InitializeComponent();
 
-            this.editEmployee = employeeMember;
-            this.CustomerLabel.Text = "Edit Customer";
-            this.CustomerButton.Text = "Edit Customer";
+            this.editEmployee = theEmployee;
+            this.CustomerLabel.Text = "Edit Employee";
+            this.EmployeeButton.Text = "Edit Employee";
 
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-            this.firstNameTextBox.Text = this.editEmployee.FirstName;
-            this.lastNameTextBox.Text = this.editEmployee.LastName;
-            this.genderComboBox.SelectedIndex = this.genderComboBox.FindStringExact(employeeMember.Gender.ToString());
-            this.birthdateBox.Value = this.editEmployee.DateOfBirth;
-            this.phoneTextBox.Text = this.editEmployee.PhoneNumber;
-            this.addressTextBox.Text = this.editEmployee.Address;
+           // theEmployee.EmployeeID = this.editEmployee.EmployeeID;
+            this.firstNameTextBox.Text = theEmployee.Fname;
+            this.lastNameTextBox.Text = theEmployee.Lname;
+            this.genderComboBox.SelectedItem = theEmployee.Sex;
+            this.birthdateBox.Value = theEmployee.Dob;
+            this.addressTextBox.Text = theEmployee.Address;
+            this.cityTextBox.Text = theEmployee.City;
+            this.stateTextBox.Text = theEmployee.State;
+           this.zipTextBox.Text = theEmployee.Zip;
+           this.phoneTextBox.Text = theEmployee.Phone;
+           this.activeCheckBox.Checked = theEmployee.Active;
+           this.userNameTextBox.Text = theEmployee.Username;
+           this.adminCheckBox.Checked = theEmployee.Admin;
+
+            this.SetViewOnly();
         }
 
-        private void CustomerButton_Click(object sender, EventArgs e)
+        private void SetViewOnly()
         {
-            try
-            {
-                if (this.CustomerButton.Text == "Add Customer")
-                {
-                    this.AddCustomer();
-                }
-                else
-                {
-                    this.EditCustomer();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            this.firstNameTextBox.Enabled = false;
+            this.lastNameTextBox.Enabled = false;
+            this.genderComboBox.Enabled = false;
+            this.birthdateBox.Enabled = false;
+            this.addressTextBox.Enabled = false;
+            this.cityTextBox.Enabled = false;
+            this.stateTextBox.Enabled = false;
+            this.zipTextBox.Enabled = false;
+            this.phoneTextBox.Enabled = false;
+            this.activeCheckBox.Enabled = false;
+            this.userNameTextBox.Enabled = false;
+            this.adminCheckBox.Enabled = false;
+        }
+
+        private void SetEditable()
+        {
+
+            this.firstNameTextBox.Enabled = true;
+            this.lastNameTextBox.Enabled = true;
+            this.genderComboBox.Enabled = true;
+            this.birthdateBox.Enabled = true;
+            this.addressTextBox.Enabled = true;
+            this.cityTextBox.Enabled = true;
+            this.stateTextBox.Enabled = true;
+            this.zipTextBox.Enabled = true;
+            this.phoneTextBox.Enabled = true;
+            this.activeCheckBox.Enabled = true;
+            this.userNameTextBox.Enabled = true;
+            this.adminCheckBox.Enabled = true;
         }
 
 
+      
         private bool ValidateForm()
         {
             int error = 0;
@@ -188,10 +213,9 @@ namespace AAB_Furniture_Rentals.View
 
         }
 
-        private void EditEmployee()
+        private void SaveEmployee()
         {
-            if (this.ValidateForm())
-            {
+            
                 try
                 {
                     Employee newEmployee = new Employee();
@@ -207,7 +231,7 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
                     newEmployee.Username = this.userNameTextBox.Text;
-                    newEmployee.Admin = = this.adminCheckBox.Checked;
+                    newEmployee.Admin = this.adminCheckBox.Checked;
 
 
                     EmployeeController.EditEmployee(newEmployee);
@@ -219,11 +243,48 @@ namespace AAB_Furniture_Rentals.View
 
                     MessageBox.Show(ex.Message, "Error!");
                 }
-            }
+         
 
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+        }
+
+        private void EmployeeButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                if (this.EmployeeButton.Text == "Add Employee")
+                {
+                    this.AddEmployee();
+                }
+                else if (this.EmployeeButton.Text == "Edit Employee") {
+                    this.SetEditable();
+                    this.EmployeeButton.Text = "Save Employee";
+                }
+                else if (this.EmployeeButton.Text == "Save Employee")
+                {
+                    if (this.ValidateForm())
+                    {
+                        this.SaveEmployee();
+                        this.SetViewOnly();
+                        this.EmployeeButton.Text = "Edit Employee";
+                    }
+                   
+                   
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cancelButton_Click_1(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }

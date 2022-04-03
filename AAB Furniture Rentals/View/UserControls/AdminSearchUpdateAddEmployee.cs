@@ -1,4 +1,5 @@
-﻿using AAB_Furniture_Rentals.Model;
+﻿using AAB_Furniture_Rentals.Controller;
+using AAB_Furniture_Rentals.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,62 +19,51 @@ namespace AAB_Furniture_Rentals.View.UserControls
         public AdminSearchUpdateAddEmployee()
         {
             InitializeComponent();
-            this.editEmployeeButton.Enabled = false;
+           
+            this.RefreshDataGrid();
         }
 
-        private void NewCustomerButton_Click(object sender, System.EventArgs e)
-        {
-            Form newEmployeeDialog = new EmployeeDialog();
-            newEmployeeDialog.ShowDialog();
 
+
+        private void RefreshDataGrid()
+        {    
+            this.customerDataGridView.DataSource = EmployeeController.GetAllEmployees();
         }
 
-        private void EditCustomerButton_Click(object sender, System.EventArgs e)
-        {
+       
 
-            Form editEmployeeDialog = new EmployeeDialog(this.currentEmployee);
-            DialogResult result = editEmployeeDialog.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-                this.RefreshDataGrid(int.Parse(this.employeeTextBox.Text));
-            }
-
-        }
-
-        private void SearchButton_Click(object sender, System.EventArgs e)
+        private void searchButton_Click_1(object sender, EventArgs e)
         {
             try
             {
+                this.currentEmployee =  EmployeeController.GetEmployeeByID(int.Parse(this.employeeTextBox.Text));
+                
+                Form viewEmployeeDialog = new EmployeeDialog(this.currentEmployee);
+                
+                DialogResult result = viewEmployeeDialog.ShowDialog();
+                
+                if (result == DialogResult.OK)
+                {
+                    this.RefreshDataGrid();
+                }
 
-                var customerID = int.Parse(this.employeeTextBox.Text);
-                this.RefreshDataGrid(customerID);
-                this.editEmployeeButton.Enabled = true;
 
             }
             catch (FormatException)
             {
-                MessageBox.Show("Customer ID must be a number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Employee ID must be a number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
         }
 
-        private void RefreshDataGrid(int customerID)
+        private void newEmployeeButton_Click(object sender, EventArgs e)
         {
-            List<Member> customerList = new List<Member>();
-            currentEmployee = MemberController.GetCustomerByID(customerID);
-            customerList.Add(currentEmployee);
-            this.customerDataGridView.DataSource = customerList;
-        }
-
-        private void CustomerTextBox_Changed(object sender, EventArgs e)
-        {
-            this.editEmployeeButton.Enabled = false;
+            Form newEmployeeDialog = new EmployeeDialog();
+            newEmployeeDialog.ShowDialog();
         }
     }
 }

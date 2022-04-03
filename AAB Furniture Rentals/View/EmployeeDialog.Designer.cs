@@ -38,7 +38,7 @@ namespace AAB_Furniture_Rentals.View
             this.firstNameError = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.CustomerLabel = new System.Windows.Forms.Label();
-            this.CustomerButton = new System.Windows.Forms.Button();
+            this.EmployeeButton = new System.Windows.Forms.Button();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.birthdateBox = new System.Windows.Forms.DateTimePicker();
             this.addressLabel = new System.Windows.Forms.Label();
@@ -74,6 +74,7 @@ namespace AAB_Furniture_Rentals.View
             this.cancelButton.TabIndex = 44;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click_1);
             // 
             // phoneError
             // 
@@ -146,13 +147,14 @@ namespace AAB_Furniture_Rentals.View
             this.CustomerLabel.TabIndex = 37;
             this.CustomerLabel.Text = "Employee";
             // 
-            // CustomerButton
+            // EmployeeButton
             // 
-            this.CustomerButton.Location = new System.Drawing.Point(213, 402);
-            this.CustomerButton.Name = "CustomerButton";
-            this.CustomerButton.Size = new System.Drawing.Size(112, 23);
-            this.CustomerButton.TabIndex = 29;
-            this.CustomerButton.UseVisualStyleBackColor = true;
+            this.EmployeeButton.Location = new System.Drawing.Point(213, 402);
+            this.EmployeeButton.Name = "EmployeeButton";
+            this.EmployeeButton.Size = new System.Drawing.Size(112, 23);
+            this.EmployeeButton.TabIndex = 29;
+            this.EmployeeButton.UseVisualStyleBackColor = true;
+            this.EmployeeButton.Click += new System.EventHandler(this.EmployeeButton_Click_1);
             // 
             // genderComboBox
             // 
@@ -393,7 +395,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.firstNameError);
             this.Controls.Add(this.lastNameTextBox);
             this.Controls.Add(this.CustomerLabel);
-            this.Controls.Add(this.CustomerButton);
+            this.Controls.Add(this.EmployeeButton);
             this.Controls.Add(this.genderComboBox);
             this.Controls.Add(this.birthdateBox);
             this.Controls.Add(this.addressLabel);
@@ -423,7 +425,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label firstNameError;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label CustomerLabel;
-        private System.Windows.Forms.Button CustomerButton;
+        private System.Windows.Forms.Button EmployeeButton;
         private System.Windows.Forms.ComboBox genderComboBox;
         private System.Windows.Forms.DateTimePicker birthdateBox;
         private System.Windows.Forms.Label addressLabel;
