@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using AAB_Furniture_Rentals.DAL;
+﻿using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
+using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
@@ -23,28 +18,32 @@ namespace AAB_Furniture_Rentals.Controller
             localEmployeeDAL = new EmployeesDAL();
         }
 
-
+        /// <summary>
+        /// Gets teh full list of employees form the database
+        /// </summary>
+        /// <returns>List of employees</returns>
         public static List<Employee> GetAllEmployees()
         {
             var test = localEmployeeDAL.GetAllEmployees();
             return localEmployeeDAL.GetAllEmployees();
         }
 
-        /// <summary>
-    /// Validates the employee login.
-    /// </summary>
-    /// <returns>True if the login credentials correspond to valid Employee</returns>
-    public static bool ValidateEmployeeLogin()
-        {
-            return true;
-        }
-        /// <summary>
-        /// Validates the admin login.
+            /// <summary>
+        /// Validates the employee login.
         /// </summary>
-        /// <returns>True if the login credentials correspond to valid system admin</returns>
-        public static bool ValidateAdminLogin()
+        /// <returns>True if the login credentials correspond to valid Employee</returns>
+        public static bool ValidateEmployeeLogin(string userName, string password)
+            {
+                return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
+            }
+        /// <summary>
+        /// retrieves an employye object form the DAL based on the username
+        /// </summary>
+        /// <returns>An employee object with appropriate username</returns>
+        public static Employee GetEmployeeByUserName(string userName)
         {
-            return true;
+           return localEmployeeDAL.GetEmployeeByUserName(userName);
+           
         }
 
     }

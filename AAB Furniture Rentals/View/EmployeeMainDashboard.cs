@@ -13,7 +13,7 @@ namespace AAB_Furniture_Rentals.View
 
             InitializeComponent();
             this.currentLogin = newLoginCredentials;
-            this.nameLabel.Text = "Employee Name";
+            this.nameLabel.Text = currentLogin.CurrentEmployee.Fname + " " + currentLogin.CurrentEmployee.Lname + " logged in as: " + currentLogin.CurrentEmployee.Username;
             logOut = false;
 
         }
@@ -35,5 +35,6 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
+     
     }
 }
