@@ -36,11 +36,8 @@ namespace AAB_Furniture_Rentals.Model
             this.DailyRentalRate = dailyRentalRate;
             this.QuantityOnHand = quantityOnHand;
             this.FineRate = fineRate;
-
-
-
-
-        
     }
+
+
 }
 }
