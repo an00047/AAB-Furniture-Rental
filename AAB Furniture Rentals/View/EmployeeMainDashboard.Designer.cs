@@ -35,6 +35,7 @@ namespace AAB_Furniture_Rentals.View
             this.furnitureTab = new System.Windows.Forms.TabPage();
             this.rentalsTab = new System.Windows.Forms.TabPage();
             this.customersTab = new System.Windows.Forms.TabPage();
+            this.employeeCustomersTabUserControl = new AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl();
             this.returnsTab = new System.Windows.Forms.TabPage();
             this.cartButton = new System.Windows.Forms.Button();
             this.employeeCustomersTabUserControl = new AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl();
@@ -78,7 +79,7 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl.Location = new System.Drawing.Point(1, 89);
             this.AdminTabControl.Name = "AdminTabControl";
             this.AdminTabControl.SelectedIndex = 0;
-            this.AdminTabControl.Size = new System.Drawing.Size(796, 355);
+            this.AdminTabControl.Size = new System.Drawing.Size(534, 355);
             this.AdminTabControl.TabIndex = 3;
             // 
             // furnitureTab
@@ -109,10 +110,17 @@ namespace AAB_Furniture_Rentals.View
             this.customersTab.Controls.Add(this.employeeCustomersTabUserControl);
             this.customersTab.Location = new System.Drawing.Point(4, 22);
             this.customersTab.Name = "customersTab";
-            this.customersTab.Size = new System.Drawing.Size(788, 329);
+            this.customersTab.Size = new System.Drawing.Size(526, 329);
             this.customersTab.TabIndex = 2;
             this.customersTab.Text = "Customers";
             this.customersTab.UseVisualStyleBackColor = true;
+            // 
+            // employeeCustomersTabUserControl
+            // 
+            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(56, 26);
+            this.employeeCustomersTabUserControl.Name = "employeeCustomersTabUserControl";
+            this.employeeCustomersTabUserControl.Size = new System.Drawing.Size(411, 278);
+            this.employeeCustomersTabUserControl.TabIndex = 0;
             // 
             // returnsTab
             // 

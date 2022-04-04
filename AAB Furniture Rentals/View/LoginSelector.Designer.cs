@@ -33,7 +33,6 @@ namespace AAB_Furniture_Rentals
             this.LoginAsAdminBtn = new System.Windows.Forms.Button();
             this.LoginLabel = new System.Windows.Forms.Label();
             this.LoginAsEmployeeBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +47,6 @@ namespace AAB_Furniture_Rentals
             this.tableLayoutPanel1.Controls.Add(this.LoginAsAdminBtn, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.LoginLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.LoginAsEmployeeBtn, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -94,16 +92,6 @@ namespace AAB_Furniture_Rentals
             this.LoginAsEmployeeBtn.UseVisualStyleBackColor = true;
             this.LoginAsEmployeeBtn.Click += new System.EventHandler(this.LoginAsEmployeeBtn_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 172);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "test: getAllEmployees";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // LoginSelector
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,6 +114,5 @@ namespace AAB_Furniture_Rentals
         private System.Windows.Forms.Button LoginAsEmployeeBtn;
         private System.Windows.Forms.Button LoginAsAdminBtn;
         public System.Windows.Forms.Label LoginLabel;
-        private System.Windows.Forms.Button button1;
     }
 }
