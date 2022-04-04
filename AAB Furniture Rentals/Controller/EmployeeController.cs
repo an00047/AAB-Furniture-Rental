@@ -81,5 +81,6 @@ namespace AAB_Furniture_Rentals.Controller
             localEmployeeDAL.AddUser(username, password);
         }
 
+  
     }
 }
