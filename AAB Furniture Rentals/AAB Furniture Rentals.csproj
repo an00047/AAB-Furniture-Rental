@@ -56,7 +56,6 @@
     <Compile Include="DAL\EmployeesDAL.cs" />
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
     <Compile Include="DAL\FurnitureStyleDAL.cs" />
-    <Compile Include="DAL\IsRentedDAL.cs" />
     <Compile Include="DAL\LoginDataDAL.cs" />
     <Compile Include="DAL\MembersDAL.cs" />
     <Compile Include="DAL\RentalsDAL.cs" />
@@ -65,8 +64,10 @@
     <Compile Include="Model\FurnitureStyle.cs" />
     <Compile Include="Model\FurnitureCategory.cs" />
     <Compile Include="Model\Furniture.cs" />
+    <Compile Include="Model\IsReturned.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="Model\Returns.cs" />
     <Compile Include="View\UserControls\EmployeeRentalsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
