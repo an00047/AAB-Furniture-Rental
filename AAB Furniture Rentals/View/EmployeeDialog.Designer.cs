@@ -166,6 +166,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // genderComboBox
             // 
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Location = new System.Drawing.Point(239, 144);
             this.genderComboBox.Name = "genderComboBox";
