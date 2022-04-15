@@ -11,9 +11,9 @@ namespace AAB_Furniture_Rentals.Model
     /// </summary>
     public class Returns
     {
-        int ReturnTransactionID { get; set; }
-        DateTime DateTimeCreated { get; set; }
-        int EmployeeID { get; set; }
+        public int ReturnTransactionID { get; set; }
+        public DateTime DateTimeCreated { get; set; }
+        public int EmployeeID { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Returns"/> class.

@@ -42,7 +42,8 @@ namespace AAB_Furniture_Rentals.UserControls
 
             } else if (this.searchComboBox.SelectedIndex == 1)
             {
-
+                List<Returns> returns = ReturnsController.GetReturnsByTransactionID(1);
+                this.customerTransactionDataGridView.DataSource = returns;
             } else { 
             }
         }
