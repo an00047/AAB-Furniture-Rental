@@ -55,7 +55,6 @@ namespace AAB_Furniture_Rentals.View
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.stateTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.TextBox();
@@ -72,6 +71,7 @@ namespace AAB_Furniture_Rentals.View
             this.passwordError = new System.Windows.Forms.Label();
             this.stateError = new System.Windows.Forms.Label();
             this.cityError = new System.Windows.Forms.Label();
+            this.StateComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -298,13 +298,6 @@ namespace AAB_Furniture_Rentals.View
             this.label4.TabIndex = 49;
             this.label4.Text = "State:";
             // 
-            // stateTextBox
-            // 
-            this.stateTextBox.Location = new System.Drawing.Point(239, 250);
-            this.stateTextBox.Name = "stateTextBox";
-            this.stateTextBox.Size = new System.Drawing.Size(200, 20);
-            this.stateTextBox.TabIndex = 48;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -441,11 +434,21 @@ namespace AAB_Furniture_Rentals.View
             this.cityError.Size = new System.Drawing.Size(0, 13);
             this.cityError.TabIndex = 66;
             // 
+            // StateComboBox
+            // 
+            this.StateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.StateComboBox.FormattingEnabled = true;
+            this.StateComboBox.Location = new System.Drawing.Point(239, 250);
+            this.StateComboBox.Name = "StateComboBox";
+            this.StateComboBox.Size = new System.Drawing.Size(86, 21);
+            this.StateComboBox.TabIndex = 67;
+            // 
             // EmployeeDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 450);
+            this.Controls.Add(this.StateComboBox);
             this.Controls.Add(this.cityError);
             this.Controls.Add(this.stateError);
             this.Controls.Add(this.passwordError);
@@ -464,7 +467,6 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.stateTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cityTextBox);
@@ -524,7 +526,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox stateTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox zipTextBox;
@@ -541,5 +542,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label passwordError;
         private System.Windows.Forms.Label stateError;
         private System.Windows.Forms.Label cityError;
+        private System.Windows.Forms.ComboBox StateComboBox;
     }
 }
