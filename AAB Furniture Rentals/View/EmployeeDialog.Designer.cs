@@ -66,6 +66,12 @@ namespace AAB_Furniture_Rentals.View
             this.adminCheckBox = new System.Windows.Forms.CheckBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.zipError = new System.Windows.Forms.Label();
+            this.phoneError2 = new System.Windows.Forms.Label();
+            this.userNameError = new System.Windows.Forms.Label();
+            this.passwordError = new System.Windows.Forms.Label();
+            this.stateError = new System.Windows.Forms.Label();
+            this.cityError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cancelButton
@@ -386,11 +392,65 @@ namespace AAB_Furniture_Rentals.View
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 59;
             // 
+            // zipError
+            // 
+            this.zipError.AutoSize = true;
+            this.zipError.Location = new System.Drawing.Point(447, 280);
+            this.zipError.Name = "zipError";
+            this.zipError.Size = new System.Drawing.Size(0, 13);
+            this.zipError.TabIndex = 61;
+            // 
+            // phoneError2
+            // 
+            this.phoneError2.AutoSize = true;
+            this.phoneError2.Location = new System.Drawing.Point(447, 307);
+            this.phoneError2.Name = "phoneError2";
+            this.phoneError2.Size = new System.Drawing.Size(0, 13);
+            this.phoneError2.TabIndex = 62;
+            // 
+            // userNameError
+            // 
+            this.userNameError.AutoSize = true;
+            this.userNameError.Location = new System.Drawing.Point(447, 339);
+            this.userNameError.Name = "userNameError";
+            this.userNameError.Size = new System.Drawing.Size(0, 13);
+            this.userNameError.TabIndex = 63;
+            // 
+            // passwordError
+            // 
+            this.passwordError.AutoSize = true;
+            this.passwordError.Location = new System.Drawing.Point(447, 368);
+            this.passwordError.Name = "passwordError";
+            this.passwordError.Size = new System.Drawing.Size(0, 13);
+            this.passwordError.TabIndex = 64;
+            // 
+            // stateError
+            // 
+            this.stateError.AutoSize = true;
+            this.stateError.Location = new System.Drawing.Point(447, 253);
+            this.stateError.Name = "stateError";
+            this.stateError.Size = new System.Drawing.Size(0, 13);
+            this.stateError.TabIndex = 65;
+            // 
+            // cityError
+            // 
+            this.cityError.AutoSize = true;
+            this.cityError.Location = new System.Drawing.Point(447, 227);
+            this.cityError.Name = "cityError";
+            this.cityError.Size = new System.Drawing.Size(0, 13);
+            this.cityError.TabIndex = 66;
+            // 
             // EmployeeDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(660, 450);
+            this.Controls.Add(this.cityError);
+            this.Controls.Add(this.stateError);
+            this.Controls.Add(this.passwordError);
+            this.Controls.Add(this.userNameError);
+            this.Controls.Add(this.phoneError2);
+            this.Controls.Add(this.zipError);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.adminCheckBox);
@@ -474,5 +534,11 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.CheckBox adminCheckBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label zipError;
+        private System.Windows.Forms.Label phoneError2;
+        private System.Windows.Forms.Label userNameError;
+        private System.Windows.Forms.Label passwordError;
+        private System.Windows.Forms.Label stateError;
+        private System.Windows.Forms.Label cityError;
     }
 }

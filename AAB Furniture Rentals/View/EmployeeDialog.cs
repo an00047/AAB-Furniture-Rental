@@ -135,38 +135,43 @@ namespace AAB_Furniture_Rentals.View
             }
             if (this.phoneTextBox.Text == "")
             {
-                this.phoneError.Text = "Phone cannot be empty.";
+                this.phoneError2.Text = "Phone cannot be empty.";
                 error++;
             }
 
             if (this.cityTextBox.Text == "")
             {
-                MessageBox.Show("City cannot be empty");
-                // this.CityError.Text = "City cannot be empty.";
+                this.cityError.Text = "City cannot be empty.";
+              
                 error++;
             }
             if (this.stateTextBox.Text == "")
             {
-                MessageBox.Show("City cannot be empty");
-                // this.stateError.Text = "City cannot be empty.";
+                this.stateError.Text = "state cannot be empty.";
+              
                 error++;
             }
 
             if (this.zipTextBox.Text == "")
             {
-                MessageBox.Show("Zip cannot be empty");
-                // this.zipError.Text = "Zip cannot be empty.";
+                this.zipError.Text = "zip cannot be empty.";
+                
                 error++;
             }
 
 
             if (this.userNameTextBox.Text == "")
             {
-                MessageBox.Show("User Name cannot be empty");
-                //  this.usernameError.Text = "City cannot be empty.";
+                this.userNameError.Text = "userName cannot be empty.";
                 error++;
             }
 
+
+            if (this.passwordTextBox.Text == "")
+            {
+                this.passwordError.Text = "userName cannot be empty.";
+                error++;
+            }
 
 
 
