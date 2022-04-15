@@ -167,9 +167,9 @@ namespace AAB_Furniture_Rentals.View
             }
 
 
-            if (this.passwordTextBox.Text == "")
+            if (this.passwordTextBox.Text == "" && this.EmployeeButton.Text == "Add Employee")
             {
-                this.passwordError.Text = "userName cannot be empty.";
+                this.passwordError.Text = "Password cannot be empty.";
                 error++;
             }
 
@@ -181,7 +181,7 @@ namespace AAB_Furniture_Rentals.View
                 string[] validNumber = this.phoneTextBox.Text.Split(' ');
                 if (this.phoneTextBox.Text.Length != 12)
                 {
-                    this.phoneError.Text = "Must be in 8 digits long";
+                    this.phoneError2.Text = "Must be in 10 digits long";
                     error++;
                 }
 
@@ -192,7 +192,7 @@ namespace AAB_Furniture_Rentals.View
             }
             catch (Exception)
             {
-                this.phoneError.Text = "Must be in '555 555 5555' format";
+                this.phoneError2.Text = "Must be in '555 555 5555' format";
                 error++;
             }
 
@@ -283,8 +283,11 @@ namespace AAB_Furniture_Rentals.View
                 
                 if (this.EmployeeButton.Text == "Add Employee")
                 {
-                    this.AddUser();
-                    this.AddEmployee();
+                    if (ValidateForm())
+                    {
+                        this.AddUser();
+                        this.AddEmployee();
+                    }
                 }
                 else if (this.EmployeeButton.Text == "Edit Employee") {
                     this.SetEditable();
