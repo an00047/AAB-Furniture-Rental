@@ -11,10 +11,10 @@ namespace AAB_Furniture_Rentals.Model
     /// </summary>
     public class IsReturned
     {
-        int QuantityIn { get; set; }
-        int IsRentedTransactionID { get; set; }
-        int IsRentedFurnitureID { get; set; }
-        int ReturnTransactionID { get; set; }
+        public int QuantityIn { get; set; }
+        public int IsRentedTransactionID { get; set; }
+        public int IsRentedFurnitureID { get; set; }
+        public int ReturnTransactionID { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IsReturned"/> class.

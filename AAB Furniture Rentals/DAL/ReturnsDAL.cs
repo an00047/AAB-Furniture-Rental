@@ -10,9 +10,9 @@ namespace AAB_Furniture_Rentals.DAL
 {
     class ReturnsDAL
     {
-        public List<Returns> GetReturnsByTransactionID(int transactionID)
+        public Returns GetReturnByTransactionID(int transactionID)
         {
-            List<Returns> returns = new List<Returns>();
+            Returns newReturn = null;
             string selectStatement = @"SELECT * FROM returns 
                                         WHERE returnTransactionID = @transactionID";
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -36,20 +36,20 @@ namespace AAB_Furniture_Rentals.DAL
                             var _datetime_created = reader.GetDateTime(datetime_created);
 
 
-                            Returns newReturn = new Returns(
+                            newReturn = new Returns(
                                  returnTransactionID: _returnTransactionID,
                                  employeeID: _employeeID,
                                  dateTimeCreated: _datetime_created
 
                                 ); ;
 
-                            returns.Add(newReturn);
+                            
                         }
                     }
                 }
             }
 
-            return returns;
+            return newReturn;
         }
     }
 }

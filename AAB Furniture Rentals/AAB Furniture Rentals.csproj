@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
+    <Compile Include="Controller\IsReturnedController.cs" />
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\RentalController.cs" />
     <Compile Include="Controller\ReturnsController.cs" />

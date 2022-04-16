@@ -17,9 +17,9 @@ namespace AAB_Furniture_Rentals.Controller
             localReturnsDAL = new ReturnsDAL();
         }
 
-        public static List<Returns> GetReturnsByTransactionID(int transactionID)
+        public static Returns GetReturnByTransactionID(int transactionID)
         {
-            return localReturnsDAL.GetReturnsByTransactionID(transactionID);
+            return localReturnsDAL.GetReturnByTransactionID(transactionID);
         }
     }
 }
