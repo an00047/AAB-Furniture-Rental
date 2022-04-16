@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
 
@@ -23,7 +18,10 @@ namespace AAB_Furniture_Rentals.Controller
             localStylesDAL = new FurnitureStyleDAL();
         }
 
-
+        /// <summary>
+        /// gets all styles stored int he database
+        /// </summary>
+        /// <returns></returns>
         public static List<FurnitureStyle> GetAllStyles()
         {
             var test = localStylesDAL.GetAllStyles();

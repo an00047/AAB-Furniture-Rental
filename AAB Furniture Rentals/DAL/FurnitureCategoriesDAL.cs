@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// DB handler for the Categories table
+    /// </summary>
    public class FurnitureCategoriesDAL
     {
         /// <summary>

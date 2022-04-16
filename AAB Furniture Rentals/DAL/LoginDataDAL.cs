@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// Login Data handler for the DB
+    /// </summary>
     class LoginDataDAL
     {
     }
