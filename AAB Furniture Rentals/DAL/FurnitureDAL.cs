@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AAB_Furniture_Rentals.Model;
 
 namespace AAB_Furniture_Rentals.DAL
@@ -68,7 +65,11 @@ namespace AAB_Furniture_Rentals.DAL
 
             return furnitureList;
         }
-
+        /// <summary>
+        /// Gets the furniture by identifier.
+        /// </summary>
+        /// <param name="searchFurnitureID">The search furniture identifier.</param>
+        /// <returns>The furniture with the identifier</returns>
         public Furniture GetFurnitureByID(int searchFurnitureID)
         {
 

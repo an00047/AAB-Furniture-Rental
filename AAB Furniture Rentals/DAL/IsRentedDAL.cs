@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.DAL
 {
     class IsRentedDAL
     {
-
+        /// <summary>
+        /// Gets the is rented by member identifier.
+        /// </summary>
+        /// <param name="newMemberID">The new member identifier.</param>
+        /// <returns>The list of IsRented items with the matching memberID</returns>
         public List<IsRented> GetIsRentedByMemberID(int newMemberID)
         {
             List<IsRented> rentals = new List<IsRented>();

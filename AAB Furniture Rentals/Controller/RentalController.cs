@@ -1,10 +1,12 @@
 ﻿using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
 using System;
-using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
+    /// <summary>
+    /// Controls the Rental data
+    /// </summary>
     public static class RentalController
     {
         private static RentalsDAL localRentalsDAL;
@@ -14,6 +16,12 @@ namespace AAB_Furniture_Rentals.Controller
             localRentalsDAL = new RentalsDAL();
         }
 
+        /// <summary>
+        /// Gets the rental by transaction identifier.
+        /// </summary>
+        /// <param name="newTransactionID">The new transaction identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">newTransactionID cannot be negative</exception>
         public static Rental GetRentalByTransactionID(int newTransactionID)
         {
             if (newTransactionID < 0)

@@ -2,12 +2,13 @@
 using AAB_Furniture_Rentals.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.Controller
 {
+    /// <summary>
+    /// 
+    /// Controls the IsReturned Data
+    /// </summary>
     class IsReturnedController
     {
         private static IsReturnedDAL localIsReturnedDAL;
@@ -17,8 +18,17 @@ namespace AAB_Furniture_Rentals.Controller
             localIsReturnedDAL = new IsReturnedDAL();
         }
 
+        /// <summary>
+        /// Gets the is returned by member identifier.
+        /// </summary>
+        /// <param name="searchMemberID">The search member identifier.</param>
+        /// <returns></returns>
         public static List<IsReturned> GetIsReturnedByMemberID(int searchMemberID)
         {
+            if (searchMemberID < 0)
+            {
+                throw new ArgumentException("searchMember cannot be negative");
+            }
             return localIsReturnedDAL.GetIsReturnedByMemberID(searchMemberID);
         }
     }

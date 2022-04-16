@@ -2,14 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.DAL
 {
     class IsReturnedDAL
     {
+        /// <summary>
+        /// Gets the is returned by member identifier.
+        /// </summary>
+        /// <param name="searchMemberID">The search member identifier.</param>
+        /// <returns>The list of isReturned items with matching memberID</returns>
         public List<IsReturned> GetIsReturnedByMemberID(int searchMemberID)
         {
             List<IsReturned> returns = new List<IsReturned>();

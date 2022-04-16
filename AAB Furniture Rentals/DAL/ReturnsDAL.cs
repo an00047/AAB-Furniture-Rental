@@ -1,15 +1,15 @@
 ﻿using AAB_Furniture_Rentals.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.DAL
 {
     class ReturnsDAL
     {
+        /// <summary>
+        /// Gets the return by transaction identifier.
+        /// </summary>
+        /// <param name="transactionID">The transaction identifier.</param>
+        /// <returns>The return with the matching transaction identifier</returns>
         public Returns GetReturnByTransactionID(int transactionID)
         {
             Returns newReturn = null;
