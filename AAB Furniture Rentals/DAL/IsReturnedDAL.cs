@@ -15,7 +15,8 @@ namespace AAB_Furniture_Rentals.DAL
             List<IsReturned> returns = new List<IsReturned>();
             string selectStatement = @"SELECT * FROM is_returned
                                         JOIN rentals ON is_returned.is_rented_transactionID = rentals.rentalTransactionID
-                                        WHERE rentals.memberID = @memberID";
+                                        WHERE rentals.memberID = @memberID
+                                        ORDER BY is_returned.is_rented_transactionID";
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
                 connection.Open();

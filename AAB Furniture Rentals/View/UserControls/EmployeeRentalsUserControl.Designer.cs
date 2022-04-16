@@ -34,37 +34,42 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchCustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchCustomerIDLabel = new System.Windows.Forms.Label();
-            this.ReturnTransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateTimeReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityReturned = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QuantityInOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._cs6232_g4DataSet1 = new AAB_Furniture_Rentals._cs6232_g4DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // customerTransactionDataGridView
             // 
+            this.customerTransactionDataGridView.AllowUserToAddRows = false;
+            this.customerTransactionDataGridView.AllowUserToDeleteRows = false;
             this.customerTransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerTransactionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ReturnTransactionID,
-            this.DateTimeReturned,
+            this.TransactionID,
             this.FurnitureID,
             this.FurnitureStyle,
             this.FurnitureCategory,
             this.FurnitureDescription,
-            this.QuantityReturned});
-            this.customerTransactionDataGridView.Location = new System.Drawing.Point(105, 110);
+            this.TransactionDate,
+            this.QuantityInOut});
+            this.customerTransactionDataGridView.Location = new System.Drawing.Point(95, 88);
             this.customerTransactionDataGridView.Name = "customerTransactionDataGridView";
-            this.customerTransactionDataGridView.Size = new System.Drawing.Size(238, 97);
+            this.customerTransactionDataGridView.ReadOnly = true;
+            this.customerTransactionDataGridView.Size = new System.Drawing.Size(291, 138);
             this.customerTransactionDataGridView.TabIndex = 0;
             // 
             // searchComboBox
             // 
             this.searchComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(248, 72);
+            this.searchComboBox.Location = new System.Drawing.Point(248, 47);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(62, 21);
             this.searchComboBox.TabIndex = 1;
@@ -72,7 +77,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchCustomerIDTextBox
             // 
             this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(167, 72);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(167, 47);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
             this.searchCustomerIDTextBox.Size = new System.Drawing.Size(75, 20);
             this.searchCustomerIDTextBox.TabIndex = 2;
@@ -80,9 +85,9 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchButton.Location = new System.Drawing.Point(316, 71);
+            this.searchButton.Location = new System.Drawing.Point(316, 46);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(60, 22);
+            this.searchButton.Size = new System.Drawing.Size(60, 24);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -92,21 +97,16 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchCustomerIDLabel.AutoSize = true;
             this.searchCustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchCustomerIDLabel.Location = new System.Drawing.Point(102, 76);
+            this.searchCustomerIDLabel.Location = new System.Drawing.Point(102, 51);
             this.searchCustomerIDLabel.Name = "searchCustomerIDLabel";
             this.searchCustomerIDLabel.Size = new System.Drawing.Size(65, 13);
             this.searchCustomerIDLabel.TabIndex = 4;
             this.searchCustomerIDLabel.Text = "Customer ID";
             // 
-            // ReturnTransactionID
+            // TransactionID
             // 
-            this.ReturnTransactionID.HeaderText = "ReturnTransactionID";
-            this.ReturnTransactionID.Name = "ReturnTransactionID";
-            // 
-            // DateTimeReturned
-            // 
-            this.DateTimeReturned.HeaderText = "DateTimeReturned";
-            this.DateTimeReturned.Name = "DateTimeReturned";
+            this.TransactionID.HeaderText = "TransactionID";
+            this.TransactionID.Name = "TransactionID";
             // 
             // FurnitureID
             // 
@@ -125,13 +125,23 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             // FurnitureDescription
             // 
-            this.FurnitureDescription.HeaderText = "QuantityReturned";
+            this.FurnitureDescription.HeaderText = "FurnitureDescription";
             this.FurnitureDescription.Name = "FurnitureDescription";
             // 
-            // QuantityReturned
+            // TransactionDate
             // 
-            this.QuantityReturned.HeaderText = "QuantityReturned";
-            this.QuantityReturned.Name = "QuantityReturned";
+            this.TransactionDate.HeaderText = "TransactionDate";
+            this.TransactionDate.Name = "TransactionDate";
+            // 
+            // QuantityInOut
+            // 
+            this.QuantityInOut.HeaderText = "QuanitityIn/Out";
+            this.QuantityInOut.Name = "QuantityInOut";
+            // 
+            // _cs6232_g4DataSet1
+            // 
+            this._cs6232_g4DataSet1.DataSetName = "_cs6232_g4DataSet";
+            this._cs6232_g4DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EmployeeRentalsUserControl
             // 
@@ -146,6 +156,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.Size = new System.Drawing.Size(499, 297);
             this.Load += new System.EventHandler(this.EmployeeRentalsUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,12 +169,13 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.TextBox searchCustomerIDTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchCustomerIDLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnTransactionID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateTimeReturned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureStyle;
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureDescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityReturned;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TransactionDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityInOut;
+        private _cs6232_g4DataSet _cs6232_g4DataSet1;
     }
 }

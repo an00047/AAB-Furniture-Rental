@@ -7,20 +7,20 @@ namespace AAB_Furniture_Rentals.DAL
     class RentalsDAL
     {
         /// <summary>
-        /// Gets the rentals by member identifier.
+        /// Gets the rentals by transaction identifier.
         /// </summary>
-        /// <param name="memberID">The member identifier.</param>
+        /// <param name="newTransactionID">The member identifier.</param>
         /// <returns></returns>
-        public List<Rental> GetRentalsByMemberID(int newMemberID)
+        public Rental GetRentalByTransactionID(int newTransactionID)
         {
-            List<Rental> rentals = new List<Rental>();
-            string selectStatement = "SELECT * FROM rentals WHERE memberID = @memberID";
+            Rental rental = null;
+            string selectStatement = "SELECT * FROM rentals WHERE rentalTransactionID = @newTransactionID";
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    selectCommand.Parameters.AddWithValue("@memberID", newMemberID);
+                    selectCommand.Parameters.AddWithValue("@newTransactionID", newTransactionID);
                     using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
                         var rentalTransactionID = reader.GetOrdinal("rentalTransactionID");
@@ -39,7 +39,7 @@ namespace AAB_Furniture_Rentals.DAL
                             var _datetime_due = reader.GetDateTime(datetime_due);
 
 
-                            Rental rental = new Rental(
+                            rental = new Rental(
                                 rentalTransactionID: _rentalTransactionID,
                                 memberID: _memberID,
                                 employeeID: _employeeID,
@@ -48,13 +48,12 @@ namespace AAB_Furniture_Rentals.DAL
 
                                 ); ;
 
-                            rentals.Add(rental);
                         }
                     }
                 }
             }
 
-            return rentals;
+            return rental;
         }
       
 

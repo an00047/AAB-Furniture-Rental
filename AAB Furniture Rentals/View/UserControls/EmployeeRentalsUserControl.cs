@@ -34,30 +34,44 @@ namespace AAB_Furniture_Rentals.UserControls
         private void SearchButton_Click(object sender, EventArgs e)
         {
             int memberID = int.Parse(this.searchCustomerIDTextBox.Text);
-            
+            this.customerTransactionDataGridView.Rows.Clear();
+
             if (this.searchComboBox.SelectedIndex == 0)
             {
-                List<Rental> rentals = RentalController.GetRentalsByMemberID(memberID);
-                this.customerTransactionDataGridView.DataSource = rentals;
-
+                List<IsRented> rentals = IsRentedController.GetIsRentedByMemberID(memberID);
+               
+                int rentalIndex = 0;
+                rentals.ForEach(currentRental =>
+                {
+                    this.customerTransactionDataGridView.Rows.Add();
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["TransactionID"].Value = currentRental.TransactionID;
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["TransactionDate"].Value = RentalController.GetRentalByTransactionID(currentRental.TransactionID).DateTimeCreated.ToString("MM-dd-yy");
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["FurnitureID"].Value = currentRental.FurnitureID;
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["FurnitureStyle"].Value = FurnitureController.GetFurnitureByID(currentRental.FurnitureID).Style;
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["FurnitureCategory"].Value = FurnitureController.GetFurnitureByID(currentRental.FurnitureID).Category;
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["FurnitureDescription"].Value = FurnitureController.GetFurnitureByID(currentRental.FurnitureID).Description;
+                    this.customerTransactionDataGridView.Rows[rentalIndex].Cells["QuantityInOut"].Value = currentRental.QuantityOut;
+                    rentalIndex++;
+                });
+                rentalIndex = 0;
             } else if (this.searchComboBox.SelectedIndex == 1)
             {
                 List<IsReturned> isReturned = IsReturnedController.GetIsReturnedByMemberID(memberID);
-                int index = 0;
+                int returnIndex = 0;
                 isReturned.ForEach(currentIsReturned =>
                 {
+                    this.customerTransactionDataGridView.Rows.Add();
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["TransactionID"].Value = currentIsReturned.ReturnTransactionID;
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["TransactionDate"].Value = ReturnsController.GetReturnByTransactionID(currentIsReturned.ReturnTransactionID).DateTimeCreated.ToString("MM-dd-yy");
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["FurnitureID"].Value = currentIsReturned.IsRentedFurnitureID;
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["FurnitureStyle"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Style;
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["FurnitureCategory"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Category;
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["FurnitureDescription"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Description;
+                    this.customerTransactionDataGridView.Rows[returnIndex].Cells["QuantityInOut"].Value = currentIsReturned.QuantityIn;
                     
-                    this.customerTransactionDataGridView.Rows[index].Cells["ReturnTransactionID"].Value = currentIsReturned.ReturnTransactionID;
-                    this.customerTransactionDataGridView.Rows[index].Cells["DateTimeReturned"].Value = ReturnsController.GetReturnByTransactionID(currentIsReturned.ReturnTransactionID).DateTimeCreated;
-                    this.customerTransactionDataGridView.Rows[index].Cells["FurnitureID"].Value = currentIsReturned.IsRentedFurnitureID;
-                    this.customerTransactionDataGridView.Rows[index].Cells["FurnitureStyle"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Style;
-                    this.customerTransactionDataGridView.Rows[index].Cells["FurnitureCategory"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Category;
-                    this.customerTransactionDataGridView.Rows[index].Cells["FurnitureDescription"].Value = FurnitureController.GetFurnitureByID(currentIsReturned.IsRentedFurnitureID).Description;
-                    this.customerTransactionDataGridView.Rows[index].Cells["QuantityReturned"].Value = currentIsReturned.QuantityIn;
-
-
-
+                    returnIndex++;
                 });
+                returnIndex = 0;
             } else { 
             }
         }
