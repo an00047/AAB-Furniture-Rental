@@ -6,12 +6,14 @@ using AAB_Furniture_Rentals.Model;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+
+   
     /// <summary>
     /// Data access layer that interracts ONLY with the employee MSSQL table
     /// </summary>
     public class EmployeesDAL
     {
-
+        string EncryptionKey = "DatabasesAreAwsome";
         /// <summary>
         /// Gets all Employees.
         /// </summary>
@@ -99,7 +101,8 @@ namespace AAB_Furniture_Rentals.DAL
             {
                 throw new ArgumentException("username and password Cannot be empty");
             }
-
+          
+            password = EncryptionHandler.Encrypt(password, this.EncryptionKey);
             string validateUserAndPassStatement = "SELECT COUNT(*) FROM login_data WHERE username = @USERNAME and password = @PASSWORD";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -376,6 +379,7 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="password"></param>
         public void AddUser(string username, string password) {
 
+            password = EncryptionHandler.Encrypt(password, this.EncryptionKey); 
             string query = "INSERT INTO " +
                   "login_data (username, password ) " +
                   "VALUES(@USERNAME, @PASSWORD ) ";

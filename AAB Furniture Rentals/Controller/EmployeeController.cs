@@ -34,7 +34,8 @@ namespace AAB_Furniture_Rentals.Controller
         /// <returns>True if the login credentials correspond to valid Employee</returns>
         public static bool ValidateEmployeeLogin(string userName, string password)
             {
-                return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
+   
+            return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
             }
         /// <summary>
         /// retrieves an employye object form the DAL based on the username
