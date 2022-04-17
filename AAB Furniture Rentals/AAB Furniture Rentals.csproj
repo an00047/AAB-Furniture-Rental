@@ -61,12 +61,19 @@
     <Compile Include="DAL\MembersDAL.cs" />
     <Compile Include="DAL\RentalsDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
+    <Compile Include="Model\Cart.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\FurnitureStyle.cs" />
     <Compile Include="Model\FurnitureCategory.cs" />
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="View\CartDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CartDialog.Designer.cs">
+      <DependentUpon>CartDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\EmployeeFurnitureUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -149,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\CartDialog.resx">
+      <DependentUpon>CartDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeFurnitureUserControl.resx">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
     </EmbeddedResource>
