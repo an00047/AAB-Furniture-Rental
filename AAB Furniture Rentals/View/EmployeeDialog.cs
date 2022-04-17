@@ -19,6 +19,14 @@ namespace AAB_Furniture_Rentals.View
     public partial class EmployeeDialog : Form
     {
 
+        string[] states = new string[57] {
+                "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE",
+                "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY",
+                "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MP", "MS", "MT",
+                "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK",
+                "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UM", "UT",
+                "VA", "VI", "VT", "WA", "WI", "WV", "WY" };
+
         Employee editEmployee;
         /// <summary>
         /// employee dialog constrictor
@@ -28,9 +36,11 @@ namespace AAB_Furniture_Rentals.View
             InitializeComponent();
             this.CustomerLabel.Text = "New Employee";
             this.EmployeeButton.Text = "Add Employee";
+           
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
-        
+
+            this.StateComboBox.Items.AddRange(states);
         }
 
         /// <summary>
@@ -39,6 +49,8 @@ namespace AAB_Furniture_Rentals.View
         /// <param name="theEmployee"></param>
         public EmployeeDialog(Employee theEmployee)
         {
+
+           
             if (theEmployee == null)
             {
                 throw new Exception("Employee is invalid.");
@@ -51,15 +63,15 @@ namespace AAB_Furniture_Rentals.View
 
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
+            this.StateComboBox.Items.AddRange(states);
 
-            
             this.firstNameTextBox.Text = theEmployee.Fname;
             this.lastNameTextBox.Text = theEmployee.Lname;
             this.genderComboBox.SelectedItem = theEmployee.Sex;
             this.birthdateBox.Value = theEmployee.Dob;
             this.addressTextBox.Text = theEmployee.Address;
             this.cityTextBox.Text = theEmployee.City;
-            this.stateTextBox.Text = theEmployee.State;
+            this.StateComboBox.SelectedItem = theEmployee.State;
            this.zipTextBox.Text = theEmployee.Zip;
            this.phoneTextBox.Text = theEmployee.Phone;
            this.activeCheckBox.Checked = theEmployee.Active;
@@ -80,7 +92,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Enabled = false;
             this.addressTextBox.Enabled = false;
             this.cityTextBox.Enabled = false;
-            this.stateTextBox.Enabled = false;
+            this.StateComboBox.Enabled = false;
             this.zipTextBox.Enabled = false;
             this.phoneTextBox.Enabled = false;
             this.activeCheckBox.Enabled = false;
@@ -97,7 +109,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Enabled = true;
             this.addressTextBox.Enabled = true;
             this.cityTextBox.Enabled = true;
-            this.stateTextBox.Enabled = true;
+            this.StateComboBox.Enabled = true;
             this.zipTextBox.Enabled = true;
             this.phoneTextBox.Enabled = true;
             this.activeCheckBox.Enabled = true;
@@ -135,38 +147,42 @@ namespace AAB_Furniture_Rentals.View
             }
             if (this.phoneTextBox.Text == "")
             {
-                this.phoneError.Text = "Phone cannot be empty.";
+                this.phoneError2.Text = "Phone cannot be empty.";
                 error++;
             }
 
             if (this.cityTextBox.Text == "")
             {
-                MessageBox.Show("City cannot be empty");
-                // this.CityError.Text = "City cannot be empty.";
+                this.cityError.Text = "City cannot be empty.";
+              
                 error++;
             }
-            if (this.stateTextBox.Text == "")
+            if (this.StateComboBox.SelectedItem == null || this.genderComboBox.SelectedIndex < 0)
             {
-                MessageBox.Show("City cannot be empty");
-                // this.stateError.Text = "City cannot be empty.";
+                this.genderError.Text = "State selection is invalid.";
                 error++;
             }
-
+           
             if (this.zipTextBox.Text == "")
             {
-                MessageBox.Show("Zip cannot be empty");
-                // this.zipError.Text = "Zip cannot be empty.";
+                this.zipError.Text = "zip cannot be empty.";
+                
                 error++;
             }
 
 
             if (this.userNameTextBox.Text == "")
             {
-                MessageBox.Show("User Name cannot be empty");
-                //  this.usernameError.Text = "City cannot be empty.";
+                this.userNameError.Text = "userName cannot be empty.";
                 error++;
             }
 
+
+            if (this.passwordTextBox.Text == "" && this.EmployeeButton.Text == "Add Employee")
+            {
+                this.passwordError.Text = "Password cannot be empty.";
+                error++;
+            }
 
 
 
@@ -176,7 +192,7 @@ namespace AAB_Furniture_Rentals.View
                 string[] validNumber = this.phoneTextBox.Text.Split(' ');
                 if (this.phoneTextBox.Text.Length != 12)
                 {
-                    this.phoneError.Text = "Must be in 8 digits long";
+                    this.phoneError2.Text = "Must be in 10 digits long";
                     error++;
                 }
 
@@ -187,7 +203,7 @@ namespace AAB_Furniture_Rentals.View
             }
             catch (Exception)
             {
-                this.phoneError.Text = "Must be in '555 555 5555' format";
+                this.phoneError2.Text = "Must be in '555 555 5555' format";
                 error++;
             }
 
@@ -210,7 +226,7 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Dob = this.birthdateBox.Value;
                     newEmployee.Address = this.addressTextBox.Text;
                     newEmployee.City = this.cityTextBox.Text;
-                    newEmployee.State = this.stateTextBox.Text;
+                    newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
                     newEmployee.Zip = this.zipTextBox.Text;
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
@@ -229,7 +245,7 @@ namespace AAB_Furniture_Rentals.View
 
             }
 
-
+            
         }
 
         private void SaveEmployee()
@@ -245,7 +261,7 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Dob = this.birthdateBox.Value;
                     newEmployee.Address = this.addressTextBox.Text;
                     newEmployee.City = this.cityTextBox.Text;
-                    newEmployee.State = this.stateTextBox.Text;
+                    newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
                     newEmployee.Zip = this.zipTextBox.Text;
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
@@ -262,7 +278,7 @@ namespace AAB_Furniture_Rentals.View
 
                     MessageBox.Show(ex.Message, "Error!");
                 }
-         
+            
 
         }
 
@@ -278,14 +294,18 @@ namespace AAB_Furniture_Rentals.View
                 
                 if (this.EmployeeButton.Text == "Add Employee")
                 {
-                    this.AddUser();
-                    this.AddEmployee();
+                    if (ValidateForm())
+                    {
+                        this.AddUser();
+                        this.AddEmployee();
+                    }
                 }
                 else if (this.EmployeeButton.Text == "Edit Employee") {
                     this.SetEditable();
                     this.passwordTextBox.Enabled = false;
                     this.userNameTextBox.Enabled = false;
                     this.EmployeeButton.Text = "Save Employee";
+
                 }
                 else if (this.EmployeeButton.Text == "Save Employee")
                 {

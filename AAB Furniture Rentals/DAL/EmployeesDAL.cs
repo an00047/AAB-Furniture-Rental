@@ -338,7 +338,7 @@ namespace AAB_Furniture_Rentals.DAL
         public void AddEmployee(Employee newEmployee) {
             string query = "INSERT INTO " +
                 "Employee (fName, lName, sex, dob, address, phone, active, city, state, admin, zip, login_data_username ) " +
-                "VALUES(@FIRST_NAME, @LAST_NAME, @GENDER, @DOB, @ADDRESS, @PHONE_NUMBER, @ACTIVE, @CITY, @STATE, @ADMIN, @ZIP,@USERNAME )";
+                "VALUES(@FIRST_NAME, @LAST_NAME, @GENDER, @DOB, @ADDRESS, @PHONE_NUMBER, @ACTIVE, @CITY, @STATE, @ADMIN, @ZIP,@USERNAME ) ";
 
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -378,7 +378,8 @@ namespace AAB_Furniture_Rentals.DAL
 
             string query = "INSERT INTO " +
                   "login_data (username, password ) " +
-                  "VALUES(@USERNAME, @PASSWORD )";
+                  "VALUES(@USERNAME, @PASSWORD ) ";
+   
 
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
