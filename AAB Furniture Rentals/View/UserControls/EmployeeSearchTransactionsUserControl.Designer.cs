@@ -53,21 +53,21 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchComboBox.FormattingEnabled = true;
             this.searchComboBox.Location = new System.Drawing.Point(239, 57);
             this.searchComboBox.Name = "searchComboBox";
-            this.searchComboBox.Size = new System.Drawing.Size(51, 21);
+            this.searchComboBox.Size = new System.Drawing.Size(65, 21);
             this.searchComboBox.TabIndex = 1;
             // 
             // searchCustomerIDTextBox
             // 
             this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(171, 57);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(165, 57);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
-            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(62, 20);
+            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(68, 20);
             this.searchCustomerIDTextBox.TabIndex = 2;
             // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchButton.Location = new System.Drawing.Point(296, 55);
+            this.searchButton.Location = new System.Drawing.Point(310, 55);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(60, 24);
             this.searchButton.TabIndex = 3;
@@ -94,6 +94,8 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.customerTransactionDataGridView.AllowUserToAddRows = false;
             this.customerTransactionDataGridView.AllowUserToDeleteRows = false;
+            this.customerTransactionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.customerTransactionDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.customerTransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerTransactionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TransactionID,
@@ -115,48 +117,56 @@ namespace AAB_Furniture_Rentals.UserControls
             this.TransactionID.HeaderText = "TransactionID";
             this.TransactionID.Name = "TransactionID";
             this.TransactionID.ReadOnly = true;
+            this.TransactionID.Width = 99;
             // 
             // FurnitureID
             // 
             this.FurnitureID.HeaderText = "FurnitureID";
             this.FurnitureID.Name = "FurnitureID";
             this.FurnitureID.ReadOnly = true;
+            this.FurnitureID.Width = 84;
             // 
             // FurnitureStyle
             // 
             this.FurnitureStyle.HeaderText = "FurnitureStyle";
             this.FurnitureStyle.Name = "FurnitureStyle";
             this.FurnitureStyle.ReadOnly = true;
+            this.FurnitureStyle.Width = 96;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 73;
             // 
             // FurnitureCategory
             // 
             this.FurnitureCategory.HeaderText = "FurnitureCategory";
             this.FurnitureCategory.Name = "FurnitureCategory";
             this.FurnitureCategory.ReadOnly = true;
+            this.FurnitureCategory.Width = 115;
             // 
             // FurnitureDescription
             // 
             this.FurnitureDescription.HeaderText = "FurnitureDescription";
             this.FurnitureDescription.Name = "FurnitureDescription";
             this.FurnitureDescription.ReadOnly = true;
+            this.FurnitureDescription.Width = 126;
             // 
             // TransactionDate
             // 
             this.TransactionDate.HeaderText = "TransactionDate";
             this.TransactionDate.Name = "TransactionDate";
             this.TransactionDate.ReadOnly = true;
+            this.TransactionDate.Width = 111;
             // 
             // QuantityInOut
             // 
             this.QuantityInOut.HeaderText = "QuantityIn/Out";
             this.QuantityInOut.Name = "QuantityInOut";
             this.QuantityInOut.ReadOnly = true;
+            this.QuantityInOut.Width = 102;
             // 
             // EmployeeRentalsUserControl
             // 

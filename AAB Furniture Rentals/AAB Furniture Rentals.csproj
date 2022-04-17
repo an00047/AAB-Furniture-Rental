@@ -75,11 +75,11 @@
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
     <Compile Include="Model\Returns.cs" />
-    <Compile Include="View\UserControls\EmployeeRentalsUserControl.cs">
+    <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\UserControls\EmployeeRentalsUserControl.Designer.cs">
-      <DependentUpon>EmployeeRentalsUserControl.cs</DependentUpon>
+    <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.Designer.cs">
+      <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -145,8 +145,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\UserControls\EmployeeRentalsUserControl.resx">
-      <DependentUpon>EmployeeRentalsUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="View\UserControls\EmployeeSearchTransactionsUserControl.resx">
+      <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
