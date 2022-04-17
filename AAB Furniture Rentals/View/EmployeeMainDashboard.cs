@@ -3,14 +3,20 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
+    /// <summary>
+    /// The main host page for the employyee user interface
+    /// </summary>
     public partial class EmployeeMainDashboard : Form
     {
         bool logOut;
         LoginCredentials currentLogin;
+        /// <summary>
+        /// COnstructor method for the employee dashboard
+        /// </summary>
+        /// <param name="newLoginCredentials"></param>
         public EmployeeMainDashboard(LoginCredentials newLoginCredentials)
         {
             //Get Name from Database after logging in.
-
             InitializeComponent();
             this.currentLogin = newLoginCredentials;
             this.nameLabel.Text = currentLogin.CurrentEmployee.Fname + " " + currentLogin.CurrentEmployee.Lname + " logged in as: " + currentLogin.CurrentEmployee.Username;
@@ -23,8 +29,6 @@ namespace AAB_Furniture_Rentals.View
             logOut = true;
             this.currentLogin.LogOut();
             this.Close();
-
-
         }
 
         private void EmployeeMainDashboard_FormClose(object sender, FormClosedEventArgs e)
@@ -35,6 +39,5 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-     
     }
 }

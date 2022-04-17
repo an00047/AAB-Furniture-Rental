@@ -7,11 +7,16 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.UserControls
 {
+    /// <summary>
+    /// User control enabling an employee to look up customers
+    /// </summary>
     public partial class EmployeeCustomersTabUserControl : UserControl
     {
      
         private Member currentCustomer;
-
+        /// <summary>
+        /// constructor method for the Customers user control
+        /// </summary>
         public EmployeeCustomersTabUserControl()
         {
             InitializeComponent();

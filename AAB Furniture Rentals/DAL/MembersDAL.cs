@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// handler for interracting with the Members table in the DB
+    /// </summary>
     class MembersDAL
     {
         /// <summary>

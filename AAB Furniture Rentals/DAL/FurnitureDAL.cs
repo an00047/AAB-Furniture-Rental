@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AAB_Furniture_Rentals.Model;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// DB handler for the funirute table
+    /// </summary>
     public class FurnitureDAL
     {
 

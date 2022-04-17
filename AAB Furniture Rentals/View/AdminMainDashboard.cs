@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
+    /// <summary>
+    /// the Main admin dashboard that holds various user controls
+    /// </summary>
     public partial class AdminMainDashboard : Form
 
-       
     {
         bool logOut;
         LoginCredentials currentLogin;
+        /// <summary>
+        /// constructor method for the main admin dashboard
+        /// </summary>
+        /// <param name="newLoginCredentials"></param>
         public AdminMainDashboard(LoginCredentials newLoginCredentials)
         {
             //Get Name from Database after logging in.

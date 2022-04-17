@@ -12,6 +12,9 @@ namespace AAB_Furniture_Rentals.UserControls
     /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class EmployeeFurnitureUserControl : UserControl
     {
+        /// <summary>
+        /// Constrouctor method for the employeeUser furniture control
+        /// </summary>
         public EmployeeFurnitureUserControl()
         {
             InitializeComponent();
