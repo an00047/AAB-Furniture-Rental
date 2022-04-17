@@ -43,22 +43,24 @@ namespace AAB_Furniture_Rentals.View
             
                 } else {
                     bool isEmployee = Controller.EmployeeController.ValidateEmployeeLogin(this.UserNameTextBox.Text, this.PasswordTextBox.Text);
-                       
+                    this.CurrentEmployee = Controller.EmployeeController.GetEmployeeByUserName(this.UserNameTextBox.Text);
                     switch (this.loginSelectorInstance.employeeSelection) {
                             case "Employee":
-                                if (isEmployee)
-                                {
+                                if (isEmployee)    {
+                                    if (this.CurrentEmployee.Active) {
+                                        //Get Employee from database 
+                                       
 
-                                //Get Employee from database 
-                                this.CurrentEmployee = Controller.EmployeeController.GetEmployeeByUserName(this.UserNameTextBox.Text);
-
-                                    View.EmployeeMainDashboard adminDashboard = new View.EmployeeMainDashboard(this);
-                                    // set username on agmin dashboard. 
-                                    adminDashboard.Show();
-                                    this.Hide();
-                                }
-                                else
-                                {
+                                        View.EmployeeMainDashboard employeeDashboard = new View.EmployeeMainDashboard(this);
+                                        // set username on agmin dashboard. 
+                                        employeeDashboard.Show();
+                                        this.Hide();
+                                    } else {
+                                    // employee IS admin, but not active
+                                    MessageBox.Show("This Employee is not active", "Employee NOT an Active", MessageBoxButtons.OK);
+                                    }
+                              
+                                }   else {
                                     // After Failed Employee Validation, do something...
                                     MessageBox.Show("Username and/or Password incorrect", "Bad Login Credentials", MessageBoxButtons.OK);
                                 }
@@ -66,9 +68,8 @@ namespace AAB_Furniture_Rentals.View
                             case "Admin":
                                 if (isEmployee )
                                 {
-                               this.CurrentEmployee = Controller.EmployeeController.GetEmployeeByUserName(this.UserNameTextBox.Text);
-                                //ValidateEmployeeIsAdmin
-                                    if (this.CurrentEmployee.Admin) {
+                                 //ValidateEmployeeIsAdmin
+                                    if (this.CurrentEmployee.Admin && this.CurrentEmployee.Active) {
 
                                         //Get Admin name from database after login.
                                         View.AdminMainDashboard adminDashboard = new View.AdminMainDashboard(this);
@@ -76,6 +77,9 @@ namespace AAB_Furniture_Rentals.View
                                         adminDashboard.Show();
                                         this.Hide();
                                 
+                                    } else if(this.CurrentEmployee.Admin && !this.CurrentEmployee.Active) {
+                                         // employee IS admin, but not active
+                                    MessageBox.Show("This Employee is not active", "Employee NOT an Active", MessageBoxButtons.OK);
                                     } else {
                                         // employee IS NOT an Admin
                                         MessageBox.Show("This Employee does nto have Admin Provlidges", "Employee NOT an Admin", MessageBoxButtons.OK);
