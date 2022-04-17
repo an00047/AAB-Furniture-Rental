@@ -8,7 +8,7 @@ namespace AAB_Furniture_Rentals.Model
 {
    public class FurnitureCategory
     {
-       string Category { get; set; }
+       public string Category { get; set; }
 
 
         public FurnitureCategory(string newCategory) {

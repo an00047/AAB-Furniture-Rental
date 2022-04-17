@@ -29,6 +29,27 @@ namespace AAB_Furniture_Rentals.Controller
             return localFurnitureDAL.GetAllFurniture();
         }
 
+        /// <summary>
+        /// Gets the furniture by parameter.
+        /// </summary>
+        /// <param name="style">The style.</param>
+        /// <param name="category">The category.</param>
+        /// <param name="id">The identifier.</param>
+        /// <returns></returns>
+        public static List<Furniture> GetFurnitureByParameter(string style, string category, int? id)
+        {
+            if (style == null || category == null)
+            {
+                throw new ArgumentException("Style and category cannot be null");
+            }
+            if (id < 0)
+            {
+                throw new ArgumentException("ID cannot be negative");
+            }
+            return localFurnitureDAL.GetFurnitureByParameter(style, category, id);
+
+        }
+
         public static Furniture GetFurnitureByID(int searchFurnitureID)
         {
             if (searchFurnitureID < 0)

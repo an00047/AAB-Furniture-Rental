@@ -11,15 +11,15 @@ namespace AAB_Furniture_Rentals.DAL
     class FurnitureStyleDAL
     {
         /// <summary>
-        /// Gets all Employees.
+        /// Gets all Styles.
         /// </summary>
-        /// <returns>A list of all Employees </returns>
+        /// <returns>A list of all Styles </returns>
         public List<FurnitureStyle> GetAllStyles()
         {
 
             List<FurnitureStyle> FurnitureStylesList = new List<FurnitureStyle>();
 
-            string selectStatement = "SELECT * FROM style_categories";
+            string selectStatement = "SELECT * FROM furniture_style";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
@@ -39,7 +39,7 @@ namespace AAB_Furniture_Rentals.DAL
 
 
 
-                            FurnitureStyle Style = new FurnitureStyle(_style.Trim()); ;
+                            FurnitureStyle Style = new FurnitureStyle(_style.Trim());
 
                             FurnitureStylesList.Add(Style);
                         }

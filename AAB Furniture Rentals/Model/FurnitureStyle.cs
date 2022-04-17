@@ -8,10 +8,11 @@ namespace AAB_Furniture_Rentals.Model
 {
    public class FurnitureStyle
     {
-       string Style { get; set; }
+       public string Style { get; set; }
 
         public FurnitureStyle(string newStyle) {
             this.Style = newStyle;
         }
+
     }
 }

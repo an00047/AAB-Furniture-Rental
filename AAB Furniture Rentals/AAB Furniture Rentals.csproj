@@ -74,6 +74,12 @@
     <Compile Include="Model\IsReturned.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="View\UserControls\EmployeeFurnitureUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\EmployeeFurnitureUserControl.Designer.cs">
+      <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Returns.cs" />
     <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.cs">
       <SubType>UserControl</SubType>
@@ -95,6 +101,12 @@
     <Compile Include="View\CustomerDialog.Designer.cs">
       <DependentUpon>CustomerDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\EmployeeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EmployeeDialog.Designer.cs">
+      <DependentUpon>EmployeeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\EmployeeMainDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\UserControls\AdminSearchUpdateAddEmployee.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\AdminSearchUpdateAddEmployee.Designer.cs">
+      <DependentUpon>AdminSearchUpdateAddEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,11 +166,17 @@
     <EmbeddedResource Include="View\UserControls\EmployeeSearchTransactionsUserControl.resx">
       <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\EmployeeFurnitureUserControl.resx">
+      <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CustomerDialog.resx">
       <DependentUpon>CustomerDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\EmployeeDialog.resx">
+      <DependentUpon>EmployeeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EmployeeMainDashboard.resx">
       <DependentUpon>EmployeeMainDashboard.cs</DependentUpon>
@@ -162,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginSelector.resx">
       <DependentUpon>LoginSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\AdminSearchUpdateAddEmployee.resx">
+      <DependentUpon>AdminSearchUpdateAddEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeCustomersTabUserControl.resx">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
