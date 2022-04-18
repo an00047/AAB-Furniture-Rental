@@ -10,6 +10,11 @@ namespace AAB_Furniture_Rentals.DAL
     /// </summary>
     public class IsRentedDAL
     {
+        /// <summary>
+        /// Returns the furnitureID and quantity from a specific transaction
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
 
         public List<Furniture> GetAllFurnitureByTransactionID(int customerID)
         {

@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.UserControls
 {
+    /// <summary>
+    /// This class is a UserControl for processing the Return functionality
+    /// </summary>
     public partial class EmployeeReturnTabUserControl : UserControl
     {
 
@@ -13,6 +16,11 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private double Refund;
         private List<Furniture> AllFurniture;
         private List<Rental> AllRentals;
+        private List<Furniture> SelectedItems;
+        /// <summary>
+        /// Initializes the component. Disables the processReturnButton (you cannot process a return without having selected items to return first)
+        /// Enables to getTransactionsButton that will display all transactions from a specific Customer.
+        /// </summary>
         public EmployeeReturnTabUserControl()
         {
             InitializeComponent();
@@ -27,7 +35,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void ProcessReturnButton_Click(object sender, EventArgs e)
         {
-
+            //Process the selected items for the return...
         }
 
         private void calculcateFees(Furniture currentFurniture)
@@ -106,25 +114,30 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.feesTextBox.Clear();
             this.refundTextBox.Clear();
             this.getTransactionsButton.Enabled = true;
+            this.processReturnButton.Enabled = false;
 
         }
 
         private void ItemsReturned_Selected(object sender, EventArgs e)
         {
             try
-            {
-                var selected = new List<Furniture>();
+            {   
+                SelectedItems = new List<Furniture>();
        
                 foreach (var index in itemsReturnedCheckedListBox.SelectedItems)
                 {
                     Furniture tempFurniture = (Furniture)index;
                     this.calculcateFees(tempFurniture);
-                    selected.Add(tempFurniture);
+                    SelectedItems.Add(tempFurniture);
 
                 }
                 this.feesTextBox.Text = this.Fees.ToString("#.##");
                 this.refundTextBox.Text = this.Refund.ToString("#.##");
-
+                
+                if (SelectedItems.Count > 0)
+                {
+                    this.processReturnButton.Enabled = true;
+                }
 
             }
             catch (Exception)

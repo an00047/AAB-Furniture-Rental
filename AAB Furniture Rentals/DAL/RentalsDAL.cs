@@ -12,6 +12,12 @@ namespace AAB_Furniture_Rentals.DAL
     /// </summary>
     class RentalsDAL
     {
+        /// <summary>
+        /// Returns the transactionID, the time the transaction took place and the dueDate for the transaction
+        /// from a specific Transaction based on customer ID
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
         public List<Rental> GetAllRentalsByCustomerID(int customerID)
         {
 
