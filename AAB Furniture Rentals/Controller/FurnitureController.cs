@@ -50,7 +50,13 @@ namespace AAB_Furniture_Rentals.Controller
 
         }
 
-  
+        public static int GetFurnitureByID(int furnitureID) {
+            if (furnitureID < 0)
+            {
+                throw new ArgumentException("furnitureID cannot be negative");
+            }
+            return localFurnitureDAL.GetFurnitureByID(furnitureID);
+        }
 
     }
 }

@@ -41,6 +41,11 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         /// <param name="furnitureID"></param>
         public bool AddFurnitureToCart(Furniture furnitureAdd ) {
+
+            //check DB to see if Qty is still available
+            //
+
+
             return true;
         }
 
