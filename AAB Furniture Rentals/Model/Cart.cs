@@ -29,9 +29,14 @@ namespace AAB_Furniture_Rentals.Model
 
 
         //TODO: needs MemberID, EmployeeId, dueDate <-- at checkout. 
+       
+            
         public List<Furniture> FurnitureList { get; }
+        public int AssistingEmployeeID {get; set;}
+        public int MemberID { get; set; }
         private Rental RentalTransaction;
         private List<IsRentedModel> isRentedList;
+    
         public Cart() {
             this.RentalTransaction = new Rental();
             this.FurnitureList = new List<Furniture>();
@@ -41,7 +46,7 @@ namespace AAB_Furniture_Rentals.Model
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
         /// <param name="furnitureID"></param>
-        public bool AddFurnitureToCart(Furniture furnitureToAdd ) {
+        public void AddFurnitureToCart(Furniture furnitureToAdd ) {
             // at this time, each click of the button is one item. 
             int quantityToRent = 1;
             // get most recent information on this furniture item
@@ -63,10 +68,8 @@ namespace AAB_Furniture_Rentals.Model
             newIsRentedAdapter.FurnitureID = furnitureToAdd.FurnitureID;
             this.isRentedList.Add(newIsRentedAdapter);
 
-            //then dd it to the isRented property of this class. 
-
-
-            return true;
+            
+          
         }
 
         public void AbandonCart(){

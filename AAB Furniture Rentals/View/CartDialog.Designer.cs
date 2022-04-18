@@ -37,6 +37,8 @@ namespace AAB_Furniture_Rentals.View
             this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
             this.MemberTextBox = new System.Windows.Forms.TextBox();
             this.MemberLabel = new System.Windows.Forms.Label();
+            this.EmployeeTextBox = new System.Windows.Forms.TextBox();
+            this.Employeelabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,7 +97,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // MemberTextBox
             // 
-            this.MemberTextBox.Location = new System.Drawing.Point(132, 54);
+            this.MemberTextBox.Location = new System.Drawing.Point(34, 54);
             this.MemberTextBox.Name = "MemberTextBox";
             this.MemberTextBox.Size = new System.Drawing.Size(93, 20);
             this.MemberTextBox.TabIndex = 14;
@@ -103,23 +105,41 @@ namespace AAB_Furniture_Rentals.View
             // MemberLabel
             // 
             this.MemberLabel.AutoSize = true;
-            this.MemberLabel.Location = new System.Drawing.Point(43, 57);
+            this.MemberLabel.Location = new System.Drawing.Point(33, 30);
             this.MemberLabel.Name = "MemberLabel";
             this.MemberLabel.Size = new System.Drawing.Size(62, 13);
             this.MemberLabel.TabIndex = 13;
             this.MemberLabel.Text = "Member ID:";
             // 
-            // Cart
+            // EmployeeTextBox
+            // 
+            this.EmployeeTextBox.Location = new System.Drawing.Point(184, 55);
+            this.EmployeeTextBox.Name = "EmployeeTextBox";
+            this.EmployeeTextBox.Size = new System.Drawing.Size(93, 20);
+            this.EmployeeTextBox.TabIndex = 18;
+            // 
+            // Employeelabel
+            // 
+            this.Employeelabel.AutoSize = true;
+            this.Employeelabel.Location = new System.Drawing.Point(185, 29);
+            this.Employeelabel.Name = "Employeelabel";
+            this.Employeelabel.Size = new System.Drawing.Size(70, 13);
+            this.Employeelabel.TabIndex = 19;
+            this.Employeelabel.Text = "Employee ID:";
+            // 
+            // CartDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Employeelabel);
+            this.Controls.Add(this.EmployeeTextBox);
             this.Controls.Add(this.AbandonCartButton);
             this.Controls.Add(this.CheckoutButton);
             this.Controls.Add(this.FurnitureDataGridView);
             this.Controls.Add(this.MemberTextBox);
             this.Controls.Add(this.MemberLabel);
-            this.Name = "Cart";
+            this.Name = "CartDialog";
             this.Text = "Cart";
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -134,5 +154,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.DataGridView FurnitureDataGridView;
         private System.Windows.Forms.TextBox MemberTextBox;
         private System.Windows.Forms.Label MemberLabel;
+        private System.Windows.Forms.TextBox EmployeeTextBox;
+        private System.Windows.Forms.Label Employeelabel;
     }
 }
