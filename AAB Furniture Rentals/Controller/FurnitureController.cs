@@ -50,7 +50,7 @@ namespace AAB_Furniture_Rentals.Controller
 
         }
 
-        public static int GetFurnitureByID(int furnitureID) {
+        public static Furniture GetFurnitureByID(int furnitureID) {
             if (furnitureID < 0)
             {
                 throw new ArgumentException("furnitureID cannot be negative");

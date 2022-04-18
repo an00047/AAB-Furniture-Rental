@@ -158,7 +158,7 @@ namespace AAB_Furniture_Rentals.DAL
 
         public Furniture GetFurnitureByID(int id) {
 
-            Furniture currentFurniture;
+            Furniture currentFurniture = null;
 
             string selectStatement = "SELECT * FROM furniture WHERE furnitureID = @id";
 

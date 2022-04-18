@@ -1,5 +1,7 @@
 ﻿
 
+using AAB_Furniture_Rentals.Controller;
+using System;
 using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Model
@@ -40,10 +42,23 @@ namespace AAB_Furniture_Rentals.Model
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
         /// <param name="furnitureID"></param>
-        public bool AddFurnitureToCart(Furniture furnitureAdd ) {
+        public bool AddFurnitureToCart(Furniture furnitureToAdd ) {
+            int quantityToRent = furnitureToAdd.QuantityOnHand;
+            // get most recent information on this furniture item
+            // it is assumed that if the prices (or anyhting) changes except quantity, the memebr has their "deal" locked in. 
+            Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
 
-            //check DB to see if Qty is still available
-            //
+            //check to see if Qty is still available
+            if (InventoryItem.QuantityOnHand < quantityToRent) {
+                throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
+            }
+
+            
+            // We have ensured there is enough inventory, subtract that desired quantity form the inventory
+
+            //then build the IsRentedAdapterModel
+
+            //then dd it to the isRented property of this class. 
 
 
             return true;
@@ -53,5 +68,7 @@ namespace AAB_Furniture_Rentals.Model
         
         }
 
+
+        
     }
 }
