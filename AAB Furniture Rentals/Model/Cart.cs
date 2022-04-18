@@ -53,8 +53,9 @@ namespace AAB_Furniture_Rentals.Model
                 throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
 
-            
             // We have ensured there is enough inventory, subtract that desired quantity form the inventory
+            InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
+            FurnitureController.UpdateFurnitureItem(InventoryItem);
 
             //then build the IsRentedAdapterModel
 

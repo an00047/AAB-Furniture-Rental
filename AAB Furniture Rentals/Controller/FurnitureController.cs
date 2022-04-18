@@ -49,7 +49,11 @@ namespace AAB_Furniture_Rentals.Controller
             return localFurnitureDAL.GetFurnitureByParameter(style, category, id);
 
         }
-
+        /// <summary>
+        /// gets the furniture item by id
+        /// </summary>
+        /// <param name="furnitureID"></param>
+        /// <returns></returns>
         public static Furniture GetFurnitureByID(int furnitureID) {
             if (furnitureID < 0)
             {
@@ -57,6 +61,16 @@ namespace AAB_Furniture_Rentals.Controller
             }
             return localFurnitureDAL.GetFurnitureByID(furnitureID);
         }
+
+        public static void UpdateFurnitureItem(Furniture updatedFurniture) {
+            if (updatedFurniture == null)
+            {
+                throw new ArgumentException("furniture to update cannot be null");
+            }
+            return localFurnitureDAL.UpdateFurnitureItem(updatedFurniture);
+        }
+
+
 
     }
 }

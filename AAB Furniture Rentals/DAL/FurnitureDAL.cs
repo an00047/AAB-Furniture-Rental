@@ -156,6 +156,11 @@ namespace AAB_Furniture_Rentals.DAL
             return FurnitureList;
         }
 
+        /// <summary>
+        /// gets furniture by ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Furniture GetFurnitureByID(int id) {
 
             Furniture currentFurniture = null;
@@ -212,6 +217,50 @@ namespace AAB_Furniture_Rentals.DAL
             }
 
             return currentFurniture;
+
+
+        }
+
+        /// <summary>
+        /// UPDATE AN ITEM in the furniture inventory (furniture table)
+        /// </summary>
+        /// <param name="updatedFurniture"></param>
+        public void UpdateFurnitureItem(Furniture updatedFurniture) {
+
+            string query = "UPDATE furniture SET " +
+           "style_type=@STYLE, " +
+           "category_type=@CATEGORY, " +
+           "description=@DESCRIPTION, " +
+           "daily_rental_rate=@DAILY_RENTAL_RATE, " +
+           "quantity=@QUANTITY,  " +
+           "fine_rate=@FINE_ACTIVE " +
+           "WHERE furnitureID = @ID ";
+         
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+
+                {
+                    command.Parameters.AddWithValue("@ID", updatedFurniture.FurnitureID);
+                    command.Parameters.AddWithValue("@STYLE", updatedFurniture.Style);
+                    command.Parameters.AddWithValue("@CATEGORY", updatedFurniture.Category );
+                    command.Parameters.AddWithValue("@DESCRIPTION", updatedFurniture.Description);
+                    command.Parameters.AddWithValue("@DAILY_RENTAL_RATE", updatedFurniture.DailyRentalRate);
+                    command.Parameters.AddWithValue("@QUANTITY", updatedFurniture.QuantityOnHand);
+                    command.Parameters.AddWithValue("@FINE_ACTIVE", updatedFurniture.FineRate);
+
+
+
+                    command.ExecuteScalar();
+
+
+                }
+            }
+
+
+
 
 
         }
