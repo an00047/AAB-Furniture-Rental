@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// isRented handler
+    /// </summary>
     class IsRentedDAL
     {
         /// <summary>

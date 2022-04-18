@@ -55,6 +55,7 @@
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
+    <Compile Include="DAL\EncryptionHandler.cs" />
     <Compile Include="DAL\FurnitureDAL.cs" />
     <Compile Include="DAL\EmployeesDAL.cs" />
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
@@ -195,8 +196,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />
-    <None Include="DB\cs6232-g4.bak" />
-    <None Include="DB\cs6232-g4_v1.bak" />
+    <None Include="DB\cs6232-g4_v3.bak" />
     <None Include="DB\KERNAN_UPDATED_DATABASE_MODEL_V6.mwb" />
     <None Include="obj\Debug\AAB Furniture Rentals.csproj.AssemblyReference.cache" />
     <None Include="obj\Debug\AAB Furniture Rentals.csproj.CoreCompileInputs.cache" />
@@ -230,7 +230,6 @@
   <ItemGroup>
     <Content Include="bin\Debug\AAB Furniture Rentals.exe" />
     <Content Include="bin\Debug\AAB Furniture Rentals.pdb" />
-    <Content Include="DB\DB_INIT_V6.sql" />
     <Content Include="obj\Debug\AAB Furniture Rentals.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AAB Furniture Rentals.exe" />
     <Content Include="obj\Debug\AAB Furniture Rentals.pdb" />

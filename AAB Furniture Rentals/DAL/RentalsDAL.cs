@@ -1,8 +1,12 @@
 ﻿using AAB_Furniture_Rentals.Model;
 using System.Data.SqlClient;
 
+
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// rentals Table handler
+    /// </summary>
     class RentalsDAL
     {
         /// <summary>

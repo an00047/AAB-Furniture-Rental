@@ -4,7 +4,7 @@ using System;
 namespace AAB_Furniture_Rentals.Model
 {
     /// <summary>
-    /// Defines a rental object 
+    /// Rental Object model Class
     /// </summary>
     public class Rental
     {

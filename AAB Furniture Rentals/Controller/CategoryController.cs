@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
 
@@ -22,7 +17,10 @@ namespace AAB_Furniture_Rentals.Controller
         {
             localCategoriesDAL = new FurnitureCategoriesDAL();
         }
-
+        /// <summary>
+        /// gets all categories from the associated DAL class
+        /// </summary>
+        /// <returns></returns>
         public static List<FurnitureCategory> GetAllCategories()
         {
             var test = localCategoriesDAL.GetAllCategories();
