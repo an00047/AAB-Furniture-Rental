@@ -65,6 +65,7 @@ namespace AAB_Furniture_Rentals.Model
             this.FineRate = fineRate;
     }
 
+        public Furniture() { }
 
 }
 }
