@@ -15,10 +15,7 @@ namespace AAB_Furniture_Rentals.UserControls
     {
         Cart currentCart;
 
-        public EmployeeMainDashboard OwnerForm
-        {
-            get { return (EmployeeMainDashboard)this.Parent; }
-        }
+    
         /// <summary>
         /// Constrouctor method for the employeeUser furniture control
         /// </summary>
@@ -57,6 +54,13 @@ namespace AAB_Furniture_Rentals.UserControls
             this.idComboBox.SelectedItem = null;
             this.idComboBox.SelectedText = "-Furniture ID-";
 
+
+            furnitures = FurnitureController.GetFurnitureByParameter(
+                   "",
+                   "",
+                   null);
+
+            this.searchDataGridView.DataSource = furnitures;
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -138,24 +142,21 @@ namespace AAB_Furniture_Rentals.UserControls
                     // make a new cart object
                     this.currentCart = new Cart();
                 }
-
+                if ((Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem == null) {
+                    throw new Exception("You must search for, and then select a piece of furniture on the list");
+                }
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
-
-                if (selectedFurniture == null)
-                {
-
-                }
-                else
-                {
-                    this.currentCart.AddFurnitureToCart(selectedFurniture);
-                }
+                this.currentCart.AddFurnitureToCart(selectedFurniture);
+            
+            }catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Error!");
             }
 
         }
 
         private void ViewCartButton_Click(object sender, EventArgs e)
         {
-            this.currentCart = new Cart();
+            
             if (this.currentCart != null) {
 
                 Form CartDialog = new CartDialog(this.currentCart);
