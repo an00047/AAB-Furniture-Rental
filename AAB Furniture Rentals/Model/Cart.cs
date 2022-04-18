@@ -27,19 +27,26 @@ namespace AAB_Furniture_Rentals.Model
 
 
         //TODO: needs MemberID, EmployeeId, dueDate <-- at checkout. 
-       public List<Furniture> FurnitureList { get; }
-       private Rental RentalTransaction;
+        public List<Furniture> FurnitureList { get; }
+        private Rental RentalTransaction;
 
 
         public Cart() {
             this.RentalTransaction = new Rental();
             this.FurnitureList = new List<Furniture>();
         }
-
-        public void AddFurnitureToCart(int furnitureID) { 
-        
+        /// <summary>
+        /// retreives Furniture information from the DB based on Furniture ID
+        /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
+        /// </summary>
+        /// <param name="furnitureID"></param>
+        public bool AddFurnitureToCart(Furniture furnitureAdd ) {
+            return true;
         }
 
+        public void AbandonCart(){
+        
+        }
 
     }
 }

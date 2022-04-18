@@ -1,5 +1,6 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
+using AAB_Furniture_Rentals.View;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -12,13 +13,21 @@ namespace AAB_Furniture_Rentals.UserControls
     /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class EmployeeFurnitureUserControl : UserControl
     {
+        Cart currentCart;
+
+        public EmployeeMainDashboard OwnerForm
+        {
+            get { return (EmployeeMainDashboard)this.Parent; }
+        }
         /// <summary>
         /// Constrouctor method for the employeeUser furniture control
         /// </summary>
         public EmployeeFurnitureUserControl()
         {
             InitializeComponent();
+            this.currentCart = null;
         }
+
 
         private void EmployeeFurnitureUserControl_Load(object sender, EventArgs e)
         {
@@ -119,10 +128,54 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.DataSource = null;
         }
 
-        private void ButtaddToCartButton_Click(object sender, EventArgs e)
+        private void AddToCartButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("No cart yet! Come back soon!",
-                   "Cart", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            try
+            {
+                if (this.currentCart == null)
+                {
+                    // make a new cart object
+                    this.currentCart = new Cart();
+                }
+
+                Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
+
+                if (selectedFurniture == null)
+                {
+
+                }
+                else
+                {
+                    this.currentCart.AddFurnitureToCart(selectedFurniture);
+                }
+            }
+
+        }
+
+        private void ViewCartButton_Click(object sender, EventArgs e)
+        {
+            this.currentCart = new Cart();
+            if (this.currentCart != null) {
+
+                Form CartDialog = new CartDialog(this.currentCart);
+                CartDialog.ShowDialog();
+
+
+                this.RefreshSearchComboBoxes();
+                this.searchDataGridView.DataSource = null;
+            } else {
+                //you need to add something to the cart
+                MessageBox.Show("There is nothing in your Cart!");
+            }
+        
+        }
+
+        private void AbandonCartButton_Click(object sender, EventArgs e)
+        {
+            this.currentCart = null;
+            this.RefreshSearchComboBoxes();
+            this.searchDataGridView.DataSource = null;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AAB_Furniture_Rentals.Model;
+using System;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -8,6 +9,8 @@ namespace AAB_Furniture_Rentals.View
     /// </summary>
     public partial class EmployeeMainDashboard : Form
     {
+
+      
         bool logOut;
         LoginCredentials currentLogin;
         /// <summary>
@@ -18,15 +21,18 @@ namespace AAB_Furniture_Rentals.View
         {
             //Get Name from Database after logging in.
             InitializeComponent();
+         
             this.currentLogin = newLoginCredentials;
             this.nameLabel.Text = currentLogin.CurrentEmployee.Fname + " " + currentLogin.CurrentEmployee.Lname + " logged in as: " + currentLogin.CurrentEmployee.Username;
             logOut = false;
+            
 
         }
 
         private void LogoutLabel_Click(object sender, EventArgs e)
         {
             logOut = true;
+        
             this.currentLogin.LogOut();
             this.Close();
         }
@@ -39,5 +45,5 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-    }
+     }
 }
