@@ -1,20 +1,30 @@
 ﻿using AAB_Furniture_Rentals.DAL;
+using AAB_Furniture_Rentals.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Rentals.Controller
 {
 
-       public static class RentalController
+    public static class RentalController
     {
-            private static RentalsDAL localRentalsDAL;
+        private static RentalsDAL localRentalsDAL;
 
-            static RentalController()
+        static RentalController()
+        {
+            localRentalsDAL = new RentalsDAL();
+        }
+
+        public static List<Rental> GetAllRentalsByCustomerID(int customerID)
+        {
+            if (!(customerID > 0))
             {
-                localRentalsDAL = new RentalsDAL();
+                throw new Exception("Customer ID must be a valid number");
             }
+
+            return localRentalsDAL.GetAllRentalsByCustomerID(customerID);
+        }
+
+
     }
 }

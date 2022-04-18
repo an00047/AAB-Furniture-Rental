@@ -38,10 +38,12 @@ namespace AAB_Furniture_Rentals.View
             this.customersTab = new System.Windows.Forms.TabPage();
             this.employeeCustomersTabUserControl = new AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl();
             this.returnsTab = new System.Windows.Forms.TabPage();
+            this.employeeReturnTabUserControl1 = new AAB_Furniture_Rentals.View.UserControls.EmployeeReturnTabUserControl();
             this.cartButton = new System.Windows.Forms.Button();
             this.AdminTabControl.SuspendLayout();
             this.furnitureTab.SuspendLayout();
             this.customersTab.SuspendLayout();
+            this.returnsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoutLabel
@@ -131,12 +133,20 @@ namespace AAB_Furniture_Rentals.View
             // 
             // returnsTab
             // 
+            this.returnsTab.Controls.Add(this.employeeReturnTabUserControl1);
             this.returnsTab.Location = new System.Drawing.Point(4, 22);
             this.returnsTab.Name = "returnsTab";
             this.returnsTab.Size = new System.Drawing.Size(526, 329);
             this.returnsTab.TabIndex = 3;
             this.returnsTab.Text = "Returns";
             this.returnsTab.UseVisualStyleBackColor = true;
+            // 
+            // employeeReturnTabUserControl1
+            // 
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(-137, -30);
+            this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
+            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(791, 490);
+            this.employeeReturnTabUserControl1.TabIndex = 0;
             // 
             // cartButton
             // 
@@ -164,6 +174,7 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl.ResumeLayout(false);
             this.furnitureTab.ResumeLayout(false);
             this.customersTab.ResumeLayout(false);
+            this.returnsTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +192,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Button cartButton;
         private UserControls.EmployeeCustomersTabUserControl employeeCustomersTabUserControl;
         private AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl employeeFurnitureUserControl;
+        private UserControls.EmployeeReturnTabUserControl employeeReturnTabUserControl1;
     }
 }

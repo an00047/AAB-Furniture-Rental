@@ -8,7 +8,7 @@ namespace AAB_Furniture_Rentals.DAL
     /// <summary>
     /// isRented handler
     /// </summary>
-    class IsRentedDAL
+    public class IsRentedDAL
     {
 
         public List<Furniture> GetAllFurnitureByTransactionID(int customerID)
@@ -39,6 +39,7 @@ namespace AAB_Furniture_Rentals.DAL
                         {
                             Furniture currentFurniture = new Furniture();
                             currentFurniture.FurnitureID = (int)reader["furnitureID"];
+                            currentFurniture.QuantityRented = (int)reader["quantityOut"];
                             allFurniture.Add(currentFurniture);
 
                         }
@@ -54,7 +55,10 @@ namespace AAB_Furniture_Rentals.DAL
         }
 
     }
+}
 
 
-}
-}
+
+
+
+

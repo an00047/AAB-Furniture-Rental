@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace AAB_Furniture_Rentals.Model
 {
     /// <summary>
@@ -35,6 +37,14 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         public double FineRate { get; set; }
 
+        public int QuantityRented { get; set; }
+
+
+        public string RentalDescription { get; set; }
+
+        public int TransactionID { get; set; }
+
+        public DateTime DueDate { get; set; }
         /// <summary>
         /// constructor method for the furniture object model
         /// </summary>

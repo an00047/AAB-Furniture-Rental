@@ -133,6 +133,7 @@
     <Compile Include="View\UserControls\EmployeeReturnTabUserControl.Designer.cs">
       <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\Rentals.cs" />
     <Compile Include="_cs6232_g4DataSet.cs">
       <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
     </Compile>

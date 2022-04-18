@@ -157,5 +157,54 @@ namespace AAB_Furniture_Rentals.DAL
         }
 
 
-    }
+
+        public Furniture GetRatesForReturns(Furniture currentFurniture)
+        {
+
+            List<Furniture> FurnitureList = new List<Furniture>();
+
+            string selectStatement =
+              "SELECT daily_rental_rate, fine_rate, style_type, category_type " +
+              "FROM Furniture " +
+              "WHERE furnitureID = @furnitureID ";
+
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+
+                List<Furniture> allFurniture = new List<Furniture>();
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+
+                {
+
+                    selectCommand.Parameters.AddWithValue("@furnitureID", currentFurniture.FurnitureID);
+                    selectCommand.Parameters["@furnitureID"].Value = currentFurniture.FurnitureID;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+
+                            currentFurniture.DailyRentalRate = double.Parse(reader["daily_rental_rate"].ToString());
+                            currentFurniture.FineRate = double.Parse(reader["fine_rate"].ToString());
+                            currentFurniture.Style = reader["style_type"].ToString();
+                            currentFurniture.Category = reader["category_type"].ToString();
+
+
+                        }
+
+                    }
+
+                }
+
+
+                return currentFurniture;
+
+            }
+
+
+        }
+}
 }

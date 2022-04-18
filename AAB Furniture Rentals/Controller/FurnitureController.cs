@@ -50,7 +50,15 @@ namespace AAB_Furniture_Rentals.Controller
 
         }
 
-  
+        public static Furniture GetRatesForReturns(Furniture currentFurniture)
+        {
+            if (currentFurniture == null)
+            {
+                throw new ArgumentException("Furniture is null");
+            }
+
+            return localFurnitureDAL.GetRatesForReturns(currentFurniture);
+        }
 
     }
 }

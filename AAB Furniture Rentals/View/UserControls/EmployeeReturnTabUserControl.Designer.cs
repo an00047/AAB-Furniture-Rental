@@ -34,10 +34,11 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.feesLabel = new System.Windows.Forms.Label();
             this.refundsLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.feesTextBox = new System.Windows.Forms.TextBox();
+            this.refundTextBox = new System.Windows.Forms.TextBox();
             this.processReturnButton = new System.Windows.Forms.Button();
             this.itemsReturnedCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.getTransactionsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // IDLabel
@@ -45,9 +46,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.IDLabel.AutoSize = true;
             this.IDLabel.Location = new System.Drawing.Point(211, 63);
             this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(21, 13);
+            this.IDLabel.Size = new System.Drawing.Size(68, 13);
             this.IDLabel.TabIndex = 0;
-            this.IDLabel.Text = "ID:";
+            this.IDLabel.Text = "Customer ID:";
             // 
             // itemsReturnedLabel
             // 
@@ -61,7 +62,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // feesLabel
             // 
             this.feesLabel.AutoSize = true;
-            this.feesLabel.Location = new System.Drawing.Point(211, 263);
+            this.feesLabel.Location = new System.Drawing.Point(211, 232);
             this.feesLabel.Name = "feesLabel";
             this.feesLabel.Size = new System.Drawing.Size(33, 13);
             this.feesLabel.TabIndex = 2;
@@ -70,7 +71,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // refundsLabel
             // 
             this.refundsLabel.AutoSize = true;
-            this.refundsLabel.Location = new System.Drawing.Point(211, 327);
+            this.refundsLabel.Location = new System.Drawing.Point(211, 275);
             this.refundsLabel.Name = "refundsLabel";
             this.refundsLabel.Size = new System.Drawing.Size(50, 13);
             this.refundsLabel.TabIndex = 3;
@@ -78,28 +79,29 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(312, 60);
+            this.idTextBox.Location = new System.Drawing.Point(312, 56);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(243, 20);
             this.idTextBox.TabIndex = 4;
+            this.idTextBox.TextChanged += new System.EventHandler(this.CustomerID_TextChanged);
             // 
-            // textBox2
+            // feesTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(312, 260);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(243, 20);
-            this.textBox2.TabIndex = 6;
+            this.feesTextBox.Location = new System.Drawing.Point(312, 229);
+            this.feesTextBox.Name = "feesTextBox";
+            this.feesTextBox.Size = new System.Drawing.Size(243, 20);
+            this.feesTextBox.TabIndex = 6;
             // 
-            // textBox3
+            // refundTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(312, 320);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(243, 20);
-            this.textBox3.TabIndex = 7;
+            this.refundTextBox.Location = new System.Drawing.Point(312, 268);
+            this.refundTextBox.Name = "refundTextBox";
+            this.refundTextBox.Size = new System.Drawing.Size(243, 20);
+            this.refundTextBox.TabIndex = 7;
             // 
             // processReturnButton
             // 
-            this.processReturnButton.Location = new System.Drawing.Point(433, 379);
+            this.processReturnButton.Location = new System.Drawing.Point(433, 313);
             this.processReturnButton.Name = "processReturnButton";
             this.processReturnButton.Size = new System.Drawing.Size(122, 23);
             this.processReturnButton.TabIndex = 8;
@@ -112,17 +114,30 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.itemsReturnedCheckedListBox.FormattingEnabled = true;
             this.itemsReturnedCheckedListBox.Location = new System.Drawing.Point(312, 106);
             this.itemsReturnedCheckedListBox.Name = "itemsReturnedCheckedListBox";
-            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(243, 124);
+            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(243, 94);
             this.itemsReturnedCheckedListBox.TabIndex = 9;
+            this.itemsReturnedCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemsReturned_Selected);
+            // 
+            // getTransactionsButton
+            // 
+            this.getTransactionsButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.getTransactionsButton.Location = new System.Drawing.Point(480, 77);
+            this.getTransactionsButton.Name = "getTransactionsButton";
+            this.getTransactionsButton.Size = new System.Drawing.Size(75, 23);
+            this.getTransactionsButton.TabIndex = 10;
+            this.getTransactionsButton.Text = "Get";
+            this.getTransactionsButton.UseVisualStyleBackColor = true;
+            this.getTransactionsButton.Click += new System.EventHandler(this.getTransactionsButton_Click);
             // 
             // EmployeeReturnTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.getTransactionsButton);
             this.Controls.Add(this.itemsReturnedCheckedListBox);
             this.Controls.Add(this.processReturnButton);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.refundTextBox);
+            this.Controls.Add(this.feesTextBox);
             this.Controls.Add(this.idTextBox);
             this.Controls.Add(this.refundsLabel);
             this.Controls.Add(this.feesLabel);
@@ -142,9 +157,10 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.Label feesLabel;
         private System.Windows.Forms.Label refundsLabel;
         private System.Windows.Forms.TextBox idTextBox;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox feesTextBox;
+        private System.Windows.Forms.TextBox refundTextBox;
         private System.Windows.Forms.Button processReturnButton;
         private System.Windows.Forms.CheckedListBox itemsReturnedCheckedListBox;
+        private System.Windows.Forms.Button getTransactionsButton;
     }
 }

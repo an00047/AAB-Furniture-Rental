@@ -14,16 +14,16 @@ namespace AAB_Furniture_Rentals.DAL
     {
         public List<Rental> GetAllRentalsByCustomerID(int customerID)
         {
-     
+
             string selectStatement =
-              "SELECT transactionID, timeStamp, dueDate " +
+              "SELECT rentalTransactionID, dateTime_created, dateTime_due " +
               "FROM Rentals " +
               "WHERE memberID = @customerID ";
 
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
-                
+
                 List<Rental> allRentals = new List<Rental>();
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
@@ -40,9 +40,9 @@ namespace AAB_Furniture_Rentals.DAL
                         {
                             Rental currentRental = new Rental();
                             currentRental.MemberID = customerID;
-                            currentRental.TransactionID = (int)reader["transactionID"];
-                            currentRental.TimeStamp = (DateTime)reader["timeStamp"];
-                            currentRental.DueDate =(DateTime)reader["dueDate"];
+                            currentRental.TransactionID = (int)reader["rentalTransactionID"];
+                            currentRental.TimeStamp = (DateTime)reader["dateTime_created"];
+                            currentRental.DueDate = (DateTime)reader["dateTime_due"];
                             allRentals.Add(currentRental);
 
                         }
@@ -58,4 +58,5 @@ namespace AAB_Furniture_Rentals.DAL
         }
 
     }
-}
+   }   
+
