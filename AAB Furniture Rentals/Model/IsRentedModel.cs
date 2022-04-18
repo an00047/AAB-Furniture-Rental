@@ -2,25 +2,25 @@
 
 namespace AAB_Furniture_Rentals.Model
 {
-    class IsRentedAdapterModel
+    class IsRentedModel
     {
         /// <summary>
-        /// the employee ID / table Key
+        /// the Transaction ID / table Key
         /// </summary>
-        int EmployeeID { get; set; }
+        public int TransactionID { get; set; }
         /// <summary>
-        /// the member id / table key
+        /// the Furniture id / table key
         /// </summary>
-        int MemberID { get; set; }
+        public int FurnitureID { get; set; }
         /// <summary>
         /// outgoing quantity of this particular piece of furniture
         /// </summary>
-        int QuantityOut { get; set; }
+        public int QuantityOut { get; set; }
 
         /// <summary>
         /// empty constructor method. 
         /// </summary>
-        public IsRentedAdapterModel() { }
+        public IsRentedModel() { }
 
     }
 }

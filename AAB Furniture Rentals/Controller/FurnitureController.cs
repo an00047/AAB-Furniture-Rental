@@ -67,7 +67,7 @@ namespace AAB_Furniture_Rentals.Controller
             {
                 throw new ArgumentException("furniture to update cannot be null");
             }
-            return localFurnitureDAL.UpdateFurnitureItem(updatedFurniture);
+            localFurnitureDAL.UpdateFurnitureItem(updatedFurniture);
         }
 
 

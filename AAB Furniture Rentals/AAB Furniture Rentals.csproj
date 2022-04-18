@@ -66,7 +66,7 @@
     <Compile Include="Model\FurnitureStyle.cs" />
     <Compile Include="Model\FurnitureCategory.cs" />
     <Compile Include="Model\Furniture.cs" />
-    <Compile Include="Model\IsRentedAdapterModel.cs" />
+    <Compile Include="Model\IsRentedModel.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
     <Compile Include="View\CartDialog.cs">
