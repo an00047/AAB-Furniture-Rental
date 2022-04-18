@@ -51,7 +51,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(239, 57);
+            this.searchComboBox.Location = new System.Drawing.Point(58, 136);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(65, 21);
             this.searchComboBox.TabIndex = 1;
@@ -59,17 +59,17 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchCustomerIDTextBox
             // 
             this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(165, 57);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(58, 94);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
-            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(68, 20);
+            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(65, 20);
             this.searchCustomerIDTextBox.TabIndex = 2;
             // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchButton.Location = new System.Drawing.Point(310, 55);
+            this.searchButton.Location = new System.Drawing.Point(58, 176);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(60, 24);
+            this.searchButton.Size = new System.Drawing.Size(65, 24);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchCustomerIDLabel.AutoSize = true;
             this.searchCustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchCustomerIDLabel.Location = new System.Drawing.Point(100, 61);
+            this.searchCustomerIDLabel.Location = new System.Drawing.Point(58, 78);
             this.searchCustomerIDLabel.Name = "searchCustomerIDLabel";
             this.searchCustomerIDLabel.Size = new System.Drawing.Size(65, 13);
             this.searchCustomerIDLabel.TabIndex = 4;
@@ -106,10 +106,10 @@ namespace AAB_Furniture_Rentals.UserControls
             this.FurnitureDescription,
             this.TransactionDate,
             this.QuantityInOut});
-            this.customerTransactionDataGridView.Location = new System.Drawing.Point(133, 99);
+            this.customerTransactionDataGridView.Location = new System.Drawing.Point(151, 78);
             this.customerTransactionDataGridView.Name = "customerTransactionDataGridView";
             this.customerTransactionDataGridView.ReadOnly = true;
-            this.customerTransactionDataGridView.Size = new System.Drawing.Size(197, 127);
+            this.customerTransactionDataGridView.Size = new System.Drawing.Size(279, 145);
             this.customerTransactionDataGridView.TabIndex = 5;
             // 
             // TransactionID
