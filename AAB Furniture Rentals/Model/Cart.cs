@@ -30,13 +30,13 @@ namespace AAB_Furniture_Rentals.Model
         /// <summary>
         /// the list of items to be rented in this transaction
         /// </summary>           
-        public List<Furniture> FurnitureList { get; }
+        public List<Furniture> FurnitureList { get; set; }
       
        
-        private List<IsRentedModel> isRentedList;
+        private List<IsRentedModel> IsRentedList;
     
         public Cart() {
-            this.isRentedList = new List<IsRentedModel>();
+            this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
         /// <summary>
@@ -54,6 +54,7 @@ namespace AAB_Furniture_Rentals.Model
 
             //check to see if Qty is still available
             if (InventoryItem.QuantityOnHand < quantityToRent) {
+                this.PutFurnitureBackIntoInventory();
                 throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
 
@@ -65,17 +66,29 @@ namespace AAB_Furniture_Rentals.Model
             IsRentedModel newIsRentedAdapter = new IsRentedModel();
             newIsRentedAdapter.QuantityOut = quantityToRent;
             newIsRentedAdapter.FurnitureID = furnitureToAdd.FurnitureID;
-            this.isRentedList.Add(newIsRentedAdapter);
+            this.IsRentedList.Add(newIsRentedAdapter);
             this.FurnitureList.Add(furnitureToAdd);
 
 
 
         }
         /// <summary>
-        /// Resets the cart to default values. 
+        /// Adds the items checked out back into the inventory, then zeroizes all the properties
+        /// 
         /// </summary>
-        public void AbandonCart(){
-            //
+        public void PutFurnitureBackIntoInventory(){
+            // add each furniture in the last back... 
+
+            this.FurnitureList.ForEach((item)=> {
+                Furniture inventoryItem = FurnitureController.GetFurnitureByID(item.FurnitureID);
+                inventoryItem.QuantityOnHand += item.QuantityOnHand;
+                FurnitureController.UpdateFurnitureItem(inventoryItem);
+
+            });
+
+
+            this.IsRentedList = new List<IsRentedModel>();
+            this.FurnitureList = new List<Furniture>();
         }
         /// <summary>
         /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
@@ -84,14 +97,14 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="transactionID"></param>
         public void AddTransactionToIsRentedList(int transactionID)
         {
-            this.isRentedList.ForEach((item)=>{
+            this.IsRentedList.ForEach((item)=>{
                 item.TransactionID = transactionID;
             });
         }
         /// <summary>
         /// Updates the IsRented Database
         /// </summary>
-        public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.isRentedList);
+        public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
         
         /// <summary>
         /// generates the transaction in the Database. Returns the Id. 

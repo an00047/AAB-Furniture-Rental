@@ -161,6 +161,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.MemberLabel);
             this.Name = "CartDialog";
             this.Text = "Cart";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CartDialog_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

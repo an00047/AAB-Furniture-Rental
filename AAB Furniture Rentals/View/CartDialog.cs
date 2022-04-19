@@ -1,5 +1,4 @@
-﻿using AAB_Furniture_Rentals.Controller;
-using AAB_Furniture_Rentals.Model;
+﻿using AAB_Furniture_Rentals.Model;
 using System;
 using System.Windows.Forms;
 
@@ -39,24 +38,32 @@ namespace AAB_Furniture_Rentals.View
                 this.currentCart.AddTransactionToIsRentedList(transactionID);
                 this.currentCart.ProcessIsRentedList();
 
-                //Show Success Messag then Close. 
+                //Show Success Message then Close. 
                 MessageBox.Show("Checkout Complete!");
                 this.currentCart = null;
               
                 this.Close();
                 
-
             } catch(Exception ex) {
-               MessageBox.Show(ex.Message); 
+               
+                MessageBox.Show(ex.Message); 
             }
         }
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
-            this.currentCart.AbandonCart();
+          
+            this.Close();
+           
         }
-     
-    
 
+        private void CartDialog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (this.currentCart != null) {
+                this.currentCart.PutFurnitureBackIntoInventory();
+            }
+           
+
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             InitializeComponent();
             this.currentCart = null;
-            
+            this.ViewCartButton.Enabled = false;
         }
 
 
@@ -132,11 +132,12 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             this.RefreshSearchComboBoxes();
             this.searchDataGridView.DataSource = null;
+            this.RefreshDataGrid();
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
                 if (this.currentCart == null)
@@ -150,10 +151,13 @@ namespace AAB_Furniture_Rentals.UserControls
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
                 this.currentCart.AddFurnitureToCart(selectedFurniture);
 
-               
+                this.RefreshDataGrid();
+                this.ViewCartButton.Enabled = true;
             }
             catch (Exception ex) {
+                this.currentCart = null;
                 MessageBox.Show(ex.Message, "Error!");
+                this.RefreshDataGrid();
             }
 
         }
@@ -169,6 +173,7 @@ namespace AAB_Furniture_Rentals.UserControls
                 this.currentCart = null;
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
+                this.RefreshDataGrid();
             } else {
                 //you need to add something to the cart
                 MessageBox.Show("There is nothing in your Cart!");
@@ -178,9 +183,49 @@ namespace AAB_Furniture_Rentals.UserControls
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
-            this.currentCart = null;
-            this.RefreshSearchComboBoxes();
-            this.searchDataGridView.DataSource = null;
+            if (this.currentCart != null)
+            {
+                this.currentCart.PutFurnitureBackIntoInventory();
+                this.currentCart = null;
+                this.RefreshSearchComboBoxes();
+            }
+            this.RefreshDataGrid();
+        }
+
+        //. todo: duplicate,clean up after merge
+        private void RefreshDataGrid() {
+            try
+            {
+                string style = "";
+                string category = "";
+                int? id = null;
+
+                if (this.styleComboBox.SelectedItem != null)
+                {
+                    style = this.styleComboBox.Text;
+                }
+                if (this.categoryComboBox.SelectedItem != null)
+                {
+                    category = this.categoryComboBox.Text;
+                }
+                if (this.idComboBox.SelectedItem != null)
+                {
+                    id = int.Parse(this.idComboBox.Text);
+                }
+
+                List<Furniture> furnitures = FurnitureController.GetFurnitureByParameter(
+                    style,
+                    category,
+                    id);
+
+                this.searchDataGridView.DataSource = furnitures;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
