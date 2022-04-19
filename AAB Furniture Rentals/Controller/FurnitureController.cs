@@ -12,6 +12,7 @@ namespace AAB_Furniture_Rentals.Controller
     {
         private static FurnitureDAL localFurnitureDAL;
         private static IsRentedDAL localIsRentedDAL;
+        private static RentalsDAL localRentalsDAL;
         /// <summary>
         /// Initializes the <see cref="FurnitureController"/> class.
         /// </summary>
@@ -42,7 +43,7 @@ namespace AAB_Furniture_Rentals.Controller
             {
                 throw new ArgumentException("The Transaction is null");
             }
-            return localIsRentedDAL.InsertNewRentalTransaction(newRentaltransaction);
+            return localRentalsDAL.InsertNewRentalTransaction(newRentaltransaction);
         }
 
         /// <summary>
