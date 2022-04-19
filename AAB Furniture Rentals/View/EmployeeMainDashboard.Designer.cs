@@ -224,6 +224,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TabPage searchTransactions;
         private System.Windows.Forms.TabPage customersTab;
         private System.Windows.Forms.TabPage returnsTab;
+        private System.Windows.Forms.TabPage rentalsTab;
         private UserControls.EmployeeCustomersTabUserControl employeeCustomersTabUserControl;
         private AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl employeeFurnitureUserControl;
         private AAB_Furniture_Rentals.UserControls.EmployeeRentalsUserControl employeeRentalsUserControl2;
