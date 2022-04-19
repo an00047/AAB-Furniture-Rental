@@ -25,7 +25,6 @@ namespace AAB_Furniture_Rentals.Controller
         /// <returns></returns>
         public static List<Furniture> GetAllFurnitures()
         {
-            var test = localFurnitureDAL.GetAllFurniture();
             return localFurnitureDAL.GetAllFurniture();
         }
 
@@ -63,6 +62,8 @@ namespace AAB_Furniture_Rentals.Controller
 
             return localFurnitureDAL.GetRatesForReturns(currentFurniture);
         }
+
+
 
     }
 }

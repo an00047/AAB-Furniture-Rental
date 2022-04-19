@@ -6,19 +6,28 @@ using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
-    /// <summary>
-    /// Controller for the IsRented DAL
-    /// </summary>
-    public static class IsRentedController
-
+    class IsRentedController
     {
         private static IsRentedDAL localIsRentedDAL;
-        /// <summary>
-        /// Initializes the IsRentedDAL object
-        /// </summary>
+
         static IsRentedController()
         {
             localIsRentedDAL = new IsRentedDAL();
+        }
+
+        /// <summary>
+        /// Gets the is rented by member identifier.
+        /// </summary>
+        /// <param name="newMemberID">The new member identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">newMemberID cannot be negative</exception>
+        public static List<IsRented> GetIsRentedByMemberID(int newMemberID)
+        {
+            if (newMemberID < 0)
+            {
+                throw new ArgumentException("newMemberID cannot be negative");
+            }
+            return localIsRentedDAL.GetIsRentedByMemberID(newMemberID);
         }
 
         /// <summary>
