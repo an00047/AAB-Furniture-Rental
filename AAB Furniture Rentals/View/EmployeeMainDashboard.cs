@@ -1,5 +1,4 @@
-﻿using AAB_Furniture_Rentals.Model;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View

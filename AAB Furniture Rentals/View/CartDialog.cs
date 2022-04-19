@@ -4,9 +4,16 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
 {
+    /// <summary>
+    /// displays the current shopping cart; enables checkout
+    /// </summary>
     public partial class CartDialog : Form
     {
         Cart currentCart;
+        /// <summary>
+        /// cartDialog constructor
+        /// </summary>
+        /// <param name="theCart"></param>
         public CartDialog(Cart theCart)
         {
             InitializeComponent();

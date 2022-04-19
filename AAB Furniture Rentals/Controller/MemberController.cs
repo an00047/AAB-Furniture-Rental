@@ -81,7 +81,11 @@ namespace AAB_Furniture_Rentals.Controller
         {
             return localMemberDAL.GetAllMembers();
         }
-       
+       /// <summary>
+       /// gets customer by their phone numebers
+       /// </summary>
+       /// <param name="phoneNumber"></param>
+       /// <returns></returns>
         public static Member GetCustomerByPhoneNumber(string phoneNumber)
         {
             if (phoneNumber == "" || phoneNumber == null)
@@ -92,6 +96,12 @@ namespace AAB_Furniture_Rentals.Controller
             return localMemberDAL.GetCustomerByPhoneNumber(phoneNumber);
         }
 
+        /// <summary>
+        /// gets customer by first name
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
         public static Member GetCustomerByFirstAndLastName(string firstName, string lastName)
         {
             if (firstName == "" || firstName == null || lastName == "" || lastName == null)

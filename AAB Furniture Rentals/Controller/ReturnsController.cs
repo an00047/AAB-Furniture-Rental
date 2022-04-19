@@ -10,7 +10,9 @@ namespace AAB_Furniture_Rentals.Controller
     class ReturnsController
     {
         private static ReturnsDAL localReturnsDAL;
-
+        /// <summary>
+        /// constructor method
+        /// </summary>
         static ReturnsController()
         {
             localReturnsDAL = new ReturnsDAL();

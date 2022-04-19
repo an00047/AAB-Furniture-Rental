@@ -6,8 +6,14 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.UserControls
 {
+    /// <summary>
+    /// rental user control
+    /// </summary>
     public partial class EmployeeRentalsUserControl : UserControl
     {
+        /// <summary>
+        /// rental control Constructor method. 
+        /// </summary>
         public EmployeeRentalsUserControl()
         {
             InitializeComponent();

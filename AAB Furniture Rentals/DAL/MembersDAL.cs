@@ -217,7 +217,12 @@ namespace AAB_Furniture_Rentals.DAL
 
         }
 
-
+        /// <summary>
+        /// validates the customer name exists
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <returns></returns>
         public int CheckCustomerName(string firstName, string lastName)
         {
 
@@ -252,6 +257,11 @@ namespace AAB_Furniture_Rentals.DAL
 
         }
 
+        /// <summary>
+        /// validates the customer's phone numebr exists.
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public int CheckCustomerPhoneNumber(string phoneNumber)
         {
 
@@ -284,6 +294,11 @@ namespace AAB_Furniture_Rentals.DAL
 
         }
 
+        /// <summary>
+        /// gets the customer based on phone number
+        /// </summary>
+        /// <param name="phoneNumber"></param>
+        /// <returns></returns>
         public Member GetCustomerByPhoneNumber(string phoneNumber)
         {
 
@@ -329,7 +344,12 @@ namespace AAB_Furniture_Rentals.DAL
             }
         }
 
-    
+    /// <summary>
+    /// gets the customer by first and last name
+    /// </summary>
+    /// <param name="firstName"></param>
+    /// <param name="lastName"></param>
+    /// <returns></returns>
     public Member GetCustomerByFirstAndLastName(string firstName, string lastName)
     {
 

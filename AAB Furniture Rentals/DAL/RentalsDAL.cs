@@ -60,6 +60,11 @@ namespace AAB_Furniture_Rentals.DAL
 
         return rental;
     }
+        /// <summary>
+        /// Gets all rentals for a given customer
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
         public List<Rental> GetAllRentalsByCustomerID(int customerID)
         {
 
@@ -103,7 +108,11 @@ namespace AAB_Furniture_Rentals.DAL
                 return allRentals;
             }
         }
-
+        /// <summary>
+        /// insert New Rental transaction into the DB
+        /// </summary>
+        /// <param name="newRental"></param>
+        /// <returns></returns>
         internal int InsertNewRentalTransaction(Rental newRental)
         {
             string query = "INSERT INTO " +

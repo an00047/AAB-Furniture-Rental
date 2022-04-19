@@ -3,6 +3,9 @@ using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// handler for the rentals table inthe DB
+    /// </summary>
     class ReturnsDAL
     {
         /// <summary>

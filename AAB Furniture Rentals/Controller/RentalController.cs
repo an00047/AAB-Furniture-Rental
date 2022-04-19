@@ -33,7 +33,11 @@ namespace AAB_Furniture_Rentals.Controller
                 return localRentalsDAL.GetRentalByTransactionID(newTransactionID);
             }
 
-
+        /// <summary>
+        /// GetAllRentals for given customer
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
             public static List<Rental> GetAllRentalsByCustomerID(int customerID)
             {
                 if (!(customerID > 0))

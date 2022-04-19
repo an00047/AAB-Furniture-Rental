@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// manages access to the IsRented Database table
+    /// </summary>
     class IsRentedDAL
     {
         /// <summary>
@@ -101,7 +104,10 @@ namespace AAB_Furniture_Rentals.DAL
 
             }
         }
-
+        /// <summary>
+        /// Inserts ISRented Tables upon checkout transaction complete
+        /// </summary>
+        /// <param name="isRentedList"></param>
         internal void InsertIsRentedTable(List<IsRentedModel> isRentedList)
         {
             isRentedList.ForEach((entry) =>
