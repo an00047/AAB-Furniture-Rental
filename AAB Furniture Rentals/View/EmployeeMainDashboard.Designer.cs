@@ -107,9 +107,9 @@ namespace AAB_Furniture_Rentals.View
             this.employeeFurnitureUserControl.Name = "employeeFurnitureUserControl";
             this.employeeFurnitureUserControl.Size = new System.Drawing.Size(707, 380);
             this.employeeFurnitureUserControl.TabIndex = 0;
+           
             // 
             // rentalsTab
-            
             // 
             this.rentalsTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rentalsTab.Location = new System.Drawing.Point(4, 22);

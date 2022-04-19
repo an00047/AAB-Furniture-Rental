@@ -92,18 +92,20 @@ namespace AAB_Furniture_Rentals.Controller
         }
        
 
-        /// <summary>
-        /// gets the furniture item by id
-        /// </summary>
-        /// <param name="furnitureID"></param>
-        /// <returns></returns>
-        public static Furniture GetFurnitureByID(int furnitureID) {
-            if (furnitureID < 0)
-            {
-                throw new ArgumentException("furnitureID cannot be negative");
-            }
-            return localFurnitureDAL.GetFurnitureByID(furnitureID);
-        }
+        ///// <summary>
+        ///// gets the furniture item by id
+        ///// </summary>
+        ///// <param name="furnitureID"></param>
+        ///// <returns></returns>
+        //public static Furniture GetFurnitureByID(int furnitureID) {
+        //    if (furnitureID < 0)
+        //    {
+        //        throw new ArgumentException("furnitureID cannot be negative");
+        //    }
+        //    return localFurnitureDAL.GetFurnitureByID(furnitureID);
+        //}
+
+
         /// <summary>
         /// Updates an existing furniture Item. (Multi-Use)
         /// </summary>
