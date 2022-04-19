@@ -1,3 +1,8 @@
+
+Database Has changed Slightly; new SQl files are int he DB folder of the VS soln. titled:   cs6232-g4_iteration2t
+
+=========================
+
 EMPLOYEE LOGIN CREDENTIALS: 
 
    USERNAME: wade_the_great
