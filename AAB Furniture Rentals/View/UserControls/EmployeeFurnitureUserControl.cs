@@ -218,7 +218,9 @@ namespace AAB_Furniture_Rentals.UserControls
                     category,
                     id);
 
+
                 this.searchDataGridView.DataSource = furnitures;
+         
             }
             catch (Exception ex)
             {
