@@ -247,6 +247,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\AAB Furniture Rentals.exe" />
     <Content Include="bin\Debug\AAB Furniture Rentals.pdb" />
+    <Content Include="DB\cs6232-g4_iteration2t.sql" />
     <Content Include="obj\Debug\AAB Furniture Rentals.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\AAB Furniture Rentals.exe" />
     <Content Include="obj\Debug\AAB Furniture Rentals.pdb" />
