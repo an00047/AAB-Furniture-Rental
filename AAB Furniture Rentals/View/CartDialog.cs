@@ -23,7 +23,7 @@ namespace AAB_Furniture_Rentals.View
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
-           // try {
+            try {
               
                 if (this.EmployeeTextBox.Text == "" || this.MemberTextBox.Text == "") {
                     throw new Exception("Employee and Member ID's cannot be blank");
@@ -41,19 +41,19 @@ namespace AAB_Furniture_Rentals.View
 
                 //Show Success Messag then Close. 
                 MessageBox.Show("Checkout Complete!");
+                this.currentCart = null;
+              
                 this.Close();
+                
 
-         //   }
-          //  catch(Exception ex){
-          //      MessageBox.Show(ex.Message);
-          //  }
-
+            } catch(Exception ex) {
+               MessageBox.Show(ex.Message); 
+            }
         }
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
             this.currentCart.AbandonCart();
-
         }
      
     

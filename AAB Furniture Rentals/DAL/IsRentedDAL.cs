@@ -16,10 +16,8 @@ namespace AAB_Furniture_Rentals.DAL
             isRentedList.ForEach((entry)=> {
 
                 string query = "INSERT INTO " +
-            "rentals (memberId, employeeID, datetime_due) " +
-            "OUTPUT Inserted.rentalTransactionID " +
-            "VALUES(@MEMBER_ID, @EMPLOYEE_ID, @DUE_DATE) ";
-
+            "is_rented (transactionID, quantityOut, furnitureID) " +
+            "VALUES(@TRANS_ID, @QUANTITY, @FURN_ID) ";
 
                 using (SqlConnection connection = RentMeDBConnection.GetConnection())
                 {
@@ -27,14 +25,11 @@ namespace AAB_Furniture_Rentals.DAL
                     using (SqlCommand command = new SqlCommand(query, connection))
 
                     {
-                        command.Parameters.AddWithValue("@MEMBER_ID", entry.MemberID);
-                        command.Parameters.AddWithValue("@EMPLOYEE_ID", entry.EmployeeID);
-                        command.Parameters.AddWithValue("@DUE_DATE", entry.DueDate);
-
+                        command.Parameters.AddWithValue("@TRANS_ID", entry.TransactionID);
+                        command.Parameters.AddWithValue("@QUANTITY", entry.QuantityOut);
+                        command.Parameters.AddWithValue("@FURN_ID", entry.FurnitureID);
 
                       command.ExecuteScalar();
-
-
                     }
                 }
 

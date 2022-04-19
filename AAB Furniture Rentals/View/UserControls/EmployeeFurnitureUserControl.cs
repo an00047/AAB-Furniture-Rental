@@ -100,6 +100,7 @@ namespace AAB_Furniture_Rentals.UserControls
 
         }
 
+        
         private void RefreshSearchComboBoxes()
         {
             List<FurnitureStyle> furnitureStyles = StyleController.GetAllStyles();
@@ -148,8 +149,10 @@ namespace AAB_Furniture_Rentals.UserControls
                 }
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
                 this.currentCart.AddFurnitureToCart(selectedFurniture);
-            
-            }catch (Exception ex) {
+
+               
+            }
+            catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Error!");
             }
 
@@ -163,7 +166,7 @@ namespace AAB_Furniture_Rentals.UserControls
                 Form CartDialog = new CartDialog(this.currentCart);
                 CartDialog.ShowDialog();
 
-
+                this.currentCart = null;
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
             } else {

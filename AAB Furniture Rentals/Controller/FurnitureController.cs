@@ -20,6 +20,7 @@ namespace AAB_Furniture_Rentals.Controller
         {
             localFurnitureDAL = new FurnitureDAL();
             localIsRentedDAL = new IsRentedDAL();
+            localRentalsDAL = new RentalsDAL();
         }
 
         /// <summary>
@@ -37,12 +38,13 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <param name="newRentaltransaction"></param>
         /// <returns></returns>
-        internal static int ProcessRentalTransaction(Rental newRentaltransaction)
+        public static int ProcessRentalTransaction(Rental newRentaltransaction)
         {
             if (newRentaltransaction == null )
             {
                 throw new ArgumentException("The Transaction is null");
             }
+
             return localRentalsDAL.InsertNewRentalTransaction(newRentaltransaction);
         }
 
