@@ -25,7 +25,6 @@ namespace AAB_Furniture_Rentals.Controller
         /// <returns></returns>
         public static List<Furniture> GetAllFurnitures()
         {
-            var test = localFurnitureDAL.GetAllFurniture();
             return localFurnitureDAL.GetAllFurniture();
         }
 
@@ -49,8 +48,30 @@ namespace AAB_Furniture_Rentals.Controller
             return localFurnitureDAL.GetFurnitureByParameter(style, category, id);
 
         }
+        /// <summary>
+        /// Returns the specific furniture rates based on a furniture object from a rental. Must be a valid furniture object.
+        /// </summary>
+        /// <param name="currentFurniture"></param>
+        /// <returns></returns>
+        public static Furniture GetRatesForReturns(Furniture currentFurniture)
+        {
+            if (currentFurniture == null)
+            {
+                throw new ArgumentException("Furniture is null");
+            }
 
-  
+            return localFurnitureDAL.GetRatesForReturns(currentFurniture);
+        }
+
+        public static Furniture GetFurnitureByID(int searchFurnitureID)
+        {
+            if (searchFurnitureID < 0)
+            {
+                throw new ArgumentException("FurnitureID cannot be negative");
+            }
+            return localFurnitureDAL.GetFurnitureByID(searchFurnitureID);
+        }
+       
 
     }
 }
