@@ -21,15 +21,16 @@ NON-ADMIN / NON-ACTIVE EMPLOYEE:
 
 Missing Features:
 
->  Missing functionality:Return View Bugs & Known Issues
+>  Returns dont yet write to the Database
 
-    Needs statements for database manipulation for processing returns and updating furniture/transactions based on returns
+    Needs statements for database manipulation in order for processing returns and updating furniture/transactions based on returns
 
     Hook up logic to Process Return button
 
     Right now the Furniture class has two extra attributes for ease of access. This needs to be rewritten in the Return functionality to avoid a conflict with Separation of Concern
 
 
+>   Admin Report not started. 
 
 
 
@@ -80,5 +81,19 @@ Customer Tab:
 Data Access Layers:
     >    Clean up  Data Access Layers is  required; there exists some mixed/cross functionality among the different classes. (edited)
 
-GENERAL: 
+GENERAL Note: 
     >  clean up presentation a bit to be more aestetic & uniform. (currently operating uder the axiom "First we make it work, then we make it pretty")
+    
+Rental.cs: 
+    >  rectify RentalTransactionID and TransactionId property (unify them)
+    >  rectify DateTimeDue and DueDate property (unify them)
+    >  rectify DateTimeCreated and TimeStamp property (unify them)
+
+FurnitureDAL.cs:
+    > Double check Furniuter and furniture capitalization change didnt break something. 
+
+IsRentedDAL:
+    > double check brackets. had to remove My object Class wrapper
+
+EmployeeMainDashBoard.Designer.cs:
+    > 2 difference instances of employeeFurnitureUserControl; Needs to unify  line 92/93, 183-189
