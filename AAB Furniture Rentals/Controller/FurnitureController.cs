@@ -63,7 +63,15 @@ namespace AAB_Furniture_Rentals.Controller
             return localFurnitureDAL.GetRatesForReturns(currentFurniture);
         }
 
-
+        public static Furniture GetFurnitureByID(int searchFurnitureID)
+        {
+            if (searchFurnitureID < 0)
+            {
+                throw new ArgumentException("FurnitureID cannot be negative");
+            }
+            return localFurnitureDAL.GetFurnitureByID(searchFurnitureID);
+        }
+       
 
     }
 }

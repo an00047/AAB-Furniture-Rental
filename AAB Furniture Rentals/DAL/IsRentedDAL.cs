@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-using AAB_Furniture_Rentals.Model;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
@@ -17,97 +14,98 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="newMemberID">The new member identifier.</param>
         /// <returns>The list of IsRented items with the matching memberID</returns>
         public List<IsRented> GetIsRentedByMemberID(int newMemberID)
-    {
-        List<IsRented> rentals = new List<IsRented>();
-        string selectStatement = @"SELECT * FROM is_rented
+        {
+            List<IsRented> rentals = new List<IsRented>();
+            string selectStatement = @"SELECT * FROM is_rented
                                         JOIN rentals ON is_rented.transactionID = rentals.rentalTransactionID
                                         WHERE rentals.memberID = @memberID
                                         ORDER BY is_rented.transactionID";
-        using (SqlConnection connection = RentMeDBConnection.GetConnection())
-        {
-            connection.Open();
-            using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
-                selectCommand.Parameters.AddWithValue("@memberID", newMemberID);
-                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    var quantityOut = reader.GetOrdinal("quantityOut");
-                    var transactionID = reader.GetOrdinal("transactionID");
-                    var furnitureID = reader.GetOrdinal("furnitureID");
-
-
-                    while (reader.Read())
+                    selectCommand.Parameters.AddWithValue("@memberID", newMemberID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        int _quantityOut = Convert.ToInt32(reader.GetValue(quantityOut));
-                        int _transactionID = reader.GetInt32(transactionID);
-                        int _furnitureID = reader.GetInt32(furnitureID);
+                        var quantityOut = reader.GetOrdinal("quantityOut");
+                        var transactionID = reader.GetOrdinal("transactionID");
+                        var furnitureID = reader.GetOrdinal("furnitureID");
 
 
-                        IsRented newIsRented = new IsRented(
-                             quantityOut: _quantityOut,
-                             transactionID: _transactionID,
-                             furnitureID: _furnitureID
-                            );
-                        rentals.Add(newIsRented);
+                        while (reader.Read())
+                        {
+                            int _quantityOut = Convert.ToInt32(reader.GetValue(quantityOut));
+                            int _transactionID = reader.GetInt32(transactionID);
+                            int _furnitureID = reader.GetInt32(furnitureID);
+
+
+                            IsRented newIsRented = new IsRented(
+                                 quantityOut: _quantityOut,
+                                 transactionID: _transactionID,
+                                 furnitureID: _furnitureID
+                                );
+                            rentals.Add(newIsRented);
+                        }
                     }
                 }
             }
+
+            return rentals;
         }
 
-        return rentals;
-    }
-}
-    /// <summary>
-    /// Returns the furnitureID and quantity from a specific transaction
-    /// </summary>
-    /// <param name="customerID"></param>
-    /// <returns></returns>
+        /// <summary>
+        /// Returns the furnitureID and quantity from a specific transaction
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
 
-    public List<Furniture> GetAllFurnitureByTransactionID(int customerID)
-    {
-
-        string selectStatement =
-          "SELECT furnitureID, quantityOut " +
-          "FROM Is_Rented " +
-          "WHERE transactionID = @transactionID ";
-
-
-        using (SqlConnection connection = RentMeDBConnection.GetConnection())
+        public List<Furniture> GetAllFurnitureByTransactionID(int customerID)
         {
 
-            List<Furniture> allFurniture = new List<Furniture>();
-            connection.Open();
-            using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+            string selectStatement =
+              "SELECT furnitureID, quantityOut " +
+              "FROM Is_Rented " +
+              "WHERE transactionID = @transactionID ";
 
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
 
-                selectCommand.Parameters.AddWithValue("@transactionID", customerID);
-                selectCommand.Parameters["@transactionID"].Value = customerID;
-                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                List<Furniture> allFurniture = new List<Furniture>();
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+
                 {
 
-
-                    while (reader.Read())
+                    selectCommand.Parameters.AddWithValue("@transactionID", customerID);
+                    selectCommand.Parameters["@transactionID"].Value = customerID;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
                     {
-                        Furniture currentFurniture = new Furniture();
-                        currentFurniture.FurnitureID = (int)reader["furnitureID"];
-                        currentFurniture.QuantityRented = (int)reader["quantityOut"];
-                        allFurniture.Add(currentFurniture);
+
+
+                        while (reader.Read())
+                        {
+                            Furniture currentFurniture = new Furniture();
+                            currentFurniture.FurnitureID = (int)reader["furnitureID"];
+                            currentFurniture.QuantityRented = (int)reader["quantityOut"];
+                            allFurniture.Add(currentFurniture);
+
+                        }
 
                     }
 
                 }
 
+
+                return allFurniture;
+
             }
-
-
-            return allFurniture;
-
         }
-    }
 
+    }
 }
-}
+
 
 
 

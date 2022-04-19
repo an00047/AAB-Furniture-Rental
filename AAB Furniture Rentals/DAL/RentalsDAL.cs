@@ -1,11 +1,9 @@
 ﻿using AAB_Furniture_Rentals.Model;
 using System.Data.SqlClient;
 
-
-using AAB_Furniture_Rentals.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+
 
 namespace AAB_Furniture_Rentals.DAL
 {
@@ -90,9 +88,9 @@ namespace AAB_Furniture_Rentals.DAL
                         {
                             Rental currentRental = new Rental();
                             currentRental.MemberID = customerID;
-                            currentRental.TransactionID = (int)reader["rentalTransactionID"];
-                            currentRental.TimeStamp = (DateTime)reader["dateTime_created"];
-                            currentRental.DueDate = (DateTime)reader["dateTime_due"];
+                            currentRental.RentalTransactionID = (int)reader["rentalTransactionID"];
+                            currentRental.DateTimeCreated = (DateTime)reader["dateTime_created"];
+                            currentRental.DateTimeDue = (DateTime)reader["dateTime_due"];
                             allRentals.Add(currentRental);
 
                         }

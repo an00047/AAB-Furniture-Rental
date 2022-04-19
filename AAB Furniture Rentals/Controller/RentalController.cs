@@ -11,12 +11,6 @@ namespace AAB_Furniture_Rentals.Controller
 
     public static class RentalController
     {
-
-        /// <summary>
-        /// Controls the Rental data
-        /// </summary>
-        public static class RentalController
-        {
             private static RentalsDAL localRentalsDAL;
 
             static RentalController()
@@ -53,6 +47,7 @@ namespace AAB_Furniture_Rentals.Controller
 
         }
     }
+
 
 
 

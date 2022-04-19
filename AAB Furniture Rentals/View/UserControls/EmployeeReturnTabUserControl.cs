@@ -71,7 +71,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
                 foreach (Rental currentRental in AllRentals)
                 {
-                    AllFurniture = IsRentedController.GetAllFurnitureByTransactionID(currentRental.TransactionID);
+                    AllFurniture = IsRentedController.GetAllFurnitureByTransactionID(currentRental.RentalTransactionID);
 
 
                     foreach (Furniture currentFurniture in AllFurniture)
@@ -81,9 +81,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
                         currentFurniture.FineRate = tempFurniture.FineRate;
                         currentFurniture.Style = tempFurniture.Style;
                         currentFurniture.Category = tempFurniture.Category;
-                        currentFurniture.DueDate = currentRental.DueDate;
-                        currentFurniture.TransactionID = currentRental.TransactionID;
-                        currentFurniture.RentalDescription = currentRental.TransactionID + " :(1) " + currentFurniture.Style + " " + currentFurniture.Category + "( " + currentFurniture.FurnitureID + " )";
+                        currentFurniture.DueDate = currentRental.DateTimeDue;
+                        currentFurniture.TransactionID = currentRental.RentalTransactionID;
+                        currentFurniture.RentalDescription = currentRental.RentalTransactionID + " :(1) " + currentFurniture.Style + " " + currentFurniture.Category + "( " + currentFurniture.FurnitureID + " )";
 
                         for (int i = 0; i < currentFurniture.QuantityRented; i++)
                         {
