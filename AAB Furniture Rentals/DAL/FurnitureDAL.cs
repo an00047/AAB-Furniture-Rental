@@ -69,6 +69,8 @@ namespace AAB_Furniture_Rentals.DAL
             return FurnitureList;
         }
 
+       
+
         /// <summary>
         /// Gets the furniture by parameters.
         /// </summary>

@@ -14,16 +14,16 @@ namespace AAB_Furniture_Rentals.UserControls
     public partial class EmployeeFurnitureUserControl : UserControl
     {
         Cart currentCart;
-        int EmployeeID;
+        
     
         /// <summary>
         /// Constrouctor method for the employeeUser furniture control
         /// </summary>
-        public EmployeeFurnitureUserControl(int EmployeeID)
+        public EmployeeFurnitureUserControl()
         {
             InitializeComponent();
             this.currentCart = null;
-            this.EmployeeID = EmployeeID;
+            
         }
 
 

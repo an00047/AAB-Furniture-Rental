@@ -39,12 +39,14 @@ namespace AAB_Furniture_Rentals.View
             this.MemberLabel = new System.Windows.Forms.Label();
             this.EmployeeTextBox = new System.Windows.Forms.TextBox();
             this.Employeelabel = new System.Windows.Forms.Label();
+            this.returnDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.retunDateLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // AbandonCartButton
             // 
-            this.AbandonCartButton.Location = new System.Drawing.Point(659, 395);
+            this.AbandonCartButton.Location = new System.Drawing.Point(503, 391);
             this.AbandonCartButton.Name = "AbandonCartButton";
             this.AbandonCartButton.Size = new System.Drawing.Size(93, 23);
             this.AbandonCartButton.TabIndex = 16;
@@ -55,7 +57,7 @@ namespace AAB_Furniture_Rentals.View
             // CheckoutButton
             // 
             this.CheckoutButton.AutoSize = true;
-            this.CheckoutButton.Location = new System.Drawing.Point(659, 366);
+            this.CheckoutButton.Location = new System.Drawing.Point(500, 362);
             this.CheckoutButton.Name = "CheckoutButton";
             this.CheckoutButton.Size = new System.Drawing.Size(96, 23);
             this.CheckoutButton.TabIndex = 15;
@@ -92,7 +94,7 @@ namespace AAB_Furniture_Rentals.View
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.FurnitureDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.FurnitureDataGridView.Size = new System.Drawing.Size(734, 262);
+            this.FurnitureDataGridView.Size = new System.Drawing.Size(560, 262);
             this.FurnitureDataGridView.TabIndex = 17;
             // 
             // MemberTextBox
@@ -127,11 +129,29 @@ namespace AAB_Furniture_Rentals.View
             this.Employeelabel.TabIndex = 19;
             this.Employeelabel.Text = "Employee ID:";
             // 
+            // returnDateTimePicker
+            // 
+            this.returnDateTimePicker.Location = new System.Drawing.Point(370, 54);
+            this.returnDateTimePicker.Name = "returnDateTimePicker";
+            this.returnDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.returnDateTimePicker.TabIndex = 20;
+            // 
+            // retunDateLabel
+            // 
+            this.retunDateLabel.AutoSize = true;
+            this.retunDateLabel.Location = new System.Drawing.Point(367, 30);
+            this.retunDateLabel.Name = "retunDateLabel";
+            this.retunDateLabel.Size = new System.Drawing.Size(150, 13);
+            this.retunDateLabel.TabIndex = 21;
+            this.retunDateLabel.Text = "Date items are to Be Returned";
+            // 
             // CartDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(650, 450);
+            this.Controls.Add(this.retunDateLabel);
+            this.Controls.Add(this.returnDateTimePicker);
             this.Controls.Add(this.Employeelabel);
             this.Controls.Add(this.EmployeeTextBox);
             this.Controls.Add(this.AbandonCartButton);
@@ -156,5 +176,7 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label MemberLabel;
         private System.Windows.Forms.TextBox EmployeeTextBox;
         private System.Windows.Forms.Label Employeelabel;
+        private System.Windows.Forms.DateTimePicker returnDateTimePicker;
+        private System.Windows.Forms.Label retunDateLabel;
     }
 }
