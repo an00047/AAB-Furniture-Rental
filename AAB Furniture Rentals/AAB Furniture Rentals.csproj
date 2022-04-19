@@ -47,12 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
-    <Compile Include="Controller\IsRentedController.cs" />
-    <Compile Include="Controller\IsReturnedController.cs" />
-    <Compile Include="Controller\MemberController.cs" />
-    <Compile Include="Controller\RentalController.cs" />
-    <Compile Include="Controller\ReturnsController.cs" />
-    <Compile Include="Controller\StyleController.cs" />
+	  <Compile Include="Controller\IsRentedController.cs" />
+	  <Compile Include="Controller\IsReturnedController.cs" />
+	  <Compile Include="Controller\MemberController.cs" />
+	  <Compile Include="Controller\RentalController.cs" />
+	  <Compile Include="Controller\ReturnsController.cs" />
+	  <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="DAL\EncryptionHandler.cs" />
@@ -140,6 +140,13 @@
     <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.Designer.cs">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\EmployeeReturnTabUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\EmployeeReturnTabUserControl.Designer.cs">
+      <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Rentals.cs" />
     <Compile Include="_cs6232_g4DataSet.cs">
       <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
     </Compile>
@@ -193,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeCustomersTabUserControl.resx">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\EmployeeReturnTabUserControl.resx">
+      <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />

@@ -39,12 +39,13 @@ namespace AAB_Furniture_Rentals.View
             this.employeeCustomersTabUserControl = new AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl();
             this.returnsTab = new System.Windows.Forms.TabPage();
             this.cartButton = new System.Windows.Forms.Button();
-            this.employeeCustomersTabUserControl = new AAB_Furniture_Rentals.View.UserControls.EmployeeCustomersTabUserControl();
-            this.employeeFurnitureUserControl = new AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl();
+            this.employeeFurnitureUserControl1 = new AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl();
+            this.employeeReturnTabUserControl1 = new AAB_Furniture_Rentals.View.UserControls.EmployeeReturnTabUserControl();
             this.AdminTabControl.SuspendLayout();
             this.furnitureTab.SuspendLayout();
             this.searchTransactions.SuspendLayout();
             this.customersTab.SuspendLayout();
+            this.returnsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoutLabel
@@ -86,12 +87,12 @@ namespace AAB_Furniture_Rentals.View
             // 
             // furnitureTab
             // 
-            this.furnitureTab.Controls.Add(this.employeeFurnitureUserControl);
+            this.furnitureTab.Controls.Add(this.employeeFurnitureUserControl1);
             this.furnitureTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.furnitureTab.Location = new System.Drawing.Point(4, 22);
             this.furnitureTab.Name = "furnitureTab";
             this.furnitureTab.Padding = new System.Windows.Forms.Padding(3);
-            this.furnitureTab.Size = new System.Drawing.Size(788, 329);
+            this.furnitureTab.Size = new System.Drawing.Size(526, 329);
             this.furnitureTab.TabIndex = 0;
             this.furnitureTab.Text = "Furniture";
             this.furnitureTab.UseVisualStyleBackColor = true;
@@ -103,9 +104,9 @@ namespace AAB_Furniture_Rentals.View
             this.searchTransactions.Location = new System.Drawing.Point(4, 22);
             this.searchTransactions.Name = "searchTransactions";
             this.searchTransactions.Padding = new System.Windows.Forms.Padding(3);
-            this.searchTransactions.Size = new System.Drawing.Size(788, 329);
+            this.searchTransactions.Size = new System.Drawing.Size(526, 329);
             this.searchTransactions.TabIndex = 1;
-            this.searchTransactions.Text = "Search Transactions";
+            this.searchTransactions.Text = "Rentals";
             this.searchTransactions.UseVisualStyleBackColor = true;
             // 
             // employeeRentalsUserControl2
@@ -135,9 +136,10 @@ namespace AAB_Furniture_Rentals.View
             // 
             // returnsTab
             // 
+            this.returnsTab.Controls.Add(this.employeeReturnTabUserControl1);
             this.returnsTab.Location = new System.Drawing.Point(4, 22);
             this.returnsTab.Name = "returnsTab";
-            this.returnsTab.Size = new System.Drawing.Size(788, 329);
+            this.returnsTab.Size = new System.Drawing.Size(526, 329);
             this.returnsTab.TabIndex = 3;
             this.returnsTab.Text = "Returns";
             this.returnsTab.UseVisualStyleBackColor = true;
@@ -153,20 +155,20 @@ namespace AAB_Furniture_Rentals.View
             this.cartButton.Text = "Cart";
             this.cartButton.UseVisualStyleBackColor = true;
             // 
-            // employeeCustomersTabUserControl1
-            // 
-            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(62, 30);
-            this.employeeCustomersTabUserControl.Name = "employeeCustomersTabUserControl1";
-            this.employeeCustomersTabUserControl.Size = new System.Drawing.Size(413, 314);
-            this.employeeCustomersTabUserControl.TabIndex = 0;
-            // 
             // employeeFurnitureUserControl1
             // 
-            this.employeeFurnitureUserControl.Location = new System.Drawing.Point(-382, -116);
-            this.employeeFurnitureUserControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.employeeFurnitureUserControl.Name = "employeeFurnitureUserControl1";
-            this.employeeFurnitureUserControl.Size = new System.Drawing.Size(924, 419);
-            this.employeeFurnitureUserControl.TabIndex = 0;
+            this.employeeFurnitureUserControl1.Location = new System.Drawing.Point(-386, -120);
+            this.employeeFurnitureUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employeeFurnitureUserControl1.Name = "employeeFurnitureUserControl1";
+            this.employeeFurnitureUserControl1.Size = new System.Drawing.Size(1051, 419);
+            this.employeeFurnitureUserControl1.TabIndex = 0;
+            // 
+            // employeeReturnTabUserControl1
+            // 
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(89, 34);
+            this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
+            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(330, 268);
+            this.employeeReturnTabUserControl1.TabIndex = 0;
             // 
             // EmployeeMainDashboard
             // 
@@ -181,9 +183,10 @@ namespace AAB_Furniture_Rentals.View
             this.Text = "EmployeeMainDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeMainDashboard_FormClose);
             this.AdminTabControl.ResumeLayout(false);
-            this.searchTransactions.ResumeLayout(false);
             this.furnitureTab.ResumeLayout(false);
+            this.searchTransactions.ResumeLayout(false);
             this.customersTab.ResumeLayout(false);
+            this.returnsTab.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,8 +203,9 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Button cartButton;
         private UserControls.EmployeeCustomersTabUserControl employeeCustomersTabUserControl;
         private AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl employeeFurnitureUserControl;
-        private AAB_Furniture_Rentals.UserControls.EmployeeRentalsUserControl employeeRentalsUserControl1;
-        private System.Windows.Forms.TabPage furnitureTab;
         private AAB_Furniture_Rentals.UserControls.EmployeeRentalsUserControl employeeRentalsUserControl2;
+        private System.Windows.Forms.TabPage furnitureTab;
+        private AAB_Furniture_Rentals.UserControls.EmployeeFurnitureUserControl employeeFurnitureUserControl1;
+        private UserControls.EmployeeReturnTabUserControl employeeReturnTabUserControl1;
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 namespace AAB_Furniture_Rentals.Model
 {
@@ -65,6 +64,6 @@ namespace AAB_Furniture_Rentals.Model
             this.DateTimeDue = dateTimeDue;
         }
 
-
+        public Rental() { }
     }
 }
