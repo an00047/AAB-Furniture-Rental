@@ -37,9 +37,11 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberTableAdapter = new AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.memberTableAdapter();
             this.tableAdapterManager = new AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.TableAdapterManager();
-            this.customerLabel = new System.Windows.Forms.Label();
-            this.customerTextBox = new System.Windows.Forms.TextBox();
+            this.searchTypeLabel = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.searchByLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
@@ -48,7 +50,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // searchButton
             // 
             this.searchButton.AutoSize = true;
-            this.searchButton.Location = new System.Drawing.Point(261, 13);
+            this.searchButton.Location = new System.Drawing.Point(291, 48);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(57, 23);
             this.searchButton.TabIndex = 2;
@@ -58,7 +60,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // newCustomerButton
             // 
-            this.newCustomerButton.Location = new System.Drawing.Point(191, 233);
+            this.newCustomerButton.Location = new System.Drawing.Point(192, 233);
             this.newCustomerButton.Name = "newCustomerButton";
             this.newCustomerButton.Size = new System.Drawing.Size(93, 23);
             this.newCustomerButton.TabIndex = 4;
@@ -68,7 +70,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // editCustomerButton
             // 
-            this.editCustomerButton.Location = new System.Drawing.Point(308, 233);
+            this.editCustomerButton.Location = new System.Drawing.Point(291, 233);
             this.editCustomerButton.Name = "editCustomerButton";
             this.editCustomerButton.Size = new System.Drawing.Size(85, 23);
             this.editCustomerButton.TabIndex = 5;
@@ -105,41 +107,61 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.tableAdapterManager.returnsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // customerLabel
+            // searchTypeLabel
             // 
-            this.customerLabel.AutoSize = true;
-            this.customerLabel.Location = new System.Drawing.Point(69, 19);
-            this.customerLabel.Name = "customerLabel";
-            this.customerLabel.Size = new System.Drawing.Size(68, 13);
-            this.customerLabel.TabIndex = 0;
-            this.customerLabel.Text = "Customer ID:";
+            this.searchTypeLabel.AutoSize = true;
+            this.searchTypeLabel.Location = new System.Drawing.Point(45, 54);
+            this.searchTypeLabel.Name = "searchTypeLabel";
+            this.searchTypeLabel.Size = new System.Drawing.Size(68, 13);
+            this.searchTypeLabel.TabIndex = 0;
+            this.searchTypeLabel.Text = "Customer ID:";
             // 
-            // customerTextBox
+            // searchTextBox
             // 
-            this.customerTextBox.Location = new System.Drawing.Point(145, 15);
-            this.customerTextBox.Name = "customerTextBox";
-            this.customerTextBox.Size = new System.Drawing.Size(97, 20);
-            this.customerTextBox.TabIndex = 1;
-            this.customerTextBox.TextChanged += new System.EventHandler(this.CustomerTextBox_Changed);
+            this.searchTextBox.Location = new System.Drawing.Point(154, 50);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(97, 20);
+            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.CustomerTextBox_Changed);
             // 
             // customerDataGridView
             // 
             this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Location = new System.Drawing.Point(44, 62);
+            this.customerDataGridView.Location = new System.Drawing.Point(43, 77);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.Size = new System.Drawing.Size(318, 150);
             this.customerDataGridView.TabIndex = 6;
+            // 
+            // searchTypeComboBox
+            // 
+            this.searchTypeComboBox.FormattingEnabled = true;
+            this.searchTypeComboBox.Location = new System.Drawing.Point(140, 21);
+            this.searchTypeComboBox.Name = "searchTypeComboBox";
+            this.searchTypeComboBox.Size = new System.Drawing.Size(191, 21);
+            this.searchTypeComboBox.TabIndex = 7;
+            this.searchTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged);
+            // 
+            // searchByLabel
+            // 
+            this.searchByLabel.AutoSize = true;
+            this.searchByLabel.Location = new System.Drawing.Point(75, 24);
+            this.searchByLabel.Name = "searchByLabel";
+            this.searchByLabel.Size = new System.Drawing.Size(59, 13);
+            this.searchByLabel.TabIndex = 8;
+            this.searchByLabel.Text = "Search By:";
             // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchByLabel);
+            this.Controls.Add(this.searchTypeComboBox);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.editCustomerButton);
             this.Controls.Add(this.newCustomerButton);
             this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.customerTextBox);
-            this.Controls.Add(this.customerLabel);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.searchTypeLabel);
             this.Name = "EmployeeCustomersTabUserControl";
             this.Size = new System.Drawing.Size(413, 314);
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).EndInit();
@@ -158,8 +180,10 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.BindingSource memberBindingSource;
         private _cs6232_g4DataSetTableAdapters.memberTableAdapter memberTableAdapter;
         private _cs6232_g4DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.Label customerLabel;
-        private System.Windows.Forms.TextBox customerTextBox;
+        private System.Windows.Forms.Label searchTypeLabel;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.DataGridView customerDataGridView;
+        private System.Windows.Forms.ComboBox searchTypeComboBox;
+        private System.Windows.Forms.Label searchByLabel;
     }
 }

@@ -50,7 +50,7 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.PhoneNumber = reader["phone"].ToString();
 
                         }
-                        
+
                     }
 
                 }
@@ -100,7 +100,7 @@ namespace AAB_Furniture_Rentals.DAL
                     command.Parameters["@memberID"].Value = customer.MemberID;
 
                     command.ExecuteScalar();
-                   
+
 
                 }
             }
@@ -122,21 +122,21 @@ namespace AAB_Furniture_Rentals.DAL
                 using (SqlCommand command = new SqlCommand(query, connection))
 
                 {
-           
+
                     command.Parameters.AddWithValue("@firstName", customer.FirstName);
-                   
+
                     command.Parameters.AddWithValue("@lastName", customer.LastName);
-               
+
                     command.Parameters.AddWithValue("@gender", customer.Gender);
-         
+
                     command.Parameters.AddWithValue("@dateOfBirth", customer.DateOfBirth);
-            
+
                     command.Parameters.AddWithValue("@address", customer.Address);
-                 
+
                     command.Parameters.AddWithValue("@phoneNumber", customer.PhoneNumber);
 
                     command.ExecuteScalar();
-                   
+
 
                 }
             }
@@ -146,7 +146,8 @@ namespace AAB_Furniture_Rentals.DAL
         /// Returns a list of all members in the database.
         /// </summary>
         /// <returns></returns>
-        public List<Member> GetAllMembers() {
+        public List<Member> GetAllMembers()
+        {
             List<Member> allMembers = new List<Member>();
             string query = "SELECT  memberID, fName, lName, sex, dob, address, phone " +
                 "FROM Member ";
@@ -215,5 +216,167 @@ namespace AAB_Furniture_Rentals.DAL
             }
 
         }
+
+
+        public int CheckCustomerName(string firstName, string lastName)
+        {
+
+            string selectStatement =
+              "SELECT COUNT(*) FROM Member " +
+              "WHERE fName=@firstName AND " +
+              "lName=@lastName ";
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(selectStatement, connection))
+
+                {
+
+                    command.Parameters.AddWithValue("@firstName", firstName);
+                    command.Parameters["@firstName"].Value = firstName;
+
+                    command.Parameters.AddWithValue("@lastName", lastName);
+                    command.Parameters["@lastName"].Value = lastName;
+
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count == 0)
+                    {
+                        throw new Exception("There is no customer with that name.");
+                    }
+                    return count;
+                }
+
+            }
+
+        }
+
+        public int CheckCustomerPhoneNumber(string phoneNumber)
+        {
+
+            string selectStatement =
+              "SELECT COUNT(*) FROM Member " +
+              "WHERE phone=@phoneNumber";
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(selectStatement, connection))
+
+                {
+
+                    command.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+                    command.Parameters["@phoneNumber"].Value = phoneNumber;
+
+     
+
+
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+                    if (count == 0)
+                    {
+                        throw new Exception("There is no customer with that phone number.");
+                    }
+                    return count;
+                }
+
+            }
+
+        }
+
+        public Member GetCustomerByPhoneNumber(string phoneNumber)
+        {
+
+            string selectStatement =
+              "SELECT memberID, fName, lName, sex, dob, address, phone " +
+              "FROM Member " +
+              "WHERE phone = @phoneNumber ";
+
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                Member currentMember = new Member();
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+
+                {
+
+                    selectCommand.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+                    selectCommand.Parameters["@phoneNumber"].Value = phoneNumber;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+                            currentMember.MemberID = (int)reader["memberID"];
+                            currentMember.FirstName = reader["fname"].ToString();
+                            currentMember.LastName = reader["lname"].ToString();
+                            currentMember.Gender = Convert.ToChar(reader["sex"]);
+                            currentMember.DateOfBirth = (DateTime)reader["dob"];
+                            currentMember.Address = reader["address"].ToString();
+                            currentMember.PhoneNumber = reader["phone"].ToString();
+
+                        }
+
+                    }
+
+                }
+
+
+                return currentMember;
+
+            }
+        }
+
+    
+    public Member GetCustomerByFirstAndLastName(string firstName, string lastName)
+    {
+
+        string selectStatement =
+          "SELECT memberID, fName, lName, sex, dob, address, phone " +
+          "FROM Member " +
+          "WHERE fName = @firstName AND " +
+          "lName = @lastName";
+
+
+        using (SqlConnection connection = RentMeDBConnection.GetConnection())
+        {
+            Member currentMember = new Member();
+            connection.Open();
+            using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+
+            {
+
+                selectCommand.Parameters.AddWithValue("@firstName", firstName);
+                selectCommand.Parameters["@firstName"].Value = firstName;
+                    selectCommand.Parameters.AddWithValue("@lastName", lastName);
+                    selectCommand.Parameters["@lastName"].Value = lastName;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+
+
+                    while (reader.Read())
+                    {
+                        currentMember.MemberID = (int)reader["memberID"];
+                        currentMember.FirstName = reader["fname"].ToString();
+                        currentMember.LastName = reader["lname"].ToString();
+                        currentMember.Gender = Convert.ToChar(reader["sex"]);
+                        currentMember.DateOfBirth = (DateTime)reader["dob"];
+                        currentMember.Address = reader["address"].ToString();
+                        currentMember.PhoneNumber = reader["phone"].ToString();
+
+                    }
+
+                }
+
+            }
+
+
+            return currentMember;
+
+        }
     }
+
+}
 }
