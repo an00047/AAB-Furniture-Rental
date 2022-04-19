@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace AAB_Furniture_Rentals.Model
 {
     /// <summary>
@@ -35,6 +37,20 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         public double FineRate { get; set; }
 
+        public int QuantityRented { get; set; }
+
+        /// <summary>
+        /// Will contain the description of the item for displaying/clarifying on Return form
+        /// </summary>
+        public string RentalDescription { get; set; }
+        /// <summary>
+        /// The specific transactionID that the furniture belongs to
+        /// </summary>
+        public int TransactionID { get; set; }
+        /// <summary>
+        /// The specific due date for the transaction the furniture belongs to
+        /// </summary>
+        public DateTime DueDate { get; set; }
         /// <summary>
         /// constructor method for the furniture object model
         /// </summary>
@@ -64,7 +80,8 @@ namespace AAB_Furniture_Rentals.Model
             this.QuantityOnHand = quantityOnHand;
             this.FineRate = fineRate;
     }
-
+        
+        public Furniture() { }
 
 }
 }

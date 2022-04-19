@@ -82,5 +82,24 @@ namespace AAB_Furniture_Rentals.Controller
             return localMemberDAL.GetAllMembers();
         }
        
+        public static Member GetCustomerByPhoneNumber(string phoneNumber)
+        {
+            if (phoneNumber == "" || phoneNumber == null)
+            {
+                throw new Exception("Phone number cannot be empty");
+            }
+            localMemberDAL.CheckCustomerPhoneNumber(phoneNumber);
+            return localMemberDAL.GetCustomerByPhoneNumber(phoneNumber);
+        }
+
+        public static Member GetCustomerByFirstAndLastName(string firstName, string lastName)
+        {
+            if (firstName == "" || firstName == null || lastName == "" || lastName == null)
+            {
+                throw new Exception("Name cannot be empty");
+            }
+            localMemberDAL.CheckCustomerName(firstName, lastName);
+            return localMemberDAL.GetCustomerByFirstAndLastName(firstName, lastName);
+        }
     }
 }

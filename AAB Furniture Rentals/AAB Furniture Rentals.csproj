@@ -47,8 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\FurnitureController.cs" />
-    <Compile Include="Controller\MemberController.cs" />
-    <Compile Include="Controller\StyleController.cs" />
+	  <Compile Include="Controller\IsRentedController.cs" />
+	  <Compile Include="Controller\IsReturnedController.cs" />
+	  <Compile Include="Controller\MemberController.cs" />
+	  <Compile Include="Controller\RentalController.cs" />
+	  <Compile Include="Controller\ReturnsController.cs" />
+	  <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
     <Compile Include="DAL\EncryptionHandler.cs" />
@@ -57,16 +61,20 @@
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
     <Compile Include="DAL\FurnitureStyleDAL.cs" />
     <Compile Include="DAL\IsRentedDAL.cs" />
+    <Compile Include="DAL\IsReturnedDAL.cs" />
     <Compile Include="DAL\LoginDataDAL.cs" />
     <Compile Include="DAL\MembersDAL.cs" />
     <Compile Include="DAL\RentalsDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
     <Compile Include="Model\Cart.cs" />
+    <Compile Include="DAL\ReturnsDAL.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\FurnitureStyle.cs" />
     <Compile Include="Model\FurnitureCategory.cs" />
     <Compile Include="Model\Furniture.cs" />
     <Compile Include="Model\IsRentedModel.cs" />
+    <Compile Include="Model\IsRented.cs" />
+    <Compile Include="Model\IsReturned.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
     <Compile Include="View\CartDialog.cs">
@@ -80,6 +88,13 @@
     </Compile>
     <Compile Include="View\UserControls\EmployeeFurnitureUserControl.Designer.cs">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Returns.cs" />
+    <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.Designer.cs">
+      <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
@@ -133,6 +148,13 @@
     <Compile Include="View\UserControls\EmployeeCustomersTabUserControl.Designer.cs">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\EmployeeReturnTabUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\EmployeeReturnTabUserControl.Designer.cs">
+      <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserControls\Rentals.cs" />
     <Compile Include="_cs6232_g4DataSet.cs">
       <DependentUpon>_cs6232_g4DataSet.xsd</DependentUpon>
     </Compile>
@@ -186,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeCustomersTabUserControl.resx">
       <DependentUpon>EmployeeCustomersTabUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\EmployeeReturnTabUserControl.resx">
+      <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />
