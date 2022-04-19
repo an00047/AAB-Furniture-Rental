@@ -145,6 +145,11 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 MessageBox.Show("Error!");
             }
         }
+
+        private void EmployeeReturnTabUserControl_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

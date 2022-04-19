@@ -8,7 +8,7 @@ namespace AAB_Furniture_Rentals.DAL
     /// <summary>
     /// isRented handler
     /// </summary>
-    public class IsRentedDAL
+     class IsRentedDAL
     {
         /// <summary>
         /// Returns the furnitureID and quantity from a specific transaction

@@ -80,9 +80,7 @@ namespace AAB_Furniture_Rentals.Model
             this.QuantityOnHand = quantityOnHand;
             this.FineRate = fineRate;
     }
-        /// <summary>
-        /// Empty furniture constructor
-        /// </summary>
+        
         public Furniture() { }
 
 }
