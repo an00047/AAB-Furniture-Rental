@@ -14,6 +14,7 @@ namespace AAB_Furniture_Rentals.Model
         /// The rental transaction identifier.
         /// </value>
         public int RentalTransactionID { get; set; }
+        public int TransactionID { get; set; }
         /// <summary>
         /// Gets or sets the member identifier.
         /// </summary>
@@ -38,6 +39,7 @@ namespace AAB_Furniture_Rentals.Model
         /// <summary>
         /// Gets or sets the date time due.
         /// </summary>
+        public DateTime TimeStamp { get; set; }
         /// <value>
         /// The date time due.
         /// </value>
@@ -45,6 +47,7 @@ namespace AAB_Furniture_Rentals.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Rental"/> class.
         /// </summary>
+        public DateTime DueDate { get; set; }
         /// <param name="rentalTransactionID">The rental transaction identifier.</param>
         /// <param name="memberID">The member identifier.</param>
         /// <param name="employeeID">The employee identifier.</param>
