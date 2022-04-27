@@ -50,6 +50,13 @@ namespace AAB_Furniture_Rentals.View
             this.addressError = new System.Windows.Forms.Label();
             this.phoneError = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.stateLabel = new System.Windows.Forms.Label();
+            this.zipLabel = new System.Windows.Forms.Label();
+            this.zipTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // firstNameTextBox
@@ -68,7 +75,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(180, 326);
+            this.phoneTextBox.Location = new System.Drawing.Point(180, 448);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.phoneTextBox.TabIndex = 5;
@@ -76,7 +83,7 @@ namespace AAB_Furniture_Rentals.View
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(104, 189);
+            this.genderLabel.Location = new System.Drawing.Point(98, 189);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(45, 13);
             this.genderLabel.TabIndex = 6;
@@ -112,7 +119,7 @@ namespace AAB_Furniture_Rentals.View
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(104, 333);
+            this.phoneLabel.Location = new System.Drawing.Point(98, 455);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(41, 13);
             this.phoneLabel.TabIndex = 10;
@@ -144,7 +151,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // CustomerButton
             // 
-            this.CustomerButton.Location = new System.Drawing.Point(237, 372);
+            this.CustomerButton.Location = new System.Drawing.Point(237, 504);
             this.CustomerButton.Name = "CustomerButton";
             this.CustomerButton.Size = new System.Drawing.Size(112, 23);
             this.CustomerButton.TabIndex = 6;
@@ -208,7 +215,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.addressError.AutoSize = true;
             this.addressError.ForeColor = System.Drawing.Color.Red;
-            this.addressError.Location = new System.Drawing.Point(184, 301);
+            this.addressError.Location = new System.Drawing.Point(184, 304);
             this.addressError.Name = "addressError";
             this.addressError.Size = new System.Drawing.Size(0, 13);
             this.addressError.TabIndex = 21;
@@ -224,7 +231,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(355, 372);
+            this.cancelButton.Location = new System.Drawing.Point(355, 504);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(90, 23);
             this.cancelButton.TabIndex = 23;
@@ -232,11 +239,76 @@ namespace AAB_Furniture_Rentals.View
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(185, 345);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 26;
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Location = new System.Drawing.Point(99, 325);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(27, 13);
+            this.cityLabel.TabIndex = 25;
+            this.cityLabel.Text = "City:";
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.Location = new System.Drawing.Point(181, 322);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(200, 20);
+            this.cityTextBox.TabIndex = 24;
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Location = new System.Drawing.Point(179, 364);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(200, 21);
+            this.stateComboBox.TabIndex = 27;
+            // 
+            // stateLabel
+            // 
+            this.stateLabel.AutoSize = true;
+            this.stateLabel.Location = new System.Drawing.Point(98, 372);
+            this.stateLabel.Name = "stateLabel";
+            this.stateLabel.Size = new System.Drawing.Size(35, 13);
+            this.stateLabel.TabIndex = 28;
+            this.stateLabel.Text = "State:";
+            // 
+            // zipLabel
+            // 
+            this.zipLabel.AutoSize = true;
+            this.zipLabel.Location = new System.Drawing.Point(97, 413);
+            this.zipLabel.Name = "zipLabel";
+            this.zipLabel.Size = new System.Drawing.Size(25, 13);
+            this.zipLabel.TabIndex = 30;
+            this.zipLabel.Text = "Zip:";
+            // 
+            // zipTextBox
+            // 
+            this.zipTextBox.Location = new System.Drawing.Point(180, 408);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(200, 20);
+            this.zipTextBox.TabIndex = 31;
+            // 
             // CustomerDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 446);
+            this.ClientSize = new System.Drawing.Size(492, 587);
+            this.Controls.Add(this.zipTextBox);
+            this.Controls.Add(this.zipLabel);
+            this.Controls.Add(this.stateComboBox);
+            this.Controls.Add(this.stateLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cityLabel);
+            this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.phoneError);
             this.Controls.Add(this.addressError);
@@ -288,5 +360,12 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label addressError;
         private System.Windows.Forms.Label phoneError;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.Label stateLabel;
+        private System.Windows.Forms.Label zipLabel;
+        private System.Windows.Forms.TextBox zipTextBox;
     }
 }
