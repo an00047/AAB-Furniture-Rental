@@ -143,7 +143,10 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 {
                     this.processReturnButton.Enabled = true;
                 }
-
+                else
+                {
+                    this.processReturnButton.Enabled = false;
+                }
             }
             catch (Exception)
             {
