@@ -96,7 +96,6 @@
     <Compile Include="View\UserControls\EmployeeSearchTransactionsUserControl.Designer.cs">
       <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="View\AdminMainDashboard.cs">
       <SubType>Form</SubType>
@@ -215,7 +214,6 @@
     <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />
     <None Include="DB\cs6232-g4_v3.bak" />
     <None Include="DB\KERNAN_UPDATED_DATABASE_MODEL_V6.mwb" />
-    <None Include="obj\Debug\AAB Furniture Rentals.csproj.AssemblyReference.cache" />
     <None Include="obj\Debug\AAB Furniture Rentals.csproj.CoreCompileInputs.cache" />
     <None Include="obj\Debug\AAB Furniture Rentals.csproj.GenerateResource.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
