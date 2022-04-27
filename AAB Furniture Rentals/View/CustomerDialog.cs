@@ -1,5 +1,6 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
+using AAB_Furniture_Rentals.View.UserControls;
 using System;
 using System.Windows.Forms;
 
@@ -11,23 +12,24 @@ namespace AAB_Furniture_Rentals.View
     public partial class CustomerDialog : Form
     {
 
-        
+        EmployeeCustomersTabUserControl currentUserControl;
         Member editMember;
         /// <summary>
         /// Constructor for the CustomerDialog. Assumes a new customer is being added. 
         /// A
         /// </summary>
-        public CustomerDialog()
+        public CustomerDialog(EmployeeCustomersTabUserControl currentEmployeeUserControl)
         {
             InitializeComponent();
-            
+            if (currentEmployeeUserControl == null)
+            {
+                throw new ArgumentException("Error with employee tab!");
+            }
+            this.currentUserControl = currentEmployeeUserControl;
             this.CustomerLabel.Text = "New Customer";
             this.CustomerButton.Text = "Add Customer";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
-
-
-
         }
 
         /// <summary>
@@ -35,14 +37,18 @@ namespace AAB_Furniture_Rentals.View
         /// Takes customer to be edited and pre-fills out form with information.
         /// </summary>
         /// <param name="currentMember"></param>
-        public CustomerDialog(Member currentMember)
+        public CustomerDialog(Member currentMember, EmployeeCustomersTabUserControl currentEmployeeUserControl)
         {
             if (currentMember == null)
             {
                 throw new Exception("Member is invalid.");
             }
+            if (currentEmployeeUserControl == null)
+            {
+                throw new ArgumentException("Error with employee tab!");
+            }
             InitializeComponent();
-            
+            this.currentUserControl = currentEmployeeUserControl;
             this.editMember = currentMember;
             this.CustomerLabel.Text = "Edit Customer";
             this.CustomerButton.Text = "Edit Customer";
@@ -152,6 +158,7 @@ namespace AAB_Furniture_Rentals.View
                     newMember.PhoneNumber = this.phoneTextBox.Text;
                     MemberController.AddCustomer(newMember);
                     MessageBox.Show("Successfully added customer.");
+                    this.currentUserControl.UpdateDataGrid();
                     DialogResult = DialogResult.OK;
                 }
                 catch (Exception ex)
@@ -180,6 +187,7 @@ namespace AAB_Furniture_Rentals.View
                     newMember.PhoneNumber = this.phoneTextBox.Text;
                     MemberController.EditCustomer(newMember);
                     MessageBox.Show("Successfully edited customer.");
+                    this.currentUserControl.UpdateDataGrid();
                     DialogResult = DialogResult.OK;
                 }
                 catch (Exception ex)

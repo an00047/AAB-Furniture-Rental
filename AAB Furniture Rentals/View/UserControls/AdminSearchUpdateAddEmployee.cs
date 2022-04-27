@@ -26,6 +26,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void RefreshDataGrid()
         {    
             this.customerDataGridView.DataSource = EmployeeController.GetAllEmployees();
+       
         }
 
         /// <summary>
