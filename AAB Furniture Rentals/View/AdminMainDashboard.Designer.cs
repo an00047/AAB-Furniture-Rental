@@ -114,6 +114,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.AdminTabControl);
             this.Name = "AdminMainDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMainDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMainDashboard_FormClose);
             this.AdminTabControl.ResumeLayout(false);

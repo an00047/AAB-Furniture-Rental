@@ -137,7 +137,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeCustomersTabUserControl
             // 
-            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(62, 30);
+            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(141, 33);
             this.employeeCustomersTabUserControl.Name = "employeeCustomersTabUserControl";
             this.employeeCustomersTabUserControl.Size = new System.Drawing.Size(413, 314);
             this.employeeCustomersTabUserControl.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeReturnTabUserControl1
             // 
-            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(89, 34);
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(200, 53);
             this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
             this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(330, 268);
             this.employeeReturnTabUserControl1.TabIndex = 0;
@@ -179,6 +179,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.AdminTabControl);
             this.Name = "EmployeeMainDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EmployeeMainDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeMainDashboard_FormClose);
             this.AdminTabControl.ResumeLayout(false);
