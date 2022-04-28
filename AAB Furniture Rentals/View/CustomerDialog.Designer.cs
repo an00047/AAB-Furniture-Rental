@@ -273,6 +273,7 @@ namespace AAB_Furniture_Rentals.View
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(200, 20);
             this.cityTextBox.TabIndex = 24;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // stateComboBox
             // 
@@ -282,6 +283,7 @@ namespace AAB_Furniture_Rentals.View
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(200, 21);
             this.stateComboBox.TabIndex = 27;
+            this.stateComboBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // stateLabel
             // 
@@ -307,6 +309,7 @@ namespace AAB_Furniture_Rentals.View
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(200, 20);
             this.zipTextBox.TabIndex = 31;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // stateErrorLabel
             // 
