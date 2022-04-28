@@ -124,6 +124,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
                      {
                     throw new ArgumentException("Must be in '555 555 5555' format!");
 
+
                      }
 
                      int.Parse(validNumber[0]);
@@ -139,10 +140,12 @@ namespace AAB_Furniture_Rentals.View.UserControls
             catch (FormatException)
             {
                 MessageBox.Show("Phone number must be a number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
 
             }
         }
@@ -169,11 +172,15 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.editCustomerButton.Enabled = true;
 
             }
-           
+           catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Must search first and last name!", "Error!");
+                this.customerDataGridView.DataSource = "";
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                this.customerDataGridView.DataSource = "";
             }
         }
 
