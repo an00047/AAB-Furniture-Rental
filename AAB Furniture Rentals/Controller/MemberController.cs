@@ -26,6 +26,17 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <param name="customerID"></param>
         /// <returns></returns>
+        public static List<Member> GetCustomersByID(int customerID)
+        {
+            if (!(customerID > 0))
+            {
+                throw new Exception("Customer ID must be a valid number");
+            }
+            localMemberDAL.CheckCustomerID(customerID);
+           return localMemberDAL.GetCustomersByID(customerID);
+        }
+
+
         public static Member GetCustomerByID(int customerID)
         {
             if (!(customerID > 0))
@@ -33,7 +44,7 @@ namespace AAB_Furniture_Rentals.Controller
                 throw new Exception("Customer ID must be a valid number");
             }
             localMemberDAL.CheckCustomerID(customerID);
-           return localMemberDAL.GetCustomerByID(customerID);
+            return localMemberDAL.GetCustomerByID(customerID);
         }
         /// <summary>
         /// Checks to make sure that customerID exists in the database.
@@ -86,14 +97,14 @@ namespace AAB_Furniture_Rentals.Controller
        /// </summary>
        /// <param name="phoneNumber"></param>
        /// <returns></returns>
-        public static Member GetCustomerByPhoneNumber(string phoneNumber)
+        public static List<Member> GetCustomersByPhoneNumber(string phoneNumber)
         {
             if (phoneNumber == "" || phoneNumber == null)
             {
                 throw new Exception("Phone number cannot be empty");
             }
             localMemberDAL.CheckCustomerPhoneNumber(phoneNumber);
-            return localMemberDAL.GetCustomerByPhoneNumber(phoneNumber);
+            return localMemberDAL.GetCustomersByPhoneNumber(phoneNumber);
         }
 
         /// <summary>
@@ -102,14 +113,14 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <returns></returns>
-        public static Member GetCustomerByFirstAndLastName(string firstName, string lastName)
+        public static List<Member> GetCustomersByFirstAndLastName(string firstName, string lastName)
         {
             if (firstName == "" || firstName == null || lastName == "" || lastName == null)
             {
                 throw new Exception("Name cannot be empty");
             }
             localMemberDAL.CheckCustomerName(firstName, lastName);
-            return localMemberDAL.GetCustomerByFirstAndLastName(firstName, lastName);
+            return localMemberDAL.GetCustomersByFirstAndLastName(firstName, lastName);
         }
     }
 }

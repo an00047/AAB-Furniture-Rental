@@ -128,7 +128,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customerDataGridView.Location = new System.Drawing.Point(43, 77);
+            this.customerDataGridView.MultiSelect = false;
             this.customerDataGridView.Name = "customerDataGridView";
+            this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDataGridView.Size = new System.Drawing.Size(318, 150);
             this.customerDataGridView.TabIndex = 6;
             // 

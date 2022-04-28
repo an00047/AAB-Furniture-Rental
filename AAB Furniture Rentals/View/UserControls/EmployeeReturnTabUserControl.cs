@@ -16,7 +16,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private double Refund;
         private List<Furniture> AllFurniture;
         private List<Rental> AllRentals;
-        private List<Furniture> SelectedItems;
+    
         /// <summary>
         /// Initializes the component. Disables the processReturnButton (you cannot process a return without having selected items to return first)
         /// Enables to getTransactionsButton that will display all transactions from a specific Customer.
