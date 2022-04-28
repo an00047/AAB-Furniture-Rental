@@ -21,7 +21,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         public EmployeeCustomersTabUserControl()
         {
             InitializeComponent();
-            customerList = new List<Member>();
+            this.customerList = new List<Member>();
          
             this.editCustomerButton.Enabled = false;
             this.searchTypeComboBox.Items.Add("--Select Search Type--");
@@ -34,7 +34,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
         {
-            Form newCustomerDialog = new CustomerDialog();
+            Form newCustomerDialog = new CustomerDialog(this);
             newCustomerDialog.ShowDialog();
 
         }
@@ -42,14 +42,19 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
         {
             
-            Form editCustomerDialog = new CustomerDialog(this.currentCustomer);
+            Form editCustomerDialog = new CustomerDialog(this.currentCustomer, this);
             DialogResult result = editCustomerDialog.ShowDialog();
 
         }
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
-           if (this.searchTextBox.Text == "")
+            this.search();
+        }
+
+        private void search()
+        {
+            if (this.searchTextBox.Text == "")
             {
                 MessageBox.Show("Search cannot be empty!");
             }
@@ -81,8 +86,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 var customerID = int.Parse(this.searchTextBox.Text);
                 List<Member> customerList = new List<Member>();
                 currentCustomer = MemberController.GetCustomerByID(customerID);
-                customerList.Add(currentCustomer);
-                this.RefreshDataGrid(customerList);
+                this.customerList.Add(currentCustomer);
+                this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
             }
@@ -101,8 +106,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             try
             {
-               
-                    string[] validNumber = this.searchTextBox.Text.Split(' ');
+                     this.customerList.Clear();
+                     string[] validNumber = this.searchTextBox.Text.Split(' ');
                     if (this.searchTextBox.Text.Length != 12)
                     {
                     throw new ArgumentException("Must be in 8 digits long!");
@@ -120,8 +125,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
                 currentCustomer = MemberController.GetCustomerByPhoneNumber(this.searchTextBox.Text);
                 List<Member> customerList = new List<Member>();
-                customerList.Add(currentCustomer);
-                this.RefreshDataGrid(customerList);
+                this.customerList.Add(currentCustomer);
+                this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
             }
@@ -140,7 +145,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             try
             {
-
+                this.customerList.Clear();
                 string[] validName = this.searchTextBox.Text.Split(' ');
 
                 string firstName = validName[0];
@@ -154,9 +159,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 }
 
                 currentCustomer = MemberController.GetCustomerByFirstAndLastName(firstName, lastName);
-                List<Member> customerList = new List<Member>();
-                customerList.Add(currentCustomer);
-                this.RefreshDataGrid(customerList);
+
+                this.customerList.Add(currentCustomer);
+                this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
             }
@@ -167,11 +172,23 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
             }
         }
-        private void RefreshDataGrid(List<Member> customerList)
-        {   
+
+       
+       private void RefreshDataGrid()
+        {
             
-            this.customerDataGridView.DataSource = customerList;
+            this.customerDataGridView.DataSource = this.customerList;
+            this.customerDataGridView.Refresh();
         }
+
+        public void UpdateDataGrid()
+        {
+
+            this.customerList.Clear();
+            this.search();
+      
+        }
+
 
         private void CustomerTextBox_Changed(object sender, EventArgs e)
         {
