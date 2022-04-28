@@ -12,7 +12,7 @@ namespace AAB_Furniture_Rentals.View
    /// </summary>
     public partial class CustomerDialog : Form
     {
-
+        
         EmployeeCustomersTabUserControl currentUserControl;
         Member editMember;
         /// <summary>
@@ -31,6 +31,25 @@ namespace AAB_Furniture_Rentals.View
             this.CustomerButton.Text = "Add Customer";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
+
+
+
+            try
+            {
+                
+                List<State> stateList = StateController.GetAllStates();
+                stateList.Insert(0, new State(0, "", "-Select-"));
+                this.stateComboBox.DataSource = stateList;
+                this.stateComboBox.DisplayMember = "StateName";
+                this.stateComboBox.ValueMember = "StateID";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         /// <summary>
@@ -257,14 +276,19 @@ namespace AAB_Furniture_Rentals.View
     
 
         private void clearErrorMessages()
-        { 
-                this.firstNameError.Text = "";         
-                this.lastNameError.Text = "";       
-                this.birthdateError.Text = "";          
-                this.genderError.Text = "";          
-                this.addressError.Text = "";     
-                this.phoneError.Text = "";
-           
+        {
+            this.phoneError.Text = "";
+            this.firstNameError.Text = "";
+            this.lastNameError.Text = "";
+            this.birthdateError.Text = "";
+            this.genderError.Text = "";
+            this.addressError.Text = "";
+    
+            this.cityErrorLabel.Text = "";
+            this.stateErrorLabel.Text = "";
+            this.zipErrorLabel.Text = "";
+            
+
         }
 
         private void TextChanged_Event(object sender, EventArgs e)

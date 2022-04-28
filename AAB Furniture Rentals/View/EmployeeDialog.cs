@@ -13,13 +13,7 @@ namespace AAB_Furniture_Rentals.View
     public partial class EmployeeDialog : Form
     {
 
-        string[] states = new string[57] {
-                "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE",
-                "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY",
-                "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MP", "MS", "MT",
-                "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK",
-                "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UM", "UT",
-                "VA", "VI", "VT", "WA", "WI", "WV", "WY" };
+       
 
         Employee editEmployee;
         /// <summary>
@@ -28,7 +22,7 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog()
         {
             InitializeComponent();
-            List<Label> errorMessages = new List<Label>();
+  
         
             this.CustomerLabel.Text = "New Employee";
             this.EmployeeButton.Text = "Add Employee";
@@ -36,7 +30,21 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-            this.StateComboBox.Items.AddRange(states);
+            try
+            {
+
+                List<State> stateList = StateController.GetAllStates();
+                stateList.Insert(0, new State(0, "", "-Select-"));
+                this.StateComboBox.DataSource = stateList;
+                this.StateComboBox.DisplayMember = "StateName";
+                this.StateComboBox.ValueMember = "StateID";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -59,7 +67,13 @@ namespace AAB_Furniture_Rentals.View
 
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
-            this.StateComboBox.Items.AddRange(states);
+
+            List<State> stateList = StateController.GetAllStates();
+            stateList.Insert(0, new State(0, "", "-Select-"));
+            this.StateComboBox.DataSource = stateList;
+            this.StateComboBox.DisplayMember = "StateName";
+            this.StateComboBox.ValueMember = "StateID";
+
 
             this.firstNameTextBox.Text = theEmployee.Fname;
             this.lastNameTextBox.Text = theEmployee.Lname;
