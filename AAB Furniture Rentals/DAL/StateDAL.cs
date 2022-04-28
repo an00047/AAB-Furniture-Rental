@@ -1,12 +1,18 @@
 ﻿using AAB_Furniture_Rentals.Model;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// References the state table 
+    /// </summary>
     class StateDAL
     {
+        /// <summary>
+        /// Gets all states.
+        /// </summary>
+        /// <returns>List of states</returns>
         public List<State> GetAllStates()
         {
 
