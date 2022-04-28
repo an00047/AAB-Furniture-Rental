@@ -36,6 +36,18 @@ namespace AAB_Furniture_Rentals.Model
         /// the members phone number
         /// </summary>
         public string PhoneNumber { get; set; }
+        /// <summary>
+        /// the members city
+        /// </summary>
+        public string City { get; set; }
+        /// <summary>
+        /// the members state
+        /// </summary>
+        public int State { get; set; }
+        /// <summary>
+        /// the members zip
+        /// </summary>
+        public string Zip { get; set; }
 
         /// <summary>
         /// constructor method for the member object model
@@ -54,16 +66,22 @@ namespace AAB_Furniture_Rentals.Model
             char sex,
             DateTime dob,
             string address,
-            string phone
+            string phone,
+            string city,
+            int state,
+            string zip
             )
         {
             this.MemberID = memberID;
             this.Address = address;
             this.FirstName = fname;
             this.LastName = lname;
-            this.DateOfBirth = dob;
+            this.DateOfBirth = dob.Date;
             this.PhoneNumber = phone;
             this.Gender = sex;
+            this.City = city;
+            this.State = state;
+            this.Zip = zip;
         }
 
         /// <summary>

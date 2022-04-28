@@ -20,7 +20,7 @@ namespace AAB_Furniture_Rentals.DAL
         {
 
             string selectStatement =
-              "SELECT memberID, fName, lName, sex, dob, address, phone " +
+              "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
               "FROM Member " +
               "WHERE memberID = @customerID ";
 
@@ -48,6 +48,9 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.DateOfBirth = (DateTime)reader["dob"];
                             currentMember.Address = reader["address"].ToString();
                             currentMember.PhoneNumber = reader["phone"].ToString();
+                            currentMember.City = reader["city"].ToString();
+                            currentMember.State = Convert.ToInt32(reader["state"]);
+                            currentMember.Zip = reader["zip"].ToString();
 
                         }
 
@@ -68,7 +71,7 @@ namespace AAB_Furniture_Rentals.DAL
         {
 
             string query = "UPDATE Member " +
-                "SET fName=@firstName, lname=@lastName, sex=@gender, dob=@dateOfBirth, address=@address, phone=@phoneNumber  " +
+                "SET fName=@firstName, lname=@lastName, sex=@gender, dob=@dateOfBirth, address=@address, phone=@phoneNumber, city=@city, state=@state, zip=@zip " +
                 "WHERE memberID=@memberID ";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -99,6 +102,15 @@ namespace AAB_Furniture_Rentals.DAL
                     command.Parameters.AddWithValue("@memberID", customer.MemberID);
                     command.Parameters["@memberID"].Value = customer.MemberID;
 
+                    command.Parameters.AddWithValue("@city", customer.City);
+                    command.Parameters["@city"].Value = customer.City;
+
+                    command.Parameters.AddWithValue("@state", customer.State);
+                    command.Parameters["@state"].Value = customer.State;
+
+                    command.Parameters.AddWithValue("@zip", customer.Zip);
+                    command.Parameters["@zip"].Value = customer.Zip;
+
                     command.ExecuteScalar();
 
 
@@ -113,8 +125,8 @@ namespace AAB_Furniture_Rentals.DAL
         {
 
             string query = "INSERT INTO " +
-                "Member (fName, lName, sex, dob, address, phone) " +
-                "VALUES(@firstName, @lastName, @gender, @dateOfBirth, @address, @phoneNumber)";
+                "Member (fName, lName, sex, dob, address, phone, city, state, zip) " +
+                "VALUES(@firstName, @lastName, @gender, @dateOfBirth, @address, @phoneNumber, @city, @state, @zip)";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
@@ -135,6 +147,12 @@ namespace AAB_Furniture_Rentals.DAL
 
                     command.Parameters.AddWithValue("@phoneNumber", customer.PhoneNumber);
 
+                    command.Parameters.AddWithValue("@city", customer.City);
+
+                    command.Parameters.AddWithValue("@state", customer.State);
+
+                    command.Parameters.AddWithValue("@zip", customer.Zip);
+
                     command.ExecuteScalar();
 
 
@@ -149,7 +167,7 @@ namespace AAB_Furniture_Rentals.DAL
         public List<Member> GetAllMembers()
         {
             List<Member> allMembers = new List<Member>();
-            string query = "SELECT  memberID, fName, lName, sex, dob, address, phone " +
+            string query = "SELECT  memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
                 "FROM Member ";
 
 
@@ -174,6 +192,9 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.DateOfBirth = (DateTime)reader["dob"];
                             currentMember.Address = reader["address"].ToString();
                             currentMember.PhoneNumber = reader["phone"].ToString();
+                            currentMember.City = reader["city"].ToString();
+                            currentMember.State = Convert.ToInt32(reader["state"]);
+                            currentMember.Zip = reader["zip"].ToString();
                             allMembers.Add(currentMember);
 
                         }
@@ -303,7 +324,7 @@ namespace AAB_Furniture_Rentals.DAL
         {
 
             string selectStatement =
-              "SELECT memberID, fName, lName, sex, dob, address, phone " +
+              "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
               "FROM Member " +
               "WHERE phone = @phoneNumber ";
 
@@ -331,6 +352,9 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.DateOfBirth = (DateTime)reader["dob"];
                             currentMember.Address = reader["address"].ToString();
                             currentMember.PhoneNumber = reader["phone"].ToString();
+                            currentMember.City = reader["city"].ToString();
+                            currentMember.State = Convert.ToInt32(reader["state"]);
+                            currentMember.Zip = reader["zip"].ToString();
 
                         }
 
@@ -354,7 +378,7 @@ namespace AAB_Furniture_Rentals.DAL
     {
 
         string selectStatement =
-          "SELECT memberID, fName, lName, sex, dob, address, phone " +
+          "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
           "FROM Member " +
           "WHERE fName = @firstName AND " +
           "lName = @lastName";
@@ -385,8 +409,11 @@ namespace AAB_Furniture_Rentals.DAL
                         currentMember.DateOfBirth = (DateTime)reader["dob"];
                         currentMember.Address = reader["address"].ToString();
                         currentMember.PhoneNumber = reader["phone"].ToString();
+                        currentMember.City = reader["city"].ToString();
+                        currentMember.State = Convert.ToInt32(reader["state"]);
+                        currentMember.Zip = reader["zip"].ToString();
 
-                    }
+                        }
 
                 }
 
