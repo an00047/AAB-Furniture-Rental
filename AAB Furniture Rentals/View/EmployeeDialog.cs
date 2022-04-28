@@ -1,6 +1,7 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -27,6 +28,8 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog()
         {
             InitializeComponent();
+            List<Label> errorMessages = new List<Label>();
+        
             this.CustomerLabel.Text = "New Employee";
             this.EmployeeButton.Text = "Add Employee";
            
@@ -204,6 +207,24 @@ namespace AAB_Furniture_Rentals.View
             return error == 0;
 
         }
+
+        private void clearErrorMessages()
+        {
+            this.phoneError2.Text = "";
+            this.firstNameError.Text = "";
+            this.lastNameError.Text = "";
+            this.birthdateError.Text = "";
+            this.genderError.Text = "";
+            this.addressError.Text = "";
+            this.phoneError.Text = "";
+            this.cityError.Text = "";
+            this.stateError.Text = "";
+            this.zipError.Text = "";
+            this.userNameError.Text = "";
+            this.passwordError.Text = "";
+        }
+
+
         private void AddEmployee()
         {
 
@@ -275,6 +296,7 @@ namespace AAB_Furniture_Rentals.View
 
         }
 
+ 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -330,6 +352,11 @@ namespace AAB_Furniture_Rentals.View
             EmployeeController.AddUser(username, password);
          
 
+        }
+
+        private void TextChanged_Event(object sender, EventArgs e)
+        {
+            this.clearErrorMessages();
         }
     }
 }

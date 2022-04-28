@@ -172,6 +172,7 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(200, 21);
             this.genderComboBox.TabIndex = 26;
+            this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // birthdateBox
             // 
@@ -179,6 +180,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Name = "birthdateBox";
             this.birthdateBox.Size = new System.Drawing.Size(200, 20);
             this.birthdateBox.TabIndex = 36;
+            this.birthdateBox.ValueChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // addressLabel
             // 
@@ -240,6 +242,7 @@ namespace AAB_Furniture_Rentals.View
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.phoneTextBox.TabIndex = 28;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // addressTextBox
             // 
@@ -247,6 +250,7 @@ namespace AAB_Furniture_Rentals.View
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(200, 20);
             this.addressTextBox.TabIndex = 27;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // firstNameTextBox
             // 
@@ -254,6 +258,7 @@ namespace AAB_Furniture_Rentals.View
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.firstNameTextBox.TabIndex = 24;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // label1
             // 
@@ -279,6 +284,7 @@ namespace AAB_Furniture_Rentals.View
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(200, 20);
             this.cityTextBox.TabIndex = 45;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // label3
             // 
@@ -322,6 +328,7 @@ namespace AAB_Furniture_Rentals.View
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(200, 20);
             this.zipTextBox.TabIndex = 51;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // label7
             // 
@@ -347,6 +354,7 @@ namespace AAB_Furniture_Rentals.View
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.userNameTextBox.TabIndex = 54;
+            this.userNameTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // activeCheckBox
             // 
@@ -385,6 +393,7 @@ namespace AAB_Furniture_Rentals.View
             this.passwordTextBox.PasswordChar = '#';
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 59;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // zipError
             // 
@@ -442,6 +451,7 @@ namespace AAB_Furniture_Rentals.View
             this.StateComboBox.Name = "StateComboBox";
             this.StateComboBox.Size = new System.Drawing.Size(86, 21);
             this.StateComboBox.TabIndex = 67;
+            this.StateComboBox.SelectedIndexChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // EmployeeDialog
             // 

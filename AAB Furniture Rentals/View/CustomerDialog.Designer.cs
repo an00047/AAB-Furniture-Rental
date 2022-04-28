@@ -58,6 +58,7 @@ namespace AAB_Furniture_Rentals.View
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.firstNameTextBox.TabIndex = 0;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // addressTextBox
             // 
@@ -65,6 +66,7 @@ namespace AAB_Furniture_Rentals.View
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(200, 20);
             this.addressTextBox.TabIndex = 3;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // phoneTextBox
             // 
@@ -72,6 +74,7 @@ namespace AAB_Furniture_Rentals.View
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.phoneTextBox.TabIndex = 5;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // genderLabel
             // 
@@ -133,6 +136,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Name = "birthdateBox";
             this.birthdateBox.Size = new System.Drawing.Size(200, 20);
             this.birthdateBox.TabIndex = 12;
+            this.birthdateBox.ValueChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // genderComboBox
             // 
@@ -141,6 +145,7 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(200, 21);
             this.genderComboBox.TabIndex = 2;
+            this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // CustomerButton
             // 
@@ -167,6 +172,7 @@ namespace AAB_Furniture_Rentals.View
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.lastNameTextBox.TabIndex = 1;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // firstNameError
             // 

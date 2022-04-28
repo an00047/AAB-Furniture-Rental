@@ -170,7 +170,7 @@ namespace AAB_Furniture_Rentals.View
          
           
         }
-
+        
         private void EditCustomer()
         {
             if (this.ValidateForm())
@@ -202,5 +202,23 @@ namespace AAB_Furniture_Rentals.View
         {
             DialogResult = DialogResult.Cancel;
         }
+    
+
+        private void clearErrorMessages()
+        { 
+                this.firstNameError.Text = "";         
+                this.lastNameError.Text = "";       
+                this.birthdateError.Text = "";          
+                this.genderError.Text = "";          
+                this.addressError.Text = "";     
+                this.phoneError.Text = "";
+           
+        }
+
+        private void TextChanged_Event(object sender, EventArgs e)
+        {
+            this.clearErrorMessages();
+        }
     }
+
 }
