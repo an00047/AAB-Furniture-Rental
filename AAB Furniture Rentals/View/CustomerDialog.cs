@@ -138,14 +138,17 @@ namespace AAB_Furniture_Rentals.View
             if(this.cityTextBox.Text == "")
             {
                 this.cityErrorLabel.Text = "City cannot be mpty.";
+                error++;
             }
             if(this.stateComboBox.SelectedIndex == 0)
             {
                 this.stateErrorLabel.Text = "State must be selected.";
+                error++;
             }
             if(this.zipTextBox.Text == "")
             {
                 this.zipErrorLabel.Text = "Zip cannot be empty";
+                error++;
             }
            
 
@@ -168,7 +171,25 @@ namespace AAB_Furniture_Rentals.View
                 this.phoneError.Text = "Must be in '555 555 5555' format";
                 error++;
             }
-            
+
+            try
+            {
+                string validNumber = this.zipTextBox.Text;
+                if (this.zipTextBox.Text.Length != 5)
+                {
+                    this.zipErrorLabel.Text = "Must be in 5 digits long";
+                    error++;
+                }
+
+                int.Parse(validNumber);
+
+            }
+            catch (Exception)
+            {
+                this.zipErrorLabel.Text = "Zip must be all numbers";
+                error++;
+            }
+
 
             return error == 0;
             
