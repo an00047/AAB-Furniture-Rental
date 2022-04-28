@@ -1,6 +1,7 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -12,13 +13,7 @@ namespace AAB_Furniture_Rentals.View
     public partial class EmployeeDialog : Form
     {
 
-        string[] states = new string[57] {
-                "AK", "AL", "AR", "AS", "AZ", "CA", "CO", "CT", "DC", "DE",
-                "FL", "GA", "GU", "HI", "IA", "ID", "IL", "IN", "KS", "KY",
-                "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MP", "MS", "MT",
-                "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK",
-                "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UM", "UT",
-                "VA", "VI", "VT", "WA", "WI", "WV", "WY" };
+       
 
         Employee editEmployee;
         /// <summary>
@@ -27,13 +22,29 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog()
         {
             InitializeComponent();
+  
+        
             this.CustomerLabel.Text = "New Employee";
             this.EmployeeButton.Text = "Add Employee";
            
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
-            this.StateComboBox.Items.AddRange(states);
+            try
+            {
+
+                List<State> stateList = StateController.GetAllStates();
+                stateList.Insert(0, new State(0, "", "-Select-"));
+                this.StateComboBox.DataSource = stateList;
+                this.StateComboBox.DisplayMember = "StateName";
+                this.StateComboBox.ValueMember = "StateID";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         /// <summary>
@@ -56,7 +67,13 @@ namespace AAB_Furniture_Rentals.View
 
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
-            this.StateComboBox.Items.AddRange(states);
+
+            List<State> stateList = StateController.GetAllStates();
+            stateList.Insert(0, new State(0, "", "-Select-"));
+            this.StateComboBox.DataSource = stateList;
+            this.StateComboBox.DisplayMember = "StateName";
+            this.StateComboBox.ValueMember = "StateID";
+
 
             this.firstNameTextBox.Text = theEmployee.Fname;
             this.lastNameTextBox.Text = theEmployee.Lname;
@@ -204,6 +221,24 @@ namespace AAB_Furniture_Rentals.View
             return error == 0;
 
         }
+
+        private void clearErrorMessages()
+        {
+            this.phoneError2.Text = "";
+            this.firstNameError.Text = "";
+            this.lastNameError.Text = "";
+            this.birthdateError.Text = "";
+            this.genderError.Text = "";
+            this.addressError.Text = "";
+            this.phoneError.Text = "";
+            this.cityError.Text = "";
+            this.stateError.Text = "";
+            this.zipError.Text = "";
+            this.userNameError.Text = "";
+            this.passwordError.Text = "";
+        }
+
+
         private void AddEmployee()
         {
 
@@ -275,6 +310,7 @@ namespace AAB_Furniture_Rentals.View
 
         }
 
+ 
         private void CancelButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
@@ -330,6 +366,11 @@ namespace AAB_Furniture_Rentals.View
             EmployeeController.AddUser(username, password);
          
 
+        }
+
+        private void TextChanged_Event(object sender, EventArgs e)
+        {
+            this.clearErrorMessages();
         }
     }
 }
