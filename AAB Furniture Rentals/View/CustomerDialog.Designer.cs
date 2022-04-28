@@ -372,6 +372,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.firstNameTextBox);
             this.Name = "CustomerDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CustomerDialog";
             this.ResumeLayout(false);
             this.PerformLayout();
