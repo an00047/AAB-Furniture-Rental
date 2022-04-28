@@ -52,6 +52,7 @@
     <Compile Include="Controller\MemberController.cs" />
     <Compile Include="Controller\RentalController.cs" />
     <Compile Include="Controller\ReturnsController.cs" />
+    <Compile Include="Controller\StateController.cs" />
     <Compile Include="Controller\StyleController.cs" />
     <Compile Include="Controller\CategoryController.cs" />
     <Compile Include="Controller\EmployeeController.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="DAL\MembersDAL.cs" />
     <Compile Include="DAL\RentalsDAL.cs" />
     <Compile Include="DAL\RentMeDBConnection.cs" />
+    <Compile Include="DAL\StateDAL.cs" />
     <Compile Include="Model\Cart.cs" />
     <Compile Include="DAL\ReturnsDAL.cs" />
     <Compile Include="Model\Employee.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Model\IsReturned.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="Model\State.cs" />
     <Compile Include="View\CartDialog.cs">
       <SubType>Form</SubType>
     </Compile>

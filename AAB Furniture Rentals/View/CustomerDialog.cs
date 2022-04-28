@@ -2,6 +2,7 @@
 using AAB_Furniture_Rentals.Model;
 using AAB_Furniture_Rentals.View.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -30,6 +31,9 @@ namespace AAB_Furniture_Rentals.View
             this.CustomerButton.Text = "Add Customer";
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
+
+
+
         }
 
         /// <summary>
@@ -56,12 +60,22 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
+            List<State> stateList = StateController.GetAllStates();
+            stateList.Insert(0, new State(0, "", "-Select-"));
+            this.stateComboBox.DataSource = stateList;
+            this.stateComboBox.DisplayMember = "StateName";
+            this.stateComboBox.ValueMember = "StateID";
+            
+
             this.firstNameTextBox.Text = this.editMember.FirstName;
             this.lastNameTextBox.Text = this.editMember.LastName;
             this.genderComboBox.SelectedIndex = this.genderComboBox.FindStringExact(currentMember.Gender.ToString());
             this.birthdateBox.Value = this.editMember.DateOfBirth;
             this.phoneTextBox.Text = this.editMember.PhoneNumber;
             this.addressTextBox.Text = this.editMember.Address;
+            this.cityTextBox.Text = this.editMember.City;
+            this.stateComboBox.SelectedValue = this.editMember.State;
+            this.zipTextBox.Text = this.editMember.Zip;
         }
 
         private void CustomerButton_Click(object sender, EventArgs e)
@@ -116,6 +130,21 @@ namespace AAB_Furniture_Rentals.View
                 this.phoneError.Text = "Phone cannot be empty.";
                 error++;
             }
+            if(this.cityTextBox.Text == "")
+            {
+                this.cityErrorLabel.Text = "City cannot be mpty.";
+                error++;
+            }
+            if(this.stateComboBox.SelectedIndex == 0)
+            {
+                this.stateErrorLabel.Text = "State must be selected.";
+                error++;
+            }
+            if(this.zipTextBox.Text == "")
+            {
+                this.zipErrorLabel.Text = "Zip cannot be empty";
+                error++;
+            }
            
 
             try
@@ -137,7 +166,25 @@ namespace AAB_Furniture_Rentals.View
                 this.phoneError.Text = "Must be in '555 555 5555' format";
                 error++;
             }
-            
+
+            try
+            {
+                string validNumber = this.zipTextBox.Text;
+                if (this.zipTextBox.Text.Length != 5)
+                {
+                    this.zipErrorLabel.Text = "Must be in 5 digits long";
+                    error++;
+                }
+
+                int.Parse(validNumber);
+
+            }
+            catch (Exception)
+            {
+                this.zipErrorLabel.Text = "Zip must be all numbers";
+                error++;
+            }
+
 
             return error == 0;
             
@@ -156,6 +203,9 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
+                    newMember.City = this.cityTextBox.Text;
+                    newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
+                    newMember.Zip = this.zipTextBox.Text;
                     MemberController.AddCustomer(newMember);
                     MessageBox.Show("Successfully added customer.");
                     this.currentUserControl.UpdateDataGrid();
@@ -185,6 +235,10 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
+                    newMember.City = this.cityTextBox.Text;
+                    newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
+                    newMember.Zip = this.zipTextBox.Text;
+
                     MemberController.EditCustomer(newMember);
                     MessageBox.Show("Successfully edited customer.");
                     this.currentUserControl.UpdateDataGrid();
@@ -202,5 +256,6 @@ namespace AAB_Furniture_Rentals.View
         {
             DialogResult = DialogResult.Cancel;
         }
+
     }
 }
