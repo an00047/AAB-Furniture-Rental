@@ -8,15 +8,15 @@ namespace AAB_Furniture_Rentals.Model
 {
     class State
     {
-        public int stateID { get; set; }
-        public string stateCode { get; set; }
-        public string stateName { get; set; }
+        public int StateID { get; set; }
+        public string StateCode { get; set; }
+        public string StateName { get; set; }
 
         public State(int stateID, string stateCode, string stateName)
         {
-            this.stateID = stateID;
-            this.stateCode = stateCode;
-            this.stateName = stateName;
+            this.StateID = stateID;
+            this.StateCode = stateCode;
+            this.StateName = stateName;
         }
     }
 }

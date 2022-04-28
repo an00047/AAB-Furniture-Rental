@@ -1,6 +1,7 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -26,6 +27,20 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
+            
+
+            try
+            {
+                List<State> stateList = StateController.GetAllStates();
+                stateList.Insert(0, new State(0,"", "-Select-"));
+                this.stateComboBox.DataSource = stateList;
+                this.stateComboBox.DisplayMember = "StateName";
+                this.stateComboBox.ValueMember = "StateID";
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
@@ -50,12 +65,22 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
+            List<State> stateList = StateController.GetAllStates();
+            stateList.Insert(0, new State(0, "", "-Select-"));
+            this.stateComboBox.DataSource = stateList;
+            this.stateComboBox.DisplayMember = "StateName";
+            this.stateComboBox.ValueMember = "StateID";
+            
+
             this.firstNameTextBox.Text = this.editMember.FirstName;
             this.lastNameTextBox.Text = this.editMember.LastName;
             this.genderComboBox.SelectedIndex = this.genderComboBox.FindStringExact(currentMember.Gender.ToString());
             this.birthdateBox.Value = this.editMember.DateOfBirth;
             this.phoneTextBox.Text = this.editMember.PhoneNumber;
             this.addressTextBox.Text = this.editMember.Address;
+            this.cityTextBox.Text = this.editMember.City;
+            this.stateComboBox.SelectedValue = this.editMember.State;
+            this.zipTextBox.Text = this.editMember.Zip;
         }
 
         private void CustomerButton_Click(object sender, EventArgs e)
@@ -110,6 +135,18 @@ namespace AAB_Furniture_Rentals.View
                 this.phoneError.Text = "Phone cannot be empty.";
                 error++;
             }
+            if(this.cityTextBox.Text == "")
+            {
+                this.cityErrorLabel.Text = "City cannot be mpty.";
+            }
+            if(this.stateComboBox.SelectedIndex == 0)
+            {
+                this.stateErrorLabel.Text = "State must be selected.";
+            }
+            if(this.zipTextBox.Text == "")
+            {
+                this.zipErrorLabel.Text = "Zip cannot be empty";
+            }
            
 
             try
@@ -150,6 +187,9 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
+                    newMember.City = this.cityTextBox.Text;
+                    newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
+                    newMember.Zip = this.zipTextBox.Text;
                     MemberController.AddCustomer(newMember);
                     MessageBox.Show("Successfully added customer.");
                     DialogResult = DialogResult.OK;
@@ -178,6 +218,10 @@ namespace AAB_Furniture_Rentals.View
                     newMember.Gender = Convert.ToChar(this.genderComboBox.SelectedItem);
                     newMember.Address = this.addressTextBox.Text;
                     newMember.PhoneNumber = this.phoneTextBox.Text;
+                    newMember.City = this.cityTextBox.Text;
+                    newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
+                    newMember.Zip = this.zipTextBox.Text;
+
                     MemberController.EditCustomer(newMember);
                     MessageBox.Show("Successfully edited customer.");
                     DialogResult = DialogResult.OK;

@@ -50,13 +50,16 @@ namespace AAB_Furniture_Rentals.View
             this.addressError = new System.Windows.Forms.Label();
             this.phoneError = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cityErrorLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.stateLabel = new System.Windows.Forms.Label();
             this.zipLabel = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.stateErrorLabel = new System.Windows.Forms.Label();
+            this.zipErrorLabel = new System.Windows.Forms.Label();
+            this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstNameTextBox
@@ -224,7 +227,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.phoneError.AutoSize = true;
             this.phoneError.ForeColor = System.Drawing.Color.Red;
-            this.phoneError.Location = new System.Drawing.Point(184, 349);
+            this.phoneError.Location = new System.Drawing.Point(184, 473);
             this.phoneError.Name = "phoneError";
             this.phoneError.Size = new System.Drawing.Size(0, 13);
             this.phoneError.TabIndex = 22;
@@ -239,14 +242,14 @@ namespace AAB_Furniture_Rentals.View
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // label1
+            // cityErrorLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(185, 345);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 26;
+            this.cityErrorLabel.AutoSize = true;
+            this.cityErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.cityErrorLabel.Location = new System.Drawing.Point(185, 345);
+            this.cityErrorLabel.Name = "cityErrorLabel";
+            this.cityErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.cityErrorLabel.TabIndex = 26;
             // 
             // cityLabel
             // 
@@ -297,16 +300,46 @@ namespace AAB_Furniture_Rentals.View
             this.zipTextBox.Size = new System.Drawing.Size(200, 20);
             this.zipTextBox.TabIndex = 31;
             // 
+            // stateErrorLabel
+            // 
+            this.stateErrorLabel.AutoSize = true;
+            this.stateErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.stateErrorLabel.Location = new System.Drawing.Point(184, 388);
+            this.stateErrorLabel.Name = "stateErrorLabel";
+            this.stateErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.stateErrorLabel.TabIndex = 32;
+            // 
+            // zipErrorLabel
+            // 
+            this.zipErrorLabel.AutoSize = true;
+            this.zipErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.zipErrorLabel.Location = new System.Drawing.Point(185, 432);
+            this.zipErrorLabel.Name = "zipErrorLabel";
+            this.zipErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.zipErrorLabel.TabIndex = 33;
+            // 
+            // phoneErrorLabel
+            // 
+            this.phoneErrorLabel.AutoSize = true;
+            this.phoneErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.phoneErrorLabel.Location = new System.Drawing.Point(184, 473);
+            this.phoneErrorLabel.Name = "phoneErrorLabel";
+            this.phoneErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.phoneErrorLabel.TabIndex = 34;
+            // 
             // CustomerDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 587);
+            this.Controls.Add(this.phoneErrorLabel);
+            this.Controls.Add(this.zipErrorLabel);
+            this.Controls.Add(this.stateErrorLabel);
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.zipLabel);
             this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.stateLabel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cityErrorLabel);
             this.Controls.Add(this.cityLabel);
             this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.cancelButton);
@@ -360,12 +393,15 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label addressError;
         private System.Windows.Forms.Label phoneError;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label cityErrorLabel;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.Label zipLabel;
         private System.Windows.Forms.TextBox zipTextBox;
+        private System.Windows.Forms.Label stateErrorLabel;
+        private System.Windows.Forms.Label zipErrorLabel;
+        private System.Windows.Forms.Label phoneErrorLabel;
     }
 }

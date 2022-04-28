@@ -29,8 +29,7 @@ namespace AAB_Furniture_Rentals.DAL
 
                         while (reader.Read())
                         {
-
-                            int _stateID = Convert.ToInt32(reader.GetString(stateID));
+                            int _stateID = reader.GetInt32(stateID);
                             string _stateCode = reader.GetString(stateCode);
                             string _stateName = reader.GetString(stateName);
 
