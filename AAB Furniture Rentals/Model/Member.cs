@@ -76,7 +76,7 @@ namespace AAB_Furniture_Rentals.Model
             this.Address = address;
             this.FirstName = fname;
             this.LastName = lname;
-            this.DateOfBirth = dob;
+            this.DateOfBirth = dob.Date;
             this.PhoneNumber = phone;
             this.Gender = sex;
             this.City = city;
