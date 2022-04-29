@@ -248,7 +248,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             MemberController.CurrentMember = this.selectedMember;
             MessageBox.Show("Curent Shopper set to:" +
                 " " + this.selectedMember.FirstName +
-                " " + this.selectedMember.FirstName + 
+                " " + this.selectedMember.LastName + 
                 " | Member ID: " + this.selectedMember.MemberID.ToString());
         }
     }
