@@ -29,8 +29,8 @@ namespace AAB_Furniture_Rentals.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clear = new System.Windows.Forms.Button();
             this.AddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -44,7 +44,14 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView = new System.Windows.Forms.DataGridView();
             this.ViewCartButton = new System.Windows.Forms.Button();
             this.AbandonCartButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.QtyLabel = new System.Windows.Forms.Label();
+            this.qtyUpDown = new System.Windows.Forms.NumericUpDown();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // clear
@@ -61,7 +68,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // AddToCartButton
             // 
             this.AddToCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.AddToCartButton.Location = new System.Drawing.Point(209, 183);
+            this.AddToCartButton.Location = new System.Drawing.Point(20, 41);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(93, 21);
             this.AddToCartButton.TabIndex = 2;
@@ -153,23 +160,23 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.AllowUserToDeleteRows = false;
             this.searchDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.searchDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.searchDataGridView.Location = new System.Drawing.Point(121, 51);
             this.searchDataGridView.MultiSelect = false;
             this.searchDataGridView.Name = "searchDataGridView";
@@ -181,18 +188,18 @@ namespace AAB_Furniture_Rentals.UserControls
             // ViewCartButton
             // 
             this.ViewCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.ViewCartButton.Location = new System.Drawing.Point(327, 183);
+            this.ViewCartButton.Location = new System.Drawing.Point(30, 16);
             this.ViewCartButton.Name = "ViewCartButton";
             this.ViewCartButton.Size = new System.Drawing.Size(122, 21);
             this.ViewCartButton.TabIndex = 13;
-            this.ViewCartButton.Text = "View Cart / Checkout";
+            this.ViewCartButton.Text = "Done Shopping.. ";
             this.ViewCartButton.UseVisualStyleBackColor = true;
             this.ViewCartButton.Click += new System.EventHandler(this.ViewCartButton_Click);
             // 
             // AbandonCartButton
             // 
             this.AbandonCartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.AbandonCartButton.Location = new System.Drawing.Point(327, 210);
+            this.AbandonCartButton.Location = new System.Drawing.Point(45, 38);
             this.AbandonCartButton.Name = "AbandonCartButton";
             this.AbandonCartButton.Size = new System.Drawing.Size(93, 21);
             this.AbandonCartButton.TabIndex = 14;
@@ -200,12 +207,61 @@ namespace AAB_Furniture_Rentals.UserControls
             this.AbandonCartButton.UseVisualStyleBackColor = true;
             this.AbandonCartButton.Click += new System.EventHandler(this.AbandonCartButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.qtyUpDown);
+            this.groupBox1.Controls.Add(this.QtyLabel);
+            this.groupBox1.Controls.Add(this.AddToCartButton);
+            this.groupBox1.Location = new System.Drawing.Point(138, 166);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(129, 65);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Add To Cart";
+            // 
+            // QtyLabel
+            // 
+            this.QtyLabel.AutoSize = true;
+            this.QtyLabel.Location = new System.Drawing.Point(32, 22);
+            this.QtyLabel.Name = "QtyLabel";
+            this.QtyLabel.Size = new System.Drawing.Size(26, 13);
+            this.QtyLabel.TabIndex = 16;
+            this.QtyLabel.Text = "Qty:";
+            // 
+            // qtyUpDown
+            // 
+            this.qtyUpDown.Location = new System.Drawing.Point(64, 17);
+            this.qtyUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.qtyUpDown.Name = "qtyUpDown";
+            this.qtyUpDown.Size = new System.Drawing.Size(49, 20);
+            this.qtyUpDown.TabIndex = 17;
+            this.qtyUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ViewCartButton);
+            this.groupBox2.Controls.Add(this.AbandonCartButton);
+            this.groupBox2.Location = new System.Drawing.Point(273, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(170, 65);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Checkout";
+            // 
             // EmployeeFurnitureUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.AbandonCartButton);
-            this.Controls.Add(this.ViewCartButton);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.searchDataGridView);
             this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.searchButton);
@@ -215,12 +271,15 @@ namespace AAB_Furniture_Rentals.UserControls
             this.Controls.Add(this.idComboBox);
             this.Controls.Add(this.categoryComboBox);
             this.Controls.Add(this.styleComboBox);
-            this.Controls.Add(this.AddToCartButton);
             this.Controls.Add(this.clear);
             this.Name = "EmployeeFurnitureUserControl";
-            this.Size = new System.Drawing.Size(478, 234);
+            this.Size = new System.Drawing.Size(457, 234);
             this.Load += new System.EventHandler(this.EmployeeFurnitureUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +299,9 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.DataGridView searchDataGridView;
         private System.Windows.Forms.Button ViewCartButton;
         private System.Windows.Forms.Button AbandonCartButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown qtyUpDown;
+        private System.Windows.Forms.Label QtyLabel;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
