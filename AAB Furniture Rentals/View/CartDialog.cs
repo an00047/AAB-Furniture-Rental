@@ -1,4 +1,5 @@
-﻿using AAB_Furniture_Rentals.Model;
+﻿using AAB_Furniture_Rentals.Controller;
+using AAB_Furniture_Rentals.Model;
 using System;
 using System.Windows.Forms;
 
@@ -34,15 +35,15 @@ namespace AAB_Furniture_Rentals.View
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
             try {
-              
+
                 if (this.EmployeeTextBox.Text == "" || this.MemberTextBox.Text == "") {
                     throw new Exception("Employee and Member ID's cannot be blank");
                 }
-                
-             
+
+
                 int transactionID = this.currentCart.ProcessRentalTransaction(
-                    employeeID: Int32.Parse(this.EmployeeTextBox.Text), 
-                    memberID: Int32.Parse(this.MemberTextBox.Text), 
+                    employeeID: Int32.Parse(this.EmployeeTextBox.Text),
+                    memberID: Int32.Parse(this.MemberTextBox.Text),
                     dueDate: this.returnDateTimePicker.Value
                     );
 
@@ -52,32 +53,33 @@ namespace AAB_Furniture_Rentals.View
                 //Show Success Message then Close. 
                 MessageBox.Show("Checkout Complete!");
                 this.currentCart = null;
-              
+
                 this.Close();
-                
-            } catch(Exception ex) {
-               
-                MessageBox.Show(ex.Message); 
+
+            } catch (Exception ex) {
+
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
-          
+
             this.Close();
-           
+
         }
 
         private void CartDialog_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (this.currentCart != null) {
-                this.currentCart.PutFurnitureBackIntoInventory();
-            }
-           
+            //UNCOMMENT IF UTILIZING SMART CART
+            //if (this.currentCart != null && ) {
+            //    this.currentCart.PutFurnitureBackIntoInventory();
+            //}
+
 
         }
 
-    
+
 
         private void FurnitureDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -87,11 +89,31 @@ namespace AAB_Furniture_Rentals.View
 
             this.shortNameLabel.Text = selectedFurniture.Style + " " + selectedFurniture.Category;
             this.qtyUpDown.Value = selectedFurniture.QuantityOnHand;
+            this.qtyUpDown.Maximum = FurnitureController.GetFurnitureByID(this.selectedFurniture.FurnitureID).QuantityOnHand;
         }
 
         private void updateQtyButton_Click(object sender, EventArgs e)
         {
-            ((Furniture)this.FurnitureDataGridView.SelectedRows[0].DataBoundItem).QuantityOnHand = (int)qtyUpDown.Value;
+
+            try { 
+            Furniture InventoryItem = FurnitureController.GetFurnitureByID(this.selectedFurniture.FurnitureID);
+
+            //check to see if Qty is still available
+            if (InventoryItem.QuantityOnHand < (int)qtyUpDown.Value)
+            {
+                throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
+            }
+
+                ((Furniture)this.FurnitureDataGridView.SelectedRows[0].DataBoundItem).QuantityOnHand = (int)qtyUpDown.Value;
+              } catch(Exception ex){
+
+                MessageBox.Show(ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
             this.FurnitureDataGridView.DataSource = null;
             this.RefreshDataGrid();
         }
