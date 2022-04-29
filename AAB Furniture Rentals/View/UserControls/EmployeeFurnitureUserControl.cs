@@ -148,8 +148,10 @@ namespace AAB_Furniture_Rentals.UserControls
                 if ((Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem == null) {
                     throw new Exception("You must search for, and then select a piece of furniture on the list");
                 }
+
+               
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
-                this.currentCart.AddFurnitureToCart(selectedFurniture);
+                this.currentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
 
                 this.RefreshDataGrid();
                 this.ViewCartButton.Enabled = true;

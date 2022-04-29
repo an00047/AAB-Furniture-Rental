@@ -44,17 +44,17 @@ namespace AAB_Furniture_Rentals.Model
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
         /// <param name="furnitureID"></param>
-        public void AddFurnitureToCart(Furniture furnitureToAdd ) {
-            // at this time, each click of the button is one item. 
-            int quantityToRent = 1;
-            furnitureToAdd.QuantityOnHand = 1;
+        public void AddFurnitureToCart(Furniture furnitureToAdd , int quantityToAdd) {
+            
+            int quantityToRent = quantityToAdd;
+            furnitureToAdd.QuantityOnHand = quantityToAdd;
             // get most recent information on this furniture item
             // it is assumed that if the prices (or anyhting) changes except quantity, the memebr has their "deal" locked in. 
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
 
             //check to see if Qty is still available
             if (InventoryItem.QuantityOnHand < quantityToRent) {
-                this.PutFurnitureBackIntoInventory();
+                this.PutFurnitureBackIntoInventory(); 
                 throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
 
