@@ -9,6 +9,10 @@ namespace AAB_Furniture_Rentals.View
     /// </summary>
     public partial class CartDialog : Form
     {
+        /// <summary>
+        /// furniture obect retrieved when a cart item is slected. 
+        /// </summary>
+        Furniture selectedFurniture;
         Cart currentCart;
         /// <summary>
         /// cartDialog constructor
@@ -71,6 +75,25 @@ namespace AAB_Furniture_Rentals.View
             }
            
 
+        }
+
+    
+
+        private void FurnitureDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            this.updateQtyPanel.Enabled = true;
+            this.selectedFurniture = ((Furniture)this.FurnitureDataGridView.SelectedRows[0].DataBoundItem);
+
+            this.shortNameLabel.Text = selectedFurniture.Style + " " + selectedFurniture.Category;
+            this.qtyUpDown.Value = selectedFurniture.QuantityOnHand;
+        }
+
+        private void updateQtyButton_Click(object sender, EventArgs e)
+        {
+            ((Furniture)this.FurnitureDataGridView.SelectedRows[0].DataBoundItem).QuantityOnHand = (int)qtyUpDown.Value;
+            this.FurnitureDataGridView.DataSource = null;
+            this.RefreshDataGrid();
         }
     }
 }
