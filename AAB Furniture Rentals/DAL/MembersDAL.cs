@@ -16,7 +16,7 @@ namespace AAB_Furniture_Rentals.DAL
         /// </summary>
         /// <param name="customerID"></param>
         /// <returns></returns>
-        public Member GetCustomerByID(int customerID)
+        public List<Member> GetCustomersByID(int customerID)
         {
 
             string selectStatement =
@@ -27,7 +27,8 @@ namespace AAB_Furniture_Rentals.DAL
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
-                Member currentMember = new Member();
+                List<Member> allMembers = new List<Member>();
+               
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
 
@@ -41,6 +42,7 @@ namespace AAB_Furniture_Rentals.DAL
 
                         while (reader.Read())
                         {
+                            Member currentMember = new Member();
                             currentMember.MemberID = (int)reader["memberID"];
                             currentMember.FirstName = reader["fname"].ToString();
                             currentMember.LastName = reader["lname"].ToString();
@@ -51,7 +53,57 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.City = reader["city"].ToString();
                             currentMember.State = Convert.ToInt32(reader["state"]);
                             currentMember.Zip = reader["zip"].ToString();
+                            allMembers.Add(currentMember);
+                        }
 
+                    }
+
+                }
+
+
+                return allMembers;
+
+            }
+        }
+
+        public Member GetCustomerByID(int customerID)
+        {
+
+            string selectStatement =
+              "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
+              "FROM Member " +
+              "WHERE memberID = @customerID ";
+
+
+            using (SqlConnection connection = RentMeDBConnection.GetConnection())
+            {
+                Member currentMember = new Member();
+
+                connection.Open();
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+
+                {
+
+                    selectCommand.Parameters.AddWithValue("@customerID", customerID);
+                    selectCommand.Parameters["@customerID"].Value = customerID;
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+
+
+                        while (reader.Read())
+                        {
+                           
+                            currentMember.MemberID = (int)reader["memberID"];
+                            currentMember.FirstName = reader["fname"].ToString();
+                            currentMember.LastName = reader["lname"].ToString();
+                            currentMember.Gender = Convert.ToChar(reader["sex"]);
+                            currentMember.DateOfBirth = (DateTime)reader["dob"];
+                            currentMember.Address = reader["address"].ToString();
+                            currentMember.PhoneNumber = reader["phone"].ToString();
+                            currentMember.City = reader["city"].ToString();
+                            currentMember.State = Convert.ToInt32(reader["state"]);
+                            currentMember.Zip = reader["zip"].ToString();
+                          
                         }
 
                     }
@@ -320,9 +372,9 @@ namespace AAB_Furniture_Rentals.DAL
         /// </summary>
         /// <param name="phoneNumber"></param>
         /// <returns></returns>
-        public Member GetCustomerByPhoneNumber(string phoneNumber)
+        public List<Member> GetCustomersByPhoneNumber(string phoneNumber)
         {
-
+            List<Member> allMembers = new List<Member>();
             string selectStatement =
               "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
               "FROM Member " +
@@ -331,7 +383,7 @@ namespace AAB_Furniture_Rentals.DAL
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {
-                Member currentMember = new Member();
+               
                 connection.Open();
                 using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
 
@@ -345,6 +397,7 @@ namespace AAB_Furniture_Rentals.DAL
 
                         while (reader.Read())
                         {
+                            Member currentMember = new Member();
                             currentMember.MemberID = (int)reader["memberID"];
                             currentMember.FirstName = reader["fname"].ToString();
                             currentMember.LastName = reader["lname"].ToString();
@@ -355,7 +408,7 @@ namespace AAB_Furniture_Rentals.DAL
                             currentMember.City = reader["city"].ToString();
                             currentMember.State = Convert.ToInt32(reader["state"]);
                             currentMember.Zip = reader["zip"].ToString();
-
+                            allMembers.Add(currentMember);
                         }
 
                     }
@@ -363,7 +416,7 @@ namespace AAB_Furniture_Rentals.DAL
                 }
 
 
-                return currentMember;
+                return allMembers;
 
             }
         }
@@ -374,10 +427,11 @@ namespace AAB_Furniture_Rentals.DAL
     /// <param name="firstName"></param>
     /// <param name="lastName"></param>
     /// <returns></returns>
-    public Member GetCustomerByFirstAndLastName(string firstName, string lastName)
+    public List<Member> GetCustomersByFirstAndLastName(string firstName, string lastName)
     {
 
-        string selectStatement =
+            List<Member> allMembers = new List<Member>();
+            string selectStatement =
           "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
           "FROM Member " +
           "WHERE fName = @firstName AND " +
@@ -386,7 +440,7 @@ namespace AAB_Furniture_Rentals.DAL
 
         using (SqlConnection connection = RentMeDBConnection.GetConnection())
         {
-            Member currentMember = new Member();
+           
             connection.Open();
             using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
 
@@ -402,6 +456,7 @@ namespace AAB_Furniture_Rentals.DAL
 
                     while (reader.Read())
                     {
+                        Member currentMember = new Member();
                         currentMember.MemberID = (int)reader["memberID"];
                         currentMember.FirstName = reader["fname"].ToString();
                         currentMember.LastName = reader["lname"].ToString();
@@ -412,6 +467,7 @@ namespace AAB_Furniture_Rentals.DAL
                         currentMember.City = reader["city"].ToString();
                         currentMember.State = Convert.ToInt32(reader["state"]);
                         currentMember.Zip = reader["zip"].ToString();
+                        allMembers.Add(currentMember);
 
                         }
 
@@ -420,7 +476,7 @@ namespace AAB_Furniture_Rentals.DAL
             }
 
 
-            return currentMember;
+            return allMembers;
 
         }
     }
