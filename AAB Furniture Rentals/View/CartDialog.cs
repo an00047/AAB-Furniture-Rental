@@ -112,6 +112,23 @@ namespace AAB_Furniture_Rentals.View
             }
 
 
+            this.FurnitureDataGridView.DataSource = null;
+            this.RefreshDataGrid();
+        }
+
+        private void deleteItem_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+             currentCart.FurnitureList.Remove((Furniture)FurnitureDataGridView.SelectedRows[0].DataBoundItem);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message,
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
             this.FurnitureDataGridView.DataSource = null;
