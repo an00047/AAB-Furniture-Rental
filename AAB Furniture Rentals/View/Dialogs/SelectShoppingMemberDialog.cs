@@ -16,5 +16,10 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         {
             InitializeComponent();
         }
+
+        private void closeFromButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
