@@ -131,5 +131,34 @@ namespace AAB_Furniture_Rentals.Model
 
             return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
         }
+
+        /// <summary>
+        /// Calculates the total rental cost (w/o taxes)
+        /// </summary>
+        /// <param name="returnDate"></param>
+        /// <returns></returns>
+        public double CalculateTotalCost(DateTime returnDate) {
+            int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
+            double total = 0;
+            this.FurnitureList.ForEach((item) => {
+                total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
+            });
+
+            return total;
+        }
+
+        /// <summary>
+        /// calculates the daily fine rate
+        /// </summary>
+        /// <returns></returns>
+        public double CalculateDailyFineRate()
+        {
+            double total = 0;
+            this.FurnitureList.ForEach((item) => {
+                total += item.FineRate * item.QuantityOnHand;
+            });
+
+            return total;
+        }
     }
 }
