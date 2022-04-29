@@ -56,6 +56,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
+            SetCurrentMemberButton.Enabled = false;
             this.search();
         }
 
@@ -193,6 +194,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.Refresh();
         }
 
+        /// <summary>
+        /// Updates/refreshes the data grid
+        /// </summary>
         public void UpdateDataGrid()
         {
 
@@ -250,6 +254,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 " " + this.selectedMember.FirstName +
                 " " + this.selectedMember.LastName + 
                 " | Member ID: " + this.selectedMember.MemberID.ToString());
+
+            this.SetCurrentMemberButton.Enabled = false;
         }
     }
   }
