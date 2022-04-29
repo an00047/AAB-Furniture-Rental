@@ -1,5 +1,6 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
+using AAB_Furniture_Rentals.View.Dialogs;
 using System;
 using System.Windows.Forms;
 
@@ -25,8 +26,22 @@ namespace AAB_Furniture_Rentals.View
             this.currentCart = theCart;
             this.returnDateTimePicker.MinDate = DateTime.Now.AddDays(1);
             this.RefreshDataGrid();
+            this.CheckMemberSelection();
         }
 
+        private void CheckMemberSelection() {
+           
+            while (MemberController.CurrentMember == null)
+            {
+                MessageBox.Show("A member must be selected; Please do so now...");
+                SelectShoppingMemberDialog chooseMemberForm = new SelectShoppingMemberDialog();
+                chooseMemberForm.ShowDialog();
+                
+            }
+
+            this.MemberNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
+            this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
+        }
 
         /// <summary>
         /// really cool magical gridhandler that fixes everything
@@ -43,14 +58,11 @@ namespace AAB_Furniture_Rentals.View
         {
             try {
 
-                if ( this.MemberTextBox.Text == "") {
-                    throw new Exception("Employee and Member ID's cannot be blank");
-                }
-
+                CheckMemberSelection();
 
                 int transactionID = this.currentCart.ProcessRentalTransaction(
                     employeeID: EmployeeController.CurrentEmployee.EmployeeID,
-                    memberID: Int32.Parse(this.MemberTextBox.Text),
+                    memberID: MemberController.CurrentMember.MemberID,
                     dueDate: this.returnDateTimePicker.Value
                     );
 
@@ -76,18 +88,6 @@ namespace AAB_Furniture_Rentals.View
 
         }
 
-        private void CartDialog_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //UNCOMMENT IF UTILIZING SMART CART
-            //if (this.currentCart != null && ) {
-            //    this.currentCart.PutFurnitureBackIntoInventory();
-            //}
-
-
-        }
-
-
-
         private void FurnitureDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -101,7 +101,7 @@ namespace AAB_Furniture_Rentals.View
 
         private void updateQtyButton_Click(object sender, EventArgs e)
         {
-
+            CheckMemberSelection();
             try { 
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(this.selectedFurniture.FurnitureID);
 
@@ -145,6 +145,13 @@ namespace AAB_Furniture_Rentals.View
         private void returnDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             this.RefreshDataGrid();
+        }
+
+        private void MemberNameValue_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SelectShoppingMemberDialog chooseMemberForm = new SelectShoppingMemberDialog();
+            chooseMemberForm.ShowDialog();
+            CheckMemberSelection();
         }
     }
 }

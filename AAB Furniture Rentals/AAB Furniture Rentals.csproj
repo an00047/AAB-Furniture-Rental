@@ -80,11 +80,17 @@
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
     <Compile Include="Model\State.cs" />
-    <Compile Include="View\CartDialog.cs">
+    <Compile Include="View\Dialogs\CartDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CartDialog.Designer.cs">
+    <Compile Include="View\Dialogs\CartDialog.Designer.cs">
       <DependentUpon>CartDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Dialogs\SelectShoppingMemberDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialogs\SelectShoppingMemberDialog.Designer.cs">
+      <DependentUpon>SelectShoppingMemberDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\EmployeeFurnitureUserControl.cs">
       <SubType>UserControl</SubType>
@@ -106,16 +112,16 @@
     <Compile Include="View\AdminMainDashboard.Designer.cs">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CustomerDialog.cs">
+    <Compile Include="View\Dialogs\CustomerDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CustomerDialog.Designer.cs">
+    <Compile Include="View\Dialogs\CustomerDialog.Designer.cs">
       <DependentUpon>CustomerDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\EmployeeDialog.cs">
+    <Compile Include="View\Dialogs\EmployeeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\EmployeeDialog.Designer.cs">
+    <Compile Include="View\Dialogs\EmployeeDialog.Designer.cs">
       <DependentUpon>EmployeeDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="View\EmployeeMainDashboard.cs">
@@ -180,8 +186,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\CartDialog.resx">
+    <EmbeddedResource Include="View\Dialogs\CartDialog.resx">
       <DependentUpon>CartDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialogs\SelectShoppingMemberDialog.resx">
+      <DependentUpon>SelectShoppingMemberDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeFurnitureUserControl.resx">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
@@ -189,10 +198,10 @@
     <EmbeddedResource Include="View\AdminMainDashboard.resx">
       <DependentUpon>AdminMainDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CustomerDialog.resx">
+    <EmbeddedResource Include="View\Dialogs\CustomerDialog.resx">
       <DependentUpon>CustomerDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\EmployeeDialog.resx">
+    <EmbeddedResource Include="View\Dialogs\EmployeeDialog.resx">
       <DependentUpon>EmployeeDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\EmployeeMainDashboard.resx">
