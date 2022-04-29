@@ -108,6 +108,8 @@ namespace AAB_Furniture_Rentals.DAL
                 return allRentals;
             }
         }
+
+
         /// <summary>
         /// insert New Rental transaction into the DB
         /// </summary>
