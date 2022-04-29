@@ -29,9 +29,9 @@ namespace AAB_Furniture_Rentals.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AbandonCartButton = new System.Windows.Forms.Button();
             this.CheckoutButton = new System.Windows.Forms.Button();
             this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
@@ -47,6 +47,7 @@ namespace AAB_Furniture_Rentals.View
             this.QtyLabel = new System.Windows.Forms.Label();
             this.updateQtyButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.deleteItem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             this.updateQtyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).BeginInit();
@@ -76,35 +77,35 @@ namespace AAB_Furniture_Rentals.View
             // 
             // FurnitureDataGridView
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FurnitureDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FurnitureDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.FurnitureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FurnitureDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FurnitureDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.FurnitureDataGridView.Location = new System.Drawing.Point(36, 83);
             this.FurnitureDataGridView.MultiSelect = false;
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FurnitureDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FurnitureDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FurnitureDataGridView.Size = new System.Drawing.Size(560, 190);
             this.FurnitureDataGridView.TabIndex = 17;
@@ -160,6 +161,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // updateQtyPanel
             // 
+            this.updateQtyPanel.Controls.Add(this.deleteItem);
             this.updateQtyPanel.Controls.Add(this.shortNameLabel);
             this.updateQtyPanel.Controls.Add(this.qtyUpDown);
             this.updateQtyPanel.Controls.Add(this.QtyLabel);
@@ -167,7 +169,7 @@ namespace AAB_Furniture_Rentals.View
             this.updateQtyPanel.Enabled = false;
             this.updateQtyPanel.Location = new System.Drawing.Point(36, 288);
             this.updateQtyPanel.Name = "updateQtyPanel";
-            this.updateQtyPanel.Size = new System.Drawing.Size(165, 84);
+            this.updateQtyPanel.Size = new System.Drawing.Size(165, 104);
             this.updateQtyPanel.TabIndex = 22;
             this.updateQtyPanel.TabStop = false;
             this.updateQtyPanel.Text = "Selected Item";
@@ -226,10 +228,21 @@ namespace AAB_Furniture_Rentals.View
             this.groupBox2.Controls.Add(this.AbandonCartButton);
             this.groupBox2.Location = new System.Drawing.Point(468, 288);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(128, 84);
+            this.groupBox2.Size = new System.Drawing.Size(128, 104);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Finalize Rental:";
+            // 
+            // deleteItem
+            // 
+            this.deleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.deleteItem.Location = new System.Drawing.Point(36, 83);
+            this.deleteItem.Name = "deleteItem";
+            this.deleteItem.Size = new System.Drawing.Size(93, 21);
+            this.deleteItem.TabIndex = 19;
+            this.deleteItem.Text = "Delete Item";
+            this.deleteItem.UseVisualStyleBackColor = true;
+            this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
             // 
             // CartDialog
             // 
@@ -276,5 +289,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Button updateQtyButton;
         private System.Windows.Forms.Label shortNameLabel;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button deleteItem;
     }
 }
