@@ -42,6 +42,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
             this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
             this.searchByLabel = new System.Windows.Forms.Label();
+            this.SetCurrentMemberButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
@@ -60,7 +61,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // newCustomerButton
             // 
-            this.newCustomerButton.Location = new System.Drawing.Point(192, 233);
+            this.newCustomerButton.Location = new System.Drawing.Point(43, 233);
             this.newCustomerButton.Name = "newCustomerButton";
             this.newCustomerButton.Size = new System.Drawing.Size(93, 23);
             this.newCustomerButton.TabIndex = 4;
@@ -70,7 +71,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // editCustomerButton
             // 
-            this.editCustomerButton.Location = new System.Drawing.Point(291, 233);
+            this.editCustomerButton.Location = new System.Drawing.Point(276, 233);
             this.editCustomerButton.Name = "editCustomerButton";
             this.editCustomerButton.Size = new System.Drawing.Size(85, 23);
             this.editCustomerButton.TabIndex = 5;
@@ -133,6 +134,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDataGridView.Size = new System.Drawing.Size(318, 150);
             this.customerDataGridView.TabIndex = 6;
+            this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
             // 
             // searchTypeComboBox
             // 
@@ -152,10 +154,21 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchByLabel.TabIndex = 8;
             this.searchByLabel.Text = "Search By:";
             // 
+            // SetCurrentMemberButton
+            // 
+            this.SetCurrentMemberButton.Location = new System.Drawing.Point(105, 262);
+            this.SetCurrentMemberButton.Name = "SetCurrentMemberButton";
+            this.SetCurrentMemberButton.Size = new System.Drawing.Size(194, 37);
+            this.SetCurrentMemberButton.TabIndex = 9;
+            this.SetCurrentMemberButton.Text = "Set As \"Current Shopper\"";
+            this.SetCurrentMemberButton.UseVisualStyleBackColor = true;
+            this.SetCurrentMemberButton.Click += new System.EventHandler(this.SetCurrentMemberButton_Click);
+            // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SetCurrentMemberButton);
             this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.searchTypeComboBox);
             this.Controls.Add(this.customerDataGridView);
@@ -187,5 +200,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.DataGridView customerDataGridView;
         private System.Windows.Forms.ComboBox searchTypeComboBox;
         private System.Windows.Forms.Label searchByLabel;
+        private System.Windows.Forms.Button SetCurrentMemberButton;
     }
 }

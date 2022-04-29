@@ -14,6 +14,10 @@ namespace AAB_Furniture_Rentals.Controller
         private static MembersDAL localMemberDAL;
      
         /// <summary>
+        /// holds reference to the current member the employee is working with
+        /// </summary>
+        public static Member CurrentMember { get; set; }
+        /// <summary>
         /// Initializes the <see cref="MemberController"/> class.
         /// </summary>
         static MemberController() 

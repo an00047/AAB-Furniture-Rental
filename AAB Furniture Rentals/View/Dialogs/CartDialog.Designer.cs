@@ -29,13 +29,12 @@ namespace AAB_Furniture_Rentals.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AbandonCartButton = new System.Windows.Forms.Button();
             this.CheckoutButton = new System.Windows.Forms.Button();
             this.FurnitureDataGridView = new System.Windows.Forms.DataGridView();
-            this.MemberTextBox = new System.Windows.Forms.TextBox();
             this.MemberLabel = new System.Windows.Forms.Label();
             this.returnDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.retunDateLabel = new System.Windows.Forms.Label();
@@ -52,11 +51,16 @@ namespace AAB_Furniture_Rentals.View
             this.CartTotal = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.tutorialLabel = new System.Windows.Forms.Label();
+            this.MemberGroupBox = new System.Windows.Forms.GroupBox();
+            this.MemberIDValue = new System.Windows.Forms.Label();
+            this.MemberNameLabel = new System.Windows.Forms.Label();
+            this.MemberNameValue = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             this.updateQtyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.cartDetailsGroupBox.SuspendLayout();
+            this.MemberGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // AbandonCartButton
@@ -82,51 +86,44 @@ namespace AAB_Furniture_Rentals.View
             // 
             // FurnitureDataGridView
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FurnitureDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FurnitureDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.FurnitureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.FurnitureDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.FurnitureDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.FurnitureDataGridView.Location = new System.Drawing.Point(36, 83);
             this.FurnitureDataGridView.MultiSelect = false;
             this.FurnitureDataGridView.Name = "FurnitureDataGridView";
             this.FurnitureDataGridView.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.FurnitureDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FurnitureDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.FurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.FurnitureDataGridView.Size = new System.Drawing.Size(560, 190);
             this.FurnitureDataGridView.TabIndex = 17;
             this.FurnitureDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.FurnitureDataGridView_CellMouseClick);
             // 
-            // MemberTextBox
-            // 
-            this.MemberTextBox.Location = new System.Drawing.Point(39, 59);
-            this.MemberTextBox.Name = "MemberTextBox";
-            this.MemberTextBox.Size = new System.Drawing.Size(93, 20);
-            this.MemberTextBox.TabIndex = 14;
-            // 
             // MemberLabel
             // 
             this.MemberLabel.AutoSize = true;
-            this.MemberLabel.Location = new System.Drawing.Point(40, 45);
+            this.MemberLabel.Location = new System.Drawing.Point(8, 41);
             this.MemberLabel.Name = "MemberLabel";
             this.MemberLabel.Size = new System.Drawing.Size(62, 13);
             this.MemberLabel.TabIndex = 13;
@@ -144,11 +141,11 @@ namespace AAB_Furniture_Rentals.View
             // retunDateLabel
             // 
             this.retunDateLabel.AutoSize = true;
-            this.retunDateLabel.Location = new System.Drawing.Point(407, 44);
+            this.retunDateLabel.Location = new System.Drawing.Point(426, 44);
             this.retunDateLabel.Name = "retunDateLabel";
-            this.retunDateLabel.Size = new System.Drawing.Size(150, 13);
+            this.retunDateLabel.Size = new System.Drawing.Size(153, 13);
             this.retunDateLabel.TabIndex = 21;
-            this.retunDateLabel.Text = "Date items are to Be Returned";
+            this.retunDateLabel.Text = "Date items are to Be Returned:";
             // 
             // updateQtyPanel
             // 
@@ -297,11 +294,54 @@ namespace AAB_Furniture_Rentals.View
             this.tutorialLabel.TabIndex = 25;
             this.tutorialLabel.Text = "*SELECT LINE-ITEM TO UPDATE / DELETE ENTRY";
             // 
+            // MemberGroupBox
+            // 
+            this.MemberGroupBox.Controls.Add(this.MemberNameValue);
+            this.MemberGroupBox.Controls.Add(this.MemberNameLabel);
+            this.MemberGroupBox.Controls.Add(this.MemberIDValue);
+            this.MemberGroupBox.Controls.Add(this.MemberLabel);
+            this.MemberGroupBox.Location = new System.Drawing.Point(36, 12);
+            this.MemberGroupBox.Name = "MemberGroupBox";
+            this.MemberGroupBox.Size = new System.Drawing.Size(180, 64);
+            this.MemberGroupBox.TabIndex = 26;
+            this.MemberGroupBox.TabStop = false;
+            this.MemberGroupBox.Text = "Member Information:";
+            // 
+            // MemberIDValue
+            // 
+            this.MemberIDValue.AutoSize = true;
+            this.MemberIDValue.Location = new System.Drawing.Point(76, 41);
+            this.MemberIDValue.Name = "MemberIDValue";
+            this.MemberIDValue.Size = new System.Drawing.Size(13, 13);
+            this.MemberIDValue.TabIndex = 14;
+            this.MemberIDValue.Text = "?";
+            // 
+            // MemberNameLabel
+            // 
+            this.MemberNameLabel.AutoSize = true;
+            this.MemberNameLabel.Location = new System.Drawing.Point(8, 21);
+            this.MemberNameLabel.Name = "MemberNameLabel";
+            this.MemberNameLabel.Size = new System.Drawing.Size(41, 13);
+            this.MemberNameLabel.TabIndex = 15;
+            this.MemberNameLabel.Text = "Name: ";
+            // 
+            // MemberNameValue
+            // 
+            this.MemberNameValue.AutoSize = true;
+            this.MemberNameValue.Location = new System.Drawing.Point(79, 20);
+            this.MemberNameValue.Name = "MemberNameValue";
+            this.MemberNameValue.Size = new System.Drawing.Size(55, 13);
+            this.MemberNameValue.TabIndex = 17;
+            this.MemberNameValue.TabStop = true;
+            this.MemberNameValue.Text = "linkLabel1";
+            this.MemberNameValue.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MemberNameValue_LinkClicked);
+            // 
             // CartDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 404);
+            this.Controls.Add(this.MemberGroupBox);
             this.Controls.Add(this.tutorialLabel);
             this.Controls.Add(this.cartDetailsGroupBox);
             this.Controls.Add(this.groupBox2);
@@ -309,12 +349,9 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.retunDateLabel);
             this.Controls.Add(this.returnDateTimePicker);
             this.Controls.Add(this.FurnitureDataGridView);
-            this.Controls.Add(this.MemberTextBox);
-            this.Controls.Add(this.MemberLabel);
             this.Name = "CartDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cart";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CartDialog_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).EndInit();
             this.updateQtyPanel.ResumeLayout(false);
             this.updateQtyPanel.PerformLayout();
@@ -323,6 +360,8 @@ namespace AAB_Furniture_Rentals.View
             this.groupBox2.PerformLayout();
             this.cartDetailsGroupBox.ResumeLayout(false);
             this.cartDetailsGroupBox.PerformLayout();
+            this.MemberGroupBox.ResumeLayout(false);
+            this.MemberGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,7 +372,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Button AbandonCartButton;
         private System.Windows.Forms.Button CheckoutButton;
         private System.Windows.Forms.DataGridView FurnitureDataGridView;
-        private System.Windows.Forms.TextBox MemberTextBox;
         private System.Windows.Forms.Label MemberLabel;
         private System.Windows.Forms.DateTimePicker returnDateTimePicker;
         private System.Windows.Forms.Label retunDateLabel;
@@ -350,5 +388,9 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label feeLabel;
         private System.Windows.Forms.Label CartTotal;
         private System.Windows.Forms.Label tutorialLabel;
+        private System.Windows.Forms.GroupBox MemberGroupBox;
+        private System.Windows.Forms.Label MemberNameLabel;
+        private System.Windows.Forms.Label MemberIDValue;
+        private System.Windows.Forms.LinkLabel MemberNameValue;
     }
 }

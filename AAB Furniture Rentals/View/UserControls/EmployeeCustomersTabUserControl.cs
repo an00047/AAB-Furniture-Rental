@@ -13,7 +13,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
     public partial class EmployeeCustomersTabUserControl : UserControl
     {
 
-
+        private Member selectedMember;
         private List<Member> customerList;
         /// <summary>
         /// constructor method for the Customers user control
@@ -24,6 +24,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerList = new List<Member>();
 
             this.editCustomerButton.Enabled = false;
+            this.SetCurrentMemberButton.Enabled = false;
             this.searchTypeComboBox.Items.Add("--Select Search Type--");
             this.searchTypeComboBox.Items.Add("Customer ID");
             this.searchTypeComboBox.Items.Add("Customer Phone Number");
@@ -55,6 +56,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
+            SetCurrentMemberButton.Enabled = false;
             this.search();
         }
 
@@ -192,6 +194,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.Refresh();
         }
 
+        /// <summary>
+        /// Updates/refreshes the data grid
+        /// </summary>
         public void UpdateDataGrid()
         {
 
@@ -233,6 +238,24 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.searchButton.Show();
                 this.searchTextBox.Show();
             }
+        }
+
+        private void customerDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.selectedMember = ((Member)this.customerDataGridView.SelectedRows[0].DataBoundItem);
+            this.SetCurrentMemberButton.Enabled = true;
+
+        }
+
+        private void SetCurrentMemberButton_Click(object sender, EventArgs e)
+        {
+            MemberController.CurrentMember = this.selectedMember;
+            MessageBox.Show("Curent Shopper set to:" +
+                " " + this.selectedMember.FirstName +
+                " " + this.selectedMember.LastName + 
+                " | Member ID: " + this.selectedMember.MemberID.ToString());
+
+            this.SetCurrentMemberButton.Enabled = false;
         }
     }
   }
