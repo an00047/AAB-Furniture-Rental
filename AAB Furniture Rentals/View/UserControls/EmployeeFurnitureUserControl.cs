@@ -173,7 +173,7 @@ namespace AAB_Furniture_Rentals.UserControls
                 Form CartDialog = new CartDialog();
                 CartDialog.ShowDialog();
 
-                FurnitureController.CurrentCart = null;
+                
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
                 this.RefreshDataGrid();
