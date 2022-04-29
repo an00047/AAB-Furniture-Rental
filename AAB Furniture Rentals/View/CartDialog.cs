@@ -137,7 +137,8 @@ namespace AAB_Furniture_Rentals.View
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
+            this.updateQtyPanel.Enabled = false;
+            this.shortNameLabel.Text = "Nothing Selected";
             this.RefreshDataGrid();
         }
 
