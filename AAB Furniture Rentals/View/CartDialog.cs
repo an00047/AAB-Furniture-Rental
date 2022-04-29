@@ -23,6 +23,7 @@ namespace AAB_Furniture_Rentals.View
         {
             InitializeComponent();
             this.currentCart = theCart;
+            this.returnDateTimePicker.MinDate = DateTime.Now.AddDays(1);
             this.RefreshDataGrid();
         }
 
@@ -30,7 +31,13 @@ namespace AAB_Furniture_Rentals.View
         /// <summary>
         /// really cool magical gridhandler that fixes everything
         /// </summary>
-        private void RefreshDataGrid() => this.FurnitureDataGridView.DataSource = this.currentCart.FurnitureList;
+        private void RefreshDataGrid() {
+
+            this.FurnitureDataGridView.DataSource = null;
+            this.FurnitureDataGridView.DataSource = this.currentCart.FurnitureList;
+            this.CartTotal.Text = (this.currentCart.CalculateTotalCost(this.returnDateTimePicker.Value)).ToString("0.00");
+            this.fineRate.Text = (this.currentCart.CalculateDailyFineRate()).ToString("0.00");
+        }
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
@@ -112,7 +119,7 @@ namespace AAB_Furniture_Rentals.View
             }
 
 
-            this.FurnitureDataGridView.DataSource = null;
+       
             this.RefreshDataGrid();
         }
 
@@ -130,8 +137,13 @@ namespace AAB_Furniture_Rentals.View
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            this.updateQtyPanel.Enabled = false;
+            this.shortNameLabel.Text = "Nothing Selected";
+            this.RefreshDataGrid();
+        }
 
-            this.FurnitureDataGridView.DataSource = null;
+        private void returnDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
             this.RefreshDataGrid();
         }
     }
