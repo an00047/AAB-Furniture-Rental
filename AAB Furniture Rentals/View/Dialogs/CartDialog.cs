@@ -15,15 +15,15 @@ namespace AAB_Furniture_Rentals.View
         /// furniture obect retrieved when a cart item is slected. 
         /// </summary>
         Furniture selectedFurniture;
-        Cart currentCart;
+        
         /// <summary>
         /// cartDialog constructor
         /// </summary>
         /// <param name="theCart"></param>
-        public CartDialog(Cart theCart)
+        public CartDialog()
         {
             InitializeComponent();
-            this.currentCart = theCart;
+           
             this.returnDateTimePicker.MinDate = DateTime.Now.AddDays(1);
             this.RefreshDataGrid();
             this.CheckMemberSelection();
@@ -49,9 +49,9 @@ namespace AAB_Furniture_Rentals.View
         private void RefreshDataGrid() {
 
             this.FurnitureDataGridView.DataSource = null;
-            this.FurnitureDataGridView.DataSource = this.currentCart.FurnitureList;
-            this.CartTotal.Text = (this.currentCart.CalculateTotalCost(this.returnDateTimePicker.Value)).ToString("0.00");
-            this.fineRate.Text = (this.currentCart.CalculateDailyFineRate()).ToString("0.00");
+            this.FurnitureDataGridView.DataSource = FurnitureController.CurrentCart.FurnitureList;
+            this.CartTotal.Text = (FurnitureController.CurrentCart.CalculateTotalCost(this.returnDateTimePicker.Value)).ToString("0.00");
+            this.fineRate.Text = (FurnitureController.CurrentCart.CalculateDailyFineRate()).ToString("0.00");
         }
 
         private void CheckoutButton_Click(object sender, EventArgs e)
@@ -60,18 +60,18 @@ namespace AAB_Furniture_Rentals.View
 
                 CheckMemberSelection();
 
-                int transactionID = this.currentCart.ProcessRentalTransaction(
+                int transactionID = FurnitureController.CurrentCart.ProcessRentalTransaction(
                     employeeID: EmployeeController.CurrentEmployee.EmployeeID,
                     memberID: MemberController.CurrentMember.MemberID,
                     dueDate: this.returnDateTimePicker.Value
                     );
 
-                this.currentCart.AddTransactionToIsRentedList(transactionID);
-                this.currentCart.ProcessIsRentedList();
+                FurnitureController.CurrentCart.AddTransactionToIsRentedList(transactionID);
+                FurnitureController.CurrentCart.ProcessIsRentedList();
 
                 //Show Success Message then Close. 
                 MessageBox.Show("Checkout Complete!");
-                this.currentCart = null;
+                FurnitureController.CurrentCart = null;
 
                 this.Close();
 
@@ -128,7 +128,7 @@ namespace AAB_Furniture_Rentals.View
 
             try
             {
-             currentCart.FurnitureList.Remove((Furniture)FurnitureDataGridView.SelectedRows[0].DataBoundItem);
+                FurnitureController.CurrentCart.FurnitureList.Remove((Furniture)FurnitureDataGridView.SelectedRows[0].DataBoundItem);
             }
             catch (Exception ex)
             {

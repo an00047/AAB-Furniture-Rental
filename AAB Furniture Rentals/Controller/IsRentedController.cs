@@ -10,10 +10,7 @@ namespace AAB_Furniture_Rentals.Controller
     {
         private static IsRentedDAL localIsRentedDAL;
 
-        /// <summary>
-        /// holds the current cart object for the member's checkout experiance
-        /// </summary>
-        public static Cart CurrentCart { get; set; }
+     
 
         static IsRentedController()
         {
