@@ -1,4 +1,5 @@
-﻿using AAB_Furniture_Rentals.Model;
+﻿using AAB_Furniture_Rentals.Controller;
+using AAB_Furniture_Rentals.Model;
 using System;
 using System.Windows.Forms;
 
@@ -47,6 +48,7 @@ namespace AAB_Furniture_Rentals.View
                                         View.EmployeeMainDashboard employeeDashboard = new View.EmployeeMainDashboard(this);
                                         // set username on agmin dashboard. 
                                         employeeDashboard.Show();
+                                    EmployeeController.CurrentEmployee = this.CurrentEmployee;
                                         this.Hide();
                                     } else {
                                     // employee IS admin, but not active

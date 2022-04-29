@@ -43,13 +43,13 @@ namespace AAB_Furniture_Rentals.View
         {
             try {
 
-                if (this.EmployeeTextBox.Text == "" || this.MemberTextBox.Text == "") {
+                if ( this.MemberTextBox.Text == "") {
                     throw new Exception("Employee and Member ID's cannot be blank");
                 }
 
 
                 int transactionID = this.currentCart.ProcessRentalTransaction(
-                    employeeID: Int32.Parse(this.EmployeeTextBox.Text),
+                    employeeID: EmployeeController.CurrentEmployee.EmployeeID,
                     memberID: Int32.Parse(this.MemberTextBox.Text),
                     dueDate: this.returnDateTimePicker.Value
                     );

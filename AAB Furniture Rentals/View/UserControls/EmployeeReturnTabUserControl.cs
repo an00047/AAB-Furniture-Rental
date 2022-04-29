@@ -66,6 +66,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
             try
             {
+                //TODO: prompt user for member information if NOT exists. 
                 int customerID = int.Parse(this.idTextBox.Text);
                 AllRentals = RentalController.GetAllRentalsByCustomerID(customerID);
 
