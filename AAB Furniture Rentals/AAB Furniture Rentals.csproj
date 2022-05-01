@@ -192,6 +192,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="View\Dialogs\CartDialog.resx">
       <DependentUpon>CartDialog.cs</DependentUpon>
     </EmbeddedResource>
