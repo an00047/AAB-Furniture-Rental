@@ -34,7 +34,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>4: Total# of QUALIFIED Rental Transactions this Period</Value>
+                              <Value>Total Num QUALIFIEDTransactions This Period</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -75,7 +75,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>5: Total# of ALL Rental Transactions this Period</Value>
+                              <Value>Total Num ALLRental Transactions This Period</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -116,7 +116,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>6: Qualified Transaction % - (Col 4÷Col 5)</Value>
+                              <Value>Qualified Transaction Percent</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -157,7 +157,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive)</Value>
+                              <Value>Percent Younguns Who Made Qualified Transactions</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -198,7 +198,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>8: % of 'old-folks' who made Qualified Transactions (Ages:30+)</Value>
+                              <Value>Percent Oldfolks Who Made Qualified Transactions</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -237,14 +237,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID4TotalofQUALIFIEDRentalTransactionsthisPeriod">
+                    <Textbox Name="TotalNumQUALIFIEDTransactionsThisPeriod">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!4: Total# of QUALIFIED Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumQUALIFIEDTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -254,7 +254,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID4TotalofQUALIFIEDRentalTransactionsthisPeriod</rd:DefaultName>
+                      <rd:DefaultName>TotalNumQUALIFIEDTransactionsThisPeriod</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -270,14 +270,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID5TotalofALLRentalTransactionsthisPeriod">
+                    <Textbox Name="TotalNumALLRentalTransactionsThisPeriod">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!5: Total# of ALL Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumALLRentalTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -287,7 +287,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID5TotalofALLRentalTransactionsthisPeriod</rd:DefaultName>
+                      <rd:DefaultName>TotalNumALLRentalTransactionsThisPeriod</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -303,14 +303,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID6QualifiedTransactionCol_4Col_5">
+                    <Textbox Name="QualifiedTransactionPercent">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!6: Qualified Transaction % - (Col_4÷Col_5).Value</Value>
+                              <Value>=Fields!QualifiedTransactionPercent.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -320,7 +320,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID6QualifiedTransactionCol_4Col_5</rd:DefaultName>
+                      <rd:DefaultName>QualifiedTransactionPercent</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -336,14 +336,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID7ofyoungunswhomadeQualifiedTransactionsAges1829inclusive">
+                    <Textbox Name="PercentYoungunsWhoMadeQualifiedTransactions">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive).Value)</Value>
+                              <Value>=Sum(Fields!PercentYoungunsWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -353,7 +353,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID7ofyoungunswhomadeQualifiedTransactionsAges1829inclusive</rd:DefaultName>
+                      <rd:DefaultName>PercentYoungunsWhoMadeQualifiedTransactions</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -369,14 +369,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="ID8ofoldfolkswhomadeQualifiedTransactionsAges30">
+                    <Textbox Name="PercentOldfolksWhoMadeQualifiedTransactions">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!8: % of 'old-folks' who made Qualified Transactions (Ages:30+).Value)</Value>
+                              <Value>=Sum(Fields!PercentOldfolksWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -386,7 +386,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>ID8ofoldfolkswhomadeQualifiedTransactionsAges30</rd:DefaultName>
+                      <rd:DefaultName>PercentOldfolksWhoMadeQualifiedTransactions</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -414,7 +414,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!4: Total# of QUALIFIED Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumQUALIFIEDTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -452,7 +452,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!5: Total# of ALL Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumALLRentalTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -528,7 +528,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive).Value)</Value>
+                              <Value>=Sum(Fields!PercentYoungunsWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -566,7 +566,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!8: % of 'old-folks' who made Qualified Transactions (Ages:30+).Value)</Value>
+                              <Value>=Sum(Fields!PercentOldfolksWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -609,7 +609,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!4: Total# of QUALIFIED Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumQUALIFIEDTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -647,7 +647,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!5: Total# of ALL Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumALLRentalTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -723,7 +723,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive).Value)</Value>
+                              <Value>=Sum(Fields!PercentYoungunsWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -761,7 +761,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!8: % of 'old-folks' who made Qualified Transactions (Ages:30+).Value)</Value>
+                              <Value>=Sum(Fields!PercentOldfolksWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -804,7 +804,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!4: Total# of QUALIFIED Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumQUALIFIEDTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -842,7 +842,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!5: Total# of ALL Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumALLRentalTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -918,7 +918,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive).Value)</Value>
+                              <Value>=Sum(Fields!PercentYoungunsWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -956,7 +956,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!8: % of 'old-folks' who made Qualified Transactions (Ages:30+).Value)</Value>
+                              <Value>=Sum(Fields!PercentOldfolksWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
                                 <Color>#333333</Color>
@@ -999,7 +999,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!4: Total# of QUALIFIED Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumQUALIFIEDTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -1032,7 +1032,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!5: Total# of ALL Rental Transactions this Period.Value)</Value>
+                              <Value>=Sum(Fields!TotalNumALLRentalTransactionsThisPeriod.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -1098,7 +1098,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive).Value)</Value>
+                              <Value>=Sum(Fields!PercentYoungunsWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -1131,7 +1131,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!8: % of 'old-folks' who made Qualified Transactions (Ages:30+).Value)</Value>
+                              <Value>=Sum(Fields!PercentOldfolksWhoMadeQualifiedTransactions.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                                 <Color>#333333</Color>
@@ -1181,7 +1181,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>ID1Furniture ID</Value>
+                            <Value>Furniture ID</Value>
                             <Style>
                               <FontSize>11pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -1225,7 +1225,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>ID2Furniture Category</Value>
+                                <Value>Furniture Category</Value>
                                 <Style>
                                   <FontSize>11pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
@@ -1269,7 +1269,7 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>ID3Furniture Name</Value>
+                                    <Value>Furniture Name</Value>
                                     <Style>
                                       <FontSize>11pt</FontSize>
                                       <FontWeight>Bold</FontWeight>
@@ -1311,27 +1311,27 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="ID1FurnitureID">
+              <Group Name="FurnitureID">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!1: Furniture ID.Value</GroupExpression>
+                  <GroupExpression>=Fields!FurnitureID.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!1: Furniture ID.Value</Value>
+                  <Value>=Fields!FurnitureID.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>1in</Size>
                 <CellContents>
-                  <Textbox Name="ID1FurnitureID">
+                  <Textbox Name="FurnitureID">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!1: Furniture ID.Value</Value>
+                            <Value>=Fields!FurnitureID.Value</Value>
                             <Style>
                               <FontWeight>Normal</FontWeight>
                               <Color>#333333</Color>
@@ -1341,7 +1341,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>ID1FurnitureID</rd:DefaultName>
+                    <rd:DefaultName>FurnitureID</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -1362,27 +1362,27 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="ID2FurnitureCategory">
+                  <Group Name="FurnitureCategory">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!2: Furniture Category.Value</GroupExpression>
+                      <GroupExpression>=Fields!FurnitureCategory.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!2: Furniture Category.Value</Value>
+                      <Value>=Fields!FurnitureCategory.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
                     <Size>1in</Size>
                     <CellContents>
-                      <Textbox Name="ID2FurnitureCategory">
+                      <Textbox Name="FurnitureCategory">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!2: Furniture Category.Value</Value>
+                                <Value>=Fields!FurnitureCategory.Value</Value>
                                 <Style>
                                   <FontWeight>Normal</FontWeight>
                                   <Color>#333333</Color>
@@ -1392,7 +1392,7 @@
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>ID2FurnitureCategory</rd:DefaultName>
+                        <rd:DefaultName>FurnitureCategory</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>None</Style>
@@ -1413,27 +1413,27 @@
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="ID3FurnitureName">
+                      <Group Name="FurnitureName">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!3: Furniture Name.Value</GroupExpression>
+                          <GroupExpression>=Fields!FurnitureName.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!3: Furniture Name.Value</Value>
+                          <Value>=Fields!FurnitureName.Value</Value>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
                         <Size>1in</Size>
                         <CellContents>
-                          <Textbox Name="ID3FurnitureName">
+                          <Textbox Name="FurnitureName">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!3: Furniture Name.Value</Value>
+                                    <Value>=Fields!FurnitureName.Value</Value>
                                     <Style>
                                       <FontWeight>Normal</FontWeight>
                                       <Color>#333333</Color>
@@ -1443,7 +1443,7 @@
                                 <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>ID3FurnitureName</rd:DefaultName>
+                            <rd:DefaultName>FurnitureName</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Style>None</Style>
@@ -1467,7 +1467,7 @@
                           <Group Name="Details" />
                           <Visibility>
                             <Hidden>true</Hidden>
-                            <ToggleItem>ID3FurnitureName</ToggleItem>
+                            <ToggleItem>FurnitureName</ToggleItem>
                           </Visibility>
                         </TablixMember>
                         <TablixMember>
@@ -1476,7 +1476,7 @@
                       </TablixMembers>
                       <Visibility>
                         <Hidden>true</Hidden>
-                        <ToggleItem>ID2FurnitureCategory</ToggleItem>
+                        <ToggleItem>FurnitureCategory</ToggleItem>
                       </Visibility>
                     </TablixMember>
                     <TablixMember>
@@ -1524,7 +1524,7 @@
                   </TablixMembers>
                   <Visibility>
                     <Hidden>true</Hidden>
-                    <ToggleItem>ID1FurnitureID</ToggleItem>
+                    <ToggleItem>FurnitureID</ToggleItem>
                   </Visibility>
                 </TablixMember>
                 <TablixMember>
@@ -1729,7 +1729,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>AdminReport</DataSetName>
+        <DataSetName>adminReport</DataSetName>
         <Height>1.5in</Height>
         <Width>8in</Width>
         <Style>
@@ -1757,46 +1757,46 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>99c1ad0f-9f1b-4836-b1e6-d4294957d749</rd:DataSourceID>
+      <rd:DataSourceID>e188eb75-332c-41e6-9149-9aec8399b88f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="AdminReport">
+    <DataSet Name="adminReport">
       <Query>
         <DataSourceName>ID_cs6232_g4DataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="1: Furniture ID">
-          <DataField>1: Furniture ID</DataField>
+        <Field Name="FurnitureID">
+          <DataField>FurnitureID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="2: Furniture Category">
-          <DataField>2: Furniture Category</DataField>
+        <Field Name="FurnitureCategory">
+          <DataField>FurnitureCategory</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="3: Furniture Name">
-          <DataField>3: Furniture Name</DataField>
+        <Field Name="FurnitureName">
+          <DataField>FurnitureName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="4: Total# of QUALIFIED Rental Transactions this Period">
-          <DataField>4: Total# of QUALIFIED Rental Transactions this Period</DataField>
+        <Field Name="TotalNumQUALIFIEDTransactionsThisPeriod">
+          <DataField>TotalNumQUALIFIEDTransactionsThisPeriod</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="5: Total# of ALL Rental Transactions this Period">
-          <DataField>5: Total# of ALL Rental Transactions this Period</DataField>
+        <Field Name="TotalNumALLRentalTransactionsThisPeriod">
+          <DataField>TotalNumALLRentalTransactionsThisPeriod</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="6: Qualified Transaction % - (Col_4÷Col_5)">
-          <DataField>6: Qualified Transaction % - (Col.4÷Col.5)</DataField>
+        <Field Name="QualifiedTransactionPercent">
+          <DataField>QualifiedTransactionPercent</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive)">
-          <DataField>7: % of 'young-uns' who made Qualified Transactions (Ages:18-29, inclusive)</DataField>
+        <Field Name="PercentYoungunsWhoMadeQualifiedTransactions">
+          <DataField>PercentYoungunsWhoMadeQualifiedTransactions</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
-        <Field Name="8: % of 'old-folks' who made Qualified Transactions (Ages:30+)">
-          <DataField>8: % of 'old-folks' who made Qualified Transactions (Ages:30+)</DataField>
+        <Field Name="PercentOldfolksWhoMadeQualifiedTransactions">
+          <DataField>PercentOldfolksWhoMadeQualifiedTransactions</DataField>
           <rd:TypeName>System.Double</rd:TypeName>
         </Field>
       </Fields>
@@ -1811,5 +1811,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>b5f0c4cb-63ba-4c88-8ced-87a598f46b41</rd:ReportID>
+  <rd:ReportID>535ad049-1e26-45a7-94ed-c900feb64783</rd:ReportID>
 </Report>

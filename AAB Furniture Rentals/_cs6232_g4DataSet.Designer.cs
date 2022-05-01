@@ -3871,21 +3871,21 @@ namespace AAB_Furniture_Rentals {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class sp_generate_metrics_for_admin_reportDataTable : global::System.Data.TypedTableBase<sp_generate_metrics_for_admin_reportRow> {
             
-            private global::System.Data.DataColumn _column1__Furniture_ID;
+            private global::System.Data.DataColumn columnFurnitureID;
             
-            private global::System.Data.DataColumn _column2__Furniture_Category;
+            private global::System.Data.DataColumn columnFurnitureCategory;
             
-            private global::System.Data.DataColumn _column3__Furniture_Name;
+            private global::System.Data.DataColumn columnFurnitureName;
             
-            private global::System.Data.DataColumn _column4__Total__of_QUALIFIED_Rental_Transactions_this_Period;
+            private global::System.Data.DataColumn columnTotalNumQUALIFIEDTransactionsThisPeriod;
             
-            private global::System.Data.DataColumn _column5__Total__of_ALL_Rental_Transactions_this_Period;
+            private global::System.Data.DataColumn columnTotalNumALLRentalTransactionsThisPeriod;
             
-            private global::System.Data.DataColumn _column6__Qualified_Transaction______Col_4_Col_5_;
+            private global::System.Data.DataColumn columnQualifiedTransactionPercent;
             
-            private global::System.Data.DataColumn _column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_;
+            private global::System.Data.DataColumn columnPercentYoungunsWhoMadeQualifiedTransactions;
             
-            private global::System.Data.DataColumn _column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__;
+            private global::System.Data.DataColumn columnPercentOldfolksWhoMadeQualifiedTransactions;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3922,65 +3922,65 @@ namespace AAB_Furniture_Rentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _1__Furniture_IDColumn {
+            public global::System.Data.DataColumn FurnitureIDColumn {
                 get {
-                    return this._column1__Furniture_ID;
+                    return this.columnFurnitureID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _2__Furniture_CategoryColumn {
+            public global::System.Data.DataColumn FurnitureCategoryColumn {
                 get {
-                    return this._column2__Furniture_Category;
+                    return this.columnFurnitureCategory;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _3__Furniture_NameColumn {
+            public global::System.Data.DataColumn FurnitureNameColumn {
                 get {
-                    return this._column3__Furniture_Name;
+                    return this.columnFurnitureName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodColumn {
+            public global::System.Data.DataColumn TotalNumQUALIFIEDTransactionsThisPeriodColumn {
                 get {
-                    return this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period;
+                    return this.columnTotalNumQUALIFIEDTransactionsThisPeriod;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _5__Total__of_ALL_Rental_Transactions_this_PeriodColumn {
+            public global::System.Data.DataColumn TotalNumALLRentalTransactionsThisPeriodColumn {
                 get {
-                    return this._column5__Total__of_ALL_Rental_Transactions_this_Period;
+                    return this.columnTotalNumALLRentalTransactionsThisPeriod;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _6__Qualified_Transaction______Col_4_Col_5_Column {
+            public global::System.Data.DataColumn QualifiedTransactionPercentColumn {
                 get {
-                    return this._column6__Qualified_Transaction______Col_4_Col_5_;
+                    return this.columnQualifiedTransactionPercent;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Column {
+            public global::System.Data.DataColumn PercentYoungunsWhoMadeQualifiedTransactionsColumn {
                 get {
-                    return this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_;
+                    return this.columnPercentYoungunsWhoMadeQualifiedTransactions;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn _8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Column {
+            public global::System.Data.DataColumn PercentOldfolksWhoMadeQualifiedTransactionsColumn {
                 get {
-                    return this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__;
+                    return this.columnPercentOldfolksWhoMadeQualifiedTransactions;
                 }
             }
             
@@ -4021,17 +4021,17 @@ namespace AAB_Furniture_Rentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_generate_metrics_for_admin_reportRow Addsp_generate_metrics_for_admin_reportRow(string _2__Furniture_Category, string _3__Furniture_Name, double _4__Total__of_QUALIFIED_Rental_Transactions_this_Period, double _5__Total__of_ALL_Rental_Transactions_this_Period, string _6__Qualified_Transaction______Col_4_Col_5_, double _7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_, double _8____of__old_folks__who_made_Qualified_Transactions__Ages_30__) {
+            public sp_generate_metrics_for_admin_reportRow Addsp_generate_metrics_for_admin_reportRow(string FurnitureCategory, string FurnitureName, double TotalNumQUALIFIEDTransactionsThisPeriod, double TotalNumALLRentalTransactionsThisPeriod, string QualifiedTransactionPercent, double PercentYoungunsWhoMadeQualifiedTransactions, double PercentOldfolksWhoMadeQualifiedTransactions) {
                 sp_generate_metrics_for_admin_reportRow rowsp_generate_metrics_for_admin_reportRow = ((sp_generate_metrics_for_admin_reportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        _2__Furniture_Category,
-                        _3__Furniture_Name,
-                        _4__Total__of_QUALIFIED_Rental_Transactions_this_Period,
-                        _5__Total__of_ALL_Rental_Transactions_this_Period,
-                        _6__Qualified_Transaction______Col_4_Col_5_,
-                        _7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_,
-                        _8____of__old_folks__who_made_Qualified_Transactions__Ages_30__};
+                        FurnitureCategory,
+                        FurnitureName,
+                        TotalNumQUALIFIEDTransactionsThisPeriod,
+                        TotalNumALLRentalTransactionsThisPeriod,
+                        QualifiedTransactionPercent,
+                        PercentYoungunsWhoMadeQualifiedTransactions,
+                        PercentOldfolksWhoMadeQualifiedTransactions};
                 rowsp_generate_metrics_for_admin_reportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsp_generate_metrics_for_admin_reportRow);
                 return rowsp_generate_metrics_for_admin_reportRow;
@@ -4039,10 +4039,10 @@ namespace AAB_Furniture_Rentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public sp_generate_metrics_for_admin_reportRow FindBy_1__Furniture_ID_2__Furniture_Category(int _1__Furniture_ID, string _2__Furniture_Category) {
+            public sp_generate_metrics_for_admin_reportRow FindByFurnitureIDFurnitureCategory(int FurnitureID, string FurnitureCategory) {
                 return ((sp_generate_metrics_for_admin_reportRow)(this.Rows.Find(new object[] {
-                            _1__Furniture_ID,
-                            _2__Furniture_Category})));
+                            FurnitureID,
+                            FurnitureCategory})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4062,71 +4062,53 @@ namespace AAB_Furniture_Rentals {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this._column1__Furniture_ID = base.Columns["1: Furniture ID"];
-                this._column2__Furniture_Category = base.Columns["2: Furniture Category"];
-                this._column3__Furniture_Name = base.Columns["3: Furniture Name"];
-                this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period = base.Columns["4: Total# of QUALIFIED Rental Transactions this Period"];
-                this._column5__Total__of_ALL_Rental_Transactions_this_Period = base.Columns["5: Total# of ALL Rental Transactions this Period"];
-                this._column6__Qualified_Transaction______Col_4_Col_5_ = base.Columns["6: Qualified Transaction % - (Col_4÷Col_5)"];
-                this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_ = base.Columns["7: % of \'young-uns\' who made Qualified Transactions (Ages:18-29, inclusive)"];
-                this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__ = base.Columns["8: % of \'old-folks\' who made Qualified Transactions (Ages:30+)"];
+                this.columnFurnitureID = base.Columns["FurnitureID"];
+                this.columnFurnitureCategory = base.Columns["FurnitureCategory"];
+                this.columnFurnitureName = base.Columns["FurnitureName"];
+                this.columnTotalNumQUALIFIEDTransactionsThisPeriod = base.Columns["TotalNumQUALIFIEDTransactionsThisPeriod"];
+                this.columnTotalNumALLRentalTransactionsThisPeriod = base.Columns["TotalNumALLRentalTransactionsThisPeriod"];
+                this.columnQualifiedTransactionPercent = base.Columns["QualifiedTransactionPercent"];
+                this.columnPercentYoungunsWhoMadeQualifiedTransactions = base.Columns["PercentYoungunsWhoMadeQualifiedTransactions"];
+                this.columnPercentOldfolksWhoMadeQualifiedTransactions = base.Columns["PercentOldfolksWhoMadeQualifiedTransactions"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this._column1__Furniture_ID = new global::System.Data.DataColumn("1: Furniture ID", typeof(int), null, global::System.Data.MappingType.Element);
-                this._column1__Furniture_ID.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column1__Furniture_ID");
-                this._column1__Furniture_ID.ExtendedProperties.Add("Generator_UserColumnName", "1: Furniture ID");
-                base.Columns.Add(this._column1__Furniture_ID);
-                this._column2__Furniture_Category = new global::System.Data.DataColumn("2: Furniture Category", typeof(string), null, global::System.Data.MappingType.Element);
-                this._column2__Furniture_Category.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column2__Furniture_Category");
-                this._column2__Furniture_Category.ExtendedProperties.Add("Generator_UserColumnName", "2: Furniture Category");
-                base.Columns.Add(this._column2__Furniture_Category);
-                this._column3__Furniture_Name = new global::System.Data.DataColumn("3: Furniture Name", typeof(string), null, global::System.Data.MappingType.Element);
-                this._column3__Furniture_Name.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column3__Furniture_Name");
-                this._column3__Furniture_Name.ExtendedProperties.Add("Generator_UserColumnName", "3: Furniture Name");
-                base.Columns.Add(this._column3__Furniture_Name);
-                this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period = new global::System.Data.DataColumn("4: Total# of QUALIFIED Rental Transactions this Period", typeof(double), null, global::System.Data.MappingType.Element);
-                this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column4__Total__of_QUALIFIED_Rental_Transactions_this_Period");
-                this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period.ExtendedProperties.Add("Generator_UserColumnName", "4: Total# of QUALIFIED Rental Transactions this Period");
-                base.Columns.Add(this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period);
-                this._column5__Total__of_ALL_Rental_Transactions_this_Period = new global::System.Data.DataColumn("5: Total# of ALL Rental Transactions this Period", typeof(double), null, global::System.Data.MappingType.Element);
-                this._column5__Total__of_ALL_Rental_Transactions_this_Period.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column5__Total__of_ALL_Rental_Transactions_this_Period");
-                this._column5__Total__of_ALL_Rental_Transactions_this_Period.ExtendedProperties.Add("Generator_UserColumnName", "5: Total# of ALL Rental Transactions this Period");
-                base.Columns.Add(this._column5__Total__of_ALL_Rental_Transactions_this_Period);
-                this._column6__Qualified_Transaction______Col_4_Col_5_ = new global::System.Data.DataColumn("6: Qualified Transaction % - (Col_4÷Col_5)", typeof(string), null, global::System.Data.MappingType.Element);
-                this._column6__Qualified_Transaction______Col_4_Col_5_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column6__Qualified_Transaction______Col_4_Col_5_");
-                this._column6__Qualified_Transaction______Col_4_Col_5_.ExtendedProperties.Add("Generator_UserColumnName", "6: Qualified Transaction % - (Col_4÷Col_5)");
-                base.Columns.Add(this._column6__Qualified_Transaction______Col_4_Col_5_);
-                this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_ = new global::System.Data.DataColumn("7: % of \'young-uns\' who made Qualified Transactions (Ages:18-29, inclusive)", typeof(double), null, global::System.Data.MappingType.Element);
-                this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive" +
-                        "_");
-                this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_.ExtendedProperties.Add("Generator_UserColumnName", "7: % of \'young-uns\' who made Qualified Transactions (Ages:18-29, inclusive)");
-                base.Columns.Add(this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_);
-                this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__ = new global::System.Data.DataColumn("8: % of \'old-folks\' who made Qualified Transactions (Ages:30+)", typeof(double), null, global::System.Data.MappingType.Element);
-                this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__");
-                this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__.ExtendedProperties.Add("Generator_UserColumnName", "8: % of \'old-folks\' who made Qualified Transactions (Ages:30+)");
-                base.Columns.Add(this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__);
+                this.columnFurnitureID = new global::System.Data.DataColumn("FurnitureID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFurnitureID);
+                this.columnFurnitureCategory = new global::System.Data.DataColumn("FurnitureCategory", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFurnitureCategory);
+                this.columnFurnitureName = new global::System.Data.DataColumn("FurnitureName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFurnitureName);
+                this.columnTotalNumQUALIFIEDTransactionsThisPeriod = new global::System.Data.DataColumn("TotalNumQUALIFIEDTransactionsThisPeriod", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalNumQUALIFIEDTransactionsThisPeriod);
+                this.columnTotalNumALLRentalTransactionsThisPeriod = new global::System.Data.DataColumn("TotalNumALLRentalTransactionsThisPeriod", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalNumALLRentalTransactionsThisPeriod);
+                this.columnQualifiedTransactionPercent = new global::System.Data.DataColumn("QualifiedTransactionPercent", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQualifiedTransactionPercent);
+                this.columnPercentYoungunsWhoMadeQualifiedTransactions = new global::System.Data.DataColumn("PercentYoungunsWhoMadeQualifiedTransactions", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPercentYoungunsWhoMadeQualifiedTransactions);
+                this.columnPercentOldfolksWhoMadeQualifiedTransactions = new global::System.Data.DataColumn("PercentOldfolksWhoMadeQualifiedTransactions", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPercentOldfolksWhoMadeQualifiedTransactions);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this._column1__Furniture_ID,
-                                this._column2__Furniture_Category}, true));
-                this._column1__Furniture_ID.AutoIncrement = true;
-                this._column1__Furniture_ID.AutoIncrementSeed = -1;
-                this._column1__Furniture_ID.AutoIncrementStep = -1;
-                this._column1__Furniture_ID.AllowDBNull = false;
-                this._column1__Furniture_ID.ReadOnly = true;
-                this._column2__Furniture_Category.AllowDBNull = false;
-                this._column2__Furniture_Category.MaxLength = 45;
-                this._column3__Furniture_Name.AllowDBNull = false;
-                this._column3__Furniture_Name.MaxLength = 45;
-                this._column4__Total__of_QUALIFIED_Rental_Transactions_this_Period.ReadOnly = true;
-                this._column5__Total__of_ALL_Rental_Transactions_this_Period.ReadOnly = true;
-                this._column6__Qualified_Transaction______Col_4_Col_5_.ReadOnly = true;
-                this._column6__Qualified_Transaction______Col_4_Col_5_.Caption = "6: Qualified Transaction % - (Col.4÷Col.5)";
-                this._column6__Qualified_Transaction______Col_4_Col_5_.MaxLength = 4000;
-                this._column7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_.ReadOnly = true;
-                this._column8____of__old_folks__who_made_Qualified_Transactions__Ages_30__.ReadOnly = true;
+                                this.columnFurnitureID,
+                                this.columnFurnitureCategory}, true));
+                this.columnFurnitureID.AutoIncrement = true;
+                this.columnFurnitureID.AutoIncrementSeed = -1;
+                this.columnFurnitureID.AutoIncrementStep = -1;
+                this.columnFurnitureID.AllowDBNull = false;
+                this.columnFurnitureID.ReadOnly = true;
+                this.columnFurnitureCategory.AllowDBNull = false;
+                this.columnFurnitureCategory.MaxLength = 45;
+                this.columnFurnitureName.AllowDBNull = false;
+                this.columnFurnitureName.MaxLength = 45;
+                this.columnTotalNumQUALIFIEDTransactionsThisPeriod.ReadOnly = true;
+                this.columnTotalNumALLRentalTransactionsThisPeriod.ReadOnly = true;
+                this.columnQualifiedTransactionPercent.ReadOnly = true;
+                this.columnQualifiedTransactionPercent.MaxLength = 4000;
+                this.columnPercentYoungunsWhoMadeQualifiedTransactions.ReadOnly = true;
+                this.columnPercentOldfolksWhoMadeQualifiedTransactions.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5152,180 +5134,180 @@ namespace AAB_Furniture_Rentals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int _1__Furniture_ID {
+            public int FurnitureID {
                 get {
-                    return ((int)(this[this.tablesp_generate_metrics_for_admin_report._1__Furniture_IDColumn]));
+                    return ((int)(this[this.tablesp_generate_metrics_for_admin_report.FurnitureIDColumn]));
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._1__Furniture_IDColumn] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.FurnitureIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string _2__Furniture_Category {
+            public string FurnitureCategory {
                 get {
-                    return ((string)(this[this.tablesp_generate_metrics_for_admin_report._2__Furniture_CategoryColumn]));
+                    return ((string)(this[this.tablesp_generate_metrics_for_admin_report.FurnitureCategoryColumn]));
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._2__Furniture_CategoryColumn] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.FurnitureCategoryColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string _3__Furniture_Name {
+            public string FurnitureName {
                 get {
-                    return ((string)(this[this.tablesp_generate_metrics_for_admin_report._3__Furniture_NameColumn]));
+                    return ((string)(this[this.tablesp_generate_metrics_for_admin_report.FurnitureNameColumn]));
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._3__Furniture_NameColumn] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.FurnitureNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double _4__Total__of_QUALIFIED_Rental_Transactions_this_Period {
-                get {
-                    try {
-                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report._4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'4: Total# of QUALIFIED Rental Transactions this Period\' in " +
-                                "table \'sp_generate_metrics_for_admin_report\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesp_generate_metrics_for_admin_report._4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double _5__Total__of_ALL_Rental_Transactions_this_Period {
+            public double TotalNumQUALIFIEDTransactionsThisPeriod {
                 get {
                     try {
-                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report._5__Total__of_ALL_Rental_Transactions_this_PeriodColumn]));
+                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report.TotalNumQUALIFIEDTransactionsThisPeriodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'5: Total# of ALL Rental Transactions this Period\' in table " +
-                                "\'sp_generate_metrics_for_admin_report\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalNumQUALIFIEDTransactionsThisPeriod\' in table \'sp_gener" +
+                                "ate_metrics_for_admin_report\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._5__Total__of_ALL_Rental_Transactions_this_PeriodColumn] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.TotalNumQUALIFIEDTransactionsThisPeriodColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string _6__Qualified_Transaction______Col_4_Col_5_ {
+            public double TotalNumALLRentalTransactionsThisPeriod {
                 get {
                     try {
-                        return ((string)(this[this.tablesp_generate_metrics_for_admin_report._6__Qualified_Transaction______Col_4_Col_5_Column]));
+                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report.TotalNumALLRentalTransactionsThisPeriodColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'6: Qualified Transaction % - (Col_4÷Col_5)\' in table \'sp_ge" +
-                                "nerate_metrics_for_admin_report\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalNumALLRentalTransactionsThisPeriod\' in table \'sp_gener" +
+                                "ate_metrics_for_admin_report\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._6__Qualified_Transaction______Col_4_Col_5_Column] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.TotalNumALLRentalTransactionsThisPeriodColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double _7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_ {
+            public string QualifiedTransactionPercent {
                 get {
                     try {
-                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report._7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Column]));
+                        return ((string)(this[this.tablesp_generate_metrics_for_admin_report.QualifiedTransactionPercentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'7: % of \'young-uns\' who made Qualified Transactions (Ages:1" +
-                                "8-29, inclusive)\' in table \'sp_generate_metrics_for_admin_report\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'QualifiedTransactionPercent\' in table \'sp_generate_metrics_" +
+                                "for_admin_report\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Column] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.QualifiedTransactionPercentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public double _8____of__old_folks__who_made_Qualified_Transactions__Ages_30__ {
+            public double PercentYoungunsWhoMadeQualifiedTransactions {
                 get {
                     try {
-                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report._8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Column]));
+                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report.PercentYoungunsWhoMadeQualifiedTransactionsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'8: % of \'old-folks\' who made Qualified Transactions (Ages:3" +
-                                "0+)\' in table \'sp_generate_metrics_for_admin_report\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PercentYoungunsWhoMadeQualifiedTransactions\' in table \'sp_g" +
+                                "enerate_metrics_for_admin_report\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesp_generate_metrics_for_admin_report._8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Column] = value;
+                    this[this.tablesp_generate_metrics_for_admin_report.PercentYoungunsWhoMadeQualifiedTransactionsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodNull() {
-                return this.IsNull(this.tablesp_generate_metrics_for_admin_report._4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodColumn);
+            public double PercentOldfolksWhoMadeQualifiedTransactions {
+                get {
+                    try {
+                        return ((double)(this[this.tablesp_generate_metrics_for_admin_report.PercentOldfolksWhoMadeQualifiedTransactionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PercentOldfolksWhoMadeQualifiedTransactions\' in table \'sp_g" +
+                                "enerate_metrics_for_admin_report\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablesp_generate_metrics_for_admin_report.PercentOldfolksWhoMadeQualifiedTransactionsColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodNull() {
-                this[this.tablesp_generate_metrics_for_admin_report._4__Total__of_QUALIFIED_Rental_Transactions_this_PeriodColumn] = global::System.Convert.DBNull;
+            public bool IsTotalNumQUALIFIEDTransactionsThisPeriodNull() {
+                return this.IsNull(this.tablesp_generate_metrics_for_admin_report.TotalNumQUALIFIEDTransactionsThisPeriodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_5__Total__of_ALL_Rental_Transactions_this_PeriodNull() {
-                return this.IsNull(this.tablesp_generate_metrics_for_admin_report._5__Total__of_ALL_Rental_Transactions_this_PeriodColumn);
+            public void SetTotalNumQUALIFIEDTransactionsThisPeriodNull() {
+                this[this.tablesp_generate_metrics_for_admin_report.TotalNumQUALIFIEDTransactionsThisPeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_5__Total__of_ALL_Rental_Transactions_this_PeriodNull() {
-                this[this.tablesp_generate_metrics_for_admin_report._5__Total__of_ALL_Rental_Transactions_this_PeriodColumn] = global::System.Convert.DBNull;
+            public bool IsTotalNumALLRentalTransactionsThisPeriodNull() {
+                return this.IsNull(this.tablesp_generate_metrics_for_admin_report.TotalNumALLRentalTransactionsThisPeriodColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_6__Qualified_Transaction______Col_4_Col_5_Null() {
-                return this.IsNull(this.tablesp_generate_metrics_for_admin_report._6__Qualified_Transaction______Col_4_Col_5_Column);
+            public void SetTotalNumALLRentalTransactionsThisPeriodNull() {
+                this[this.tablesp_generate_metrics_for_admin_report.TotalNumALLRentalTransactionsThisPeriodColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_6__Qualified_Transaction______Col_4_Col_5_Null() {
-                this[this.tablesp_generate_metrics_for_admin_report._6__Qualified_Transaction______Col_4_Col_5_Column] = global::System.Convert.DBNull;
+            public bool IsQualifiedTransactionPercentNull() {
+                return this.IsNull(this.tablesp_generate_metrics_for_admin_report.QualifiedTransactionPercentColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Null() {
-                return this.IsNull(this.tablesp_generate_metrics_for_admin_report._7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Column);
+            public void SetQualifiedTransactionPercentNull() {
+                this[this.tablesp_generate_metrics_for_admin_report.QualifiedTransactionPercentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Null() {
-                this[this.tablesp_generate_metrics_for_admin_report._7____of__young_uns__who_made_Qualified_Transactions__Ages_18_29__inclusive_Column] = global::System.Convert.DBNull;
+            public bool IsPercentYoungunsWhoMadeQualifiedTransactionsNull() {
+                return this.IsNull(this.tablesp_generate_metrics_for_admin_report.PercentYoungunsWhoMadeQualifiedTransactionsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool Is_8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Null() {
-                return this.IsNull(this.tablesp_generate_metrics_for_admin_report._8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Column);
+            public void SetPercentYoungunsWhoMadeQualifiedTransactionsNull() {
+                this[this.tablesp_generate_metrics_for_admin_report.PercentYoungunsWhoMadeQualifiedTransactionsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Set_8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Null() {
-                this[this.tablesp_generate_metrics_for_admin_report._8____of__old_folks__who_made_Qualified_Transactions__Ages_30__Column] = global::System.Convert.DBNull;
+            public bool IsPercentOldfolksWhoMadeQualifiedTransactionsNull() {
+                return this.IsNull(this.tablesp_generate_metrics_for_admin_report.PercentOldfolksWhoMadeQualifiedTransactionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPercentOldfolksWhoMadeQualifiedTransactionsNull() {
+                this[this.tablesp_generate_metrics_for_admin_report.PercentOldfolksWhoMadeQualifiedTransactionsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -9542,14 +9524,14 @@ SELECT returnTransactionID, datetime_created, employee_employeeID FROM [returns]
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "sp_generate_metrics_for_admin_report";
-            tableMapping.ColumnMappings.Add("1: Furniture ID", "1: Furniture ID");
-            tableMapping.ColumnMappings.Add("2: Furniture Category", "2: Furniture Category");
-            tableMapping.ColumnMappings.Add("3: Furniture Name", "3: Furniture Name");
-            tableMapping.ColumnMappings.Add("4: Total# of QUALIFIED Rental Transactions this Period", "4: Total# of QUALIFIED Rental Transactions this Period");
-            tableMapping.ColumnMappings.Add("5: Total# of ALL Rental Transactions this Period", "5: Total# of ALL Rental Transactions this Period");
-            tableMapping.ColumnMappings.Add("6: Qualified Transaction % - (Col.4÷Col.5)", "6: Qualified Transaction % - (Col_4÷Col_5)");
-            tableMapping.ColumnMappings.Add("7: % of \'young-uns\' who made Qualified Transactions (Ages:18-29, inclusive)", "7: % of \'young-uns\' who made Qualified Transactions (Ages:18-29, inclusive)");
-            tableMapping.ColumnMappings.Add("8: % of \'old-folks\' who made Qualified Transactions (Ages:30+)", "8: % of \'old-folks\' who made Qualified Transactions (Ages:30+)");
+            tableMapping.ColumnMappings.Add("FurnitureID", "FurnitureID");
+            tableMapping.ColumnMappings.Add("FurnitureCategory", "FurnitureCategory");
+            tableMapping.ColumnMappings.Add("FurnitureName", "FurnitureName");
+            tableMapping.ColumnMappings.Add("TotalNumQUALIFIEDTransactionsThisPeriod", "TotalNumQUALIFIEDTransactionsThisPeriod");
+            tableMapping.ColumnMappings.Add("TotalNumALLRentalTransactionsThisPeriod", "TotalNumALLRentalTransactionsThisPeriod");
+            tableMapping.ColumnMappings.Add("QualifiedTransactionPercent", "QualifiedTransactionPercent");
+            tableMapping.ColumnMappings.Add("PercentYoungunsWhoMadeQualifiedTransactions", "PercentYoungunsWhoMadeQualifiedTransactions");
+            tableMapping.ColumnMappings.Add("PercentOldfolksWhoMadeQualifiedTransactions", "PercentOldfolksWhoMadeQualifiedTransactions");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
