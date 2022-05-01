@@ -31,8 +31,8 @@ namespace AAB_Furniture_Rentals.Model
         /// the list of items to be rented in this transaction
         /// </summary>           
         public List<Furniture> FurnitureList { get; set; }
-      
-       
+        public object rentalTransactionID { get; private set; }
+
         private List<IsRentedModel> IsRentedList;
     
         public Cart() {
@@ -85,7 +85,7 @@ namespace AAB_Furniture_Rentals.Model
                 newRentaltransaction.MemberID = memberID;
                 newRentaltransaction.EmployeeID = employeeID;
                 newRentaltransaction.DueDate = dueDate;
-            FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
+           this.rentalTransactionID =  FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
         }
         /// <summary>
         /// Adds the items checked out back into the inventory, then zeroizes all the properties         
