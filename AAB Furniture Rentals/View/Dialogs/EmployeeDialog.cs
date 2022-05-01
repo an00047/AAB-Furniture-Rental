@@ -230,7 +230,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateError.Text = "";
             this.genderError.Text = "";
             this.addressError.Text = "";
-            this.phoneError.Text = "";
+            
             this.cityError.Text = "";
             this.stateError.Text = "";
             this.zipError.Text = "";
