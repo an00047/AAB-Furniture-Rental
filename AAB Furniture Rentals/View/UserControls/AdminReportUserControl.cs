@@ -11,6 +11,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             
             InitializeComponent();
+            
             sp_generate_metrics_for_admin_reportTableAdapter.ClearBeforeFill = true;
             this.StartDatePicker.MaxDate = this.EndDatePicker.Value.AddDays(-1);
             this.EndDatePicker.MinDate = this.StartDatePicker.Value.AddDays(1);
