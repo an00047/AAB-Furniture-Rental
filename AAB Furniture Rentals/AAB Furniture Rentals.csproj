@@ -79,6 +79,7 @@
     <Compile Include="Model\IsReturned.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="Model\ReturnCart.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="View\Dialogs\CartDialog.cs">
       <SubType>Form</SubType>

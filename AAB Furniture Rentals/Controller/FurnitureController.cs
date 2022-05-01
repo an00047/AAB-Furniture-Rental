@@ -14,6 +14,7 @@ namespace AAB_Furniture_Rentals.Controller
         /// holds the current cart object for the member's checkout experiance
         /// </summary>
         public static Cart CurrentCart { get; set; }
+        public static ReturnCart CurrentReturnCart { get; set; }
 
         private static FurnitureDAL localFurnitureDAL;
         private static IsRentedDAL localIsRentedDAL;

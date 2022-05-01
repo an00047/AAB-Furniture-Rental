@@ -14,6 +14,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private double Fees;
         private double Refund;
+        private List<Furniture> checkedItems;
         private List<Furniture> AllFurniture;
         private List<Rental> AllRentals;
     
@@ -29,15 +30,47 @@ namespace AAB_Furniture_Rentals.View.UserControls
             AllRentals = new List<Rental>();
             AllFurniture = new List<Furniture>();
 
+            this.checkedItems = new List<Furniture>();
+
             this.Fees = 0.00;
             this.Refund = 0.00;
             this.feesTextBox.Text = this.Fees.ToString("0.00");
             this.refundTextBox.Text = this.Refund.ToString("0.00");
         }
 
-        private void ProcessReturnButton_Click(object sender, EventArgs e)
+        
+            private void ProcessReturnButton_Click(object sender, EventArgs e)
         {
-            //Process the selected items for the return...
+           
+                try
+                {
+                    if (FurnitureController.CurrentCart == null)
+                    {
+                        // make a new cart object, store it in the controller
+
+                        FurnitureController.CurrentCart = new Cart();
+                    }
+                    if (this.checkedItems == null)
+                    {
+                        throw new Exception("You must select a piece of furniture to return!");
+                    }
+
+                    //make for list instead of individual in returncart
+                    Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
+                    FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
+
+                    this.RefreshDataGrid();
+                    this.ViewCartButton.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    FurnitureController.CurrentCart = null;
+                    MessageBox.Show(ex.Message, "Error!");
+                    this.RefreshDataGrid();
+                }
+
+            
+            
         }
 
         private void calculcateFees(List<Furniture> selectedFurniture)
@@ -58,6 +91,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             }
 
         }
+
+
+
 
         private void getTransactionsButton_Click(object sender, EventArgs e)
         {
@@ -126,21 +162,21 @@ namespace AAB_Furniture_Rentals.View.UserControls
             try
             {
 
-                List<Furniture> checkedItems = new List<Furniture>();
+                this.checkedItems.Clear();
                  foreach (var item in itemsReturnedCheckedListBox.CheckedItems)
-                checkedItems.Add((Furniture)item);
+                this.checkedItems.Add((Furniture)item);
 
                 if (e.NewValue == CheckState.Checked)
-                checkedItems.Add((Furniture)itemsReturnedCheckedListBox.Items[e.Index]);
+                this.checkedItems.Add((Furniture)itemsReturnedCheckedListBox.Items[e.Index]);
                 else
-                checkedItems.Remove((Furniture)itemsReturnedCheckedListBox.Items[e.Index]);
+                this.checkedItems.Remove((Furniture)itemsReturnedCheckedListBox.Items[e.Index]);
 
        
-                this.calculcateFees(checkedItems);
+                this.calculcateFees(this.checkedItems);
                 this.feesTextBox.Text = this.Fees.ToString("0.00");
                 this.refundTextBox.Text = this.Refund.ToString("0.00");
                 
-                if (checkedItems.Count > 0)
+                if (this.checkedItems.Count > 0)
                 {
                     this.processReturnButton.Enabled = true;
                 }
