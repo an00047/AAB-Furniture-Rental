@@ -9,23 +9,50 @@ namespace AAB_Furniture_Rentals.View.UserControls
     {
         public AdminReportUserControl()
         {
+            
             InitializeComponent();
+            sp_generate_metrics_for_admin_reportTableAdapter.ClearBeforeFill = true;
+            this.StartDatePicker.MaxDate = this.EndDatePicker.Value;
+            this.EndDatePicker.Enabled = false;
+            this.refreshReport();
 
-            sp_generate_metrics_for_admin_reportTableAdapter.Fill(this._cs6232_g4DataSet.sp_generate_metrics_for_admin_report, this.StartDatePicker.Value, this.EndDatePicker.Value);
-            this.reportViewer1.RefreshReport();
+        }
+
+        private void refreshReport() {
+            try {
+                sp_generate_metrics_for_admin_reportTableAdapter.Fill(this._cs6232_g4DataSet.sp_generate_metrics_for_admin_report, this.StartDatePicker.Value, this.EndDatePicker.Value);
+                this.reportViewer1.RefreshReport();
 
 
+
+
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            
+        
         }
 
         private void SendDatesButton_Click(object sender, EventArgs e)
         {
-            //this.reportViewer1.LocalReport.ReportEmbeddedResource = "Report1.rdlc";
-            sp_generate_metrics_for_admin_reportTableAdapter.Fill(this._cs6232_g4DataSet.sp_generate_metrics_for_admin_report, this.StartDatePicker.Value, this.EndDatePicker.Value);
-            //    sp_generate_metrics_for_admin_reportTableAdapter.GetData(this.StartDatePicker.Value, this.EndDatePicker.Value);
-            this.reportViewer1.RefreshReport();
-            //var i = 1;
+            this.refreshReport();
         }
 
-  
+        private void StartDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            this.EndDatePicker.Enabled = true;
+            this.StartDatePicker.Enabled = false;
+            this.EndDatePicker.MinDate = this.StartDatePicker.Value;
+        }
+
+        private void EndDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            this.EndDatePicker.Enabled = false;
+            this.StartDatePicker.Enabled = true;
+            this.EndDatePicker.MaxDate = this.EndDatePicker.Value;
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.spgeneratemetricsforadminreportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._cs6232_g4DataSet = new AAB_Furniture_Rentals._cs6232_g4DataSet();
             this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -64,6 +64,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.StartDatePicker.Size = new System.Drawing.Size(147, 20);
             this.StartDatePicker.TabIndex = 1;
             this.StartDatePicker.Value = new System.DateTime(2021, 1, 1, 2, 2, 0, 0);
+            this.StartDatePicker.ValueChanged += new System.EventHandler(this.StartDatePicker_ValueChanged);
             // 
             // EndDatePicker
             // 
@@ -73,6 +74,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.EndDatePicker.Size = new System.Drawing.Size(150, 20);
             this.EndDatePicker.TabIndex = 2;
             this.EndDatePicker.Value = new System.DateTime(2021, 3, 3, 2, 2, 0, 0);
+            this.EndDatePicker.ValueChanged += new System.EventHandler(this.EndDatePicker_ValueChanged);
             // 
             // SendDatesButton
             // 
@@ -89,9 +91,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.reportViewer1.AutoSize = true;
             this.reportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.reportViewer1.IsDocumentMapWidthFixed = true;
-            reportDataSource1.Name = "adminReport";
-            reportDataSource1.Value = this.spgeneratemetricsforadminreportBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource3.Name = "adminReport";
+            reportDataSource3.Value = this.spgeneratemetricsforadminreportBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer1.LocalReport.DisplayName = "LOcalReportDisplayName";
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "AAB_Furniture_Rentals.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(5, 52);
