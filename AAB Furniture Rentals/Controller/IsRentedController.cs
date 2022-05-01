@@ -10,6 +10,8 @@ namespace AAB_Furniture_Rentals.Controller
     {
         private static IsRentedDAL localIsRentedDAL;
 
+     
+
         static IsRentedController()
         {
             localIsRentedDAL = new IsRentedDAL();

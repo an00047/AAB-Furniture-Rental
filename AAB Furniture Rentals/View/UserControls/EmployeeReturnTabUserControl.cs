@@ -16,7 +16,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private double Refund;
         private List<Furniture> AllFurniture;
         private List<Rental> AllRentals;
-        private List<Furniture> SelectedItems;
+    
         /// <summary>
         /// Initializes the component. Disables the processReturnButton (you cannot process a return without having selected items to return first)
         /// Enables to getTransactionsButton that will display all transactions from a specific Customer.
@@ -66,6 +66,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
             try
             {
+                //TODO: prompt user for member information if NOT exists. 
                 int customerID = int.Parse(this.idTextBox.Text);
                 AllRentals = RentalController.GetAllRentalsByCustomerID(customerID);
 

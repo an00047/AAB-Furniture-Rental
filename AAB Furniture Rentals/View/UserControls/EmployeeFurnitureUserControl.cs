@@ -13,7 +13,7 @@ namespace AAB_Furniture_Rentals.UserControls
     /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class EmployeeFurnitureUserControl : UserControl
     {
-        Cart currentCart;
+        
         
     
         /// <summary>
@@ -22,7 +22,7 @@ namespace AAB_Furniture_Rentals.UserControls
         public EmployeeFurnitureUserControl()
         {
             InitializeComponent();
-            this.currentCart = null;
+          
             this.ViewCartButton.Enabled = false;
         }
 
@@ -140,22 +140,25 @@ namespace AAB_Furniture_Rentals.UserControls
             
             try
             {
-                if (this.currentCart == null)
+                if (FurnitureController.CurrentCart == null)
                 {
-                    // make a new cart object
-                    this.currentCart = new Cart();
+                    // make a new cart object, store it in the controller
+                 
+                    FurnitureController.CurrentCart = new Cart();
                 }
                 if ((Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem == null) {
                     throw new Exception("You must search for, and then select a piece of furniture on the list");
                 }
+
+               
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
-                this.currentCart.AddFurnitureToCart(selectedFurniture);
+                FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
 
                 this.RefreshDataGrid();
                 this.ViewCartButton.Enabled = true;
             }
             catch (Exception ex) {
-                this.currentCart = null;
+                FurnitureController.CurrentCart = null;
                 MessageBox.Show(ex.Message, "Error!");
                 this.RefreshDataGrid();
             }
@@ -165,12 +168,12 @@ namespace AAB_Furniture_Rentals.UserControls
         private void ViewCartButton_Click(object sender, EventArgs e)
         {
             
-            if (this.currentCart != null) {
+            if (FurnitureController.CurrentCart != null) {
 
-                Form CartDialog = new CartDialog(this.currentCart);
+                Form CartDialog = new CartDialog();
                 CartDialog.ShowDialog();
 
-                this.currentCart = null;
+                
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
                 this.RefreshDataGrid();
@@ -183,10 +186,10 @@ namespace AAB_Furniture_Rentals.UserControls
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
-            if (this.currentCart != null)
+            if (FurnitureController.CurrentCart != null)
             {
-                this.currentCart.PutFurnitureBackIntoInventory();
-                this.currentCart = null;
+                FurnitureController.CurrentCart.PutFurnitureBackIntoInventory();
+                FurnitureController.CurrentCart = null;
                 this.RefreshSearchComboBoxes();
             }
             this.RefreshDataGrid();

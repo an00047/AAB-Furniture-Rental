@@ -10,6 +10,11 @@ namespace AAB_Furniture_Rentals.Controller
     public static class EmployeeController
     {
         private static EmployeesDAL localEmployeeDAL;
+        
+        /// <summary>
+        /// holds the currently logged in employee
+        /// </summary>
+        public static Employee CurrentEmployee { get; set; }
         /// <summary>
         /// Initializes the <see cref="EmployeeController"/> class.
         /// </summary>

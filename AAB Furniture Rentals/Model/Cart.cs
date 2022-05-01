@@ -26,7 +26,7 @@ namespace AAB_Furniture_Rentals.Model
     /// </summary>
     public class Cart
     {
-
+        bool activeInventoryFeatureIsON = false;
         /// <summary>
         /// the list of items to be rented in this transaction
         /// </summary>           
@@ -43,26 +43,31 @@ namespace AAB_Furniture_Rentals.Model
         /// retreives Furniture information from the DB based on Furniture ID
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
-        /// <param name="furnitureToAdd">The furniture to add.</param>
-        public void AddFurnitureToCart(Furniture furnitureToAdd)
-        {
-            // at this time, each click of the button is one item. 
-            int quantityToRent = 1;
-            furnitureToAdd.QuantityOnHand = 1;
+        /// <param name="furnitureID"></param>
+        public void AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd) {
+
+            int quantityToRent = quantityToAdd;
+            furnitureToAdd.QuantityOnHand = quantityToAdd;
             // get most recent information on this furniture item
             // it is assumed that if the prices (or anyhting) changes except quantity, the memebr has their "deal" locked in. 
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
 
             //check to see if Qty is still available
-            if (InventoryItem.QuantityOnHand < quantityToRent)
-            {
-                this.PutFurnitureBackIntoInventory();
+            if (InventoryItem.QuantityOnHand < quantityToRent) {
+
+                if (this.activeInventoryFeatureIsON)
+                {
+                    this.PutFurnitureBackIntoInventory();
+                }
                 throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
 
-            //// We have ensured there is enough inventory, subtract that desired quantity from the inventory
-            //InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
-            //FurnitureController.UpdateFurnitureItem(InventoryItem);
+            // We have ensured there is enough inventory, 
+            InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
+
+            if (this.activeInventoryFeatureIsON) { 
+            FurnitureController.UpdateFurnitureItem(InventoryItem);
+             }
 
             //then build the IsRentedModel (transactionID is currently blank, becasue the DbHasnt generated it yet. will do at checkout.)
             IsRentedModel newIsRentedAdapter = new IsRentedModel();
@@ -87,6 +92,7 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         public void PutFurnitureBackIntoInventory()
         {
+            
             // add each furniture in the last back... 
 
             this.FurnitureList.ForEach((item) =>
@@ -130,6 +136,35 @@ namespace AAB_Furniture_Rentals.Model
 
             //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
             //}
+        }
+
+        /// <summary>
+        /// Calculates the total rental cost (w/o taxes)
+        /// </summary>
+        /// <param name="returnDate"></param>
+        /// <returns></returns>
+        public double CalculateTotalCost(DateTime returnDate) {
+            int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
+            double total = 0;
+            this.FurnitureList.ForEach((item) => {
+                total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
+            });
+
+            return total;
+        }
+
+        /// <summary>
+        /// calculates the daily fine rate
+        /// </summary>
+        /// <returns></returns>
+        public double CalculateDailyFineRate()
+        {
+            double total = 0;
+            this.FurnitureList.ForEach((item) => {
+                total += item.FineRate * item.QuantityOnHand;
+            });
+
+            return total;
         }
     }
 

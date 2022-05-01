@@ -12,8 +12,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
     /// </summary>
     public partial class EmployeeCustomersTabUserControl : UserControl
     {
-     
-        private Member currentCustomer;
+
+        private Member selectedMember;
         private List<Member> customerList;
         /// <summary>
         /// constructor method for the Customers user control
@@ -22,8 +22,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             InitializeComponent();
             this.customerList = new List<Member>();
-         
+
             this.editCustomerButton.Enabled = false;
+            this.SetCurrentMemberButton.Enabled = false;
             this.searchTypeComboBox.Items.Add("--Select Search Type--");
             this.searchTypeComboBox.Items.Add("Customer ID");
             this.searchTypeComboBox.Items.Add("Customer Phone Number");
@@ -41,19 +42,27 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
         {
-            
-            Form editCustomerDialog = new CustomerDialog(this.currentCustomer, this);
-            DialogResult result = editCustomerDialog.ShowDialog();
-
+            try
+            {
+                int customerID = int.Parse(customerDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                Member editCustomer = MemberController.GetCustomerByID(customerID);
+                Form editCustomerDialog = new CustomerDialog(editCustomer, this);
+                DialogResult result = editCustomerDialog.ShowDialog();
+            }
+            catch (Exception)
+            { MessageBox.Show("Error with customer ID! Please try again.");
+            }
         }
 
         private void SearchButton_Click(object sender, System.EventArgs e)
         {
+            SetCurrentMemberButton.Enabled = false;
             this.search();
         }
 
         private void search()
         {
+
             if (this.searchTextBox.Text == "")
             {
                 MessageBox.Show("Search cannot be empty!");
@@ -84,9 +93,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
             {
 
                 var customerID = int.Parse(this.searchTextBox.Text);
-                List<Member> customerList = new List<Member>();
-                currentCustomer = MemberController.GetCustomerByID(customerID);
-                this.customerList.Add(currentCustomer);
+                this.customerList.Clear();
+                customerList = MemberController.GetCustomersByID(customerID);
                 this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
@@ -94,12 +102,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
             catch (FormatException)
             {
                 MessageBox.Show("Customer ID must be a number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
 
-            }
+        }
         }
 
         private void searchByPhoneNumber()
@@ -116,16 +126,15 @@ namespace AAB_Furniture_Rentals.View.UserControls
                      {
                     throw new ArgumentException("Must be in '555 555 5555' format!");
 
+
                      }
 
                      int.Parse(validNumber[0]);
                     int.Parse(validNumber[1]);
                     int.Parse(validNumber[2]);
-                    
 
-                currentCustomer = MemberController.GetCustomerByPhoneNumber(this.searchTextBox.Text);
-                List<Member> customerList = new List<Member>();
-                this.customerList.Add(currentCustomer);
+                this.customerList.Clear();
+                this.customerList = MemberController.GetCustomersByPhoneNumber(this.searchTextBox.Text);
                 this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
@@ -133,10 +142,12 @@ namespace AAB_Furniture_Rentals.View.UserControls
             catch (FormatException)
             {
                 MessageBox.Show("Phone number must be a number", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.customerDataGridView.DataSource = "";
 
             }
         }
@@ -157,19 +168,21 @@ namespace AAB_Furniture_Rentals.View.UserControls
                    throw new ArgumentException("Must search first and last name!");
 
                 }
-
-                currentCustomer = MemberController.GetCustomerByFirstAndLastName(firstName, lastName);
-
-                this.customerList.Add(currentCustomer);
+                this.customerList.Clear();
+                this.customerList = MemberController.GetCustomersByFirstAndLastName(firstName, lastName);
                 this.RefreshDataGrid();
                 this.editCustomerButton.Enabled = true;
 
             }
-           
+           catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Must search first and last name!", "Error!");
+                this.customerDataGridView.DataSource = "";
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                this.customerDataGridView.DataSource = "";
             }
         }
 
@@ -181,6 +194,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.Refresh();
         }
 
+        /// <summary>
+        /// Updates/refreshes the data grid
+        /// </summary>
         public void UpdateDataGrid()
         {
 
@@ -222,6 +238,24 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.searchButton.Show();
                 this.searchTextBox.Show();
             }
+        }
+
+        private void customerDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.selectedMember = ((Member)this.customerDataGridView.SelectedRows[0].DataBoundItem);
+            this.SetCurrentMemberButton.Enabled = true;
+
+        }
+
+        private void SetCurrentMemberButton_Click(object sender, EventArgs e)
+        {
+            MemberController.CurrentMember = this.selectedMember;
+            MessageBox.Show("Curent Shopper set to:" +
+                " " + this.selectedMember.FirstName +
+                " " + this.selectedMember.LastName + 
+                " | Member ID: " + this.selectedMember.MemberID.ToString());
+
+            this.SetCurrentMemberButton.Enabled = false;
         }
     }
   }
