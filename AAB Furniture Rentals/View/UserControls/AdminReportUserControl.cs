@@ -24,6 +24,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
             try {
                 sp_generate_metrics_for_admin_reportTableAdapter.Fill(this._cs6232_g4DataSet.sp_generate_metrics_for_admin_report, this.StartDatePicker.Value, this.EndDatePicker.Value);
                 this.reportViewer1.RefreshReport();
+                this.CurrentStartDateLabel.Text = this.StartDatePicker.Value.ToString("D");
+                this.CurrentEndDateLabel.Text = this.EndDatePicker.Value.ToString("D");
             }
             catch (System.Data.SqlClient.SqlException SqlEx) {
                 if (SqlEx.Message == "Divide by zero error encountered.") {
