@@ -56,7 +56,7 @@ namespace AAB_Furniture_Rentals.DAL
                             DateTime _dob = reader.GetDateTime(dob);
                             string _address = reader.GetString(address);
                             string _city = reader.GetString(city);
-                            string _state = reader.GetString(state);
+                            int _state = Convert.ToInt32(reader["state"]);
                             string _zip = reader.GetString(zip);
                             string _phone = reader.GetString(phone);
                             bool _active = ((int)reader.GetInt16(active) == 1) ? true : false;
@@ -72,7 +72,7 @@ namespace AAB_Furniture_Rentals.DAL
                                 dob: _dob,
                                 address: _address.Trim(),
                                 city: _city.Trim(),
-                                state: _state.Trim(),
+                                state: _state,
                                 zip: _zip.Trim(),
                                 phone: _phone.Trim(),
                                 active: _active,
@@ -169,7 +169,7 @@ namespace AAB_Furniture_Rentals.DAL
                             DateTime _dob = reader.GetDateTime(dob);
                             string _address = reader.GetString(address);
                             string _city = reader.GetString(city);
-                            string _state = reader.GetString(state);
+                            int _state = Convert.ToInt32(reader["state"]);
                             string _zip = reader.GetString(zip);
                             string _phone = reader.GetString(phone);
                             bool _active = ((int)reader.GetInt16(active) == 1) ? true : false;
@@ -185,7 +185,7 @@ namespace AAB_Furniture_Rentals.DAL
                                 dob: _dob,
                                 address: _address.Trim(),
                                 city: _city.Trim(),
-                                state: _state.Trim(),
+                                state: _state,
                                 zip: _zip.Trim(),
                                 phone: _phone.Trim(),
                                 active: _active,
@@ -251,7 +251,7 @@ namespace AAB_Furniture_Rentals.DAL
                             DateTime _dob = reader.GetDateTime(dob);
                             string _address = reader.GetString(address);
                             string _city = reader.GetString(city);
-                            string _state = reader.GetString(state);
+                            int _state = Convert.ToInt32(reader["state"]);
                             string _zip = reader.GetString(zip);
                             string _phone = reader.GetString(phone);
                             bool _active = ((int)reader.GetInt16(active) == 1) ? true : false;
@@ -267,7 +267,7 @@ namespace AAB_Furniture_Rentals.DAL
                                 dob: _dob,
                                 address: _address.Trim(),
                                 city: _city.Trim(),
-                                state: _state.Trim(),
+                                state: _state,
                                 zip: _zip.Trim(),
                                 phone: _phone.Trim(),
                                 active: _active,

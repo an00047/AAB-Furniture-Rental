@@ -69,6 +69,7 @@ namespace AAB_Furniture_Rentals.View
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.EmpoyeeInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ee = new System.Windows.Forms.Label();
             this.EmpoyeeInfoGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -467,6 +468,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ee);
             this.groupBox1.Controls.Add(this.passwordError);
             this.groupBox1.Controls.Add(this.userNameError);
             this.groupBox1.Controls.Add(this.userNameTextBox);
@@ -481,6 +483,14 @@ namespace AAB_Furniture_Rentals.View
             this.groupBox1.TabIndex = 107;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee Credentials |  Permissions:";
+            // 
+            // ee
+            // 
+            this.ee.AutoSize = true;
+            this.ee.Location = new System.Drawing.Point(28, 88);
+            this.ee.Name = "ee";
+            this.ee.Size = new System.Drawing.Size(0, 13);
+            this.ee.TabIndex = 108;
             // 
             // EmployeeDialog
             // 
@@ -546,5 +556,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.GroupBox EmpoyeeInfoGroupBox;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label ee;
     }
 }

@@ -83,7 +83,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Value = theEmployee.Dob;
             this.addressTextBox.Text = theEmployee.Address;
             this.cityTextBox.Text = theEmployee.City;
-            this.StateComboBox.SelectedItem = theEmployee.State;
+            this.StateComboBox.SelectedValue = theEmployee.State;
             this.zipTextBox.Text = theEmployee.Zip;
             this.phoneTextBox.Text = theEmployee.Phone;
             this.activeCheckBox.Checked = theEmployee.Active;
@@ -256,7 +256,7 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Dob = this.birthdateBox.Value;
                     newEmployee.Address = this.addressTextBox.Text;
                     newEmployee.City = this.cityTextBox.Text;
-                    newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
+                    newEmployee.State = Convert.ToInt32(this.StateComboBox.SelectedValue);
                     newEmployee.Zip = this.zipTextBox.Text;
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
@@ -291,7 +291,7 @@ namespace AAB_Furniture_Rentals.View
                 newEmployee.Dob = this.birthdateBox.Value;
                 newEmployee.Address = this.addressTextBox.Text;
                 newEmployee.City = this.cityTextBox.Text;
-                newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
+                newEmployee.State = Convert.ToInt32(this.StateComboBox.SelectedValue);
                 newEmployee.Zip = this.zipTextBox.Text;
                 newEmployee.Phone = this.phoneTextBox.Text;
                 newEmployee.Active = this.activeCheckBox.Checked;
@@ -343,6 +343,8 @@ namespace AAB_Furniture_Rentals.View
                 else if (this.EmployeeButton.Text == "Edit Employee")
                 {
                     this.SetEditable();
+                    this.ee.Text = "To update the password call us at (719) 266-2837";
+                    this.ee.Enabled = false;
                     this.passwordTextBox.Enabled = false;
                     this.userNameTextBox.Enabled = false;
                     this.EmployeeButton.Text = "Save Employee";
@@ -352,6 +354,7 @@ namespace AAB_Furniture_Rentals.View
                 {
                     if (this.ValidateForm())
                     {
+                        this.ee.Text = "";
                         this.SaveEmployee();
                         this.SetViewOnly();
                         this.EmployeeButton.Text = "Edit Employee";

@@ -38,7 +38,7 @@ namespace AAB_Furniture_Rentals.Model
         /// <summary>
         /// the state the reside in
         /// </summary>
-        public string State { get; set; }
+        public int State { get; set; }
         /// <summary>
         /// the employees mailing zip code
         /// </summary>
@@ -84,7 +84,7 @@ namespace AAB_Furniture_Rentals.Model
             DateTime dob,
             string address,
             string city,
-            string state,
+            int state,
             string zip,
             string phone,
             bool active,

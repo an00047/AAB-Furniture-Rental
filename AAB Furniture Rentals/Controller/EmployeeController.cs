@@ -29,7 +29,7 @@ namespace AAB_Furniture_Rentals.Controller
         /// <returns>List of employees</returns>
         public static List<Employee> GetAllEmployees()
         {
-            var test = localEmployeeDAL.GetAllEmployees();
+            //var test = localEmployeeDAL.GetAllEmployees();
             return localEmployeeDAL.GetAllEmployees();
         }
 
