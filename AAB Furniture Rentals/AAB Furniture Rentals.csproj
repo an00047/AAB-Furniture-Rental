@@ -84,6 +84,7 @@
     <Compile Include="DAL\EmployeesDAL.cs" />
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
     <Compile Include="DAL\FurnitureStyleDAL.cs" />
+    <Compile Include="DAL\InsertRentalDAL.cs" />
     <Compile Include="DAL\IsRentedDAL.cs" />
     <Compile Include="DAL\IsReturnedDAL.cs" />
     <Compile Include="DAL\LoginDataDAL.cs" />
