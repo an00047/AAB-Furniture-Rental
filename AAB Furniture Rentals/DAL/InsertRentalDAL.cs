@@ -49,9 +49,26 @@ namespace AAB_Furniture_Rentals.DAL
                         using (SqlCommand command = new SqlCommand(isRentedQuery, connection))
 
                         {
-                            command.Parameters.AddWithValue("@TRANS_ID", entry.TransactionID);
+                            command.Parameters.AddWithValue("@TRANS_ID", rentalID);
                             command.Parameters.AddWithValue("@QUANTITY", entry.QuantityOut);
                             command.Parameters.AddWithValue("@FURN_ID", entry.FurnitureID);
+
+                            command.ExecuteScalar();
+                        }
+                    }
+
+                    string updateFurnitureQuery = 
+                       "UPDATE furniture SET quantity = furniture.quantity - @quantityOut " +
+                       "WHERE furniture.furnitureID = @furnitureID ";
+
+                    using (SqlConnection connection = RentMeDBConnection.GetConnection())
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand(updateFurnitureQuery, connection))
+
+                        {
+                            command.Parameters.AddWithValue("@quantityOut", entry.QuantityOut);
+                            command.Parameters.AddWithValue("@furnitureID", entry.FurnitureID);
 
                             command.ExecuteScalar();
                         }
