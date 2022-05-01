@@ -77,7 +77,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.StateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.StateComboBox.FormattingEnabled = true;
-            this.StateComboBox.Location = new System.Drawing.Point(96, 171);
+            this.StateComboBox.Location = new System.Drawing.Point(97, 258);
             this.StateComboBox.Name = "StateComboBox";
             this.StateComboBox.Size = new System.Drawing.Size(86, 21);
             this.StateComboBox.TabIndex = 105;
@@ -85,8 +85,9 @@ namespace AAB_Furniture_Rentals.View
             // cityError
             // 
             this.cityError.AutoSize = true;
+            this.cityError.BackColor = System.Drawing.SystemColors.Control;
             this.cityError.ForeColor = System.Drawing.Color.Red;
-            this.cityError.Location = new System.Drawing.Point(102, 152);
+            this.cityError.Location = new System.Drawing.Point(98, 241);
             this.cityError.Name = "cityError";
             this.cityError.Size = new System.Drawing.Size(28, 13);
             this.cityError.TabIndex = 104;
@@ -96,7 +97,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.stateError.AutoSize = true;
             this.stateError.ForeColor = System.Drawing.Color.Red;
-            this.stateError.Location = new System.Drawing.Point(189, 176);
+            this.stateError.Location = new System.Drawing.Point(98, 281);
             this.stateError.Name = "stateError";
             this.stateError.Size = new System.Drawing.Size(28, 13);
             this.stateError.TabIndex = 103;
@@ -105,8 +106,9 @@ namespace AAB_Furniture_Rentals.View
             // passwordError
             // 
             this.passwordError.AutoSize = true;
+            this.passwordError.BackColor = System.Drawing.SystemColors.Control;
             this.passwordError.ForeColor = System.Drawing.Color.Red;
-            this.passwordError.Location = new System.Drawing.Point(102, 49);
+            this.passwordError.Location = new System.Drawing.Point(98, 88);
             this.passwordError.Name = "passwordError";
             this.passwordError.Size = new System.Drawing.Size(28, 13);
             this.passwordError.TabIndex = 102;
@@ -115,8 +117,9 @@ namespace AAB_Furniture_Rentals.View
             // userNameError
             // 
             this.userNameError.AutoSize = true;
+            this.userNameError.BackColor = System.Drawing.SystemColors.Control;
             this.userNameError.ForeColor = System.Drawing.Color.Red;
-            this.userNameError.Location = new System.Drawing.Point(102, 22);
+            this.userNameError.Location = new System.Drawing.Point(97, 44);
             this.userNameError.Name = "userNameError";
             this.userNameError.Size = new System.Drawing.Size(28, 13);
             this.userNameError.TabIndex = 101;
@@ -125,8 +128,9 @@ namespace AAB_Furniture_Rentals.View
             // phoneError2
             // 
             this.phoneError2.AutoSize = true;
+            this.phoneError2.BackColor = System.Drawing.SystemColors.Control;
             this.phoneError2.ForeColor = System.Drawing.Color.Red;
-            this.phoneError2.Location = new System.Drawing.Point(102, 228);
+            this.phoneError2.Location = new System.Drawing.Point(97, 360);
             this.phoneError2.Name = "phoneError2";
             this.phoneError2.Size = new System.Drawing.Size(28, 13);
             this.phoneError2.TabIndex = 100;
@@ -135,8 +139,9 @@ namespace AAB_Furniture_Rentals.View
             // zipError
             // 
             this.zipError.AutoSize = true;
+            this.zipError.BackColor = System.Drawing.SystemColors.Control;
             this.zipError.ForeColor = System.Drawing.Color.Red;
-            this.zipError.Location = new System.Drawing.Point(102, 201);
+            this.zipError.Location = new System.Drawing.Point(97, 320);
             this.zipError.Name = "zipError";
             this.zipError.Size = new System.Drawing.Size(28, 13);
             this.zipError.TabIndex = 99;
@@ -145,7 +150,7 @@ namespace AAB_Furniture_Rentals.View
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(16, 48);
+            this.passwordLabel.Location = new System.Drawing.Point(16, 65);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(59, 13);
             this.passwordLabel.TabIndex = 98;
@@ -153,16 +158,17 @@ namespace AAB_Furniture_Rentals.View
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(96, 46);
+            this.passwordTextBox.Location = new System.Drawing.Point(96, 63);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '#';
             this.passwordTextBox.Size = new System.Drawing.Size(200, 20);
             this.passwordTextBox.TabIndex = 97;
+            this.passwordTextBox.UseSystemPasswordChar = true;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // adminCheckBox
             // 
             this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.Location = new System.Drawing.Point(186, 75);
+            this.adminCheckBox.Location = new System.Drawing.Point(187, 105);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.adminCheckBox.Size = new System.Drawing.Size(87, 17);
@@ -173,7 +179,7 @@ namespace AAB_Furniture_Rentals.View
             // activeCheckBox
             // 
             this.activeCheckBox.AutoSize = true;
-            this.activeCheckBox.Location = new System.Drawing.Point(30, 74);
+            this.activeCheckBox.Location = new System.Drawing.Point(30, 105);
             this.activeCheckBox.Name = "activeCheckBox";
             this.activeCheckBox.Size = new System.Drawing.Size(111, 17);
             this.activeCheckBox.TabIndex = 95;
@@ -195,11 +201,12 @@ namespace AAB_Furniture_Rentals.View
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.userNameTextBox.TabIndex = 93;
+            this.userNameTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 200);
+            this.label6.Location = new System.Drawing.Point(8, 299);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 92;
@@ -207,15 +214,16 @@ namespace AAB_Furniture_Rentals.View
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(96, 198);
+            this.zipTextBox.Location = new System.Drawing.Point(96, 297);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(200, 20);
             this.zipTextBox.TabIndex = 91;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 173);
+            this.label4.Location = new System.Drawing.Point(36, 262);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 90;
@@ -224,7 +232,7 @@ namespace AAB_Furniture_Rentals.View
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 149);
+            this.label2.Location = new System.Drawing.Point(41, 221);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 13);
             this.label2.TabIndex = 89;
@@ -232,14 +240,15 @@ namespace AAB_Furniture_Rentals.View
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(96, 149);
+            this.cityTextBox.Location = new System.Drawing.Point(96, 217);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(200, 20);
             this.cityTextBox.TabIndex = 88;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(224, 423);
+            this.cancelButton.Location = new System.Drawing.Point(219, 606);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(90, 23);
             this.cancelButton.TabIndex = 87;
@@ -250,8 +259,9 @@ namespace AAB_Furniture_Rentals.View
             // addressError
             // 
             this.addressError.AutoSize = true;
+            this.addressError.BackColor = System.Drawing.SystemColors.Control;
             this.addressError.ForeColor = System.Drawing.Color.Red;
-            this.addressError.Location = new System.Drawing.Point(102, 124);
+            this.addressError.Location = new System.Drawing.Point(97, 204);
             this.addressError.Name = "addressError";
             this.addressError.Size = new System.Drawing.Size(28, 13);
             this.addressError.TabIndex = 86;
@@ -261,7 +271,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.birthdateError.AutoSize = true;
             this.birthdateError.ForeColor = System.Drawing.Color.Red;
-            this.birthdateError.Location = new System.Drawing.Point(28, 111);
+            this.birthdateError.Location = new System.Drawing.Point(94, 165);
             this.birthdateError.Name = "birthdateError";
             this.birthdateError.Size = new System.Drawing.Size(28, 13);
             this.birthdateError.TabIndex = 85;
@@ -270,8 +280,9 @@ namespace AAB_Furniture_Rentals.View
             // genderError
             // 
             this.genderError.AutoSize = true;
+            this.genderError.BackColor = System.Drawing.SystemColors.Control;
             this.genderError.ForeColor = System.Drawing.Color.Red;
-            this.genderError.Location = new System.Drawing.Point(189, 75);
+            this.genderError.Location = new System.Drawing.Point(94, 125);
             this.genderError.Name = "genderError";
             this.genderError.Size = new System.Drawing.Size(28, 13);
             this.genderError.TabIndex = 84;
@@ -280,8 +291,9 @@ namespace AAB_Furniture_Rentals.View
             // lastNameError
             // 
             this.lastNameError.AutoSize = true;
+            this.lastNameError.BackColor = System.Drawing.SystemColors.Control;
             this.lastNameError.ForeColor = System.Drawing.Color.Red;
-            this.lastNameError.Location = new System.Drawing.Point(102, 46);
+            this.lastNameError.Location = new System.Drawing.Point(94, 84);
             this.lastNameError.Name = "lastNameError";
             this.lastNameError.Size = new System.Drawing.Size(28, 13);
             this.lastNameError.TabIndex = 83;
@@ -290,8 +302,9 @@ namespace AAB_Furniture_Rentals.View
             // firstNameError
             // 
             this.firstNameError.AutoSize = true;
+            this.firstNameError.BackColor = System.Drawing.SystemColors.Control;
             this.firstNameError.ForeColor = System.Drawing.Color.Red;
-            this.firstNameError.Location = new System.Drawing.Point(104, 20);
+            this.firstNameError.Location = new System.Drawing.Point(91, 44);
             this.firstNameError.Name = "firstNameError";
             this.firstNameError.Size = new System.Drawing.Size(28, 13);
             this.firstNameError.TabIndex = 82;
@@ -299,7 +312,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(96, 43);
+            this.lastNameTextBox.Location = new System.Drawing.Point(93, 60);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.lastNameTextBox.TabIndex = 69;
@@ -316,7 +329,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // EmployeeButton
             // 
-            this.EmployeeButton.Location = new System.Drawing.Point(76, 423);
+            this.EmployeeButton.Location = new System.Drawing.Point(62, 606);
             this.EmployeeButton.Name = "EmployeeButton";
             this.EmployeeButton.Size = new System.Drawing.Size(112, 23);
             this.EmployeeButton.TabIndex = 73;
@@ -327,14 +340,14 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.Location = new System.Drawing.Point(96, 70);
+            this.genderComboBox.Location = new System.Drawing.Point(94, 100);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(86, 21);
             this.genderComboBox.TabIndex = 70;
             // 
             // birthdateBox
             // 
-            this.birthdateBox.Location = new System.Drawing.Point(96, 97);
+            this.birthdateBox.Location = new System.Drawing.Point(95, 141);
             this.birthdateBox.Name = "birthdateBox";
             this.birthdateBox.Size = new System.Drawing.Size(200, 20);
             this.birthdateBox.TabIndex = 80;
@@ -342,7 +355,7 @@ namespace AAB_Furniture_Rentals.View
             // addressLabel
             // 
             this.addressLabel.AutoSize = true;
-            this.addressLabel.Location = new System.Drawing.Point(20, 124);
+            this.addressLabel.Location = new System.Drawing.Point(20, 184);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(48, 13);
             this.addressLabel.TabIndex = 79;
@@ -351,7 +364,7 @@ namespace AAB_Furniture_Rentals.View
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(28, 227);
+            this.phoneLabel.Location = new System.Drawing.Point(28, 340);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(41, 13);
             this.phoneLabel.TabIndex = 78;
@@ -360,7 +373,7 @@ namespace AAB_Furniture_Rentals.View
             // birthdateLabel
             // 
             this.birthdateLabel.AutoSize = true;
-            this.birthdateLabel.Location = new System.Drawing.Point(18, 99);
+            this.birthdateLabel.Location = new System.Drawing.Point(17, 143);
             this.birthdateLabel.Name = "birthdateLabel";
             this.birthdateLabel.Size = new System.Drawing.Size(52, 13);
             this.birthdateLabel.TabIndex = 77;
@@ -369,7 +382,7 @@ namespace AAB_Furniture_Rentals.View
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(14, 23);
+            this.firstNameLabel.Location = new System.Drawing.Point(9, 24);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(60, 13);
             this.firstNameLabel.TabIndex = 76;
@@ -378,7 +391,7 @@ namespace AAB_Furniture_Rentals.View
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(14, 46);
+            this.lastNameLabel.Location = new System.Drawing.Point(11, 63);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(61, 13);
             this.lastNameLabel.TabIndex = 75;
@@ -387,7 +400,7 @@ namespace AAB_Furniture_Rentals.View
             // genderLabel
             // 
             this.genderLabel.AutoSize = true;
-            this.genderLabel.Location = new System.Drawing.Point(27, 71);
+            this.genderLabel.Location = new System.Drawing.Point(25, 101);
             this.genderLabel.Name = "genderLabel";
             this.genderLabel.Size = new System.Drawing.Size(45, 13);
             this.genderLabel.TabIndex = 74;
@@ -395,21 +408,23 @@ namespace AAB_Furniture_Rentals.View
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(96, 224);
+            this.phoneTextBox.Location = new System.Drawing.Point(96, 337);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
             this.phoneTextBox.TabIndex = 72;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // addressTextBox
             // 
-            this.addressTextBox.Location = new System.Drawing.Point(96, 121);
+            this.addressTextBox.Location = new System.Drawing.Point(96, 181);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(200, 20);
             this.addressTextBox.TabIndex = 71;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(96, 17);
+            this.firstNameTextBox.Location = new System.Drawing.Point(91, 18);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.firstNameTextBox.TabIndex = 68;
@@ -445,7 +460,7 @@ namespace AAB_Furniture_Rentals.View
             this.EmpoyeeInfoGroupBox.Controls.Add(this.cityTextBox);
             this.EmpoyeeInfoGroupBox.Location = new System.Drawing.Point(32, 52);
             this.EmpoyeeInfoGroupBox.Name = "EmpoyeeInfoGroupBox";
-            this.EmpoyeeInfoGroupBox.Size = new System.Drawing.Size(315, 259);
+            this.EmpoyeeInfoGroupBox.Size = new System.Drawing.Size(315, 383);
             this.EmpoyeeInfoGroupBox.TabIndex = 106;
             this.EmpoyeeInfoGroupBox.TabStop = false;
             this.EmpoyeeInfoGroupBox.Text = "Employee Information:";
@@ -460,18 +475,18 @@ namespace AAB_Furniture_Rentals.View
             this.groupBox1.Controls.Add(this.activeCheckBox);
             this.groupBox1.Controls.Add(this.passwordTextBox);
             this.groupBox1.Controls.Add(this.adminCheckBox);
-            this.groupBox1.Location = new System.Drawing.Point(32, 317);
+            this.groupBox1.Location = new System.Drawing.Point(32, 460);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 100);
+            this.groupBox1.Size = new System.Drawing.Size(315, 131);
             this.groupBox1.TabIndex = 107;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Employee Credentials |  Permissions:";
             // 
             // EmployeeDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 450);
+            this.ClientSize = new System.Drawing.Size(390, 645);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.EmpoyeeInfoGroupBox);
             this.Controls.Add(this.cancelButton);
