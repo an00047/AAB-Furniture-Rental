@@ -56,6 +56,7 @@ namespace AAB_Furniture_Rentals.View
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
+            RefreshDataGrid();
             try {
 
                 CheckMemberSelection();
@@ -65,11 +66,12 @@ namespace AAB_Furniture_Rentals.View
                     dueDate: this.returnDateTimePicker.Value);
 
 
-                //Show Success Message then Close. 
-                MessageBox.Show("Checkout Complete!");
-                FurnitureController.CurrentCart = null;
 
+                RentalTransactionConfirmationDialog checkoutComplete = new RentalTransactionConfirmationDialog();
+               // this.Hide();
+                checkoutComplete.ShowDialog();
                 this.Close();
+               
 
             } catch (Exception ex) {
 
@@ -95,7 +97,7 @@ namespace AAB_Furniture_Rentals.View
             this.qtyUpDown.Maximum = FurnitureController.GetFurnitureByID(this.selectedFurniture.FurnitureID).QuantityOnHand;
         }
 
-        private void updateQtyButton_Click(object sender, EventArgs e)
+        private void UpdateQtyButton_Click(object sender, EventArgs e)
         {
             CheckMemberSelection();
             try { 
@@ -119,7 +121,7 @@ namespace AAB_Furniture_Rentals.View
             this.RefreshDataGrid();
         }
 
-        private void deleteItem_Click(object sender, EventArgs e)
+        private void DeleteItem_Click(object sender, EventArgs e)
         {
 
             try
@@ -138,7 +140,7 @@ namespace AAB_Furniture_Rentals.View
             this.RefreshDataGrid();
         }
 
-        private void returnDateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void ReturnDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             this.RefreshDataGrid();
         }

@@ -136,7 +136,7 @@ namespace AAB_Furniture_Rentals.View
             this.returnDateTimePicker.Name = "returnDateTimePicker";
             this.returnDateTimePicker.Size = new System.Drawing.Size(190, 20);
             this.returnDateTimePicker.TabIndex = 20;
-            this.returnDateTimePicker.ValueChanged += new System.EventHandler(this.returnDateTimePicker_ValueChanged);
+            this.returnDateTimePicker.ValueChanged += new System.EventHandler(this.ReturnDateTimePicker_ValueChanged);
             // 
             // retunDateLabel
             // 
@@ -171,7 +171,7 @@ namespace AAB_Furniture_Rentals.View
             this.deleteItem.TabIndex = 19;
             this.deleteItem.Text = "Delete Item";
             this.deleteItem.UseVisualStyleBackColor = true;
-            this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
+            this.deleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
             // 
             // shortNameLabel
             // 
@@ -219,7 +219,7 @@ namespace AAB_Furniture_Rentals.View
             this.updateQtyButton.TabIndex = 2;
             this.updateQtyButton.Text = "Update Quantity";
             this.updateQtyButton.UseVisualStyleBackColor = true;
-            this.updateQtyButton.Click += new System.EventHandler(this.updateQtyButton_Click);
+            this.updateQtyButton.Click += new System.EventHandler(this.UpdateQtyButton_Click);
             // 
             // groupBox2
             // 
