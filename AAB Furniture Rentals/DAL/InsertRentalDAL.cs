@@ -4,15 +4,23 @@ using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
 {
+    /// <summary>
+    /// Responsible for inserting rentals into the database
+    /// </summary>
     class InsertRentalDAL
 
     {
+        /// <summary>
+        /// Inserts the rental transaction.
+        /// </summary>
+        /// <param name="newRental">The new rental.</param>
+        /// <param name="isRentedList">The is rented list.</param>
         public void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
             int rentalID = 0;
             string query = "INSERT INTO " +
              "rentals (memberId, employeeID, datetime_due) " +
-             "OUTPUT Inserted.rentalTransactionID" +
+             "OUTPUT Inserted.rentalTransactionID " +
              "VALUES(@MEMBER_ID, @EMPLOYEE_ID, @DUE_DATE) ";
 
 

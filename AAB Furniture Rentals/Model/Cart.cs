@@ -129,7 +129,7 @@ namespace AAB_Furniture_Rentals.Model
             ///// <returns></returns>
             //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
             //{
-            //    Rental newRentaltransaction =  new Rental();
+            //    Rental newRentaltransaction = new Rental();
             //    newRentaltransaction.MemberID = memberID;
             //    newRentaltransaction.EmployeeID = employeeID;
             //    newRentaltransaction.DueDate = dueDate;
