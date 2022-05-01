@@ -60,14 +60,10 @@ namespace AAB_Furniture_Rentals.View
 
                 CheckMemberSelection();
 
-                int transactionID = FurnitureController.CurrentCart.ProcessRentalTransaction(
-                    employeeID: EmployeeController.CurrentEmployee.EmployeeID,
+                FurnitureController.CurrentCart.ProcessInsertRentalTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
                     memberID: MemberController.CurrentMember.MemberID,
-                    dueDate: this.returnDateTimePicker.Value
-                    );
+                    dueDate: this.returnDateTimePicker.Value);
 
-                FurnitureController.CurrentCart.AddTransactionToIsRentedList(transactionID);
-                FurnitureController.CurrentCart.ProcessIsRentedList();
 
                 //Show Success Message then Close. 
                 MessageBox.Show("Checkout Complete!");

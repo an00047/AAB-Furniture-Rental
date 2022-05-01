@@ -79,9 +79,16 @@ namespace AAB_Furniture_Rentals.Model
 
 
         }
+        public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+        {
+            Rental newRentaltransaction = new Rental();
+                newRentaltransaction.MemberID = memberID;
+                newRentaltransaction.EmployeeID = employeeID;
+                newRentaltransaction.DueDate = dueDate;
+            FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
+        }
         /// <summary>
-        /// Adds the items checked out back into the inventory, then zeroizes all the properties
-        /// 
+        /// Adds the items checked out back into the inventory, then zeroizes all the properties         
         /// </summary>
         public void PutFurnitureBackIntoInventory()
         {
@@ -97,39 +104,38 @@ namespace AAB_Furniture_Rentals.Model
             });
 
 
-            this.IsRentedList = new List<IsRentedModel>();
-            this.FurnitureList = new List<Furniture>();
+            //    this.IsRentedList = new List<IsRentedModel>();
+            //    this.FurnitureList = new List<Furniture>();
+            //}
+            /// <summary>
+            /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
+            /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
+            /// </summary>
+            /// <param name="transactionID"></param>
+            //    public void AddTransactionToIsRentedList(int transactionID)
+            //{
+            //    this.IsRentedList.ForEach((item)=>{
+            //        item.TransactionID = transactionID;
+            //    });
+            //}
+            ///// <summary>
+            ///// Updates the IsRented Database
+            ///// </summary>
+            //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
 
-             
-        }
-        /// <summary>
-        /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
-        /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
-        /// </summary>
-        /// <param name="transactionID"></param>
-        public void AddTransactionToIsRentedList(int transactionID)
-        {
-            this.IsRentedList.ForEach((item)=>{
-                item.TransactionID = transactionID;
-            });
-        }
-        /// <summary>
-        /// Updates the IsRented Database
-        /// </summary>
-        public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
-        
-        /// <summary>
-        /// generates the transaction in the Database. Returns the Id. 
-        /// </summary>
-        /// <returns></returns>
-        public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
-        {
-            Rental newRentaltransaction =  new Rental();
-            newRentaltransaction.MemberID = memberID;
-            newRentaltransaction.EmployeeID = employeeID;
-            newRentaltransaction.DueDate = dueDate;
+            ///// <summary>
+            ///// generates the transaction in the Database. Returns the Id. 
+            ///// </summary>
+            ///// <returns></returns>
+            //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+            //{
+            //    Rental newRentaltransaction = new Rental();
+            //    newRentaltransaction.MemberID = memberID;
+            //    newRentaltransaction.EmployeeID = employeeID;
+            //    newRentaltransaction.DueDate = dueDate;
 
-            return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+            //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+            //}
         }
 
         /// <summary>
@@ -161,4 +167,5 @@ namespace AAB_Furniture_Rentals.Model
             return total;
         }
     }
+
 }
