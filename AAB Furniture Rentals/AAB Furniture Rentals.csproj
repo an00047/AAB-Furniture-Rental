@@ -92,6 +92,12 @@
     <Compile Include="View\Dialogs\SelectShoppingMemberDialog.Designer.cs">
       <DependentUpon>SelectShoppingMemberDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\AdminReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\AdminReportUserControl.Designer.cs">
+      <DependentUpon>AdminReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UserControls\EmployeeFurnitureUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\SelectShoppingMemberDialog.resx">
       <DependentUpon>SelectShoppingMemberDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\AdminReportUserControl.resx">
+      <DependentUpon>AdminReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserControls\EmployeeFurnitureUserControl.resx">
       <DependentUpon>EmployeeFurnitureUserControl.cs</DependentUpon>
