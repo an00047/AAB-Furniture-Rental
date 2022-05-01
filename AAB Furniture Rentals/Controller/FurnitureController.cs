@@ -13,6 +13,7 @@ namespace AAB_Furniture_Rentals.Controller
         private static FurnitureDAL localFurnitureDAL;
         private static IsRentedDAL localIsRentedDAL;
         private static RentalsDAL localRentalsDAL;
+        private static InsertRentalDAL localInsertRentalDAL;
         /// <summary>
         /// Initializes the <see cref="FurnitureController"/> class.
         /// </summary>
@@ -37,14 +38,19 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <param name="newRentaltransaction"></param>
         /// <returns></returns>
-        public static int ProcessRentalTransaction(Rental newRentaltransaction)
+        internal static void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
-            if (newRentaltransaction == null )
+            if (newRental == null )
             {
-                throw new ArgumentException("The Transaction is null");
+                throw new ArgumentException("The rental is null");
+            }
+            if (isRentedList == null)
+            {
+                throw new ArgumentException("The isRentedList is null");
+
             }
 
-            return localRentalsDAL.InsertNewRentalTransaction(newRentaltransaction);
+            localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
         }
 
         /// <summary>
@@ -94,7 +100,7 @@ namespace AAB_Furniture_Rentals.Controller
             }
             return localFurnitureDAL.GetFurnitureByID(searchFurnitureID);
         }
-       
+
 
         ///// <summary>
         ///// gets the furniture item by id
@@ -114,24 +120,25 @@ namespace AAB_Furniture_Rentals.Controller
         /// Updates an existing furniture Item. (Multi-Use)
         /// </summary>
         /// <param name="updatedFurniture"></param>
-        public static void UpdateFurnitureItem(Furniture updatedFurniture) {
+        public static void UpdateFurnitureItem(Furniture updatedFurniture)
+        {
             if (updatedFurniture == null)
             {
                 throw new ArgumentException("furniture to update cannot be null");
             }
             localFurnitureDAL.UpdateFurnitureItem(updatedFurniture);
         }
-        /// <summary>
-        /// updates the Isrented Database. 
-        /// </summary>
-        /// <param name="isRentedList"></param>
-        internal static void ProcessIsRentedList(List<IsRentedModel> isRentedList)
-        {
-            if (isRentedList == null)
-            {
-                throw new ArgumentException("furniture to update cannot be null");
-            }
-            localIsRentedDAL.InsertIsRentedTable(isRentedList);
-        }
+        ///// <summary>
+        ///// updates the Isrented Database. 
+        ///// </summary>
+        ///// <param name="isRentedList"></param>
+        //internal static void ProcessIsRentedList(List<IsRentedModel> isRentedList)
+        //{
+        //    if (isRentedList == null)
+        //    {
+        //        throw new ArgumentException("furniture to update cannot be null");
+        //    }
+        //    localIsRentedDAL.InsertIsRentedTable(isRentedList);
+        //}
     }
 }

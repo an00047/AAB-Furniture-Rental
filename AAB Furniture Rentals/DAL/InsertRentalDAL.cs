@@ -7,7 +7,7 @@ namespace AAB_Furniture_Rentals.DAL
     class InsertRentalDAL
 
     {
-        internal void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
+        public void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
             int rentalID = 0;
             string query = "INSERT INTO " +

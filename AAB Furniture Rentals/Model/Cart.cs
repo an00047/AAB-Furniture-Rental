@@ -43,8 +43,9 @@ namespace AAB_Furniture_Rentals.Model
         /// retreives Furniture information from the DB based on Furniture ID
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
-        /// <param name="furnitureID"></param>
-        public void AddFurnitureToCart(Furniture furnitureToAdd ) {
+        /// <param name="furnitureToAdd">The furniture to add.</param>
+        public void AddFurnitureToCart(Furniture furnitureToAdd)
+        {
             // at this time, each click of the button is one item. 
             int quantityToRent = 1;
             furnitureToAdd.QuantityOnHand = 1;
@@ -53,14 +54,15 @@ namespace AAB_Furniture_Rentals.Model
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
 
             //check to see if Qty is still available
-            if (InventoryItem.QuantityOnHand < quantityToRent) {
+            if (InventoryItem.QuantityOnHand < quantityToRent)
+            {
                 this.PutFurnitureBackIntoInventory();
                 throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
 
-            // We have ensured there is enough inventory, subtract that desired quantity from the inventory
-            InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
-            FurnitureController.UpdateFurnitureItem(InventoryItem);
+            //// We have ensured there is enough inventory, subtract that desired quantity from the inventory
+            //InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
+            //FurnitureController.UpdateFurnitureItem(InventoryItem);
 
             //then build the IsRentedModel (transactionID is currently blank, becasue the DbHasnt generated it yet. will do at checkout.)
             IsRentedModel newIsRentedAdapter = new IsRentedModel();
@@ -72,14 +74,23 @@ namespace AAB_Furniture_Rentals.Model
 
 
         }
+        public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+        {
+            Rental newRentaltransaction = new Rental();
+                newRentaltransaction.MemberID = memberID;
+                newRentaltransaction.EmployeeID = employeeID;
+                newRentaltransaction.DueDate = dueDate;
+            FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
+        }
         /// <summary>
-        /// Adds the items checked out back into the inventory, then zeroizes all the properties
-        /// 
+        /// Adds the items checked out back into the inventory, then zeroizes all the properties         
         /// </summary>
-        public void PutFurnitureBackIntoInventory(){
+        public void PutFurnitureBackIntoInventory()
+        {
             // add each furniture in the last back... 
 
-            this.FurnitureList.ForEach((item)=> {
+            this.FurnitureList.ForEach((item) =>
+            {
                 Furniture inventoryItem = FurnitureController.GetFurnitureByID(item.FurnitureID);
                 inventoryItem.QuantityOnHand += item.QuantityOnHand;
                 FurnitureController.UpdateFurnitureItem(inventoryItem);
@@ -87,37 +98,39 @@ namespace AAB_Furniture_Rentals.Model
             });
 
 
-            this.IsRentedList = new List<IsRentedModel>();
-            this.FurnitureList = new List<Furniture>();
-        }
-        /// <summary>
-        /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
-        /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
-        /// </summary>
-        /// <param name="transactionID"></param>
-        public void AddTransactionToIsRentedList(int transactionID)
-        {
-            this.IsRentedList.ForEach((item)=>{
-                item.TransactionID = transactionID;
-            });
-        }
-        /// <summary>
-        /// Updates the IsRented Database
-        /// </summary>
-        public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
-        
-        /// <summary>
-        /// generates the transaction in the Database. Returns the Id. 
-        /// </summary>
-        /// <returns></returns>
-        public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
-        {
-            Rental newRentaltransaction =  new Rental();
-            newRentaltransaction.MemberID = memberID;
-            newRentaltransaction.EmployeeID = employeeID;
-            newRentaltransaction.DueDate = dueDate;
+            //    this.IsRentedList = new List<IsRentedModel>();
+            //    this.FurnitureList = new List<Furniture>();
+            //}
+            /// <summary>
+            /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
+            /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
+            /// </summary>
+            /// <param name="transactionID"></param>
+            //    public void AddTransactionToIsRentedList(int transactionID)
+            //{
+            //    this.IsRentedList.ForEach((item)=>{
+            //        item.TransactionID = transactionID;
+            //    });
+            //}
+            ///// <summary>
+            ///// Updates the IsRented Database
+            ///// </summary>
+            //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
 
-            return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+            ///// <summary>
+            ///// generates the transaction in the Database. Returns the Id. 
+            ///// </summary>
+            ///// <returns></returns>
+            //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+            //{
+            //    Rental newRentaltransaction =  new Rental();
+            //    newRentaltransaction.MemberID = memberID;
+            //    newRentaltransaction.EmployeeID = employeeID;
+            //    newRentaltransaction.DueDate = dueDate;
+
+            //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+            //}
         }
     }
+
 }

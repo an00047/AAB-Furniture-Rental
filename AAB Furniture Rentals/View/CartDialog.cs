@@ -1,4 +1,5 @@
-﻿using AAB_Furniture_Rentals.Model;
+﻿using AAB_Furniture_Rentals.Controller;
+using AAB_Furniture_Rentals.Model;
 using System;
 using System.Windows.Forms;
 
@@ -34,16 +35,21 @@ namespace AAB_Furniture_Rentals.View
                 if (this.EmployeeTextBox.Text == "" || this.MemberTextBox.Text == "") {
                     throw new Exception("Employee and Member ID's cannot be blank");
                 }
-                
+
              
-                int transactionID = this.currentCart.ProcessRentalTransaction(
+                this.currentCart.ProcessInsertRentalTransaction(
                     employeeID: Int32.Parse(this.EmployeeTextBox.Text), 
                     memberID: Int32.Parse(this.MemberTextBox.Text), 
                     dueDate: this.returnDateTimePicker.Value
                     );
 
-                this.currentCart.AddTransactionToIsRentedList(transactionID);
-                this.currentCart.ProcessIsRentedList();
+                //Rental newRentaltransaction = new Rental();
+                //newRentaltransaction.MemberID = Int32.Parse(this.MemberTextBox.Text);
+                //newRentaltransaction.EmployeeID = Int32.Parse(this.EmployeeTextBox.Text);
+                //newRentaltransaction.DueDate = this.returnDateTimePicker.Value;
+
+                //this.currentCart.ProcessInsertRentalTransaction(newRentaltransaction);
+                ///this.currentCart.ProcessIsRentedList();
 
                 //Show Success Message then Close. 
                 MessageBox.Show("Checkout Complete!");
