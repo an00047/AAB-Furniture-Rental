@@ -13,9 +13,9 @@ namespace AAB_Furniture_Rentals.UserControls
     /// <seealso cref="System.Windows.Forms.UserControl" />
     public partial class EmployeeFurnitureUserControl : UserControl
     {
-        
-        
-    
+
+        private List<int> ListOfRowsAddedToCart;
+
         /// <summary>
         /// Constrouctor method for the employeeUser furniture control
         /// </summary>
@@ -24,6 +24,7 @@ namespace AAB_Furniture_Rentals.UserControls
             InitializeComponent();
           
             this.ViewCartButton.Enabled = false;
+            ListOfRowsAddedToCart = new List<int>();
         }
 
 
@@ -153,6 +154,8 @@ namespace AAB_Furniture_Rentals.UserControls
                
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
                 FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
+                diableRowsThatHaveBeenAddedToCartAlready();
+
 
                 this.RefreshDataGrid();
                 this.ViewCartButton.Enabled = true;
@@ -231,6 +234,31 @@ namespace AAB_Furniture_Rentals.UserControls
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void diableRowsThatHaveBeenAddedToCartAlready() {
+
+            int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
+        {
+
+            if (e.RowIndex >=0) {
+
+                //check if theindex is in thelist
+                if (this.ListOfRowsAddedToCart.Contains(e.RowIndex))
+                {
+
+                } else {
+                    //store the index in a list
+                    this.ListOfRowsAddedToCart.Add(e.RowIndex);
+                    //
+                }
+
+
+
+
+                this.searchDataGridView.Rows[e.RowIndex];
+            }
+            //this.currentlySelectedRow =
         }
     }
 }

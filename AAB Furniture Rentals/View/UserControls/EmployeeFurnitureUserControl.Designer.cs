@@ -29,8 +29,8 @@ namespace AAB_Furniture_Rentals.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clear = new System.Windows.Forms.Button();
             this.AddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -152,23 +152,23 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.AllowUserToDeleteRows = false;
             this.searchDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.searchDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.searchDataGridView.Location = new System.Drawing.Point(141, 51);
             this.searchDataGridView.MultiSelect = false;
             this.searchDataGridView.Name = "searchDataGridView";
@@ -176,6 +176,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.searchDataGridView.Size = new System.Drawing.Size(309, 109);
             this.searchDataGridView.TabIndex = 12;
+            this.searchDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchDataGridView_RowEnter);
             // 
             // ViewCartButton
             // 
@@ -253,11 +254,11 @@ namespace AAB_Furniture_Rentals.UserControls
             this.tutorialLabel.AutoSize = true;
             this.tutorialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorialLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.tutorialLabel.Location = new System.Drawing.Point(142, 35);
+            this.tutorialLabel.Location = new System.Drawing.Point(150, 33);
             this.tutorialLabel.Name = "tutorialLabel";
-            this.tutorialLabel.Size = new System.Drawing.Size(308, 13);
+            this.tutorialLabel.Size = new System.Drawing.Size(288, 13);
             this.tutorialLabel.TabIndex = 26;
-            this.tutorialLabel.Text = "*SELECT LINE-ITEM TO UPDATE / DELETE ENTRY";
+            this.tutorialLabel.Text = "*SELECT LINE-ITEM BEFORE ADDING TO CART";
             // 
             // serchBygroup
             // 
