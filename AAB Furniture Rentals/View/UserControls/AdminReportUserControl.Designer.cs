@@ -64,7 +64,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.StartDatePicker.Size = new System.Drawing.Size(147, 20);
             this.StartDatePicker.TabIndex = 1;
             this.StartDatePicker.Value = new System.DateTime(2021, 1, 1, 2, 2, 0, 0);
-            this.StartDatePicker.ValueChanged += new System.EventHandler(this.StartDatePicker_ValueChanged);
+            this.StartDatePicker.CloseUp += new System.EventHandler(this.StartDatePicker_CloseUp);
             // 
             // EndDatePicker
             // 
@@ -74,7 +74,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.EndDatePicker.Size = new System.Drawing.Size(150, 20);
             this.EndDatePicker.TabIndex = 2;
             this.EndDatePicker.Value = new System.DateTime(2021, 3, 3, 2, 2, 0, 0);
-            this.EndDatePicker.ValueChanged += new System.EventHandler(this.EndDatePicker_ValueChanged);
+            this.EndDatePicker.CloseUp += new System.EventHandler(this.EndDatePicker_CloseUp);
             // 
             // SendDatesButton
             // 
