@@ -35,6 +35,8 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl = new System.Windows.Forms.TabControl();
             this.employeesTab = new System.Windows.Forms.TabPage();
             this.adminSearchUpdateAddEmployee1 = new AAB_Furniture_Rentals.View.UserControls.AdminSearchUpdateAddEmployee();
+            this.adminReportUserControl1 = new AAB_Furniture_Rentals.View.UserControls.AdminReportUserControl();
+            this.reportTab.SuspendLayout();
             this.AdminTabControl.SuspendLayout();
             this.employeesTab.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +68,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // reportTab
             // 
+            this.reportTab.Controls.Add(this.adminReportUserControl1);
             this.reportTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportTab.Location = new System.Drawing.Point(4, 22);
             this.reportTab.Name = "reportTab";
@@ -105,6 +108,14 @@ namespace AAB_Furniture_Rentals.View
             this.adminSearchUpdateAddEmployee1.Size = new System.Drawing.Size(901, 355);
             this.adminSearchUpdateAddEmployee1.TabIndex = 0;
             // 
+            // adminReportUserControl1
+            // 
+            this.adminReportUserControl1.Location = new System.Drawing.Point(7, 14);
+            this.adminReportUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.adminReportUserControl1.Name = "adminReportUserControl1";
+            this.adminReportUserControl1.Size = new System.Drawing.Size(775, 315);
+            this.adminReportUserControl1.TabIndex = 0;
+            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +128,7 @@ namespace AAB_Furniture_Rentals.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminMainDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMainDashboard_FormClose);
+            this.reportTab.ResumeLayout(false);
             this.AdminTabControl.ResumeLayout(false);
             this.employeesTab.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -131,5 +143,6 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.TabControl AdminTabControl;
         private System.Windows.Forms.TabPage employeesTab;
         private UserControls.AdminSearchUpdateAddEmployee adminSearchUpdateAddEmployee1;
+        private UserControls.AdminReportUserControl adminReportUserControl1;
     }
 }
