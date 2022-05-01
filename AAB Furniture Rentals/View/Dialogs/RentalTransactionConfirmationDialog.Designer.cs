@@ -29,6 +29,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.customerDetailsBox = new System.Windows.Forms.GroupBox();
             this.PhoneNumValue = new System.Windows.Forms.Label();
@@ -46,14 +47,24 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.CartTotalValue = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TransactionFurnitureDataGridView = new System.Windows.Forms.DataGridView();
             this.CloseConfirmationPage = new System.Windows.Forms.Button();
             this.TransactionIDLabel = new System.Windows.Forms.Label();
             this.TransactionIDValue = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FurnitureCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FurnitureStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyRented = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeDetailsBox = new System.Windows.Forms.GroupBox();
+            this.EmployeeNameValue = new System.Windows.Forms.Label();
+            this.EmployeeNameLabel = new System.Windows.Forms.Label();
+            this.EmployeeIDValue = new System.Windows.Forms.Label();
+            this.EmpployeeIDLabel = new System.Windows.Forms.Label();
             this.customerDetailsBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionFurnitureDataGridView)).BeginInit();
+            this.EmployeeDetailsBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // customerDetailsBox
@@ -66,7 +77,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.customerDetailsBox.Controls.Add(this.MemberLabel);
             this.customerDetailsBox.Location = new System.Drawing.Point(12, 52);
             this.customerDetailsBox.Name = "customerDetailsBox";
-            this.customerDetailsBox.Size = new System.Drawing.Size(351, 81);
+            this.customerDetailsBox.Size = new System.Drawing.Size(178, 81);
             this.customerDetailsBox.TabIndex = 0;
             this.customerDetailsBox.TabStop = false;
             this.customerDetailsBox.Text = "Customer Details: ";
@@ -74,11 +85,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // PhoneNumValue
             // 
             this.PhoneNumValue.AutoSize = true;
-            this.PhoneNumValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneNumValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneNumValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.PhoneNumValue.Location = new System.Drawing.Point(73, 59);
+            this.PhoneNumValue.Location = new System.Drawing.Point(48, 59);
             this.PhoneNumValue.Name = "PhoneNumValue";
-            this.PhoneNumValue.Size = new System.Drawing.Size(15, 16);
+            this.PhoneNumValue.Size = new System.Drawing.Size(18, 16);
             this.PhoneNumValue.TabIndex = 21;
             this.PhoneNumValue.Text = "?";
             // 
@@ -94,11 +105,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // MemberNameValue
             // 
             this.MemberNameValue.AutoSize = true;
-            this.MemberNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberNameValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.MemberNameValue.Location = new System.Drawing.Point(74, 19);
+            this.MemberNameValue.Location = new System.Drawing.Point(49, 19);
             this.MemberNameValue.Name = "MemberNameValue";
-            this.MemberNameValue.Size = new System.Drawing.Size(15, 16);
+            this.MemberNameValue.Size = new System.Drawing.Size(18, 16);
             this.MemberNameValue.TabIndex = 19;
             this.MemberNameValue.Text = "?";
             // 
@@ -114,11 +125,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // MemberIDValue
             // 
             this.MemberIDValue.AutoSize = true;
-            this.MemberIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MemberIDValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MemberIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.MemberIDValue.Location = new System.Drawing.Point(74, 39);
+            this.MemberIDValue.Location = new System.Drawing.Point(70, 40);
             this.MemberIDValue.Name = "MemberIDValue";
-            this.MemberIDValue.Size = new System.Drawing.Size(15, 16);
+            this.MemberIDValue.Size = new System.Drawing.Size(18, 16);
             this.MemberIDValue.TabIndex = 17;
             this.MemberIDValue.Text = "?";
             // 
@@ -149,11 +160,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // ReturnDateValue
             // 
             this.ReturnDateValue.AutoSize = true;
-            this.ReturnDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnDateValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReturnDateValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ReturnDateValue.Location = new System.Drawing.Point(152, 68);
+            this.ReturnDateValue.Location = new System.Drawing.Point(147, 68);
             this.ReturnDateValue.Name = "ReturnDateValue";
-            this.ReturnDateValue.Size = new System.Drawing.Size(15, 16);
+            this.ReturnDateValue.Size = new System.Drawing.Size(18, 16);
             this.ReturnDateValue.TabIndex = 9;
             this.ReturnDateValue.Text = "?";
             // 
@@ -170,11 +181,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // DailyFineRate
             // 
             this.DailyFineRate.AutoSize = true;
-            this.DailyFineRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DailyFineRate.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DailyFineRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.DailyFineRate.Location = new System.Drawing.Point(105, 42);
+            this.DailyFineRate.Location = new System.Drawing.Point(95, 42);
             this.DailyFineRate.Name = "DailyFineRate";
-            this.DailyFineRate.Size = new System.Drawing.Size(15, 16);
+            this.DailyFineRate.Size = new System.Drawing.Size(18, 16);
             this.DailyFineRate.TabIndex = 7;
             this.DailyFineRate.Text = "?";
             // 
@@ -191,11 +202,11 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // CartTotalValue
             // 
             this.CartTotalValue.AutoSize = true;
-            this.CartTotalValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CartTotalValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CartTotalValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.CartTotalValue.Location = new System.Drawing.Point(105, 19);
+            this.CartTotalValue.Location = new System.Drawing.Point(96, 19);
             this.CartTotalValue.Name = "CartTotalValue";
-            this.CartTotalValue.Size = new System.Drawing.Size(15, 16);
+            this.CartTotalValue.Size = new System.Drawing.Size(18, 16);
             this.CartTotalValue.TabIndex = 5;
             this.CartTotalValue.Text = "?";
             // 
@@ -211,7 +222,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.TransactionFurnitureDataGridView);
             this.groupBox3.Location = new System.Drawing.Point(12, 241);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(351, 322);
@@ -219,17 +230,38 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rentals Information: ";
             // 
-            // dataGridView1
+            // TransactionFurnitureDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(345, 303);
-            this.dataGridView1.TabIndex = 0;
+            this.TransactionFurnitureDataGridView.AllowUserToAddRows = false;
+            this.TransactionFurnitureDataGridView.AllowUserToDeleteRows = false;
+            this.TransactionFurnitureDataGridView.AllowUserToResizeColumns = false;
+            this.TransactionFurnitureDataGridView.AllowUserToResizeRows = false;
+            this.TransactionFurnitureDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TransactionFurnitureDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.TransactionFurnitureDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TransactionFurnitureDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.FurnitureCategory,
+            this.FurnitureStyle,
+            this.QtyRented});
+            this.TransactionFurnitureDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TransactionFurnitureDataGridView.EnableHeadersVisualStyles = false;
+            this.TransactionFurnitureDataGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.TransactionFurnitureDataGridView.Location = new System.Drawing.Point(3, 16);
+            this.TransactionFurnitureDataGridView.Name = "TransactionFurnitureDataGridView";
+            this.TransactionFurnitureDataGridView.ReadOnly = true;
+            this.TransactionFurnitureDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.TransactionFurnitureDataGridView.RowTemplate.ReadOnly = true;
+            this.TransactionFurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.TransactionFurnitureDataGridView.Size = new System.Drawing.Size(345, 303);
+            this.TransactionFurnitureDataGridView.TabIndex = 0;
             // 
             // CloseConfirmationPage
             // 
@@ -248,7 +280,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.TransactionIDLabel.AutoSize = true;
             this.TransactionIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransactionIDLabel.ForeColor = System.Drawing.Color.Black;
-            this.TransactionIDLabel.Location = new System.Drawing.Point(94, 20);
+            this.TransactionIDLabel.Location = new System.Drawing.Point(94, 8);
             this.TransactionIDLabel.Name = "TransactionIDLabel";
             this.TransactionIDLabel.Size = new System.Drawing.Size(156, 24);
             this.TransactionIDLabel.TabIndex = 2;
@@ -257,19 +289,97 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // TransactionIDValue
             // 
             this.TransactionIDValue.AutoSize = true;
-            this.TransactionIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionIDValue.Font = new System.Drawing.Font("ModeNine", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TransactionIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TransactionIDValue.Location = new System.Drawing.Point(256, 20);
+            this.TransactionIDValue.Location = new System.Drawing.Point(246, 10);
             this.TransactionIDValue.Name = "TransactionIDValue";
-            this.TransactionIDValue.Size = new System.Drawing.Size(21, 24);
+            this.TransactionIDValue.Size = new System.Drawing.Size(23, 22);
             this.TransactionIDValue.TabIndex = 3;
             this.TransactionIDValue.Text = "?";
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Furniture ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // FurnitureCategory
+            // 
+            this.FurnitureCategory.HeaderText = "Furniture Category";
+            this.FurnitureCategory.Name = "FurnitureCategory";
+            this.FurnitureCategory.ReadOnly = true;
+            // 
+            // FurnitureStyle
+            // 
+            this.FurnitureStyle.HeaderText = "Furniture Style";
+            this.FurnitureStyle.Name = "FurnitureStyle";
+            this.FurnitureStyle.ReadOnly = true;
+            // 
+            // QtyRented
+            // 
+            this.QtyRented.HeaderText = "Qty. Rented";
+            this.QtyRented.Name = "QtyRented";
+            this.QtyRented.ReadOnly = true;
+            // 
+            // EmployeeDetailsBox
+            // 
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameValue);
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameLabel);
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeIDValue);
+            this.EmployeeDetailsBox.Controls.Add(this.EmpployeeIDLabel);
+            this.EmployeeDetailsBox.Location = new System.Drawing.Point(196, 52);
+            this.EmployeeDetailsBox.Name = "EmployeeDetailsBox";
+            this.EmployeeDetailsBox.Size = new System.Drawing.Size(167, 81);
+            this.EmployeeDetailsBox.TabIndex = 22;
+            this.EmployeeDetailsBox.TabStop = false;
+            this.EmployeeDetailsBox.Text = "Employee Details: ";
+            // 
+            // EmployeeNameValue
+            // 
+            this.EmployeeNameValue.AutoSize = true;
+            this.EmployeeNameValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.EmployeeNameValue.Location = new System.Drawing.Point(44, 19);
+            this.EmployeeNameValue.Name = "EmployeeNameValue";
+            this.EmployeeNameValue.Size = new System.Drawing.Size(18, 16);
+            this.EmployeeNameValue.TabIndex = 19;
+            this.EmployeeNameValue.Text = "?";
+            // 
+            // EmployeeNameLabel
+            // 
+            this.EmployeeNameLabel.AutoSize = true;
+            this.EmployeeNameLabel.Location = new System.Drawing.Point(6, 19);
+            this.EmployeeNameLabel.Name = "EmployeeNameLabel";
+            this.EmployeeNameLabel.Size = new System.Drawing.Size(41, 13);
+            this.EmployeeNameLabel.TabIndex = 18;
+            this.EmployeeNameLabel.Text = "Name: ";
+            // 
+            // EmployeeIDValue
+            // 
+            this.EmployeeIDValue.AutoSize = true;
+            this.EmployeeIDValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.EmployeeIDValue.Location = new System.Drawing.Point(74, 39);
+            this.EmployeeIDValue.Name = "EmployeeIDValue";
+            this.EmployeeIDValue.Size = new System.Drawing.Size(18, 16);
+            this.EmployeeIDValue.TabIndex = 17;
+            this.EmployeeIDValue.Text = "?";
+            // 
+            // EmpployeeIDLabel
+            // 
+            this.EmpployeeIDLabel.AutoSize = true;
+            this.EmpployeeIDLabel.Location = new System.Drawing.Point(6, 40);
+            this.EmpployeeIDLabel.Name = "EmpployeeIDLabel";
+            this.EmpployeeIDLabel.Size = new System.Drawing.Size(70, 13);
+            this.EmpployeeIDLabel.TabIndex = 16;
+            this.EmpployeeIDLabel.Text = "Employee ID:";
             // 
             // RentalTransactionConfirmationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(375, 638);
+            this.Controls.Add(this.EmployeeDetailsBox);
             this.Controls.Add(this.TransactionIDValue);
             this.Controls.Add(this.TransactionIDLabel);
             this.Controls.Add(this.CloseConfirmationPage);
@@ -278,13 +388,15 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.Controls.Add(this.customerDetailsBox);
             this.Name = "RentalTransactionConfirmationDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Transaction Reciept";
+            this.Text = "Transaction Confirmation";
             this.customerDetailsBox.ResumeLayout(false);
             this.customerDetailsBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TransactionFurnitureDataGridView)).EndInit();
+            this.EmployeeDetailsBox.ResumeLayout(false);
+            this.EmployeeDetailsBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,7 +410,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button CloseConfirmationPage;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView TransactionFurnitureDataGridView;
         private System.Windows.Forms.Label MemberNameLabel;
         private System.Windows.Forms.Label MemberIDValue;
         private System.Windows.Forms.Label MemberLabel;
@@ -313,5 +425,14 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         private System.Windows.Forms.Label TransactionIDValue;
         private System.Windows.Forms.Label PhoneNumValue;
         private System.Windows.Forms.Label PhoneNumLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureStyle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyRented;
+        private System.Windows.Forms.GroupBox EmployeeDetailsBox;
+        private System.Windows.Forms.Label EmployeeNameValue;
+        private System.Windows.Forms.Label EmployeeNameLabel;
+        private System.Windows.Forms.Label EmployeeIDValue;
+        private System.Windows.Forms.Label EmpployeeIDLabel;
     }
 }
