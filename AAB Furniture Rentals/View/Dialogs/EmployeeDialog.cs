@@ -30,6 +30,8 @@ namespace AAB_Furniture_Rentals.View
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
 
+            clearErrorMessages();
+
             try
             {
 
@@ -169,7 +171,7 @@ namespace AAB_Furniture_Rentals.View
             }
             if (this.StateComboBox.SelectedItem == null || this.genderComboBox.SelectedIndex < 0)
             {
-                this.genderError.Text = "State selection is invalid.";
+                this.stateError.Text = "State selection is invalid.";
                 error++;
             }
            
@@ -310,17 +312,26 @@ namespace AAB_Furniture_Rentals.View
 
         }
 
- 
-        private void CancelButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
+         private void AddUser() {
+
+            string username = this.userNameTextBox.Text;
+            string password = this.passwordTextBox.Text;
+
+            EmployeeController.AddUser(username, password);
+         
+
         }
 
-        private void EmployeeButton_Click_1(object sender, EventArgs e)
+        private void TextChanged_Event(object sender, EventArgs e)
+        {
+            this.clearErrorMessages();
+        }
+
+        private void EmployeeButton_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 if (this.EmployeeButton.Text == "Add Employee")
                 {
                     if (ValidateForm())
@@ -329,7 +340,8 @@ namespace AAB_Furniture_Rentals.View
                         this.AddEmployee();
                     }
                 }
-                else if (this.EmployeeButton.Text == "Edit Employee") {
+                else if (this.EmployeeButton.Text == "Edit Employee")
+                {
                     this.SetEditable();
                     this.passwordTextBox.Enabled = false;
                     this.userNameTextBox.Enabled = false;
@@ -352,25 +364,9 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-        private void cancelButton_Click_1(object sender, EventArgs e)
+        private void cancelButton_Click_2(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-
-        private void AddUser() {
-
-            string username = this.userNameTextBox.Text;
-            string password = this.passwordTextBox.Text;
-
-            EmployeeController.AddUser(username, password);
-         
-
-        }
-
-        private void TextChanged_Event(object sender, EventArgs e)
-        {
-            this.clearErrorMessages();
         }
     }
 }
