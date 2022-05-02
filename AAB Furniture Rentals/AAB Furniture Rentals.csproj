@@ -101,6 +101,7 @@
     <Compile Include="Model\IsRentedModel.cs" />
     <Compile Include="Model\IsRented.cs" />
     <Compile Include="Model\IsReturned.cs" />
+    <Compile Include="Model\IsReturnedModel.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
     <Compile Include="Model\ReturnCart.cs" />

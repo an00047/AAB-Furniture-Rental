@@ -2,6 +2,7 @@
 using AAB_Furniture_Rentals.Model;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.UserControls
@@ -44,32 +45,39 @@ namespace AAB_Furniture_Rentals.View.UserControls
            
                 try
                 {
-                    if (FurnitureController.CurrentCart == null)
+                    if (FurnitureController.CurrentReturnCart == null)
                     {
                         // make a new cart object, store it in the controller
 
-                        FurnitureController.CurrentCart = new Cart();
+                        FurnitureController.CurrentReturnCart = new ReturnCart();
                     }
                     if (this.checkedItems == null)
                     {
                         throw new Exception("You must select a piece of furniture to return!");
                     }
 
-                    //make for list instead of individual in returncart
-                    Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
-                    FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
+                //make for list instead of individual in returncart
+                Dictionary<Furniture, int> FurnitureAndAmount = new Dictionary<Furniture, int>();
+            
+                var g = checkedItems.GroupBy(i => i);
 
-                    this.RefreshDataGrid();
-                    this.ViewCartButton.Enabled = true;
+                foreach (var grp in g)
+                {
+                    FurnitureAndAmount.Add(grp.Key, grp.Count());   
+                   
+                }
+               
+                FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
+                MessageBox.Show("Return successful. Return Cart: " + FurnitureController.CurrentReturnCart.GetReturnCartContents());
+                   // this.RefreshDataGrid();
+                
                 }
                 catch (Exception ex)
                 {
                     FurnitureController.CurrentCart = null;
                     MessageBox.Show(ex.Message, "Error!");
-                    this.RefreshDataGrid();
+                   // this.RefreshDataGrid();
                 }
-
-            
             
         }
 
@@ -77,6 +85,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             this.Fees = 0.00;
             this.Refund = 0.00;
+       
+            
             foreach (Furniture currentFurniture in selectedFurniture) {
                 if (currentFurniture.DueDate < DateTime.Now)
                 {

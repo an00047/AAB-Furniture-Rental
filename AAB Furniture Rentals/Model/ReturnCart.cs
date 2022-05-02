@@ -14,11 +14,11 @@ namespace AAB_Furniture_Rentals.Model
         public List<Furniture> FurnitureList { get; set; }
 
 
-        private List<IsRentedModel> IsRentedList;
+        private List<IsReturnedModel> IsReturnedList;
 
         public ReturnCart()
         {
-            this.IsRentedList = new List<IsRentedModel>();
+            this.IsReturnedList = new List<IsReturnedModel>();
             this.FurnitureList = new List<Furniture>();
         }
         /// <summary>
@@ -26,49 +26,30 @@ namespace AAB_Furniture_Rentals.Model
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
         /// <param name="furnitureID"></param>
-        public void AddFurnitureToReturnCart(Furniture furnitureToAdd, int quantityToAdd)
+        public void AddFurnitureToReturnCart(Dictionary<Furniture, int> furnitureToAdd)
         {
-
-            int quantityRented = quantityToAdd;
-            furnitureToAdd.QuantityOnHand = quantityToAdd;
-            // get most recent information on this furniture item
-            // it is assumed that if the prices (or anyhting) changes except quantity, the memebr has their "deal" locked in. 
-            Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
-
-            //check to see if Qty is still available
-            if (InventoryItem.QuantityOnHand < quantityRented)
+            foreach (KeyValuePair<Furniture, int> item in furnitureToAdd )
             {
+                
+             Furniture currentFurniture = item.Key;
+             int quantityReturned = item.Value;
+            
+             Furniture RentedItem = FurnitureController.GetFurnitureByID(currentFurniture.FurnitureID);
+                 
+             IsReturnedModel newIsReturnedAdapter = new IsReturnedModel();
+             newIsReturnedAdapter.QuantityIn = quantityReturned;
+             newIsReturnedAdapter.IsRentedFurnitureID = currentFurniture.FurnitureID;
+             this.IsReturnedList.Add(newIsReturnedAdapter);
+             this.FurnitureList.Add(RentedItem);
 
-                if (this.activeInventoryFeatureIsON)
-                {
-                    this.PutFurnitureBack();
-                }
-                throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
             }
-
-            // We have ensured there is enough inventory, 
-            InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityRented;
-
-            if (this.activeInventoryFeatureIsON)
-            {
-                FurnitureController.UpdateFurnitureItem(InventoryItem);
-            }
-
-            //then build the IsRentedModel (transactionID is currently blank, becasue the DbHasnt generated it yet. will do at checkout.)
-            IsRentedModel newIsRentedAdapter = new IsRentedModel();
-            newIsRentedAdapter.QuantityOut = quantityRented;
-            newIsRentedAdapter.FurnitureID = furnitureToAdd.FurnitureID;
-            this.IsRentedList.Add(newIsRentedAdapter);
-            this.FurnitureList.Add(furnitureToAdd);
-
-
-
+            //this.ReturnFurnitureToInvetory();
         }
         /// <summary>
         /// Adds the items checked out back into the inventory, then zeroizes all the properties
         /// 
         /// </summary>
-        public void PutFurnitureBack()
+        public void ReturnFurnitureToInvetory()
         {
 
             // add each furniture in the last back... 
@@ -82,7 +63,7 @@ namespace AAB_Furniture_Rentals.Model
             });
 
 
-            this.IsRentedList = new List<IsRentedModel>();
+            this.IsReturnedList = new List<IsReturnedModel>();
             this.FurnitureList = new List<Furniture>();
 
 
@@ -94,28 +75,28 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="transactionID"></param>
         public void AddTransactionToIsRentedList(int transactionID)
         {
-            this.IsRentedList.ForEach((item) => {
-                item.TransactionID = transactionID;
+            this.IsReturnedList.ForEach((item) => {
+                item.IsRentedTransactionID = transactionID;
             });
         }
         /// <summary>
-        /// Updates the IsRented Database
+        /// Updates the IsReturned Database
         /// </summary>
-        public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
+      //  public void ProcessIsReturnedList() => FurnitureController.ProcessIsReturnedList(this.IsReturnedList);
 
         /// <summary>
         /// generates the transaction in the Database. Returns the Id. 
         /// </summary>
         /// <returns></returns>
-        public int ProcessReturnTransaction(int memberID, int employeeID, DateTime dueDate)
-        {
-            Rental newRentaltransaction = new Rental();
-            newRentaltransaction.MemberID = memberID;
-            newRentaltransaction.EmployeeID = employeeID;
-            newRentaltransaction.DueDate = dueDate;
+      //  public int ProcessReturnTransaction(int memberID, int employeeID, DateTime dueDate)
+      //  {
+      //      Rental newRentaltransaction = new Rental();
+      //      newRentaltransaction.MemberID = memberID;
+      //      newRentaltransaction.EmployeeID = employeeID;
+      //      newRentaltransaction.DueDate = dueDate;
 
-            return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
-        }
+      //      return FurnitureController.ProcessReturnTransaction(newRentaltransaction);
+      //  }
 
         /// <summary>
         /// Calculates the total rental cost (w/o taxes)
@@ -133,15 +114,47 @@ namespace AAB_Furniture_Rentals.Model
             return total;
         }
 
+        public String GetReturnCartContents()
+        {
+            //Clear lists after returning
+            string currentContents = "";
+            
+            foreach(IsReturnedModel item in this.IsReturnedList)
+            {
+                currentContents += "\nQuantity: " + item.QuantityIn + " FurnitureID:" + item.IsRentedFurnitureID;
+             }
+
+            return currentContents;
+        }
+        public double GetRefund()
+        {
+         
+            double total = 0;
+            this.FurnitureList.ForEach((item) => {
+                if(item.DueDate > DateTime.Now)
+                {
+                    TimeSpan daysRemaining = DateTime.Now.Date - item.DueDate.Date;
+                    total += item.DailyRentalRate * daysRemaining.TotalDays * item.QuantityOnHand;
+                }
+            });
+
+            return total;
+        }
+
         /// <summary>
         /// calculates the daily fine rate
         /// </summary>
         /// <returns></returns>
-        public double CalculateDailyFineRate()
+        public double GetFines()
         {
             double total = 0;
             this.FurnitureList.ForEach((item) => {
-                total += item.FineRate * item.QuantityOnHand;
+                if (item.DueDate < DateTime.Now)
+                {
+                    double totalFineRate = item.FineRate * item.QuantityOnHand;
+                    TimeSpan daysOverDue = item.DueDate.Date - DateTime.Now.Date;
+                    total += item.FineRate * Math.Abs((double)daysOverDue.TotalDays);
+                }
             });
 
             return total;

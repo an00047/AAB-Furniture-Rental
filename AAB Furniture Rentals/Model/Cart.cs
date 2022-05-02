@@ -112,30 +112,30 @@ namespace AAB_Furniture_Rentals.Model
             /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
             /// </summary>
             /// <param name="transactionID"></param>
-            //    public void AddTransactionToIsRentedList(int transactionID)
-            //{
-            //    this.IsRentedList.ForEach((item)=>{
-            //        item.TransactionID = transactionID;
-            //    });
+            public void AddTransactionToIsRentedList(int transactionID)
+            {
+                this.IsRentedList.ForEach((item)=>{
+                    item.TransactionID = transactionID;
+                });
             //}
             ///// <summary>
             ///// Updates the IsRented Database
             ///// </summary>
-            //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
+            public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
 
             ///// <summary>
             ///// generates the transaction in the Database. Returns the Id. 
             ///// </summary>
             ///// <returns></returns>
-            //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
-            //{
-            //    Rental newRentaltransaction = new Rental();
-            //    newRentaltransaction.MemberID = memberID;
-            //    newRentaltransaction.EmployeeID = employeeID;
-            //    newRentaltransaction.DueDate = dueDate;
+            public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+            {
+                Rental newRentaltransaction = new Rental();
+                newRentaltransaction.MemberID = memberID;
+                newRentaltransaction.EmployeeID = employeeID;
+                newRentaltransaction.DueDate = dueDate;
 
-            //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
-            //}
+                return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+            }
         }
 
         /// <summary>
