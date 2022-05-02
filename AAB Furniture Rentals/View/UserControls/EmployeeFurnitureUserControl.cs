@@ -311,12 +311,14 @@ namespace AAB_Furniture_Rentals.UserControls
                 this.InCartWarning.Text = "Item already added to cart. Go to Cart to edit the order";
                 this.InCartWarning.Visible = true;
                 this.AddToCartGroupBox.Enabled = false;
+                this.searchDataGridView.ClearSelection();
             }
             else
             {
                 this.AddToCartGroupBox.Enabled = true;
                 this.InCartWarning.Visible = false;
             }
+            
         }
 
         private void searchDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
