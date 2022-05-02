@@ -52,13 +52,15 @@ namespace AAB_Furniture_Rentals.Model
             this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
+
         /// <summary>
-        /// retreives Furniture information from the DB based on Furniture ID
+        ///retreives Furniture information from the DB based on Furniture ID
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
-        /// <param name="furnitureID"></param>
-        public void AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd)
-        {
+        /// <param name="furnitureToAdd"></param>
+        /// <param name="quantityToAdd"></param>
+        /// <returns></returns>
+        public bool AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd) {
 
             int quantityToRent = quantityToAdd;
             furnitureToAdd.QuantityOnHand = quantityToAdd;
@@ -70,20 +72,19 @@ namespace AAB_Furniture_Rentals.Model
             if (InventoryItem.QuantityOnHand < quantityToRent)
             {
 
-                if (this.activeInventoryFeatureIsON)
-                {
+                if (this.activeInventoryFeatureIsON) {
                     this.PutFurnitureBackIntoInventory();
                 }
-                throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
+                return false;
+                
             }
 
             // We have ensured there is enough inventory, 
             InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
 
-            if (this.activeInventoryFeatureIsON)
-            {
-                FurnitureController.UpdateFurnitureItem(InventoryItem);
-            }
+            if (this.activeInventoryFeatureIsON) { 
+            FurnitureController.UpdateFurnitureItem(InventoryItem);
+             }
 
             //then build the IsRentedModel (transactionID is currently blank, becasue the DbHasnt generated it yet. will do at checkout.)
             IsRentedModel newIsRentedAdapter = new IsRentedModel();
@@ -92,7 +93,7 @@ namespace AAB_Furniture_Rentals.Model
             this.IsRentedList.Add(newIsRentedAdapter);
             this.FurnitureList.Add(furnitureToAdd);
 
-
+            return true;
 
         }
         public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
@@ -109,7 +110,7 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         public void PutFurnitureBackIntoInventory()
         {
-
+            
             // add each furniture in the last back... 
 
             this.FurnitureList.ForEach((item) =>
@@ -166,9 +167,8 @@ namespace AAB_Furniture_Rentals.Model
             this.CartTotalCost = 0;
             int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
             double total = 0;
-            this.FurnitureList.ForEach((item) =>
-            {
-                total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
+            this.FurnitureList.ForEach((item) => {
+               total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
             });
             this.CartTotalCost = total;
             return total;
@@ -181,14 +181,12 @@ namespace AAB_Furniture_Rentals.Model
         public double CalculateDailyFineRate()
         {
             double total = 0;
-            this.FurnitureList.ForEach((item) =>
-            {
+            this.FurnitureList.ForEach((item) => {
                 total += item.FineRate * item.QuantityOnHand;
             });
-
+           
             return total;
         }
     }
 
 }
-
