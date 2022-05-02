@@ -35,13 +35,14 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             // closeFromButton
             // 
-            this.closeFromButton.Location = new System.Drawing.Point(556, 367);
+            this.closeFromButton.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.closeFromButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeFromButton.Location = new System.Drawing.Point(210, 367);
             this.closeFromButton.Name = "closeFromButton";
-            this.closeFromButton.Size = new System.Drawing.Size(106, 33);
+            this.closeFromButton.Size = new System.Drawing.Size(230, 33);
             this.closeFromButton.TabIndex = 1;
-            this.closeFromButton.Text = "Close ";
-            this.closeFromButton.UseVisualStyleBackColor = true;
-            this.closeFromButton.Visible = false;
+            this.closeFromButton.Text = "Close This Window";
+            this.closeFromButton.UseVisualStyleBackColor = false;
             this.closeFromButton.Click += new System.EventHandler(this.closeFromButton_Click);
             // 
             // employeeCustomersTabUserControl1

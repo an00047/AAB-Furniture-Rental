@@ -37,11 +37,6 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchCustomerIDLabel = new System.Windows.Forms.Label();
             this._cs6232_g4DataSet1 = new AAB_Furniture_Rentals._cs6232_g4DataSet();
             this.customerTransactionDataGridView = new System.Windows.Forms.DataGridView();
-            this.SerchTransactionGroupBox = new System.Windows.Forms.GroupBox();
-            this.ReturnRB = new System.Windows.Forms.RadioButton();
-            this.RentalsRB = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SearchNumric = new System.Windows.Forms.NumericUpDown();
             this.TransactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +44,11 @@ namespace AAB_Furniture_Rentals.UserControls
             this.FurnitureCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityInOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerchTransactionGroupBox = new System.Windows.Forms.GroupBox();
+            this.ReturnRB = new System.Windows.Forms.RadioButton();
+            this.RentalsRB = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SearchNumric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).BeginInit();
             this.SerchTransactionGroupBox.SuspendLayout();
@@ -129,9 +129,59 @@ namespace AAB_Furniture_Rentals.UserControls
             this.customerTransactionDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumTurquoise;
             this.customerTransactionDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.customerTransactionDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.customerTransactionDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerTransactionDataGridView.Size = new System.Drawing.Size(450, 178);
             this.customerTransactionDataGridView.TabIndex = 5;
+            // 
+            // TransactionID
+            // 
+            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TransactionID.HeaderText = "Trans. ID";
+            this.TransactionID.Name = "TransactionID";
+            this.TransactionID.ReadOnly = true;
+            // 
+            // TransactionDate
+            // 
+            this.TransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TransactionDate.HeaderText = "Transaction Date";
+            this.TransactionDate.Name = "TransactionDate";
+            this.TransactionDate.ReadOnly = true;
+            // 
+            // FurnitureID
+            // 
+            this.FurnitureID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FurnitureID.HeaderText = "Furniture ID";
+            this.FurnitureID.Name = "FurnitureID";
+            this.FurnitureID.ReadOnly = true;
+            // 
+            // FurnitureStyle
+            // 
+            this.FurnitureStyle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FurnitureStyle.HeaderText = "Furnit. Style";
+            this.FurnitureStyle.Name = "FurnitureStyle";
+            this.FurnitureStyle.ReadOnly = true;
+            // 
+            // FurnitureCategory
+            // 
+            this.FurnitureCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FurnitureCategory.HeaderText = "Furnit. Category";
+            this.FurnitureCategory.Name = "FurnitureCategory";
+            this.FurnitureCategory.ReadOnly = true;
+            // 
+            // FurnitureDescription
+            // 
+            this.FurnitureDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FurnitureDescription.HeaderText = "Furnit. Description";
+            this.FurnitureDescription.Name = "FurnitureDescription";
+            this.FurnitureDescription.ReadOnly = true;
+            // 
+            // QuantityInOut
+            // 
+            this.QuantityInOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.QuantityInOut.HeaderText = "Quantity (In+ | Out-)";
+            this.QuantityInOut.Name = "QuantityInOut";
+            this.QuantityInOut.ReadOnly = true;
             // 
             // SerchTransactionGroupBox
             // 
@@ -186,55 +236,6 @@ namespace AAB_Furniture_Rentals.UserControls
             this.SearchNumric.Size = new System.Drawing.Size(43, 20);
             this.SearchNumric.TabIndex = 8;
             this.SearchNumric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // TransactionID
-            // 
-            this.TransactionID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TransactionID.HeaderText = "Trans. ID";
-            this.TransactionID.Name = "TransactionID";
-            this.TransactionID.ReadOnly = true;
-            // 
-            // TransactionDate
-            // 
-            this.TransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TransactionDate.HeaderText = "Transaction Date";
-            this.TransactionDate.Name = "TransactionDate";
-            this.TransactionDate.ReadOnly = true;
-            // 
-            // FurnitureID
-            // 
-            this.FurnitureID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FurnitureID.HeaderText = "Furniture ID";
-            this.FurnitureID.Name = "FurnitureID";
-            this.FurnitureID.ReadOnly = true;
-            // 
-            // FurnitureStyle
-            // 
-            this.FurnitureStyle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FurnitureStyle.HeaderText = "Furnit. Style";
-            this.FurnitureStyle.Name = "FurnitureStyle";
-            this.FurnitureStyle.ReadOnly = true;
-            // 
-            // FurnitureCategory
-            // 
-            this.FurnitureCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FurnitureCategory.HeaderText = "Furnit. Category";
-            this.FurnitureCategory.Name = "FurnitureCategory";
-            this.FurnitureCategory.ReadOnly = true;
-            // 
-            // FurnitureDescription
-            // 
-            this.FurnitureDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FurnitureDescription.HeaderText = "Furnit. Description";
-            this.FurnitureDescription.Name = "FurnitureDescription";
-            this.FurnitureDescription.ReadOnly = true;
-            // 
-            // QuantityInOut
-            // 
-            this.QuantityInOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.QuantityInOut.HeaderText = "Quantity (In+ | Out-)";
-            this.QuantityInOut.Name = "QuantityInOut";
-            this.QuantityInOut.ReadOnly = true;
             // 
             // EmployeeRentalsUserControl
             // 

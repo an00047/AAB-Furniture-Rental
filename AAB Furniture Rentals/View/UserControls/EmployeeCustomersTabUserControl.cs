@@ -38,8 +38,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.CustomerPhoneValue.Text = "--- --- ----";
                 this.CustoemrNameValue.Text = "N/A";
             }
-
-
         }
 
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
@@ -50,8 +48,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
             this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
             this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
-
-
         }
 
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
@@ -69,11 +65,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
         }
 
         private void SearchButton_Click(object sender, System.EventArgs e) => this.search();
-      
-
+ 
         private void search()
         {
-
             if (this.searchTextBox.Text == "")
             {
                 MessageBox.Show("Search cannot be empty!");
@@ -91,20 +85,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.searchByFirstAndLastName();
             }
         }
-
-    
-
         private void searchByCustomerID()
         {
             try
             {
-
                 var customerID = int.Parse(this.searchTextBox.Text);
                 this.customerList.Clear();
                 this.customerList = MemberController.GetCustomersByID(customerID);
                 this.RefreshDataGrid();
-                
-
             }
             catch (FormatException)
             {
