@@ -29,42 +29,22 @@ namespace AAB_Furniture_Rentals.View
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.logoutLabel = new System.Windows.Forms.Label();
             this.reportTab = new System.Windows.Forms.TabPage();
             this.adminReportUserControl1 = new AAB_Furniture_Rentals.View.UserControls.AdminReportUserControl();
             this.AdminTabControl = new System.Windows.Forms.TabControl();
             this.employeesTab = new System.Windows.Forms.TabPage();
             this.adminSearchUpdateAddEmployee1 = new AAB_Furniture_Rentals.View.UserControls.AdminSearchUpdateAddEmployee();
+            this.logoutLabel = new System.Windows.Forms.Label();
+            this.EmployeeDetailsBox = new System.Windows.Forms.GroupBox();
+            this.EmployeeNameValue = new System.Windows.Forms.Label();
+            this.EmployeeNameLabel = new System.Windows.Forms.Label();
+            this.EmployeeIDValue = new System.Windows.Forms.Label();
+            this.EmpployeeIDLabel = new System.Windows.Forms.Label();
             this.reportTab.SuspendLayout();
             this.AdminTabControl.SuspendLayout();
             this.employeesTab.SuspendLayout();
+            this.EmployeeDetailsBox.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(805, 0);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.nameLabel.Size = new System.Drawing.Size(0, 20);
-            this.nameLabel.TabIndex = 1;
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // logoutLabel
-            // 
-            this.logoutLabel.AutoSize = true;
-            this.logoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.logoutLabel.Location = new System.Drawing.Point(729, 31);
-            this.logoutLabel.Name = "logoutLabel";
-            this.logoutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.logoutLabel.Size = new System.Drawing.Size(59, 20);
-            this.logoutLabel.TabIndex = 2;
-            this.logoutLabel.Text = "Logout";
-            this.logoutLabel.Click += new System.EventHandler(this.LogoutLabel_Click);
             // 
             // reportTab
             // 
@@ -93,7 +73,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.AdminTabControl.Controls.Add(this.employeesTab);
             this.AdminTabControl.Controls.Add(this.reportTab);
-            this.AdminTabControl.Location = new System.Drawing.Point(2, 83);
+            this.AdminTabControl.Location = new System.Drawing.Point(6, 43);
             this.AdminTabControl.Name = "AdminTabControl";
             this.AdminTabControl.SelectedIndex = 0;
             this.AdminTabControl.Size = new System.Drawing.Size(796, 355);
@@ -119,34 +99,107 @@ namespace AAB_Furniture_Rentals.View
             this.adminSearchUpdateAddEmployee1.Size = new System.Drawing.Size(901, 355);
             this.adminSearchUpdateAddEmployee1.TabIndex = 0;
             // 
+            // logoutLabel
+            // 
+            this.logoutLabel.AutoSize = true;
+            this.logoutLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logoutLabel.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.logoutLabel.Location = new System.Drawing.Point(285, 0);
+            this.logoutLabel.Name = "logoutLabel";
+            this.logoutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.logoutLabel.Size = new System.Drawing.Size(59, 20);
+            this.logoutLabel.TabIndex = 2;
+            this.logoutLabel.Text = "Logout";
+            this.logoutLabel.Click += new System.EventHandler(this.LogoutLabel_Click);
+            // 
+            // EmployeeDetailsBox
+            // 
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameValue);
+            this.EmployeeDetailsBox.Controls.Add(this.logoutLabel);
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameLabel);
+            this.EmployeeDetailsBox.Controls.Add(this.EmployeeIDValue);
+            this.EmployeeDetailsBox.Controls.Add(this.EmpployeeIDLabel);
+            this.EmployeeDetailsBox.Location = new System.Drawing.Point(443, 12);
+            this.EmployeeDetailsBox.Name = "EmployeeDetailsBox";
+            this.EmployeeDetailsBox.Size = new System.Drawing.Size(350, 45);
+            this.EmployeeDetailsBox.TabIndex = 24;
+            this.EmployeeDetailsBox.TabStop = false;
+            this.EmployeeDetailsBox.Text = "Employee Details: ";
+            // 
+            // EmployeeNameValue
+            // 
+            this.EmployeeNameValue.AutoSize = true;
+            this.EmployeeNameValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameValue.ForeColor = System.Drawing.Color.Black;
+            this.EmployeeNameValue.Location = new System.Drawing.Point(47, 21);
+            this.EmployeeNameValue.Name = "EmployeeNameValue";
+            this.EmployeeNameValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeNameValue.TabIndex = 19;
+            this.EmployeeNameValue.Text = "?";
+            // 
+            // EmployeeNameLabel
+            // 
+            this.EmployeeNameLabel.AutoSize = true;
+            this.EmployeeNameLabel.Location = new System.Drawing.Point(6, 21);
+            this.EmployeeNameLabel.Name = "EmployeeNameLabel";
+            this.EmployeeNameLabel.Size = new System.Drawing.Size(41, 13);
+            this.EmployeeNameLabel.TabIndex = 18;
+            this.EmployeeNameLabel.Text = "Name: ";
+            // 
+            // EmployeeIDValue
+            // 
+            this.EmployeeIDValue.AutoSize = true;
+            this.EmployeeIDValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeIDValue.ForeColor = System.Drawing.Color.Black;
+            this.EmployeeIDValue.Location = new System.Drawing.Point(262, 19);
+            this.EmployeeIDValue.Name = "EmployeeIDValue";
+            this.EmployeeIDValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeIDValue.TabIndex = 17;
+            this.EmployeeIDValue.Text = "?";
+            // 
+            // EmpployeeIDLabel
+            // 
+            this.EmpployeeIDLabel.AutoSize = true;
+            this.EmpployeeIDLabel.Location = new System.Drawing.Point(186, 20);
+            this.EmpployeeIDLabel.Name = "EmpployeeIDLabel";
+            this.EmpployeeIDLabel.Size = new System.Drawing.Size(70, 13);
+            this.EmpployeeIDLabel.TabIndex = 16;
+            this.EmpployeeIDLabel.Text = "Employee ID:";
+            // 
             // AdminMainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(805, 453);
-            this.Controls.Add(this.logoutLabel);
-            this.Controls.Add(this.nameLabel);
+            this.ClientSize = new System.Drawing.Size(805, 405);
+            this.Controls.Add(this.EmployeeDetailsBox);
             this.Controls.Add(this.AdminTabControl);
+            this.MaximumSize = new System.Drawing.Size(821, 444);
+            this.MinimumSize = new System.Drawing.Size(821, 444);
             this.Name = "AdminMainDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminMainDashboard";
+            this.Text = "Admin Dashboard: ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMainDashboard_FormClose);
             this.reportTab.ResumeLayout(false);
             this.reportTab.PerformLayout();
             this.AdminTabControl.ResumeLayout(false);
             this.employeesTab.ResumeLayout(false);
+            this.EmployeeDetailsBox.ResumeLayout(false);
+            this.EmployeeDetailsBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Label logoutLabel;
         private System.Windows.Forms.TabPage reportTab;
         private System.Windows.Forms.TabControl AdminTabControl;
         private System.Windows.Forms.TabPage employeesTab;
         private UserControls.AdminSearchUpdateAddEmployee adminSearchUpdateAddEmployee1;
         private UserControls.AdminReportUserControl adminReportUserControl1;
+        private System.Windows.Forms.Label logoutLabel;
+        private System.Windows.Forms.GroupBox EmployeeDetailsBox;
+        private System.Windows.Forms.Label EmployeeNameValue;
+        private System.Windows.Forms.Label EmployeeNameLabel;
+        private System.Windows.Forms.Label EmployeeIDValue;
+        private System.Windows.Forms.Label EmpployeeIDLabel;
     }
 }

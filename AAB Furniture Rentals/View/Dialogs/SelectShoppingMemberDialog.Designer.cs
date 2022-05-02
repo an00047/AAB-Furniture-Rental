@@ -35,9 +35,9 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             // closeFromButton
             // 
-            this.closeFromButton.Location = new System.Drawing.Point(168, 319);
+            this.closeFromButton.Location = new System.Drawing.Point(530, 361);
             this.closeFromButton.Name = "closeFromButton";
-            this.closeFromButton.Size = new System.Drawing.Size(75, 23);
+            this.closeFromButton.Size = new System.Drawing.Size(106, 33);
             this.closeFromButton.TabIndex = 1;
             this.closeFromButton.Text = "Close ";
             this.closeFromButton.UseVisualStyleBackColor = true;
@@ -45,16 +45,16 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             // employeeCustomersTabUserControl1
             // 
-            this.employeeCustomersTabUserControl1.Location = new System.Drawing.Point(7, 12);
+            this.employeeCustomersTabUserControl1.Location = new System.Drawing.Point(5, 12);
             this.employeeCustomersTabUserControl1.Name = "employeeCustomersTabUserControl1";
-            this.employeeCustomersTabUserControl1.Size = new System.Drawing.Size(426, 314);
+            this.employeeCustomersTabUserControl1.Size = new System.Drawing.Size(673, 359);
             this.employeeCustomersTabUserControl1.TabIndex = 0;
             // 
             // SelectShoppingMemberDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 354);
+            this.ClientSize = new System.Drawing.Size(685, 402);
             this.Controls.Add(this.closeFromButton);
             this.Controls.Add(this.employeeCustomersTabUserControl1);
             this.Name = "SelectShoppingMemberDialog";

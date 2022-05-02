@@ -50,7 +50,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         private void PopulateDataGrid()
         {
             FurnitureController.CurrentCart.FurnitureList.ForEach((rental)=> {
-                this.TransactionFurnitureDataGridView.Rows.Add(rental.FurnitureID, rental.Category, rental.Style, rental.QuantityRented);
+                this.TransactionFurnitureDataGridView.Rows.Add(rental.FurnitureID, rental.Category, rental.Style, rental.QuantityOnHand);
             });
         }
     }

@@ -33,27 +33,38 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchButton = new System.Windows.Forms.Button();
             this.newCustomerButton = new System.Windows.Forms.Button();
             this.editCustomerButton = new System.Windows.Forms.Button();
+            this.searchTypeLabel = new System.Windows.Forms.Label();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.customerDataGridView = new System.Windows.Forms.DataGridView();
+            this.SetCurrentMemberButton = new System.Windows.Forms.Button();
+            this.NameRadioBtn = new System.Windows.Forms.RadioButton();
+            this.PhoneRadioBtn = new System.Windows.Forms.RadioButton();
+            this.CustIdRadioBtn = new System.Windows.Forms.RadioButton();
+            this.SelectCustomerByBox = new System.Windows.Forms.GroupBox();
+            this.ActiveMemberBox = new System.Windows.Forms.GroupBox();
+            this.CustoemrNameValue = new System.Windows.Forms.Label();
+            this.CustomerPhoneValue = new System.Windows.Forms.Label();
+            this.CustomerIDValue = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CustomerPhoneLabel = new System.Windows.Forms.Label();
+            this.CustomerNameLabel = new System.Windows.Forms.Label();
             this._cs6232_g4DataSet = new AAB_Furniture_Rentals._cs6232_g4DataSet();
             this.memberBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.memberTableAdapter = new AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.memberTableAdapter();
             this.tableAdapterManager = new AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.TableAdapterManager();
-            this.searchTypeLabel = new System.Windows.Forms.Label();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.customerDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.searchByLabel = new System.Windows.Forms.Label();
-            this.SetCurrentMemberButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
+            this.SelectCustomerByBox.SuspendLayout();
+            this.ActiveMemberBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // searchButton
             // 
             this.searchButton.AutoSize = true;
-            this.searchButton.Location = new System.Drawing.Point(291, 48);
+            this.searchButton.Location = new System.Drawing.Point(203, 52);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(57, 23);
+            this.searchButton.Size = new System.Drawing.Size(97, 23);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -61,9 +72,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // newCustomerButton
             // 
-            this.newCustomerButton.Location = new System.Drawing.Point(43, 233);
+            this.newCustomerButton.Location = new System.Drawing.Point(19, 291);
             this.newCustomerButton.Name = "newCustomerButton";
-            this.newCustomerButton.Size = new System.Drawing.Size(93, 23);
+            this.newCustomerButton.Size = new System.Drawing.Size(174, 51);
             this.newCustomerButton.TabIndex = 4;
             this.newCustomerButton.Text = "New Customer";
             this.newCustomerButton.UseVisualStyleBackColor = true;
@@ -71,13 +82,179 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // editCustomerButton
             // 
-            this.editCustomerButton.Location = new System.Drawing.Point(276, 233);
+            this.editCustomerButton.Location = new System.Drawing.Point(487, 291);
             this.editCustomerButton.Name = "editCustomerButton";
-            this.editCustomerButton.Size = new System.Drawing.Size(85, 23);
+            this.editCustomerButton.Size = new System.Drawing.Size(174, 23);
             this.editCustomerButton.TabIndex = 5;
             this.editCustomerButton.Text = "Edit Customer";
             this.editCustomerButton.UseVisualStyleBackColor = true;
             this.editCustomerButton.Click += new System.EventHandler(this.EditCustomerButton_Click);
+            // 
+            // searchTypeLabel
+            // 
+            this.searchTypeLabel.AutoSize = true;
+            this.searchTypeLabel.Location = new System.Drawing.Point(217, 10);
+            this.searchTypeLabel.Name = "searchTypeLabel";
+            this.searchTypeLabel.Size = new System.Drawing.Size(68, 13);
+            this.searchTypeLabel.TabIndex = 0;
+            this.searchTypeLabel.Text = "Customer ID:";
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(203, 26);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(97, 20);
+            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.CustomerTextBox_Changed);
+            // 
+            // customerDataGridView
+            // 
+            this.customerDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customerDataGridView.Location = new System.Drawing.Point(19, 97);
+            this.customerDataGridView.MultiSelect = false;
+            this.customerDataGridView.Name = "customerDataGridView";
+            this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.customerDataGridView.Size = new System.Drawing.Size(642, 188);
+            this.customerDataGridView.TabIndex = 6;
+            this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
+            // 
+            // SetCurrentMemberButton
+            // 
+            this.SetCurrentMemberButton.Location = new System.Drawing.Point(487, 320);
+            this.SetCurrentMemberButton.Name = "SetCurrentMemberButton";
+            this.SetCurrentMemberButton.Size = new System.Drawing.Size(174, 22);
+            this.SetCurrentMemberButton.TabIndex = 9;
+            this.SetCurrentMemberButton.Text = "Set As \"Active Customer\"";
+            this.SetCurrentMemberButton.UseVisualStyleBackColor = true;
+            this.SetCurrentMemberButton.Click += new System.EventHandler(this.SetCurrentMemberButton_Click);
+            // 
+            // NameRadioBtn
+            // 
+            this.NameRadioBtn.AutoSize = true;
+            this.NameRadioBtn.Location = new System.Drawing.Point(17, 60);
+            this.NameRadioBtn.Name = "NameRadioBtn";
+            this.NameRadioBtn.Size = new System.Drawing.Size(166, 17);
+            this.NameRadioBtn.TabIndex = 10;
+            this.NameRadioBtn.TabStop = true;
+            this.NameRadioBtn.Text = "Customer First and Last Name";
+            this.NameRadioBtn.UseVisualStyleBackColor = true;
+            this.NameRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
+            // 
+            // PhoneRadioBtn
+            // 
+            this.PhoneRadioBtn.AutoSize = true;
+            this.PhoneRadioBtn.Location = new System.Drawing.Point(16, 38);
+            this.PhoneRadioBtn.Name = "PhoneRadioBtn";
+            this.PhoneRadioBtn.Size = new System.Drawing.Size(143, 17);
+            this.PhoneRadioBtn.TabIndex = 11;
+            this.PhoneRadioBtn.TabStop = true;
+            this.PhoneRadioBtn.Text = "Customer Phone Number";
+            this.PhoneRadioBtn.UseVisualStyleBackColor = true;
+            this.PhoneRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
+            // 
+            // CustIdRadioBtn
+            // 
+            this.CustIdRadioBtn.AutoSize = true;
+            this.CustIdRadioBtn.Location = new System.Drawing.Point(17, 16);
+            this.CustIdRadioBtn.Name = "CustIdRadioBtn";
+            this.CustIdRadioBtn.Size = new System.Drawing.Size(83, 17);
+            this.CustIdRadioBtn.TabIndex = 12;
+            this.CustIdRadioBtn.TabStop = true;
+            this.CustIdRadioBtn.Text = "Customer ID";
+            this.CustIdRadioBtn.UseVisualStyleBackColor = true;
+            this.CustIdRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
+            // 
+            // SelectCustomerByBox
+            // 
+            this.SelectCustomerByBox.Controls.Add(this.CustIdRadioBtn);
+            this.SelectCustomerByBox.Controls.Add(this.PhoneRadioBtn);
+            this.SelectCustomerByBox.Controls.Add(this.NameRadioBtn);
+            this.SelectCustomerByBox.Controls.Add(this.searchTextBox);
+            this.SelectCustomerByBox.Controls.Add(this.searchButton);
+            this.SelectCustomerByBox.Controls.Add(this.searchTypeLabel);
+            this.SelectCustomerByBox.Location = new System.Drawing.Point(19, 9);
+            this.SelectCustomerByBox.Name = "SelectCustomerByBox";
+            this.SelectCustomerByBox.Size = new System.Drawing.Size(316, 82);
+            this.SelectCustomerByBox.TabIndex = 13;
+            this.SelectCustomerByBox.TabStop = false;
+            this.SelectCustomerByBox.Text = "Select Customer By: ";
+            // 
+            // ActiveMemberBox
+            // 
+            this.ActiveMemberBox.Controls.Add(this.CustoemrNameValue);
+            this.ActiveMemberBox.Controls.Add(this.CustomerPhoneValue);
+            this.ActiveMemberBox.Controls.Add(this.CustomerIDValue);
+            this.ActiveMemberBox.Controls.Add(this.label3);
+            this.ActiveMemberBox.Controls.Add(this.CustomerPhoneLabel);
+            this.ActiveMemberBox.Controls.Add(this.CustomerNameLabel);
+            this.ActiveMemberBox.Location = new System.Drawing.Point(378, 9);
+            this.ActiveMemberBox.Name = "ActiveMemberBox";
+            this.ActiveMemberBox.Size = new System.Drawing.Size(283, 82);
+            this.ActiveMemberBox.TabIndex = 14;
+            this.ActiveMemberBox.TabStop = false;
+            this.ActiveMemberBox.Text = "Currently Active Member: ";
+            // 
+            // CustoemrNameValue
+            // 
+            this.CustoemrNameValue.AutoSize = true;
+            this.CustoemrNameValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustoemrNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustoemrNameValue.Location = new System.Drawing.Point(113, 61);
+            this.CustoemrNameValue.Name = "CustoemrNameValue";
+            this.CustoemrNameValue.Size = new System.Drawing.Size(16, 15);
+            this.CustoemrNameValue.TabIndex = 23;
+            this.CustoemrNameValue.Text = "?";
+            // 
+            // CustomerPhoneValue
+            // 
+            this.CustomerPhoneValue.AutoSize = true;
+            this.CustomerPhoneValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustomerPhoneValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustomerPhoneValue.Location = new System.Drawing.Point(113, 39);
+            this.CustomerPhoneValue.Name = "CustomerPhoneValue";
+            this.CustomerPhoneValue.Size = new System.Drawing.Size(16, 15);
+            this.CustomerPhoneValue.TabIndex = 22;
+            this.CustomerPhoneValue.Text = "?";
+            // 
+            // CustomerIDValue
+            // 
+            this.CustomerIDValue.AutoSize = true;
+            this.CustomerIDValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustomerIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustomerIDValue.Location = new System.Drawing.Point(113, 18);
+            this.CustomerIDValue.Name = "CustomerIDValue";
+            this.CustomerIDValue.Size = new System.Drawing.Size(16, 15);
+            this.CustomerIDValue.TabIndex = 21;
+            this.CustomerIDValue.Text = "?";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Member ID:  ";
+            // 
+            // CustomerPhoneLabel
+            // 
+            this.CustomerPhoneLabel.AutoSize = true;
+            this.CustomerPhoneLabel.Location = new System.Drawing.Point(18, 39);
+            this.CustomerPhoneLabel.Name = "CustomerPhoneLabel";
+            this.CustomerPhoneLabel.Size = new System.Drawing.Size(85, 13);
+            this.CustomerPhoneLabel.TabIndex = 2;
+            this.CustomerPhoneLabel.Text = "Member Phone: ";
+            // 
+            // CustomerNameLabel
+            // 
+            this.CustomerNameLabel.AutoSize = true;
+            this.CustomerNameLabel.Location = new System.Drawing.Point(19, 61);
+            this.CustomerNameLabel.Name = "CustomerNameLabel";
+            this.CustomerNameLabel.Size = new System.Drawing.Size(82, 13);
+            this.CustomerNameLabel.TabIndex = 0;
+            this.CustomerNameLabel.Text = "Member Name: ";
             // 
             // _cs6232_g4DataSet
             // 
@@ -108,82 +285,26 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.tableAdapterManager.returnsTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = AAB_Furniture_Rentals._cs6232_g4DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // searchTypeLabel
-            // 
-            this.searchTypeLabel.AutoSize = true;
-            this.searchTypeLabel.Location = new System.Drawing.Point(45, 54);
-            this.searchTypeLabel.Name = "searchTypeLabel";
-            this.searchTypeLabel.Size = new System.Drawing.Size(68, 13);
-            this.searchTypeLabel.TabIndex = 0;
-            this.searchTypeLabel.Text = "Customer ID:";
-            // 
-            // searchTextBox
-            // 
-            this.searchTextBox.Location = new System.Drawing.Point(154, 50);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(97, 20);
-            this.searchTextBox.TabIndex = 1;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.CustomerTextBox_Changed);
-            // 
-            // customerDataGridView
-            // 
-            this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Location = new System.Drawing.Point(43, 77);
-            this.customerDataGridView.MultiSelect = false;
-            this.customerDataGridView.Name = "customerDataGridView";
-            this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDataGridView.Size = new System.Drawing.Size(318, 150);
-            this.customerDataGridView.TabIndex = 6;
-            this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
-            // 
-            // searchTypeComboBox
-            // 
-            this.searchTypeComboBox.FormattingEnabled = true;
-            this.searchTypeComboBox.Location = new System.Drawing.Point(140, 21);
-            this.searchTypeComboBox.Name = "searchTypeComboBox";
-            this.searchTypeComboBox.Size = new System.Drawing.Size(191, 21);
-            this.searchTypeComboBox.TabIndex = 7;
-            this.searchTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged);
-            // 
-            // searchByLabel
-            // 
-            this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(75, 24);
-            this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(59, 13);
-            this.searchByLabel.TabIndex = 8;
-            this.searchByLabel.Text = "Search By:";
-            // 
-            // SetCurrentMemberButton
-            // 
-            this.SetCurrentMemberButton.Location = new System.Drawing.Point(105, 262);
-            this.SetCurrentMemberButton.Name = "SetCurrentMemberButton";
-            this.SetCurrentMemberButton.Size = new System.Drawing.Size(194, 37);
-            this.SetCurrentMemberButton.TabIndex = 9;
-            this.SetCurrentMemberButton.Text = "Set As \"Current Shopper\"";
-            this.SetCurrentMemberButton.UseVisualStyleBackColor = true;
-            this.SetCurrentMemberButton.Click += new System.EventHandler(this.SetCurrentMemberButton_Click);
-            // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ActiveMemberBox);
+            this.Controls.Add(this.SelectCustomerByBox);
             this.Controls.Add(this.SetCurrentMemberButton);
-            this.Controls.Add(this.searchByLabel);
-            this.Controls.Add(this.searchTypeComboBox);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.editCustomerButton);
             this.Controls.Add(this.newCustomerButton);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.searchTypeLabel);
             this.Name = "EmployeeCustomersTabUserControl";
-            this.Size = new System.Drawing.Size(413, 314);
+            this.Size = new System.Drawing.Size(677, 357);
+            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
+            this.SelectCustomerByBox.ResumeLayout(false);
+            this.SelectCustomerByBox.PerformLayout();
+            this.ActiveMemberBox.ResumeLayout(false);
+            this.ActiveMemberBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -198,8 +319,17 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.Label searchTypeLabel;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.DataGridView customerDataGridView;
-        private System.Windows.Forms.ComboBox searchTypeComboBox;
-        private System.Windows.Forms.Label searchByLabel;
         private System.Windows.Forms.Button SetCurrentMemberButton;
+        private System.Windows.Forms.RadioButton NameRadioBtn;
+        private System.Windows.Forms.RadioButton PhoneRadioBtn;
+        private System.Windows.Forms.RadioButton CustIdRadioBtn;
+        private System.Windows.Forms.GroupBox SelectCustomerByBox;
+        private System.Windows.Forms.GroupBox ActiveMemberBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label CustomerPhoneLabel;
+        private System.Windows.Forms.Label CustomerNameLabel;
+        private System.Windows.Forms.Label CustoemrNameValue;
+        private System.Windows.Forms.Label CustomerPhoneValue;
+        private System.Windows.Forms.Label CustomerIDValue;
     }
 }
