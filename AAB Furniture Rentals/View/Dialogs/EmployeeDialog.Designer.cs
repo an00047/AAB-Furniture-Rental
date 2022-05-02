@@ -217,7 +217,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.zipTextBox.Location = new System.Drawing.Point(96, 297);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(200, 20);
+            this.zipTextBox.Size = new System.Drawing.Size(87, 20);
             this.zipTextBox.TabIndex = 91;
             this.zipTextBox.TextChanged += new System.EventHandler(this.TextChanged_Event);
             // 

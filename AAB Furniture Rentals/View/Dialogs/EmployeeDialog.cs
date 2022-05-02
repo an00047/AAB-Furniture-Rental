@@ -175,7 +175,7 @@ namespace AAB_Furniture_Rentals.View
                 error++;
             }
 
-            if (this.zipTextBox.Text == "")
+            if (this.zipTextBox.Text == ""  )
             {
                 this.zipError.Text = "zip cannot be empty.";
 
@@ -219,6 +219,23 @@ namespace AAB_Furniture_Rentals.View
                 error++;
             }
 
+            try
+            {
+                string validNumber = this.zipTextBox.Text;
+                if (this.zipTextBox.Text.Length != 5)
+                {
+                    this.zipError.Text = "Must be in 5 digits long";
+                    error++;
+                }
+
+                int.Parse(validNumber);
+
+            }
+            catch (Exception)
+            {
+                this.zipError.Text = "Zip must be all numbers";
+                error++;
+            }
 
             return error == 0;
 
@@ -243,7 +260,7 @@ namespace AAB_Furniture_Rentals.View
 
         private void AddEmployee()
         {
-
+           
             if (this.ValidateForm())
             {
                 try
