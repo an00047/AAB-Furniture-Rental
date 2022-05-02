@@ -111,6 +111,12 @@
     <Compile Include="View\Dialogs\CartDialog.Designer.cs">
       <DependentUpon>CartDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Dialogs\RentalTransactionConfirmationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialogs\RentalTransactionConfirmationDialog.Designer.cs">
+      <DependentUpon>RentalTransactionConfirmationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Dialogs\SelectShoppingMemberDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="View\Dialogs\CartDialog.resx">
       <DependentUpon>CartDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialogs\RentalTransactionConfirmationDialog.resx">
+      <DependentUpon>RentalTransactionConfirmationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Dialogs\SelectShoppingMemberDialog.resx">
       <DependentUpon>SelectShoppingMemberDialog.cs</DependentUpon>
