@@ -58,7 +58,7 @@ namespace AAB_Furniture_Rentals.View
             try {
 
                 string message = "You are placing a rental order for a total of $" + this.CartTotalValue.Text + " \n\n" +
-                    $"Do you wish to Proceede? ";
+                    $"Do you wish to Proceed? ";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show(message, "Please confirm", buttons);
                 if (result == DialogResult.Yes) { 
