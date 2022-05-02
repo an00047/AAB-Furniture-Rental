@@ -66,14 +66,14 @@ namespace AAB_Furniture_Rentals.Controller
         /// Adds a member to the database
         /// </summary>
         /// <param name="customer"></param>
-        public static void AddCustomer(Member customer)
+        public static int AddCustomer(Member customer)
         {
             if (customer == null)
             {
                 throw new Exception("Customer is not valid.");
             }
 
-            localMemberDAL.AddCustomer(customer);
+            return localMemberDAL.AddCustomer(customer);
         }
         /// <summary>
         /// Edits a member in the database
