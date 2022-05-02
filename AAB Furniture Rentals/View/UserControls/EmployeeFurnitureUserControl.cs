@@ -28,7 +28,8 @@ namespace AAB_Furniture_Rentals.UserControls
             this.InCartWarning.Visible = true;
             this.InCartWarning.Text = "Item already in cart. \n Go to Cart to edit/update the order \n OR select a different item";
             this.alreadyInCartPanel.Visible = false;
-          
+            this.QtyZeroLabel.Text = "Qty = 0";
+            this.QtyZeroLabel.Visible = false;
             //Makes a Cart, if one didnt already exist
             if (FurnitureController.CurrentCart == null)
             {
@@ -289,7 +290,7 @@ namespace AAB_Furniture_Rentals.UserControls
             }
         }
 
-        private void mouseEventactions() {
+        private void MouseEventActions() {
             int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
             if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
             {
@@ -303,9 +304,10 @@ namespace AAB_Furniture_Rentals.UserControls
                 _ = qty > 0 ? this.qtyUpDown.Maximum = qty : this.qtyUpDown.Maximum = 1;
                 if (qty == 0) {
                     this.AddToCartGroupBox.Enabled = false;
-                   
+                    this.QtyZeroLabel.Visible = true;
                 } else {
                     this.AddToCartGroupBox.Enabled = true;
+                    this.QtyZeroLabel.Visible = false;
                 }
                                    
                 this.alreadyInCartPanel.Visible = false;
@@ -313,16 +315,15 @@ namespace AAB_Furniture_Rentals.UserControls
         }
 
         //overloading the mouse click envents in order to achieve consistancy in row selection
-        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellMouseEventArgs e) => this.mouseEventactions();
+        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellMouseEventArgs e) => this.MouseEventActions();
         //overloading the mouse click envents in order to achieve consistancy  in row selection
-        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) => this.mouseEventactions();
+        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) => this.MouseEventActions();
       
         private void searchDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.AddToCartGroupBox.Enabled = false;
             this.searchDataGridView.ClearSelection();
         }
-
 
         private void BlackListCartItmes() {
 
