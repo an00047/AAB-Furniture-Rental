@@ -238,9 +238,6 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             if (FurnitureController.CurrentCart != null)
             {
-               
-
-
                 // FurnitureController.CurrentCart.PutFurnitureBackIntoInventory();
                 
                 this.AddToCartGroupBox.Enabled = false;

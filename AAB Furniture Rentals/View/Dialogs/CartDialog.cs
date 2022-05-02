@@ -25,7 +25,10 @@ namespace AAB_Furniture_Rentals.View
             InitializeComponent();
            
             this.returnDateTimePicker.MinDate = DateTime.Now.AddDays(1);
-         
+            if (FurnitureController.CurrentCart.FurnitureList.Count == 0)
+            {
+                this.CheckoutButton.Enabled = false;
+            }
             this.RefreshDataGrid();
             this.CheckMemberSelection();
         }
@@ -145,6 +148,9 @@ namespace AAB_Furniture_Rentals.View
             this.updateQtyPanel.Enabled = false;
             this.shortNameLabel.Text = "Nothing Selected";
             this.RefreshDataGrid();
+            if (FurnitureController.CurrentCart.FurnitureList.Count == 0) {
+                this.CheckoutButton.Enabled = false;
+            }
         }
 
         private void ReturnDateTimePicker_ValueChanged(object sender, EventArgs e)
