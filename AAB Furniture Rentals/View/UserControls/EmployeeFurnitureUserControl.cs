@@ -66,9 +66,27 @@ namespace AAB_Furniture_Rentals.UserControls
                    "",
                    null);
 
-            this.searchDataGridView.DataSource = furnitures;
 
-            
+            this.ManualDatabind(furnitures);
+
+
+        }
+        private void ManualDatabind(List<Furniture> furnitures) {
+
+            this.searchDataGridView.DataSource = furnitures;
+            this.searchDataGridView.Columns["DueDate"].Visible = false;
+            this.searchDataGridView.Columns["QuantityRented"].Visible = false;
+            this.searchDataGridView.Columns["TransactionID"].Visible = false;
+            this.searchDataGridView.Columns["RentalDescription"].Visible = false;
+
+            this.searchDataGridView.Columns["Category"].HeaderText = "CATGRY";
+            this.searchDataGridView.Columns["DailyRentalRate"].HeaderText = "$/Day";
+            this.searchDataGridView.Columns["FurnitureID"].HeaderText = "Furniture ID";
+            this.searchDataGridView.Columns["QuantityOnHand"].HeaderText = "Qty. Avialable";
+
+
+
+
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -97,7 +115,7 @@ namespace AAB_Furniture_Rentals.UserControls
                     category,
                     id);
 
-                this.searchDataGridView.DataSource = furnitures;
+                this.ManualDatabind(furnitures);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message,
@@ -188,10 +206,6 @@ namespace AAB_Furniture_Rentals.UserControls
                 this.RefreshDataGrid();
                 this.ResetCartItems();
 
-
-
-
-
             } else {
                 //you need to add something to the cart
                 MessageBox.Show("There is nothing in your Cart!");
@@ -247,7 +261,7 @@ namespace AAB_Furniture_Rentals.UserControls
                     id);
 
 
-                this.searchDataGridView.DataSource = furnitures;
+                this.ManualDatabind(furnitures);
 
                 //If we ever SORT rows, this will break.
                 this.ListOfRowsAddedToCart.ForEach((rowindex)=>{
@@ -294,7 +308,7 @@ namespace AAB_Furniture_Rentals.UserControls
             int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
             if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
             {
-                this.InCartWarning.Text = "Item already added to cart. \n To change the quantity - View your cart";
+                this.InCartWarning.Text = "Item already added to cart. Go to Cart to edit the order";
                 this.InCartWarning.Visible = true;
                 this.AddToCartGroupBox.Enabled = false;
             }
