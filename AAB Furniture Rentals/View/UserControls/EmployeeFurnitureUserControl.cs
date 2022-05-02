@@ -186,11 +186,26 @@ namespace AAB_Furniture_Rentals.UserControls
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
                 this.RefreshDataGrid();
+                this.ResetCartItems();
+
+
+
+
+
             } else {
                 //you need to add something to the cart
                 MessageBox.Show("There is nothing in your Cart!");
             }
         
+        }
+
+        private void ResetCartItems() {
+            this.ListOfRowsAddedToCart.ForEach((rowindex) => {
+                searchDataGridView.Rows[rowindex].DefaultCellStyle.BackColor = Color.White;
+            });
+            this.ListOfRowsAddedToCart.Clear();
+            this.searchDataGridView.ClearSelection();
+            this.ViewCartButton.Enabled = false;
         }
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
@@ -200,16 +215,8 @@ namespace AAB_Furniture_Rentals.UserControls
                // FurnitureController.CurrentCart.PutFurnitureBackIntoInventory();
                 FurnitureController.CurrentCart = null;
                 this.RefreshSearchComboBoxes();
-
-              
-
             }
-            this.ListOfRowsAddedToCart.ForEach((rowindex) => {
-                searchDataGridView.Rows[rowindex].DefaultCellStyle.BackColor = Color.White;
-            });
-            this.ListOfRowsAddedToCart.Clear();
-            this.searchDataGridView.ClearSelection();
-            this.ViewCartButton.Enabled = false;
+            this.ResetCartItems();
         }
 
         //. todo: duplicate,clean up after merge
