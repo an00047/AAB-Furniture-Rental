@@ -85,6 +85,7 @@
     <Compile Include="DAL\FurnitureCategoriesDAL.cs" />
     <Compile Include="DAL\FurnitureStyleDAL.cs" />
     <Compile Include="DAL\InsertRentalDAL.cs" />
+    <Compile Include="DAL\InsertReturnDAL.cs" />
     <Compile Include="DAL\IsRentedDAL.cs" />
     <Compile Include="DAL\IsReturnedDAL.cs" />
     <Compile Include="DAL\LoginDataDAL.cs" />
@@ -101,8 +102,10 @@
     <Compile Include="Model\IsRentedModel.cs" />
     <Compile Include="Model\IsRented.cs" />
     <Compile Include="Model\IsReturned.cs" />
+    <Compile Include="Model\IsReturnedModel.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\Rental.cs" />
+    <Compile Include="Model\ReturnCart.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="View\Dialogs\CartDialog.cs">

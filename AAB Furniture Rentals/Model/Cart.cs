@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Model
 {
-    
+
 
     /// <summary>
     /// The cart object model is created when the employee Dashboard is created (not within user control)
@@ -30,24 +30,25 @@ namespace AAB_Furniture_Rentals.Model
         /// the list of items to be rented in this transaction
         /// </summary>           
         public List<Furniture> FurnitureList { get; set; }
-       /// <summary>
-       /// the selectedDueDate finalized upon checkout
-       /// </summary>
+        /// <summary>
+        /// the selectedDueDate finalized upon checkout
+        /// </summary>
         public DateTime ScheduledDueDate { get; private set; }
 
         /// <summary>
         /// the rental transactionID after checkout
         /// </summary>
         public int rentalTransactionID { get; private set; }
-        
+
         /// <summary>
         /// Stores the last cart calculation before checkout
         /// </summary>
         public double CartTotalCost { get; private set; }
 
         private List<IsRentedModel> IsRentedList;
-    
-        public Cart() {
+
+        public Cart()
+        {
             this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
@@ -68,7 +69,8 @@ namespace AAB_Furniture_Rentals.Model
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
 
             //check to see if Qty is still available
-            if (InventoryItem.QuantityOnHand < quantityToRent) {
+            if (InventoryItem.QuantityOnHand < quantityToRent)
+            {
 
                 if (this.activeInventoryFeatureIsON) {
                     this.PutFurnitureBackIntoInventory();
@@ -97,11 +99,11 @@ namespace AAB_Furniture_Rentals.Model
         public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
         {
             Rental newRentaltransaction = new Rental();
-                newRentaltransaction.MemberID = memberID;
-                newRentaltransaction.EmployeeID = employeeID;
-                newRentaltransaction.DateTimeDue = dueDate;
-           this.ScheduledDueDate = dueDate;
-           this.rentalTransactionID =  FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
+            newRentaltransaction.MemberID = memberID;
+            newRentaltransaction.EmployeeID = employeeID;
+            newRentaltransaction.DateTimeDue = dueDate;
+            this.ScheduledDueDate = dueDate;
+            this.rentalTransactionID = FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
         }
         /// <summary>
         /// Adds the items checked out back into the inventory, then zeroizes all the properties         
@@ -120,46 +122,48 @@ namespace AAB_Furniture_Rentals.Model
             });
 
 
-            //    this.IsRentedList = new List<IsRentedModel>();
-            //    this.FurnitureList = new List<Furniture>();
-            //}
-            /// <summary>
-            /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
-            /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
-            /// </summary>
-            /// <param name="transactionID"></param>
-            //    public void AddTransactionToIsRentedList(int transactionID)
-            //{
-            //    this.IsRentedList.ForEach((item)=>{
-            //        item.TransactionID = transactionID;
-            //    });
-            //}
-            ///// <summary>
-            ///// Updates the IsRented Database
-            ///// </summary>
-            //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
-
-            ///// <summary>
-            ///// generates the transaction in the Database. Returns the Id. 
-            ///// </summary>
-            ///// <returns></returns>
-            //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
-            //{
-            //    Rental newRentaltransaction = new Rental();
-            //    newRentaltransaction.MemberID = memberID;
-            //    newRentaltransaction.EmployeeID = employeeID;
-            //    newRentaltransaction.DueDate = dueDate;
-
-            //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
-            //}
+            this.IsRentedList = new List<IsRentedModel>();
+            this.FurnitureList = new List<Furniture>();
         }
+        /// <summary>
+        /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
+        /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
+        /// </summary>
+        /// <param name="transactionID"></param>
+        public void AddTransactionToIsRentedList(int transactionID)
+        {
+            this.IsRentedList.ForEach((item) =>
+            {
+                item.TransactionID = transactionID;
+            });
+        }
+        ///// <summary>
+        ///// Updates the IsRented Database
+        ///// </summary>
+        //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
+
+        ///// <summary>
+        ///// generates the transaction in the Database. Returns the Id. 
+        ///// </summary>
+        ///// <returns></returns>
+        //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
+        //{
+        //    Rental newRentaltransaction = new Rental();
+        //    newRentaltransaction.MemberID = memberID;
+        //    newRentaltransaction.EmployeeID = employeeID;
+        //    newRentaltransaction.DueDate = dueDate;
+        //
+        //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
+        //}
+
 
         /// <summary>
         /// Calculates the total rental cost (w/o taxes)
         /// </summary>
         /// <param name="returnDate"></param>
         /// <returns></returns>
-        public double CalculateTotalCost(DateTime returnDate) {
+        public double CalculateTotalCost(DateTime returnDate)
+        {
             this.CartTotalCost = 0;
             int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
             double total = 0;

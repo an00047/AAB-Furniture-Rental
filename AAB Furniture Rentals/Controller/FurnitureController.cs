@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
+using AAB_Furniture_Returns.DAL;
 
 namespace AAB_Furniture_Rentals.Controller
 {
@@ -14,9 +15,11 @@ namespace AAB_Furniture_Rentals.Controller
         /// holds the current cart object for the member's checkout experiance
         /// </summary>
         public static Cart CurrentCart { get; set; }
+        public static ReturnCart CurrentReturnCart { get; set; }
 
         private static FurnitureDAL localFurnitureDAL;
         private static InsertRentalDAL localInsertRentalDAL;
+        private static InsertReturnDAL localInsertReturnDAL;
         /// <summary>
         /// Initializes the <see cref="FurnitureController"/> class.
         /// </summary>
@@ -24,6 +27,7 @@ namespace AAB_Furniture_Rentals.Controller
         {
             localFurnitureDAL = new FurnitureDAL();
             localInsertRentalDAL = new InsertRentalDAL();
+            localInsertReturnDAL = new InsertReturnDAL();
         }
 
         /// <summary>
@@ -59,6 +63,22 @@ namespace AAB_Furniture_Rentals.Controller
 
            return localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
         }
+
+        internal static int InsertReturnTransaction(Returns newReturn, List<IsReturnedModel> isReturnedList)
+        {
+            if (newReturn == null)
+            {
+                throw new ArgumentException("The rental is null");
+            }
+            if (isReturnedList == null)
+            {
+                throw new ArgumentException("The isRentedList is null");
+
+            }
+
+            return localInsertReturnDAL.InsertReturnTransaction(newReturn, isReturnedList);
+        }
+
 
         /// <summary>
         /// Gets the furniture by parameter.
@@ -107,21 +127,6 @@ namespace AAB_Furniture_Rentals.Controller
             }
             return localFurnitureDAL.GetFurnitureByID(searchFurnitureID);
         }
-
-
-        ///// <summary>
-        ///// gets the furniture item by id
-        ///// </summary>
-        ///// <param name="furnitureID"></param>
-        ///// <returns></returns>
-        //public static Furniture GetFurnitureByID(int furnitureID) {
-        //    if (furnitureID < 0)
-        //    {
-        //        throw new ArgumentException("furnitureID cannot be negative");
-        //    }
-        //    return localFurnitureDAL.GetFurnitureByID(furnitureID);
-        //}
-
 
         /// <summary>
         /// Updates an existing furniture Item. (Multi-Use)
