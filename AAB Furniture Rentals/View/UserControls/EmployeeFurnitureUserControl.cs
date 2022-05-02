@@ -289,10 +289,7 @@ namespace AAB_Furniture_Rentals.UserControls
             }
         }
 
-
-        //overloading the mouse click envents in order to achieve consistancy
-        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
+        private void mouseEventactions() {
             int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
 
 
@@ -305,34 +302,18 @@ namespace AAB_Furniture_Rentals.UserControls
             }
             else
             {
+
+                this.qtyUpDown.Maximum = Convert.ToDecimal(searchDataGridView.Rows[currentRow].Cells[5].Value);
                 this.AddToCartGroupBox.Enabled = true;
                 this.alreadyInCartPanel.Visible = false;
             }
         }
 
-        //overloading the mouse click envents in order to achieve consistancy
-        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-          
-            
-                int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
-                     
-
-            if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
-            {
-                
-                this.alreadyInCartPanel.Visible = true;
-                this.AddToCartGroupBox.Enabled = false;
-                this.searchDataGridView.ClearSelection();
-            }
-            else
-            {
-                this.AddToCartGroupBox.Enabled = true;
-                this.alreadyInCartPanel.Visible = false;
-            }
-            
-        }
-
+        //overloading the mouse click envents in order to achieve consistancy in row selection
+        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellMouseEventArgs e) => this.mouseEventactions();
+        //overloading the mouse click envents in order to achieve consistancy  in row selection
+        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) => this.mouseEventactions();
+      
         private void searchDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             this.AddToCartGroupBox.Enabled = false;
@@ -378,10 +359,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.ViewCartButton.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.searchDataGridView.ClearSelection();
-        }
+    
 
      
        
