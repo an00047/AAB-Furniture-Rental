@@ -114,7 +114,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.itemsReturnedCheckedListBox.FormattingEnabled = true;
             this.itemsReturnedCheckedListBox.Location = new System.Drawing.Point(125, 73);
             this.itemsReturnedCheckedListBox.Name = "itemsReturnedCheckedListBox";
-            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(171, 64);
+            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(318, 64);
             this.itemsReturnedCheckedListBox.TabIndex = 9;
             this.itemsReturnedCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemsReturned_Selected);
             // 
@@ -144,7 +144,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.Controls.Add(this.itemsReturnedLabel);
             this.Controls.Add(this.IDLabel);
             this.Name = "EmployeeReturnTabUserControl";
-            this.Size = new System.Drawing.Size(330, 268);
+            this.Size = new System.Drawing.Size(539, 268);
             this.Load += new System.EventHandler(this.EmployeeReturnTabUserControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

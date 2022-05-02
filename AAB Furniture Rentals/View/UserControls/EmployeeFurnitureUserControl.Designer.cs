@@ -29,9 +29,9 @@ namespace AAB_Furniture_Rentals.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clear = new System.Windows.Forms.Button();
             this.AddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -60,13 +60,16 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             // clear
             // 
+            this.clear.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.clear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.clear.Location = new System.Drawing.Point(378, 8);
+            this.clear.Location = new System.Drawing.Point(341, 18);
             this.clear.Name = "clear";
-            this.clear.Size = new System.Drawing.Size(67, 21);
+            this.clear.Size = new System.Drawing.Size(108, 21);
             this.clear.TabIndex = 1;
-            this.clear.Text = "Clear";
-            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Text = "Search All Furniture";
+            this.clear.UseVisualStyleBackColor = false;
             this.clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // AddToCartButton
@@ -84,7 +87,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.styleComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.styleComboBox.FormattingEnabled = true;
-            this.styleComboBox.Location = new System.Drawing.Point(173, 17);
+            this.styleComboBox.Location = new System.Drawing.Point(162, 17);
             this.styleComboBox.Name = "styleComboBox";
             this.styleComboBox.Size = new System.Drawing.Size(79, 21);
             this.styleComboBox.TabIndex = 3;
@@ -93,7 +96,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(86, 17);
+            this.categoryComboBox.Location = new System.Drawing.Point(80, 17);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(76, 21);
             this.categoryComboBox.TabIndex = 4;
@@ -113,7 +116,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.searchButton.Location = new System.Drawing.Point(296, 8);
+            this.searchButton.Location = new System.Drawing.Point(247, 14);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(67, 21);
             this.searchButton.TabIndex = 10;
@@ -127,38 +130,38 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.AllowUserToDeleteRows = false;
             this.searchDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.searchDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.MediumTurquoise;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.MediumTurquoise;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.searchDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.searchDataGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.searchDataGridView.Location = new System.Drawing.Point(4, 51);
             this.searchDataGridView.MultiSelect = false;
             this.searchDataGridView.Name = "searchDataGridView";
             this.searchDataGridView.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.searchDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.searchDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.searchDataGridView.Size = new System.Drawing.Size(458, 139);
+            this.searchDataGridView.Size = new System.Drawing.Size(451, 139);
             this.searchDataGridView.TabIndex = 12;
             this.searchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchDataGridView_CellContentClick);
             this.searchDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.searchDataGridView_CellContentClick);
@@ -247,7 +250,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.groupBox2.Controls.Add(this.ViewCartButton);
             this.groupBox2.Controls.Add(this.AbandonCartButton);
-            this.groupBox2.Location = new System.Drawing.Point(267, 192);
+            this.groupBox2.Location = new System.Drawing.Point(261, 192);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(194, 40);
             this.groupBox2.TabIndex = 18;
@@ -259,7 +262,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.tutorialLabel.AutoSize = true;
             this.tutorialLabel.Font = new System.Drawing.Font("Marlett", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tutorialLabel.ForeColor = System.Drawing.Color.DarkCyan;
-            this.tutorialLabel.Location = new System.Drawing.Point(287, 29);
+            this.tutorialLabel.Location = new System.Drawing.Point(190, 0);
             this.tutorialLabel.Name = "tutorialLabel";
             this.tutorialLabel.Size = new System.Drawing.Size(171, 15);
             this.tutorialLabel.TabIndex = 26;
@@ -269,14 +272,12 @@ namespace AAB_Furniture_Rentals.UserControls
             // serchBygroup
             // 
             this.serchBygroup.Controls.Add(this.idComboBox);
-            this.serchBygroup.Controls.Add(this.clear);
-            this.serchBygroup.Controls.Add(this.tutorialLabel);
             this.serchBygroup.Controls.Add(this.styleComboBox);
             this.serchBygroup.Controls.Add(this.categoryComboBox);
             this.serchBygroup.Controls.Add(this.searchButton);
             this.serchBygroup.Location = new System.Drawing.Point(4, 4);
             this.serchBygroup.Name = "serchBygroup";
-            this.serchBygroup.Size = new System.Drawing.Size(461, 41);
+            this.serchBygroup.Size = new System.Drawing.Size(327, 43);
             this.serchBygroup.TabIndex = 28;
             this.serchBygroup.TabStop = false;
             this.serchBygroup.Text = "Search By:";
@@ -284,7 +285,7 @@ namespace AAB_Furniture_Rentals.UserControls
             // alreadyInCartPanel
             // 
             this.alreadyInCartPanel.Controls.Add(this.InCartWarning);
-            this.alreadyInCartPanel.Location = new System.Drawing.Point(4, 194);
+            this.alreadyInCartPanel.Location = new System.Drawing.Point(4, 193);
             this.alreadyInCartPanel.Name = "alreadyInCartPanel";
             this.alreadyInCartPanel.Size = new System.Drawing.Size(258, 42);
             this.alreadyInCartPanel.TabIndex = 31;
@@ -304,14 +305,16 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.alreadyInCartPanel);
             this.Controls.Add(this.QtyZeroLabel);
+            this.Controls.Add(this.tutorialLabel);
             this.Controls.Add(this.serchBygroup);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.AddToCartGroupBox);
             this.Controls.Add(this.searchDataGridView);
             this.Name = "EmployeeFurnitureUserControl";
-            this.Size = new System.Drawing.Size(471, 239);
+            this.Size = new System.Drawing.Size(459, 239);
             this.Load += new System.EventHandler(this.EmployeeFurnitureUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
             this.AddToCartGroupBox.ResumeLayout(false);
@@ -319,7 +322,6 @@ namespace AAB_Furniture_Rentals.UserControls
             ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.serchBygroup.ResumeLayout(false);
-            this.serchBygroup.PerformLayout();
             this.alreadyInCartPanel.ResumeLayout(false);
             this.alreadyInCartPanel.PerformLayout();
             this.ResumeLayout(false);
