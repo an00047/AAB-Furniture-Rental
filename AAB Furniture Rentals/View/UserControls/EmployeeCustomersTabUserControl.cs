@@ -46,7 +46,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
             Form newCustomerDialog = new CustomerDialog(this);
             newCustomerDialog.ShowDialog();
             //MEMBER IS SET ON THE DIALOG
-
             this.CustomerIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
             this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
             this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
