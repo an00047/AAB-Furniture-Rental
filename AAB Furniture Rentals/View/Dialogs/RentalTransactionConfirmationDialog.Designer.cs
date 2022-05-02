@@ -48,13 +48,13 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.totalLabel = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TransactionFurnitureDataGridView = new System.Windows.Forms.DataGridView();
-            this.CloseConfirmationPage = new System.Windows.Forms.Button();
-            this.TransactionIDLabel = new System.Windows.Forms.Label();
-            this.TransactionIDValue = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FurnitureStyle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QtyRented = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CloseConfirmationPage = new System.Windows.Forms.Button();
+            this.TransactionIDLabel = new System.Windows.Forms.Label();
+            this.TransactionIDValue = new System.Windows.Forms.Label();
             this.EmployeeDetailsBox = new System.Windows.Forms.GroupBox();
             this.EmployeeNameValue = new System.Windows.Forms.Label();
             this.EmployeeNameLabel = new System.Windows.Forms.Label();
@@ -152,7 +152,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.groupBox2.Controls.Add(this.totalLabel);
             this.groupBox2.Location = new System.Drawing.Point(12, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(351, 95);
+            this.groupBox2.Size = new System.Drawing.Size(367, 95);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Transaction Details: ";
@@ -162,7 +162,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.ReturnDateValue.AutoSize = true;
             this.ReturnDateValue.Font = new System.Drawing.Font("ModeNine", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReturnDateValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.ReturnDateValue.Location = new System.Drawing.Point(147, 68);
+            this.ReturnDateValue.Location = new System.Drawing.Point(141, 68);
             this.ReturnDateValue.Name = "ReturnDateValue";
             this.ReturnDateValue.Size = new System.Drawing.Size(18, 16);
             this.ReturnDateValue.TabIndex = 9;
@@ -172,7 +172,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             this.ReturnDateLabel.AutoSize = true;
             this.ReturnDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnDateLabel.Location = new System.Drawing.Point(12, 68);
+            this.ReturnDateLabel.Location = new System.Drawing.Point(8, 68);
             this.ReturnDateLabel.Name = "ReturnDateLabel";
             this.ReturnDateLabel.Size = new System.Drawing.Size(138, 13);
             this.ReturnDateLabel.TabIndex = 8;
@@ -225,7 +225,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.groupBox3.Controls.Add(this.TransactionFurnitureDataGridView);
             this.groupBox3.Location = new System.Drawing.Point(12, 241);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(351, 322);
+            this.groupBox3.Size = new System.Drawing.Size(367, 322);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Rentals Information: ";
@@ -260,42 +260,8 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.TransactionFurnitureDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.TransactionFurnitureDataGridView.RowTemplate.ReadOnly = true;
             this.TransactionFurnitureDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.TransactionFurnitureDataGridView.Size = new System.Drawing.Size(345, 303);
+            this.TransactionFurnitureDataGridView.Size = new System.Drawing.Size(361, 303);
             this.TransactionFurnitureDataGridView.TabIndex = 0;
-            // 
-            // CloseConfirmationPage
-            // 
-            this.CloseConfirmationPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.CloseConfirmationPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseConfirmationPage.Location = new System.Drawing.Point(50, 581);
-            this.CloseConfirmationPage.Name = "CloseConfirmationPage";
-            this.CloseConfirmationPage.Size = new System.Drawing.Size(255, 45);
-            this.CloseConfirmationPage.TabIndex = 0;
-            this.CloseConfirmationPage.Text = "Close Confirmation Screen";
-            this.CloseConfirmationPage.UseVisualStyleBackColor = false;
-            this.CloseConfirmationPage.Click += new System.EventHandler(this.CloseConfirmationPage_Click);
-            // 
-            // TransactionIDLabel
-            // 
-            this.TransactionIDLabel.AutoSize = true;
-            this.TransactionIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransactionIDLabel.ForeColor = System.Drawing.Color.Black;
-            this.TransactionIDLabel.Location = new System.Drawing.Point(94, 8);
-            this.TransactionIDLabel.Name = "TransactionIDLabel";
-            this.TransactionIDLabel.Size = new System.Drawing.Size(156, 24);
-            this.TransactionIDLabel.TabIndex = 2;
-            this.TransactionIDLabel.Text = "Transaction ID: ";
-            // 
-            // TransactionIDValue
-            // 
-            this.TransactionIDValue.AutoSize = true;
-            this.TransactionIDValue.Font = new System.Drawing.Font("ModeNine", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransactionIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.TransactionIDValue.Location = new System.Drawing.Point(246, 10);
-            this.TransactionIDValue.Name = "TransactionIDValue";
-            this.TransactionIDValue.Size = new System.Drawing.Size(23, 22);
-            this.TransactionIDValue.TabIndex = 3;
-            this.TransactionIDValue.Text = "?";
             // 
             // Column1
             // 
@@ -321,6 +287,40 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.QtyRented.Name = "QtyRented";
             this.QtyRented.ReadOnly = true;
             // 
+            // CloseConfirmationPage
+            // 
+            this.CloseConfirmationPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.CloseConfirmationPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CloseConfirmationPage.Location = new System.Drawing.Point(63, 581);
+            this.CloseConfirmationPage.Name = "CloseConfirmationPage";
+            this.CloseConfirmationPage.Size = new System.Drawing.Size(255, 45);
+            this.CloseConfirmationPage.TabIndex = 0;
+            this.CloseConfirmationPage.Text = "Close Confirmation Screen";
+            this.CloseConfirmationPage.UseVisualStyleBackColor = false;
+            this.CloseConfirmationPage.Click += new System.EventHandler(this.CloseConfirmationPage_Click);
+            // 
+            // TransactionIDLabel
+            // 
+            this.TransactionIDLabel.AutoSize = true;
+            this.TransactionIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionIDLabel.ForeColor = System.Drawing.Color.Black;
+            this.TransactionIDLabel.Location = new System.Drawing.Point(107, 9);
+            this.TransactionIDLabel.Name = "TransactionIDLabel";
+            this.TransactionIDLabel.Size = new System.Drawing.Size(156, 24);
+            this.TransactionIDLabel.TabIndex = 2;
+            this.TransactionIDLabel.Text = "Transaction ID: ";
+            // 
+            // TransactionIDValue
+            // 
+            this.TransactionIDValue.AutoSize = true;
+            this.TransactionIDValue.Font = new System.Drawing.Font("ModeNine", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransactionIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.TransactionIDValue.Location = new System.Drawing.Point(259, 11);
+            this.TransactionIDValue.Name = "TransactionIDValue";
+            this.TransactionIDValue.Size = new System.Drawing.Size(23, 22);
+            this.TransactionIDValue.TabIndex = 3;
+            this.TransactionIDValue.Text = "?";
+            // 
             // EmployeeDetailsBox
             // 
             this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameValue);
@@ -329,7 +329,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.EmployeeDetailsBox.Controls.Add(this.EmpployeeIDLabel);
             this.EmployeeDetailsBox.Location = new System.Drawing.Point(196, 52);
             this.EmployeeDetailsBox.Name = "EmployeeDetailsBox";
-            this.EmployeeDetailsBox.Size = new System.Drawing.Size(167, 81);
+            this.EmployeeDetailsBox.Size = new System.Drawing.Size(183, 81);
             this.EmployeeDetailsBox.TabIndex = 22;
             this.EmployeeDetailsBox.TabStop = false;
             this.EmployeeDetailsBox.Text = "Employee Details: ";
@@ -378,7 +378,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 638);
+            this.ClientSize = new System.Drawing.Size(390, 638);
             this.Controls.Add(this.EmployeeDetailsBox);
             this.Controls.Add(this.TransactionIDValue);
             this.Controls.Add(this.TransactionIDLabel);
