@@ -362,10 +362,5 @@ namespace AAB_Furniture_Rentals.UserControls
             this.AddToCartGroupBox.Enabled = false;
             this.ViewCartButton.Enabled = false;
         }
-
-    
-
-     
-       
     }
 }
