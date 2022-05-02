@@ -34,11 +34,15 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="returnTransactionID">The return transaction identifier.</param>
         /// <param name="dateTimeCreated">The date time created.</param>
         /// <param name="employeeID">The employee identifier.</param>
+        /// 
+        public int MemberID { get; set; }
         public Returns(int returnTransactionID, DateTime dateTimeCreated, int employeeID)
         {
             this.ReturnTransactionID = returnTransactionID;
             this.DateTimeCreated = dateTimeCreated;
             this.EmployeeID = employeeID;
         }
+        public Returns() { }
+    
     }
 }
