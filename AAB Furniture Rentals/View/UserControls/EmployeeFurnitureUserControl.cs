@@ -15,7 +15,7 @@ namespace AAB_Furniture_Rentals.UserControls
     public partial class EmployeeFurnitureUserControl : UserControl
     {
 
-        private List<int> ListOfRowsAddedToCart;
+        //private List<int> ListOfRowsAddedToCart;
 
         /// <summary>
         /// Constrouctor method for the employeeUser furniture control
@@ -25,9 +25,15 @@ namespace AAB_Furniture_Rentals.UserControls
             InitializeComponent();
           
             this.ViewCartButton.Enabled = false;
-            ListOfRowsAddedToCart = new List<int>();
-            this.InCartWarning.Visible = false;
-            InCartWarning.BackColor = Color.Black;
+            this.InCartWarning.Visible = true;
+            this.InCartWarning.Text = "Item already in cart. \n Go to Cart to edit/update the order \n OR select a different item";
+            this.alreadyInCartPanel.Visible = false;
+          
+            //Makes a Cart, if one didnt already exist
+            if (FurnitureController.CurrentCart == null)
+            {
+                FurnitureController.CurrentCart = new Cart();
+            }
 
         }
 
@@ -68,6 +74,7 @@ namespace AAB_Furniture_Rentals.UserControls
 
 
             this.ManualDatabind(furnitures);
+            this.BlackListCartItmes();
 
 
         }
@@ -115,7 +122,9 @@ namespace AAB_Furniture_Rentals.UserControls
                     category,
                     id);
 
+                this.alreadyInCartPanel.Visible = false;
                 this.ManualDatabind(furnitures);
+                this.BlackListCartItmes();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message,
@@ -156,8 +165,11 @@ namespace AAB_Furniture_Rentals.UserControls
         private void Clear_Click(object sender, EventArgs e)
         {
             this.RefreshSearchComboBoxes();
+            this.alreadyInCartPanel.Visible = false;
             this.searchDataGridView.DataSource = null;
             this.RefreshDataGrid();
+            this.BlackListCartItmes();
+
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -165,10 +177,9 @@ namespace AAB_Furniture_Rentals.UserControls
             
             try
             {
+                //Makes a Cart, if one didnt already exist
                 if (FurnitureController.CurrentCart == null)
                 {
-                    // make a new cart object, store it in the controller
-                 
                     FurnitureController.CurrentCart = new Cart();
                 }
                 if ((Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem == null) {
@@ -177,19 +188,25 @@ namespace AAB_Furniture_Rentals.UserControls
 
                
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
-                FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
-                DisableRowThatHasBeenAddedToCart();
-                this.ViewCartButton.Enabled = true;
+                bool quantityWasAvailable = FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
+                if (!quantityWasAvailable)
+                {
+                    MessageBox.Show("Not Enough inventory to facilitate this request. Please choose something else to rent", "Oh- No!");
+                    this.AddToCartGroupBox.Enabled = false;
+                }
 
+                this.alreadyInCartPanel.Visible = false;
+                this.ViewCartButton.Enabled = true;
                 this.RefreshDataGrid();
-                
+                this.BlackListCartItmes();
+
             }
             catch (Exception ex) {
-                FurnitureController.CurrentCart = null;
+
                 MessageBox.Show(ex.Message, "Error!");
                 this.RefreshDataGrid();
+                this.BlackListCartItmes();
             }
-
         }
 
         private void ViewCartButton_Click(object sender, EventArgs e)
@@ -198,13 +215,15 @@ namespace AAB_Furniture_Rentals.UserControls
             if (FurnitureController.CurrentCart != null) {
 
                 Form CartDialog = new CartDialog();
-                CartDialog.ShowDialog();
+
+                // this will be HUGE in a bit
+                var result = CartDialog.ShowDialog();
 
                 
                 this.RefreshSearchComboBoxes();
                 this.searchDataGridView.DataSource = null;
                 this.RefreshDataGrid();
-                this.ResetCartItems();
+                this.alreadyInCartPanel.Visible = false;
 
             } else {
                 //you need to add something to the cart
@@ -213,24 +232,22 @@ namespace AAB_Furniture_Rentals.UserControls
         
         }
 
-        private void ResetCartItems() {
-            this.ListOfRowsAddedToCart.ForEach((rowindex) => {
-                searchDataGridView.Rows[rowindex].DefaultCellStyle.BackColor = Color.White;
-            });
-            this.ListOfRowsAddedToCart.Clear();
-            this.searchDataGridView.ClearSelection();
-            this.ViewCartButton.Enabled = false;
-        }
 
         private void AbandonCartButton_Click(object sender, EventArgs e)
         {
             if (FurnitureController.CurrentCart != null)
             {
-               // FurnitureController.CurrentCart.PutFurnitureBackIntoInventory();
-                FurnitureController.CurrentCart = null;
+               
+
+
+                // FurnitureController.CurrentCart.PutFurnitureBackIntoInventory();
+                
+                this.AddToCartGroupBox.Enabled = false;
                 this.RefreshSearchComboBoxes();
+                this.WhiteListCartItmes();
+                FurnitureController.CurrentCart = null;
             }
-            this.ResetCartItems();
+           
         }
 
         //. todo: duplicate,clean up after merge
@@ -262,14 +279,7 @@ namespace AAB_Furniture_Rentals.UserControls
 
 
                 this.ManualDatabind(furnitures);
-
-                //If we ever SORT rows, this will break.
-                this.ListOfRowsAddedToCart.ForEach((rowindex)=>{
-                    searchDataGridView.Rows[rowindex].DefaultCellStyle.BackColor = Color.OrangeRed;
-                    this.searchDataGridView.ClearSelection();
-                });
-              
-                this.searchDataGridView.ClearSelection();
+                this.BlackListCartItmes();
 
             }
             catch (Exception ex)
@@ -279,49 +289,78 @@ namespace AAB_Furniture_Rentals.UserControls
             }
         }
 
-        private void DisableRowThatHasBeenAddedToCart() {
+                
+     
 
-
-            //int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
-            //searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor = Color.OrangeRed;
-            //this.searchDataGridView.ClearSelection();
-
-            int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
-            if (currentRow >= 0)
-            {
-                //check if theindex is in thelist
-                if (!this.ListOfRowsAddedToCart.Contains(currentRow))
-                {
-                    //store the index in a list
-                    this.ListOfRowsAddedToCart.Add(currentRow);
-                    //Turn it grey becasue it has been added to the cart / List
-                    searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor = Color.OrangeRed;
-                    this.searchDataGridView.ClearSelection();
-                    //
-                }
-            }
-        }
-
-
+        //clicking on a row creates a cart object, if one didnt exist
         private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
+          
+            
+                int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
+                     
+
             if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
             {
-                this.InCartWarning.Text = "Item already added to cart. Go to Cart to edit the order";
-                this.InCartWarning.Visible = true;
+                
+                this.alreadyInCartPanel.Visible = true;
                 this.AddToCartGroupBox.Enabled = false;
                 this.searchDataGridView.ClearSelection();
             }
             else
             {
                 this.AddToCartGroupBox.Enabled = true;
-                this.InCartWarning.Visible = false;
+                this.alreadyInCartPanel.Visible = false;
             }
             
         }
 
         private void searchDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            this.AddToCartGroupBox.Enabled = false;
+            this.searchDataGridView.ClearSelection();
+        }
+
+      
+        private void BlackListCartItmes() {
+
+            if (FurnitureController.CurrentCart != null) {
+                FurnitureController.CurrentCart.FurnitureList.ForEach((item) => {
+
+                    foreach (DataGridViewRow row in searchDataGridView.Rows) {
+                        if (row.Cells[0].Value.Equals(item.FurnitureID)) {
+                            searchDataGridView.Rows[row.Index].DefaultCellStyle.BackColor = Color.OrangeRed;
+                        }
+                    }
+
+                });
+            }
+            this.AddToCartGroupBox.Enabled = false;
+            this.searchDataGridView.ClearSelection();
+        }
+
+        private void WhiteListCartItmes()
+        {
+            if (FurnitureController.CurrentCart != null)
+            {
+                FurnitureController.CurrentCart.FurnitureList.ForEach((item) =>
+                {
+                    foreach (DataGridViewRow row in searchDataGridView.Rows)
+                    {
+                        if (row.Cells[0].Value.Equals(item.FurnitureID))
+                        {
+                            searchDataGridView.Rows[row.Index].DefaultCellStyle.BackColor = Color.White;
+                        }
+                    }
+                });
+            }
+
+            this.searchDataGridView.ClearSelection();
+            this.AddToCartGroupBox.Enabled = false;
+            this.ViewCartButton.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
             this.searchDataGridView.ClearSelection();
         }

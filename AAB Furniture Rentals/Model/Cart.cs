@@ -51,12 +51,15 @@ namespace AAB_Furniture_Rentals.Model
             this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
+
         /// <summary>
-        /// retreives Furniture information from the DB based on Furniture ID
+        ///retreives Furniture information from the DB based on Furniture ID
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
         /// </summary>
-        /// <param name="furnitureID"></param>
-        public void AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd) {
+        /// <param name="furnitureToAdd"></param>
+        /// <param name="quantityToAdd"></param>
+        /// <returns></returns>
+        public bool AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd) {
 
             int quantityToRent = quantityToAdd;
             furnitureToAdd.QuantityOnHand = quantityToAdd;
@@ -67,11 +70,11 @@ namespace AAB_Furniture_Rentals.Model
             //check to see if Qty is still available
             if (InventoryItem.QuantityOnHand < quantityToRent) {
 
-                if (this.activeInventoryFeatureIsON)
-                {
+                if (this.activeInventoryFeatureIsON) {
                     this.PutFurnitureBackIntoInventory();
                 }
-                throw new Exception("Not Enough inventory to facilitate this request. Please choose something else to rent");
+                return false;
+                
             }
 
             // We have ensured there is enough inventory, 
@@ -88,7 +91,7 @@ namespace AAB_Furniture_Rentals.Model
             this.IsRentedList.Add(newIsRentedAdapter);
             this.FurnitureList.Add(furnitureToAdd);
 
-
+            return true;
 
         }
         public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
