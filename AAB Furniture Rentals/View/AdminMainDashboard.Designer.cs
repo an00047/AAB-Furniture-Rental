@@ -77,7 +77,7 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl.Name = "AdminTabControl";
             this.AdminTabControl.SelectedIndex = 0;
             this.AdminTabControl.Size = new System.Drawing.Size(796, 355);
-            this.AdminTabControl.TabIndex = 0;
+            this.AdminTabControl.TabIndex = 2;
             // 
             // employeesTab
             // 
@@ -108,7 +108,7 @@ namespace AAB_Furniture_Rentals.View
             this.logoutLabel.Name = "logoutLabel";
             this.logoutLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.logoutLabel.Size = new System.Drawing.Size(59, 20);
-            this.logoutLabel.TabIndex = 2;
+            this.logoutLabel.TabIndex = 3;
             this.logoutLabel.Text = "Logout";
             this.logoutLabel.Click += new System.EventHandler(this.LogoutLabel_Click);
             // 

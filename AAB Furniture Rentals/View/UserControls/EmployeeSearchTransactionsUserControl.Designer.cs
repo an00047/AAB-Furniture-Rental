@@ -54,7 +54,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchComboBox.Location = new System.Drawing.Point(58, 136);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(65, 21);
-            this.searchComboBox.TabIndex = 1;
+            this.searchComboBox.TabIndex = 2;
             // 
             // searchCustomerIDTextBox
             // 
@@ -62,7 +62,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchCustomerIDTextBox.Location = new System.Drawing.Point(58, 94);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
             this.searchCustomerIDTextBox.Size = new System.Drawing.Size(65, 20);
-            this.searchCustomerIDTextBox.TabIndex = 2;
+            this.searchCustomerIDTextBox.TabIndex = 1;
             // 
             // searchButton
             // 
@@ -110,7 +110,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.customerTransactionDataGridView.Name = "customerTransactionDataGridView";
             this.customerTransactionDataGridView.ReadOnly = true;
             this.customerTransactionDataGridView.Size = new System.Drawing.Size(279, 145);
-            this.customerTransactionDataGridView.TabIndex = 5;
+            this.customerTransactionDataGridView.TabIndex = 4;
             // 
             // TransactionID
             // 
