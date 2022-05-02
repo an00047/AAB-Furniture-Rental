@@ -43,15 +43,21 @@ namespace AAB_Furniture_Rentals.UserControls
             this.FurnitureDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuantityInOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SerchTransactionGroupBox = new System.Windows.Forms.GroupBox();
+            this.ReturnRB = new System.Windows.Forms.RadioButton();
+            this.RentalsRB = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).BeginInit();
+            this.SerchTransactionGroupBox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchComboBox
             // 
             this.searchComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.searchComboBox.FormattingEnabled = true;
-            this.searchComboBox.Location = new System.Drawing.Point(58, 136);
+            this.searchComboBox.Location = new System.Drawing.Point(309, 133);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(65, 21);
             this.searchComboBox.TabIndex = 1;
@@ -59,17 +65,17 @@ namespace AAB_Furniture_Rentals.UserControls
             // searchCustomerIDTextBox
             // 
             this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(58, 94);
+            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(73, 7);
             this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
-            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(65, 20);
+            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(56, 20);
             this.searchCustomerIDTextBox.TabIndex = 2;
             // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchButton.Location = new System.Drawing.Point(58, 176);
+            this.searchButton.Location = new System.Drawing.Point(132, 7);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(65, 24);
+            this.searchButton.Size = new System.Drawing.Size(56, 20);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -79,11 +85,11 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.searchCustomerIDLabel.AutoSize = true;
             this.searchCustomerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.searchCustomerIDLabel.Location = new System.Drawing.Point(58, 78);
+            this.searchCustomerIDLabel.Location = new System.Drawing.Point(2, 10);
             this.searchCustomerIDLabel.Name = "searchCustomerIDLabel";
             this.searchCustomerIDLabel.Size = new System.Drawing.Size(65, 13);
             this.searchCustomerIDLabel.TabIndex = 4;
-            this.searchCustomerIDLabel.Text = "Customer ID";
+            this.searchCustomerIDLabel.Text = "Member ID: ";
             // 
             // _cs6232_g4DataSet1
             // 
@@ -94,6 +100,8 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             this.customerTransactionDataGridView.AllowUserToAddRows = false;
             this.customerTransactionDataGridView.AllowUserToDeleteRows = false;
+            this.customerTransactionDataGridView.AllowUserToResizeColumns = false;
+            this.customerTransactionDataGridView.AllowUserToResizeRows = false;
             this.customerTransactionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.customerTransactionDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.customerTransactionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -106,10 +114,11 @@ namespace AAB_Furniture_Rentals.UserControls
             this.FurnitureDescription,
             this.TransactionDate,
             this.QuantityInOut});
-            this.customerTransactionDataGridView.Location = new System.Drawing.Point(151, 78);
+            this.customerTransactionDataGridView.Location = new System.Drawing.Point(3, 39);
             this.customerTransactionDataGridView.Name = "customerTransactionDataGridView";
             this.customerTransactionDataGridView.ReadOnly = true;
-            this.customerTransactionDataGridView.Size = new System.Drawing.Size(279, 145);
+            this.customerTransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.customerTransactionDataGridView.Size = new System.Drawing.Size(450, 192);
             this.customerTransactionDataGridView.TabIndex = 5;
             // 
             // TransactionID
@@ -168,22 +177,70 @@ namespace AAB_Furniture_Rentals.UserControls
             this.QuantityInOut.ReadOnly = true;
             this.QuantityInOut.Width = 102;
             // 
+            // SerchTransactionGroupBox
+            // 
+            this.SerchTransactionGroupBox.Controls.Add(this.ReturnRB);
+            this.SerchTransactionGroupBox.Controls.Add(this.RentalsRB);
+            this.SerchTransactionGroupBox.Location = new System.Drawing.Point(3, 3);
+            this.SerchTransactionGroupBox.Name = "SerchTransactionGroupBox";
+            this.SerchTransactionGroupBox.Size = new System.Drawing.Size(167, 30);
+            this.SerchTransactionGroupBox.TabIndex = 6;
+            this.SerchTransactionGroupBox.TabStop = false;
+            this.SerchTransactionGroupBox.Text = "Transaction Type:";
+            // 
+            // ReturnRB
+            // 
+            this.ReturnRB.AutoSize = true;
+            this.ReturnRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnRB.Location = new System.Drawing.Point(95, 12);
+            this.ReturnRB.Name = "ReturnRB";
+            this.ReturnRB.Size = new System.Drawing.Size(73, 21);
+            this.ReturnRB.TabIndex = 6;
+            this.ReturnRB.TabStop = true;
+            this.ReturnRB.Text = "Return ";
+            this.ReturnRB.UseVisualStyleBackColor = true;
+            // 
+            // RentalsRB
+            // 
+            this.RentalsRB.AutoSize = true;
+            this.RentalsRB.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RentalsRB.Location = new System.Drawing.Point(22, 13);
+            this.RentalsRB.Name = "RentalsRB";
+            this.RentalsRB.Size = new System.Drawing.Size(71, 21);
+            this.RentalsRB.TabIndex = 5;
+            this.RentalsRB.TabStop = true;
+            this.RentalsRB.Text = "Rental ";
+            this.RentalsRB.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.searchCustomerIDLabel);
+            this.groupBox1.Controls.Add(this.searchButton);
+            this.groupBox1.Controls.Add(this.searchCustomerIDTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(265, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(192, 30);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            // 
             // EmployeeRentalsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.SerchTransactionGroupBox);
             this.Controls.Add(this.customerTransactionDataGridView);
-            this.Controls.Add(this.searchCustomerIDLabel);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchCustomerIDTextBox);
             this.Controls.Add(this.searchComboBox);
             this.Name = "EmployeeRentalsUserControl";
-            this.Size = new System.Drawing.Size(499, 297);
+            this.Size = new System.Drawing.Size(460, 231);
             this.Load += new System.EventHandler(this.EmployeeRentalsUserControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerTransactionDataGridView)).EndInit();
+            this.SerchTransactionGroupBox.ResumeLayout(false);
+            this.SerchTransactionGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -202,5 +259,9 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.DataGridViewTextBoxColumn FurnitureDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransactionDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn QuantityInOut;
+        private System.Windows.Forms.GroupBox SerchTransactionGroupBox;
+        private System.Windows.Forms.RadioButton ReturnRB;
+        private System.Windows.Forms.RadioButton RentalsRB;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

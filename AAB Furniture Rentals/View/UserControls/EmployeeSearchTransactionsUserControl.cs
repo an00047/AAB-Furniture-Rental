@@ -17,6 +17,7 @@ namespace AAB_Furniture_Rentals.UserControls
         public EmployeeRentalsUserControl()
         {
             InitializeComponent();
+            this.RentalsRB.Checked = true;
         }
 
         private void EmployeeRentalsUserControl_Load(object sender, EventArgs e)
