@@ -16,6 +16,17 @@ namespace AAB_Furniture_Rentals.Model
 
         private List<IsReturnedModel> IsReturnedList;
 
+        public DateTime ReturnedDate { get; private set; }
+
+        /// <summary>
+        /// the rental transactionID after checkout
+        /// </summary>
+        public int ReturnTransactionID { get; private set; }
+
+        /// <summary>
+        /// Stores the last cart calculation before checkout
+        /// </summary>
+
         public ReturnCart()
         {
             this.IsReturnedList = new List<IsReturnedModel>();
@@ -39,65 +50,25 @@ namespace AAB_Furniture_Rentals.Model
              IsReturnedModel newIsReturnedAdapter = new IsReturnedModel();
              newIsReturnedAdapter.QuantityIn = quantityReturned;
              newIsReturnedAdapter.IsRentedFurnitureID = currentFurniture.FurnitureID;
+             newIsReturnedAdapter.IsRentedTransactionID = currentFurniture.TransactionID; 
              this.IsReturnedList.Add(newIsReturnedAdapter);
              this.FurnitureList.Add(RentedItem);
 
             }
-            //this.ReturnFurnitureToInvetory();
+          
+            
         }
-        /// <summary>
-        /// Adds the items checked out back into the inventory, then zeroizes all the properties
-        /// 
-        /// </summary>
-        public void ReturnFurnitureToInvetory()
+
+        public void ProcessInsertReturnTransaction(int memberID, int employeeID)
         {
-
-            // add each furniture in the last back... 
-
-            this.FurnitureList.ForEach((item) =>
-            {
-                Furniture inventoryItem = FurnitureController.GetFurnitureByID(item.FurnitureID);
-                inventoryItem.QuantityOnHand += item.QuantityOnHand;
-                FurnitureController.UpdateFurnitureItem(inventoryItem);
-
-            });
-
-
-            this.IsReturnedList = new List<IsReturnedModel>();
-            this.FurnitureList = new List<Furniture>();
-
-
+            Returns newReturnedtransaction = new Returns();
+            newReturnedtransaction.MemberID = memberID;
+            newReturnedtransaction.EmployeeID = employeeID;
+            newReturnedtransaction.DateTimeCreated = DateTime.Now;
+            this.ReturnedDate = newReturnedtransaction.DateTimeCreated;
+            this.ReturnTransactionID = FurnitureController.InsertReturnTransaction(newReturnedtransaction, this.IsReturnedList);
         }
-        /// <summary>
-        /// populates the IsRented List with the transaction id. It already has the furniture and quantity,
-        /// it just doesnt have the transaction id, becasue this needs to be processed seperately upon checkout. 
-        /// </summary>
-        /// <param name="transactionID"></param>
-        public void AddTransactionToIsRentedList(int transactionID)
-        {
-            this.IsReturnedList.ForEach((item) => {
-                item.IsRentedTransactionID = transactionID;
-            });
-        }
-        /// <summary>
-        /// Updates the IsReturned Database
-        /// </summary>
-      //  public void ProcessIsReturnedList() => FurnitureController.ProcessIsReturnedList(this.IsReturnedList);
-
-        /// <summary>
-        /// generates the transaction in the Database. Returns the Id. 
-        /// </summary>
-        /// <returns></returns>
-      //  public int ProcessReturnTransaction(int memberID, int employeeID, DateTime dueDate)
-      //  {
-      //      Rental newRentaltransaction = new Rental();
-      //      newRentaltransaction.MemberID = memberID;
-      //      newRentaltransaction.EmployeeID = employeeID;
-      //      newRentaltransaction.DueDate = dueDate;
-
-      //      return FurnitureController.ProcessReturnTransaction(newRentaltransaction);
-      //  }
-
+      
         /// <summary>
         /// Calculates the total rental cost (w/o taxes)
         /// </summary>

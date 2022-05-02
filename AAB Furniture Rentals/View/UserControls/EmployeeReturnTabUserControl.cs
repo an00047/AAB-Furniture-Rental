@@ -68,15 +68,18 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 }
                
                 FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
-                MessageBox.Show("Return successful. Return Cart: " + FurnitureController.CurrentReturnCart.GetReturnCartContents());
-                   // this.RefreshDataGrid();
+                FurnitureController.CurrentReturnCart.ProcessInsertReturnTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
+                memberID: MemberController.CurrentMember.MemberID);
+
+                MessageBox.Show("Return successful.");
+                this.populateItems();
                 
                 }
                 catch (Exception ex)
                 {
                     FurnitureController.CurrentCart = null;
                     MessageBox.Show(ex.Message, "Error!");
-                   // this.RefreshDataGrid();
+                this.populateItems();
                 }
             
         }
@@ -115,40 +118,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 //TODO: prompt user for member information if NOT exists. 
                 int customerID = int.Parse(this.idTextBox.Text);
                 AllRentals = RentalController.GetAllRentalsByCustomerID(customerID);
-
-
-
-                foreach (Rental currentRental in AllRentals)
-                {
-                    AllFurniture = IsRentedController.GetAllFurnitureByTransactionID(currentRental.RentalTransactionID);
-
-
-                    foreach (Furniture currentFurniture in AllFurniture)
-                    {
-                        Furniture tempFurniture = FurnitureController.GetRatesForReturns(currentFurniture);
-                        currentFurniture.DailyRentalRate = tempFurniture.DailyRentalRate;
-                        currentFurniture.FineRate = tempFurniture.FineRate;
-                        currentFurniture.Style = tempFurniture.Style;
-                        currentFurniture.Category = tempFurniture.Category;
-                        currentFurniture.DueDate = currentRental.DateTimeDue;
-                        currentFurniture.TransactionID = currentRental.RentalTransactionID;
-                        currentFurniture.RentalDescription = currentRental.RentalTransactionID + " :(1) " + currentFurniture.Style + " " + currentFurniture.Category + "( " + currentFurniture.FurnitureID + " )";
-
-                        for (int i = 0; i < currentFurniture.QuantityRented; i++)
-                        {
-                            this.itemsReturnedCheckedListBox.Items.Add(currentFurniture, false);
-                        }
-
-                        this.getTransactionsButton.Enabled = false;
-
-
-                    }
-                }
-
-                this.itemsReturnedCheckedListBox.DisplayMember = "RentalDescription";
-
-
-
+                this.populateItems();
 
             }
             catch (FormatException)
@@ -164,6 +134,42 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.refundTextBox.Text = "0.00";
             this.getTransactionsButton.Enabled = true;
             this.processReturnButton.Enabled = false;
+
+        }
+
+        private void populateItems()
+        {
+            this.itemsReturnedCheckedListBox.Items.Clear();
+            foreach (Rental currentRental in AllRentals)
+            {
+                AllFurniture = IsRentedController.GetAllFurnitureByTransactionID(currentRental.RentalTransactionID);
+
+
+                foreach (Furniture currentFurniture in AllFurniture)
+                {
+                    Furniture tempFurniture = FurnitureController.GetRatesForReturns(currentFurniture);
+                    currentFurniture.DailyRentalRate = tempFurniture.DailyRentalRate;
+                    currentFurniture.FineRate = tempFurniture.FineRate;
+                    currentFurniture.Style = tempFurniture.Style;
+                    currentFurniture.Category = tempFurniture.Category;
+                    currentFurniture.DueDate = currentRental.DateTimeDue;
+                    currentFurniture.TransactionID = currentRental.RentalTransactionID;
+                    currentFurniture.RentalDescription = currentRental.RentalTransactionID + " :(1) " + currentFurniture.Style + " " + currentFurniture.Category + "( " + currentFurniture.FurnitureID + " )";
+
+                    for (int i = 0; i < currentFurniture.QuantityRented; i++)
+                    {
+                        this.itemsReturnedCheckedListBox.Items.Add(currentFurniture, false);
+                    }
+
+                    this.getTransactionsButton.Enabled = false;
+
+
+                }
+            }
+
+            this.itemsReturnedCheckedListBox.DisplayMember = "RentalDescription";
+
+
 
         }
 
