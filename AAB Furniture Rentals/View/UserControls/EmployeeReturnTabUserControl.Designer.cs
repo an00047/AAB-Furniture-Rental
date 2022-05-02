@@ -82,7 +82,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.idTextBox.Location = new System.Drawing.Point(125, 23);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(171, 20);
-            this.idTextBox.TabIndex = 4;
+            this.idTextBox.TabIndex = 1;
             this.idTextBox.TextChanged += new System.EventHandler(this.CustomerID_TextChanged);
             // 
             // feesTextBox
@@ -90,21 +90,21 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.feesTextBox.Location = new System.Drawing.Point(125, 153);
             this.feesTextBox.Name = "feesTextBox";
             this.feesTextBox.Size = new System.Drawing.Size(171, 20);
-            this.feesTextBox.TabIndex = 6;
+            this.feesTextBox.TabIndex = 4;
             // 
             // refundTextBox
             // 
             this.refundTextBox.Location = new System.Drawing.Point(125, 179);
             this.refundTextBox.Name = "refundTextBox";
             this.refundTextBox.Size = new System.Drawing.Size(171, 20);
-            this.refundTextBox.TabIndex = 7;
+            this.refundTextBox.TabIndex = 5;
             // 
             // processReturnButton
             // 
             this.processReturnButton.Location = new System.Drawing.Point(210, 204);
             this.processReturnButton.Name = "processReturnButton";
             this.processReturnButton.Size = new System.Drawing.Size(86, 23);
-            this.processReturnButton.TabIndex = 8;
+            this.processReturnButton.TabIndex = 6;
             this.processReturnButton.Text = "Process Return";
             this.processReturnButton.UseVisualStyleBackColor = true;
             this.processReturnButton.Click += new System.EventHandler(this.ProcessReturnButton_Click);
@@ -115,7 +115,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.itemsReturnedCheckedListBox.Location = new System.Drawing.Point(125, 73);
             this.itemsReturnedCheckedListBox.Name = "itemsReturnedCheckedListBox";
             this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(318, 64);
-            this.itemsReturnedCheckedListBox.TabIndex = 9;
+            this.itemsReturnedCheckedListBox.TabIndex = 3;
             this.itemsReturnedCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemsReturned_Selected);
             // 
             // getTransactionsButton
@@ -124,7 +124,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.getTransactionsButton.Location = new System.Drawing.Point(257, 44);
             this.getTransactionsButton.Name = "getTransactionsButton";
             this.getTransactionsButton.Size = new System.Drawing.Size(39, 23);
-            this.getTransactionsButton.TabIndex = 10;
+            this.getTransactionsButton.TabIndex = 2;
             this.getTransactionsButton.Text = "Get";
             this.getTransactionsButton.UseVisualStyleBackColor = true;
             this.getTransactionsButton.Click += new System.EventHandler(this.getTransactionsButton_Click);
