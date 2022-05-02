@@ -277,9 +277,15 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Zip = this.zipTextBox.Text;
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
-                    newEmployee.Username = this.userNameTextBox.Text;
                     newEmployee.Admin = this.adminCheckBox.Checked;
+                    newEmployee.Username = this.userNameTextBox.Text;
 
+                    if(this.passwordTextBox.Text != "")
+                    {
+                        
+                    }
+                    
+                    
 
                     EmployeeController.AddNewEmployee(newEmployee);
                     MessageBox.Show("Successfully added employee.");
