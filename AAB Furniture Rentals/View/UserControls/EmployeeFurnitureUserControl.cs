@@ -26,7 +26,9 @@ namespace AAB_Furniture_Rentals.UserControls
           
             this.ViewCartButton.Enabled = false;
             ListOfRowsAddedToCart = new List<int>();
-           
+            this.InCartWarning.Visible = false;
+            InCartWarning.BackColor = Color.Black;
+
         }
 
 
@@ -159,7 +161,7 @@ namespace AAB_Furniture_Rentals.UserControls
                 Furniture selectedFurniture = (Furniture)this.searchDataGridView.SelectedRows[0].DataBoundItem;
                 FurnitureController.CurrentCart.AddFurnitureToCart(selectedFurniture, Decimal.ToInt32(this.qtyUpDown.Value));
                 DisableRowThatHasBeenAddedToCart();
-
+                this.ViewCartButton.Enabled = true;
 
                 this.RefreshDataGrid();
                 
@@ -207,6 +209,7 @@ namespace AAB_Furniture_Rentals.UserControls
             });
             this.ListOfRowsAddedToCart.Clear();
             this.searchDataGridView.ClearSelection();
+            this.ViewCartButton.Enabled = false;
         }
 
         //. todo: duplicate,clean up after merge
@@ -244,7 +247,7 @@ namespace AAB_Furniture_Rentals.UserControls
                     searchDataGridView.Rows[rowindex].DefaultCellStyle.BackColor = Color.OrangeRed;
                     this.searchDataGridView.ClearSelection();
                 });
-                //this.ViewCartButton.Enabled = false;
+              
                 this.searchDataGridView.ClearSelection();
 
             }
@@ -284,11 +287,14 @@ namespace AAB_Furniture_Rentals.UserControls
             int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
             if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
             {
+                this.InCartWarning.Text = "Item already added to cart. \n To change the quantity - View your cart";
+                this.InCartWarning.Visible = true;
                 this.AddToCartGroupBox.Enabled = false;
             }
             else
             {
                 this.AddToCartGroupBox.Enabled = true;
+                this.InCartWarning.Visible = false;
             }
         }
 
