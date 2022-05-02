@@ -151,9 +151,9 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeReturnTabUserControl1
             // 
-            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(200, 53);
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(-3, 3);
             this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
-            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(330, 268);
+            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(687, 370);
             this.employeeReturnTabUserControl1.TabIndex = 0;
             // 
             // rentalsTab
@@ -184,11 +184,11 @@ namespace AAB_Furniture_Rentals.View
             // EmployeeNameValue
             // 
             this.EmployeeNameValue.AutoSize = true;
-            this.EmployeeNameValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeNameValue.ForeColor = System.Drawing.Color.Black;
             this.EmployeeNameValue.Location = new System.Drawing.Point(47, 21);
             this.EmployeeNameValue.Name = "EmployeeNameValue";
-            this.EmployeeNameValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeNameValue.Size = new System.Drawing.Size(16, 18);
             this.EmployeeNameValue.TabIndex = 19;
             this.EmployeeNameValue.Text = "?";
             // 
@@ -204,11 +204,11 @@ namespace AAB_Furniture_Rentals.View
             // EmployeeIDValue
             // 
             this.EmployeeIDValue.AutoSize = true;
-            this.EmployeeIDValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeIDValue.ForeColor = System.Drawing.Color.Black;
             this.EmployeeIDValue.Location = new System.Drawing.Point(262, 19);
             this.EmployeeIDValue.Name = "EmployeeIDValue";
-            this.EmployeeIDValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeIDValue.Size = new System.Drawing.Size(16, 18);
             this.EmployeeIDValue.TabIndex = 17;
             this.EmployeeIDValue.Text = "?";
             // 
