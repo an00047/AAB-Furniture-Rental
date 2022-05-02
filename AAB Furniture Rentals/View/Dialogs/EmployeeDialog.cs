@@ -13,7 +13,7 @@ namespace AAB_Furniture_Rentals.View
     public partial class EmployeeDialog : Form
     {
 
-       
+
 
         Employee editEmployee;
         /// <summary>
@@ -22,13 +22,15 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog()
         {
             InitializeComponent();
-  
-        
+
+
             this.CustomerLabel.Text = "New Employee";
             this.EmployeeButton.Text = "Add Employee";
-           
+            this.birthdateBox.MaxDate = DateTime.Now;
             this.genderComboBox.Items.Add("F");
             this.genderComboBox.Items.Add("M");
+
+            clearErrorMessages();
 
             try
             {
@@ -54,7 +56,7 @@ namespace AAB_Furniture_Rentals.View
         public EmployeeDialog(Employee theEmployee)
         {
 
-           
+
             if (theEmployee == null)
             {
                 throw new Exception("Employee is invalid.");
@@ -81,12 +83,12 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateBox.Value = theEmployee.Dob;
             this.addressTextBox.Text = theEmployee.Address;
             this.cityTextBox.Text = theEmployee.City;
-            this.StateComboBox.SelectedItem = theEmployee.State;
-           this.zipTextBox.Text = theEmployee.Zip;
-           this.phoneTextBox.Text = theEmployee.Phone;
-           this.activeCheckBox.Checked = theEmployee.Active;
-           this.userNameTextBox.Text = theEmployee.Username;
-           this.adminCheckBox.Checked = theEmployee.Admin;
+            this.StateComboBox.SelectedValue = theEmployee.State;
+            this.zipTextBox.Text = theEmployee.Zip;
+            this.phoneTextBox.Text = theEmployee.Phone;
+            this.activeCheckBox.Checked = theEmployee.Active;
+            this.userNameTextBox.Text = theEmployee.Username;
+            this.adminCheckBox.Checked = theEmployee.Admin;
 
 
             this.passwordTextBox.Enabled = false;
@@ -164,19 +166,19 @@ namespace AAB_Furniture_Rentals.View
             if (this.cityTextBox.Text == "")
             {
                 this.cityError.Text = "City cannot be empty.";
-              
+
                 error++;
             }
             if (this.StateComboBox.SelectedItem == null || this.genderComboBox.SelectedIndex < 0)
             {
-                this.genderError.Text = "State selection is invalid.";
+                this.stateError.Text = "State selection is invalid.";
                 error++;
             }
-           
-            if (this.zipTextBox.Text == "")
+
+            if (this.zipTextBox.Text == ""  )
             {
                 this.zipError.Text = "zip cannot be empty.";
-                
+
                 error++;
             }
 
@@ -217,6 +219,23 @@ namespace AAB_Furniture_Rentals.View
                 error++;
             }
 
+            try
+            {
+                string validNumber = this.zipTextBox.Text;
+                if (this.zipTextBox.Text.Length != 5)
+                {
+                    this.zipError.Text = "Must be in 5 digits long";
+                    error++;
+                }
+
+                int.Parse(validNumber);
+
+            }
+            catch (Exception)
+            {
+                this.zipError.Text = "Zip must be all numbers";
+                error++;
+            }
 
             return error == 0;
 
@@ -230,7 +249,7 @@ namespace AAB_Furniture_Rentals.View
             this.birthdateError.Text = "";
             this.genderError.Text = "";
             this.addressError.Text = "";
-            this.phoneError.Text = "";
+
             this.cityError.Text = "";
             this.stateError.Text = "";
             this.zipError.Text = "";
@@ -241,20 +260,20 @@ namespace AAB_Furniture_Rentals.View
 
         private void AddEmployee()
         {
-
+           
             if (this.ValidateForm())
             {
                 try
                 {
                     Employee newEmployee = new Employee();
-                    
+
                     newEmployee.Fname = this.firstNameTextBox.Text;
                     newEmployee.Lname = this.lastNameTextBox.Text;
                     newEmployee.Sex = Convert.ToString(this.genderComboBox.SelectedItem);
                     newEmployee.Dob = this.birthdateBox.Value;
                     newEmployee.Address = this.addressTextBox.Text;
                     newEmployee.City = this.cityTextBox.Text;
-                    newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
+                    newEmployee.State = Convert.ToInt32(this.StateComboBox.SelectedValue);
                     newEmployee.Zip = this.zipTextBox.Text;
                     newEmployee.Phone = this.phoneTextBox.Text;
                     newEmployee.Active = this.activeCheckBox.Checked;
@@ -273,54 +292,63 @@ namespace AAB_Furniture_Rentals.View
 
             }
 
-            
+
         }
 
         private void SaveEmployee()
         {
-            
-                try
-                {
-                    Employee newEmployee = new Employee();
-                    newEmployee.EmployeeID = this.editEmployee.EmployeeID;
-                    newEmployee.Fname = this.firstNameTextBox.Text;
-                    newEmployee.Lname = this.lastNameTextBox.Text;
-                    newEmployee.Sex = Convert.ToString(this.genderComboBox.SelectedItem);
-                    newEmployee.Dob = this.birthdateBox.Value;
-                    newEmployee.Address = this.addressTextBox.Text;
-                    newEmployee.City = this.cityTextBox.Text;
-                    newEmployee.State = Convert.ToString(this.StateComboBox.SelectedItem);
-                    newEmployee.Zip = this.zipTextBox.Text;
-                    newEmployee.Phone = this.phoneTextBox.Text;
-                    newEmployee.Active = this.activeCheckBox.Checked;
-                    newEmployee.Username = this.userNameTextBox.Text;
-                    newEmployee.Admin = this.adminCheckBox.Checked;
+
+            try
+            {
+                Employee newEmployee = new Employee();
+                newEmployee.EmployeeID = this.editEmployee.EmployeeID;
+                newEmployee.Fname = this.firstNameTextBox.Text;
+                newEmployee.Lname = this.lastNameTextBox.Text;
+                newEmployee.Sex = Convert.ToString(this.genderComboBox.SelectedItem);
+                newEmployee.Dob = this.birthdateBox.Value;
+                newEmployee.Address = this.addressTextBox.Text;
+                newEmployee.City = this.cityTextBox.Text;
+                newEmployee.State = Convert.ToInt32(this.StateComboBox.SelectedValue);
+                newEmployee.Zip = this.zipTextBox.Text;
+                newEmployee.Phone = this.phoneTextBox.Text;
+                newEmployee.Active = this.activeCheckBox.Checked;
+                newEmployee.Username = this.userNameTextBox.Text;
+                newEmployee.Admin = this.adminCheckBox.Checked;
 
 
-                    EmployeeController.SaveEmployee(newEmployee);
-                    MessageBox.Show("Successfully edited employee.");
-                    DialogResult = DialogResult.OK;
-                }
-                catch (Exception ex)
-                {
+                EmployeeController.SaveEmployee(newEmployee);
+                MessageBox.Show("Successfully edited employee.");
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
 
-                    MessageBox.Show(ex.Message, "Error!");
-                }
-            
+                MessageBox.Show(ex.Message, "Error!");
+            }
+
 
         }
 
- 
-        private void CancelButton_Click(object sender, EventArgs e)
+        private void AddUser() {
+
+            string username = this.userNameTextBox.Text;
+            string password = this.passwordTextBox.Text;
+
+            EmployeeController.AddUser(username, password);
+
+
+        }
+
+        private void TextChanged_Event(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            this.clearErrorMessages();
         }
 
-        private void EmployeeButton_Click_1(object sender, EventArgs e)
+        private void EmployeeButton_Click(object sender, EventArgs e)
         {
             try
             {
-                
+
                 if (this.EmployeeButton.Text == "Add Employee")
                 {
                     if (ValidateForm())
@@ -329,8 +357,11 @@ namespace AAB_Furniture_Rentals.View
                         this.AddEmployee();
                     }
                 }
-                else if (this.EmployeeButton.Text == "Edit Employee") {
+                else if (this.EmployeeButton.Text == "Edit Employee")
+                {
                     this.SetEditable();
+                    this.ee.Text = "To update the password call us at (719) 266-2837";
+                    this.ee.Enabled = false;
                     this.passwordTextBox.Enabled = false;
                     this.userNameTextBox.Enabled = false;
                     this.EmployeeButton.Text = "Save Employee";
@@ -340,6 +371,7 @@ namespace AAB_Furniture_Rentals.View
                 {
                     if (this.ValidateForm())
                     {
+                        this.ee.Text = "";
                         this.SaveEmployee();
                         this.SetViewOnly();
                         this.EmployeeButton.Text = "Edit Employee";
@@ -352,25 +384,13 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-        private void cancelButton_Click_1(object sender, EventArgs e)
+        private void cancelButton_Click_2(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
         }
 
-
-        private void AddUser() {
-
-            string username = this.userNameTextBox.Text;
-            string password = this.passwordTextBox.Text;
-
-            EmployeeController.AddUser(username, password);
-         
-
-        }
-
-        private void TextChanged_Event(object sender, EventArgs e)
-        {
-            this.clearErrorMessages();
-        }
+       
+    
+      
     }
 }

@@ -15,7 +15,7 @@ namespace AAB_Furniture_Rentals.DAL
         /// </summary>
         /// <param name="newRental">The new rental.</param>
         /// <param name="isRentedList">The is rented list.</param>
-        public void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
+        public int InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
             int rentalID = 0;
             string query = "INSERT INTO " +
@@ -32,7 +32,7 @@ namespace AAB_Furniture_Rentals.DAL
                 {
                     command.Parameters.AddWithValue("@MEMBER_ID", newRental.MemberID);
                     command.Parameters.AddWithValue("@EMPLOYEE_ID", newRental.EmployeeID);
-                    command.Parameters.AddWithValue("@DUE_DATE", newRental.DueDate);
+                    command.Parameters.AddWithValue("@DUE_DATE", newRental.DateTimeDue);
 
 
                     rentalID = (int)command.ExecuteScalar();
@@ -84,6 +84,7 @@ namespace AAB_Furniture_Rentals.DAL
                 });
 
             }
+            return rentalID;
         }
     }
 }

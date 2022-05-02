@@ -222,9 +222,9 @@ namespace AAB_Furniture_Rentals.View
                     newMember.City = this.cityTextBox.Text;
                     newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
                     newMember.Zip = this.zipTextBox.Text;
-                    MemberController.AddCustomer(newMember);
-                    MessageBox.Show("Successfully added customer.");
-                    this.currentUserControl.UpdateDataGrid();
+                    int newMemberID = MemberController.AddCustomer(newMember);
+                    MessageBox.Show("Successfully added customer.\nNew Customer ID = " + newMemberID.ToString());
+                    
                     DialogResult = DialogResult.OK;
                 }
                 catch (Exception ex)

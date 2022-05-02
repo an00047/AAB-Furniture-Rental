@@ -46,7 +46,7 @@ namespace AAB_Furniture_Rentals.Controller
         /// or
         /// The isRentedList is null
         /// </exception>
-        internal static void InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
+        internal static int InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
             if (newRental == null )
             {
@@ -58,7 +58,7 @@ namespace AAB_Furniture_Rentals.Controller
 
             }
 
-            localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
+           return localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
         }
 
         /// <summary>

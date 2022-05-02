@@ -6,8 +6,7 @@ using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Model
 {
-    // -> i NEED to define a local class Is_Rented (as mentioned),
-
+    
 
     /// <summary>
     /// The cart object model is created when the employee Dashboard is created (not within user control)
@@ -31,8 +30,21 @@ namespace AAB_Furniture_Rentals.Model
         /// the list of items to be rented in this transaction
         /// </summary>           
         public List<Furniture> FurnitureList { get; set; }
-      
-       
+       /// <summary>
+       /// the selectedDueDate finalized upon checkout
+       /// </summary>
+        public DateTime ScheduledDueDate { get; private set; }
+
+        /// <summary>
+        /// the rental transactionID after checkout
+        /// </summary>
+        public int rentalTransactionID { get; private set; }
+        
+        /// <summary>
+        /// Stores the last cart calculation before checkout
+        /// </summary>
+        public double CartTotalCost { get; private set; }
+
         private List<IsRentedModel> IsRentedList;
     
         public Cart() {
@@ -84,8 +96,9 @@ namespace AAB_Furniture_Rentals.Model
             Rental newRentaltransaction = new Rental();
                 newRentaltransaction.MemberID = memberID;
                 newRentaltransaction.EmployeeID = employeeID;
-                newRentaltransaction.DueDate = dueDate;
-            FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
+                newRentaltransaction.DateTimeDue = dueDate;
+           this.ScheduledDueDate = dueDate;
+           this.rentalTransactionID =  FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
         }
         /// <summary>
         /// Adds the items checked out back into the inventory, then zeroizes all the properties         
@@ -144,12 +157,13 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="returnDate"></param>
         /// <returns></returns>
         public double CalculateTotalCost(DateTime returnDate) {
+            this.CartTotalCost = 0;
             int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
             double total = 0;
             this.FurnitureList.ForEach((item) => {
-                total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
+               total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
             });
-
+            this.CartTotalCost = total;
             return total;
         }
 
@@ -163,7 +177,7 @@ namespace AAB_Furniture_Rentals.Model
             this.FurnitureList.ForEach((item) => {
                 total += item.FineRate * item.QuantityOnHand;
             });
-
+           
             return total;
         }
     }
