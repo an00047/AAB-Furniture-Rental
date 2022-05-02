@@ -96,7 +96,7 @@ namespace AAB_Furniture_Rentals.Model
             Rental newRentaltransaction = new Rental();
                 newRentaltransaction.MemberID = memberID;
                 newRentaltransaction.EmployeeID = employeeID;
-                newRentaltransaction.DueDate = dueDate;
+                newRentaltransaction.DateTimeDue = dueDate;
            this.ScheduledDueDate = dueDate;
            this.rentalTransactionID =  FurnitureController.InsertRentalTransaction(newRentaltransaction, this.IsRentedList);
         }
