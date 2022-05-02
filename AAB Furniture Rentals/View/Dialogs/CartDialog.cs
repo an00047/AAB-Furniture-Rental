@@ -56,6 +56,7 @@ namespace AAB_Furniture_Rentals.View
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
+
             RefreshDataGrid();
             try {
 
