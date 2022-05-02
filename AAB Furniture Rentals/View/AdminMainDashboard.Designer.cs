@@ -93,10 +93,13 @@ namespace AAB_Furniture_Rentals.View
             // 
             // adminSearchUpdateAddEmployee1
             // 
-            this.adminSearchUpdateAddEmployee1.Location = new System.Drawing.Point(-109, -31);
+            this.adminSearchUpdateAddEmployee1.AutoSize = true;
+            this.adminSearchUpdateAddEmployee1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.adminSearchUpdateAddEmployee1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminSearchUpdateAddEmployee1.Location = new System.Drawing.Point(3, 3);
             this.adminSearchUpdateAddEmployee1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.adminSearchUpdateAddEmployee1.Name = "adminSearchUpdateAddEmployee1";
-            this.adminSearchUpdateAddEmployee1.Size = new System.Drawing.Size(901, 355);
+            this.adminSearchUpdateAddEmployee1.Size = new System.Drawing.Size(782, 323);
             this.adminSearchUpdateAddEmployee1.TabIndex = 0;
             // 
             // logoutLabel
@@ -183,6 +186,7 @@ namespace AAB_Furniture_Rentals.View
             this.reportTab.PerformLayout();
             this.AdminTabControl.ResumeLayout(false);
             this.employeesTab.ResumeLayout(false);
+            this.employeesTab.PerformLayout();
             this.EmployeeDetailsBox.ResumeLayout(false);
             this.EmployeeDetailsBox.PerformLayout();
             this.ResumeLayout(false);

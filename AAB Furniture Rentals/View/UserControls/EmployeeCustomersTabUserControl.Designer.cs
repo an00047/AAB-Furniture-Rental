@@ -30,6 +30,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchButton = new System.Windows.Forms.Button();
             this.newCustomerButton = new System.Windows.Forms.Button();
             this.editCustomerButton = new System.Windows.Forms.Button();
@@ -115,6 +116,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.Location = new System.Drawing.Point(19, 97);
             this.customerDataGridView.MultiSelect = false;
             this.customerDataGridView.Name = "customerDataGridView";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.MediumTurquoise;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.customerDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerDataGridView.Size = new System.Drawing.Size(642, 188);
             this.customerDataGridView.TabIndex = 6;
