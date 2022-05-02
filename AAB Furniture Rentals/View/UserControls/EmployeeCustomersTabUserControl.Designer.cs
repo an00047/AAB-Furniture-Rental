@@ -40,16 +40,23 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchTypeLabel = new System.Windows.Forms.Label();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SetCurrentMemberButton = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.NameRadioBtn = new System.Windows.Forms.RadioButton();
+            this.PhoneRadioBtn = new System.Windows.Forms.RadioButton();
             this.CustIdRadioBtn = new System.Windows.Forms.RadioButton();
             this.SelectCustomerByBox = new System.Windows.Forms.GroupBox();
+            this.ActiveMemberBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CustomerPhoneLabel = new System.Windows.Forms.Label();
+            this.CustomerNameLabel = new System.Windows.Forms.Label();
+            this.CustomerIDValue = new System.Windows.Forms.Label();
+            this.CustomerPhoneValue = new System.Windows.Forms.Label();
+            this.CustoemrNameValue = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
             this.SelectCustomerByBox.SuspendLayout();
+            this.ActiveMemberBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchButton
@@ -75,7 +82,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // editCustomerButton
             // 
-            this.editCustomerButton.Location = new System.Drawing.Point(479, 291);
+            this.editCustomerButton.Location = new System.Drawing.Point(418, 291);
             this.editCustomerButton.Name = "editCustomerButton";
             this.editCustomerButton.Size = new System.Drawing.Size(174, 23);
             this.editCustomerButton.TabIndex = 5;
@@ -115,7 +122,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // searchTypeLabel
             // 
             this.searchTypeLabel.AutoSize = true;
-            this.searchTypeLabel.Location = new System.Drawing.Point(220, 10);
+            this.searchTypeLabel.Location = new System.Drawing.Point(217, 10);
             this.searchTypeLabel.Name = "searchTypeLabel";
             this.searchTypeLabel.Size = new System.Drawing.Size(68, 13);
             this.searchTypeLabel.TabIndex = 0;
@@ -136,50 +143,43 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.customerDataGridView.MultiSelect = false;
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDataGridView.Size = new System.Drawing.Size(661, 188);
+            this.customerDataGridView.Size = new System.Drawing.Size(642, 188);
             this.customerDataGridView.TabIndex = 6;
             this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
             // 
-            // searchTypeComboBox
-            // 
-            this.searchTypeComboBox.FormattingEnabled = true;
-            this.searchTypeComboBox.Location = new System.Drawing.Point(432, 44);
-            this.searchTypeComboBox.Name = "searchTypeComboBox";
-            this.searchTypeComboBox.Size = new System.Drawing.Size(83, 21);
-            this.searchTypeComboBox.TabIndex = 7;
-            this.searchTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged);
-            // 
             // SetCurrentMemberButton
             // 
-            this.SetCurrentMemberButton.Location = new System.Drawing.Point(479, 320);
+            this.SetCurrentMemberButton.Location = new System.Drawing.Point(418, 320);
             this.SetCurrentMemberButton.Name = "SetCurrentMemberButton";
             this.SetCurrentMemberButton.Size = new System.Drawing.Size(174, 22);
             this.SetCurrentMemberButton.TabIndex = 9;
-            this.SetCurrentMemberButton.Text = "Set As \"Current Shopper\"";
+            this.SetCurrentMemberButton.Text = "Set As \"Active Customer\"";
             this.SetCurrentMemberButton.UseVisualStyleBackColor = true;
             this.SetCurrentMemberButton.Click += new System.EventHandler(this.SetCurrentMemberButton_Click);
             // 
-            // radioButton1
+            // NameRadioBtn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 60);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(166, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Customer First and Last Name";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.NameRadioBtn.AutoSize = true;
+            this.NameRadioBtn.Location = new System.Drawing.Point(17, 60);
+            this.NameRadioBtn.Name = "NameRadioBtn";
+            this.NameRadioBtn.Size = new System.Drawing.Size(166, 17);
+            this.NameRadioBtn.TabIndex = 10;
+            this.NameRadioBtn.TabStop = true;
+            this.NameRadioBtn.Text = "Customer First and Last Name";
+            this.NameRadioBtn.UseVisualStyleBackColor = true;
+            this.NameRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
             // 
-            // radioButton2
+            // PhoneRadioBtn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(17, 39);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(143, 17);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Customer Phone Number";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.PhoneRadioBtn.AutoSize = true;
+            this.PhoneRadioBtn.Location = new System.Drawing.Point(17, 39);
+            this.PhoneRadioBtn.Name = "PhoneRadioBtn";
+            this.PhoneRadioBtn.Size = new System.Drawing.Size(143, 17);
+            this.PhoneRadioBtn.TabIndex = 11;
+            this.PhoneRadioBtn.TabStop = true;
+            this.PhoneRadioBtn.Text = "Customer Phone Number";
+            this.PhoneRadioBtn.UseVisualStyleBackColor = true;
+            this.PhoneRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
             // 
             // CustIdRadioBtn
             // 
@@ -191,12 +191,13 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.CustIdRadioBtn.TabStop = true;
             this.CustIdRadioBtn.Text = "Customer ID";
             this.CustIdRadioBtn.UseVisualStyleBackColor = true;
+            this.CustIdRadioBtn.CheckedChanged += new System.EventHandler(this.SetLabel);
             // 
             // SelectCustomerByBox
             // 
             this.SelectCustomerByBox.Controls.Add(this.CustIdRadioBtn);
-            this.SelectCustomerByBox.Controls.Add(this.radioButton2);
-            this.SelectCustomerByBox.Controls.Add(this.radioButton1);
+            this.SelectCustomerByBox.Controls.Add(this.PhoneRadioBtn);
+            this.SelectCustomerByBox.Controls.Add(this.NameRadioBtn);
             this.SelectCustomerByBox.Controls.Add(this.searchTextBox);
             this.SelectCustomerByBox.Controls.Add(this.searchButton);
             this.SelectCustomerByBox.Controls.Add(this.searchTypeLabel);
@@ -207,23 +208,100 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.SelectCustomerByBox.TabStop = false;
             this.SelectCustomerByBox.Text = "Select Customer By: ";
             // 
+            // ActiveMemberBox
+            // 
+            this.ActiveMemberBox.Controls.Add(this.CustoemrNameValue);
+            this.ActiveMemberBox.Controls.Add(this.CustomerPhoneValue);
+            this.ActiveMemberBox.Controls.Add(this.CustomerIDValue);
+            this.ActiveMemberBox.Controls.Add(this.label3);
+            this.ActiveMemberBox.Controls.Add(this.CustomerPhoneLabel);
+            this.ActiveMemberBox.Controls.Add(this.CustomerNameLabel);
+            this.ActiveMemberBox.Location = new System.Drawing.Point(378, 9);
+            this.ActiveMemberBox.Name = "ActiveMemberBox";
+            this.ActiveMemberBox.Size = new System.Drawing.Size(283, 82);
+            this.ActiveMemberBox.TabIndex = 14;
+            this.ActiveMemberBox.TabStop = false;
+            this.ActiveMemberBox.Text = "Currently Active Customer: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(19, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Customer ID:  ";
+            // 
+            // CustomerPhoneLabel
+            // 
+            this.CustomerPhoneLabel.AutoSize = true;
+            this.CustomerPhoneLabel.Location = new System.Drawing.Point(18, 38);
+            this.CustomerPhoneLabel.Name = "CustomerPhoneLabel";
+            this.CustomerPhoneLabel.Size = new System.Drawing.Size(91, 13);
+            this.CustomerPhoneLabel.TabIndex = 2;
+            this.CustomerPhoneLabel.Text = "Customer Phone: ";
+            // 
+            // CustomerNameLabel
+            // 
+            this.CustomerNameLabel.AutoSize = true;
+            this.CustomerNameLabel.Location = new System.Drawing.Point(19, 61);
+            this.CustomerNameLabel.Name = "CustomerNameLabel";
+            this.CustomerNameLabel.Size = new System.Drawing.Size(88, 13);
+            this.CustomerNameLabel.TabIndex = 0;
+            this.CustomerNameLabel.Text = "Customer Name: ";
+            // 
+            // CustomerIDValue
+            // 
+            this.CustomerIDValue.AutoSize = true;
+            this.CustomerIDValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustomerIDValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustomerIDValue.Location = new System.Drawing.Point(113, 18);
+            this.CustomerIDValue.Name = "CustomerIDValue";
+            this.CustomerIDValue.Size = new System.Drawing.Size(16, 15);
+            this.CustomerIDValue.TabIndex = 21;
+            this.CustomerIDValue.Text = "?";
+            // 
+            // CustomerPhoneValue
+            // 
+            this.CustomerPhoneValue.AutoSize = true;
+            this.CustomerPhoneValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustomerPhoneValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustomerPhoneValue.Location = new System.Drawing.Point(113, 41);
+            this.CustomerPhoneValue.Name = "CustomerPhoneValue";
+            this.CustomerPhoneValue.Size = new System.Drawing.Size(16, 15);
+            this.CustomerPhoneValue.TabIndex = 22;
+            this.CustomerPhoneValue.Text = "?";
+            // 
+            // CustoemrNameValue
+            // 
+            this.CustoemrNameValue.AutoSize = true;
+            this.CustoemrNameValue.Font = new System.Drawing.Font("ModeNine", 11F);
+            this.CustoemrNameValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.CustoemrNameValue.Location = new System.Drawing.Point(113, 61);
+            this.CustoemrNameValue.Name = "CustoemrNameValue";
+            this.CustoemrNameValue.Size = new System.Drawing.Size(16, 15);
+            this.CustoemrNameValue.TabIndex = 23;
+            this.CustoemrNameValue.Text = "?";
+            // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ActiveMemberBox);
             this.Controls.Add(this.SelectCustomerByBox);
             this.Controls.Add(this.SetCurrentMemberButton);
-            this.Controls.Add(this.searchTypeComboBox);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.editCustomerButton);
             this.Controls.Add(this.newCustomerButton);
             this.Name = "EmployeeCustomersTabUserControl";
-            this.Size = new System.Drawing.Size(693, 357);
+            this.Size = new System.Drawing.Size(677, 357);
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
             this.SelectCustomerByBox.ResumeLayout(false);
             this.SelectCustomerByBox.PerformLayout();
+            this.ActiveMemberBox.ResumeLayout(false);
+            this.ActiveMemberBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -239,11 +317,17 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.Label searchTypeLabel;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.DataGridView customerDataGridView;
-        private System.Windows.Forms.ComboBox searchTypeComboBox;
         private System.Windows.Forms.Button SetCurrentMemberButton;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton NameRadioBtn;
+        private System.Windows.Forms.RadioButton PhoneRadioBtn;
         private System.Windows.Forms.RadioButton CustIdRadioBtn;
         private System.Windows.Forms.GroupBox SelectCustomerByBox;
+        private System.Windows.Forms.GroupBox ActiveMemberBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label CustomerPhoneLabel;
+        private System.Windows.Forms.Label CustomerNameLabel;
+        private System.Windows.Forms.Label CustoemrNameValue;
+        private System.Windows.Forms.Label CustomerPhoneValue;
+        private System.Windows.Forms.Label CustomerIDValue;
     }
 }
