@@ -223,7 +223,10 @@ namespace AAB_Furniture_Rentals.View
                     newMember.State = Convert.ToInt32(this.stateComboBox.SelectedValue);
                     newMember.Zip = this.zipTextBox.Text;
                     int newMemberID = MemberController.AddCustomer(newMember);
-                    MessageBox.Show("Successfully added customer.\nNew Customer ID = " + newMemberID.ToString());
+                    newMember.MemberID = newMemberID;
+                    //sets the currently active member
+                    MemberController.CurrentMember = newMember;
+                    MessageBox.Show("Successfully added a new customer.\nNew Customer ID = " + newMemberID.ToString());
                     
                     DialogResult = DialogResult.OK;
                 }

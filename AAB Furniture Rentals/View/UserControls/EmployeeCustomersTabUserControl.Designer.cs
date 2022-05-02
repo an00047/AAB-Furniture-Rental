@@ -41,19 +41,23 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.customerDataGridView = new System.Windows.Forms.DataGridView();
             this.searchTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.searchByLabel = new System.Windows.Forms.Label();
             this.SetCurrentMemberButton = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.CustIdRadioBtn = new System.Windows.Forms.RadioButton();
+            this.SelectCustomerByBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).BeginInit();
+            this.SelectCustomerByBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // searchButton
             // 
             this.searchButton.AutoSize = true;
-            this.searchButton.Location = new System.Drawing.Point(291, 48);
+            this.searchButton.Location = new System.Drawing.Point(203, 52);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(57, 23);
+            this.searchButton.Size = new System.Drawing.Size(97, 23);
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -61,9 +65,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // newCustomerButton
             // 
-            this.newCustomerButton.Location = new System.Drawing.Point(43, 233);
+            this.newCustomerButton.Location = new System.Drawing.Point(19, 291);
             this.newCustomerButton.Name = "newCustomerButton";
-            this.newCustomerButton.Size = new System.Drawing.Size(93, 23);
+            this.newCustomerButton.Size = new System.Drawing.Size(174, 51);
             this.newCustomerButton.TabIndex = 4;
             this.newCustomerButton.Text = "New Customer";
             this.newCustomerButton.UseVisualStyleBackColor = true;
@@ -71,9 +75,9 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // editCustomerButton
             // 
-            this.editCustomerButton.Location = new System.Drawing.Point(276, 233);
+            this.editCustomerButton.Location = new System.Drawing.Point(479, 291);
             this.editCustomerButton.Name = "editCustomerButton";
-            this.editCustomerButton.Size = new System.Drawing.Size(85, 23);
+            this.editCustomerButton.Size = new System.Drawing.Size(174, 23);
             this.editCustomerButton.TabIndex = 5;
             this.editCustomerButton.Text = "Edit Customer";
             this.editCustomerButton.UseVisualStyleBackColor = true;
@@ -111,7 +115,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // searchTypeLabel
             // 
             this.searchTypeLabel.AutoSize = true;
-            this.searchTypeLabel.Location = new System.Drawing.Point(45, 54);
+            this.searchTypeLabel.Location = new System.Drawing.Point(220, 10);
             this.searchTypeLabel.Name = "searchTypeLabel";
             this.searchTypeLabel.Size = new System.Drawing.Size(68, 13);
             this.searchTypeLabel.TabIndex = 0;
@@ -119,7 +123,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(154, 50);
+            this.searchTextBox.Location = new System.Drawing.Point(203, 26);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(97, 20);
             this.searchTextBox.TabIndex = 1;
@@ -128,62 +132,99 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // customerDataGridView
             // 
             this.customerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerDataGridView.Location = new System.Drawing.Point(43, 77);
+            this.customerDataGridView.Location = new System.Drawing.Point(19, 97);
             this.customerDataGridView.MultiSelect = false;
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerDataGridView.Size = new System.Drawing.Size(318, 150);
+            this.customerDataGridView.Size = new System.Drawing.Size(661, 188);
             this.customerDataGridView.TabIndex = 6;
             this.customerDataGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.customerDataGridView_CellMouseClick);
             // 
             // searchTypeComboBox
             // 
             this.searchTypeComboBox.FormattingEnabled = true;
-            this.searchTypeComboBox.Location = new System.Drawing.Point(140, 21);
+            this.searchTypeComboBox.Location = new System.Drawing.Point(432, 44);
             this.searchTypeComboBox.Name = "searchTypeComboBox";
-            this.searchTypeComboBox.Size = new System.Drawing.Size(191, 21);
+            this.searchTypeComboBox.Size = new System.Drawing.Size(83, 21);
             this.searchTypeComboBox.TabIndex = 7;
             this.searchTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged);
             // 
-            // searchByLabel
-            // 
-            this.searchByLabel.AutoSize = true;
-            this.searchByLabel.Location = new System.Drawing.Point(75, 24);
-            this.searchByLabel.Name = "searchByLabel";
-            this.searchByLabel.Size = new System.Drawing.Size(59, 13);
-            this.searchByLabel.TabIndex = 8;
-            this.searchByLabel.Text = "Search By:";
-            // 
             // SetCurrentMemberButton
             // 
-            this.SetCurrentMemberButton.Location = new System.Drawing.Point(105, 262);
+            this.SetCurrentMemberButton.Location = new System.Drawing.Point(479, 320);
             this.SetCurrentMemberButton.Name = "SetCurrentMemberButton";
-            this.SetCurrentMemberButton.Size = new System.Drawing.Size(194, 37);
+            this.SetCurrentMemberButton.Size = new System.Drawing.Size(174, 22);
             this.SetCurrentMemberButton.TabIndex = 9;
             this.SetCurrentMemberButton.Text = "Set As \"Current Shopper\"";
             this.SetCurrentMemberButton.UseVisualStyleBackColor = true;
             this.SetCurrentMemberButton.Click += new System.EventHandler(this.SetCurrentMemberButton_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 60);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(166, 17);
+            this.radioButton1.TabIndex = 10;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Customer First and Last Name";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(17, 39);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(143, 17);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Customer Phone Number";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // CustIdRadioBtn
+            // 
+            this.CustIdRadioBtn.AutoSize = true;
+            this.CustIdRadioBtn.Location = new System.Drawing.Point(17, 16);
+            this.CustIdRadioBtn.Name = "CustIdRadioBtn";
+            this.CustIdRadioBtn.Size = new System.Drawing.Size(83, 17);
+            this.CustIdRadioBtn.TabIndex = 12;
+            this.CustIdRadioBtn.TabStop = true;
+            this.CustIdRadioBtn.Text = "Customer ID";
+            this.CustIdRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // SelectCustomerByBox
+            // 
+            this.SelectCustomerByBox.Controls.Add(this.CustIdRadioBtn);
+            this.SelectCustomerByBox.Controls.Add(this.radioButton2);
+            this.SelectCustomerByBox.Controls.Add(this.radioButton1);
+            this.SelectCustomerByBox.Controls.Add(this.searchTextBox);
+            this.SelectCustomerByBox.Controls.Add(this.searchButton);
+            this.SelectCustomerByBox.Controls.Add(this.searchTypeLabel);
+            this.SelectCustomerByBox.Location = new System.Drawing.Point(19, 9);
+            this.SelectCustomerByBox.Name = "SelectCustomerByBox";
+            this.SelectCustomerByBox.Size = new System.Drawing.Size(316, 82);
+            this.SelectCustomerByBox.TabIndex = 13;
+            this.SelectCustomerByBox.TabStop = false;
+            this.SelectCustomerByBox.Text = "Select Customer By: ";
+            // 
             // EmployeeCustomersTabUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SelectCustomerByBox);
             this.Controls.Add(this.SetCurrentMemberButton);
-            this.Controls.Add(this.searchByLabel);
             this.Controls.Add(this.searchTypeComboBox);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.editCustomerButton);
             this.Controls.Add(this.newCustomerButton);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.searchTypeLabel);
             this.Name = "EmployeeCustomersTabUserControl";
-            this.Size = new System.Drawing.Size(413, 314);
+            this.Size = new System.Drawing.Size(693, 357);
             ((System.ComponentModel.ISupportInitialize)(this._cs6232_g4DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memberBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerDataGridView)).EndInit();
+            this.SelectCustomerByBox.ResumeLayout(false);
+            this.SelectCustomerByBox.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -199,7 +240,10 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.DataGridView customerDataGridView;
         private System.Windows.Forms.ComboBox searchTypeComboBox;
-        private System.Windows.Forms.Label searchByLabel;
         private System.Windows.Forms.Button SetCurrentMemberButton;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton CustIdRadioBtn;
+        private System.Windows.Forms.GroupBox SelectCustomerByBox;
     }
 }

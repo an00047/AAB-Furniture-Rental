@@ -137,9 +137,9 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeCustomersTabUserControl
             // 
-            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(141, 33);
+            this.employeeCustomersTabUserControl.Location = new System.Drawing.Point(-4, 0);
             this.employeeCustomersTabUserControl.Name = "employeeCustomersTabUserControl";
-            this.employeeCustomersTabUserControl.Size = new System.Drawing.Size(413, 314);
+            this.employeeCustomersTabUserControl.Size = new System.Drawing.Size(687, 376);
             this.employeeCustomersTabUserControl.TabIndex = 0;
             // 
             // returnsTab
