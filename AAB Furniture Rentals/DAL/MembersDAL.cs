@@ -173,11 +173,12 @@ namespace AAB_Furniture_Rentals.DAL
         /// Adds a new member to the database.
         /// </summary>
         /// <param name="customer"></param>
-        public void AddCustomer(Member customer)
+        public int AddCustomer(Member customer)
         {
 
             string query = "INSERT INTO " +
                 "Member (fName, lName, sex, dob, address, phone, city, state, zip) " +
+                "OUTPUT Inserted.memberID " +
                 "VALUES(@firstName, @lastName, @gender, @dateOfBirth, @address, @phoneNumber, @city, @state, @zip)";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -205,7 +206,7 @@ namespace AAB_Furniture_Rentals.DAL
 
                     command.Parameters.AddWithValue("@zip", customer.Zip);
 
-                    command.ExecuteScalar();
+                    return (int)command.ExecuteScalar();
 
 
                 }
