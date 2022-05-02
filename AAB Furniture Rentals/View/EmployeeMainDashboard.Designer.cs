@@ -151,7 +151,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeReturnTabUserControl1
             // 
-            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(-2, 3);
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(-3, 3);
             this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
             this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(687, 370);
             this.employeeReturnTabUserControl1.TabIndex = 0;
