@@ -22,7 +22,11 @@ namespace AAB_Furniture_Rentals.View
             InitializeComponent();
          
             this.currentLogin = newLoginCredentials;
-            this.nameLabel.Text = currentLogin.CurrentEmployee.Fname + " " + currentLogin.CurrentEmployee.Lname + " logged in as: " + currentLogin.CurrentEmployee.Username;
+
+            Controller.EmployeeController.CurrentEmployee = newLoginCredentials.CurrentEmployee;
+
+            this.EmployeeNameValue.Text = Controller.EmployeeController.CurrentEmployee.Lname + ", " + Controller.EmployeeController.CurrentEmployee.Fname;
+            this.EmployeeIDValue.Text = Controller.EmployeeController.CurrentEmployee.EmployeeID.ToString();
             logOut = false;
             
 
@@ -44,5 +48,9 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-     }
+        private void EmployeeMainDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
