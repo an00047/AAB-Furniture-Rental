@@ -371,43 +371,5 @@ namespace AAB_Furniture_Rentals.DAL
 
         }
 
-
-        /// <summary>
-        /// adds user to the database
-        /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        public void AddUser(string username, string password) {
-
-            password = EncryptionHandler.Encrypt(password, this.EncryptionKey); 
-            string query = "INSERT INTO " +
-                  "login_data (username, password ) " +
-                  "VALUES(@USERNAME, @PASSWORD ) ";
-   
-
-
-            using (SqlConnection connection = RentMeDBConnection.GetConnection())
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
-
-                {
-                    command.Parameters.AddWithValue("@USERNAME", username);
-                    command.Parameters.AddWithValue("@PASSWORD", password);
-
-                    command.ExecuteScalar();
-
-
-                }
-            }
-
-        }
-
-    
-
-
-
-
-
     }
  }
