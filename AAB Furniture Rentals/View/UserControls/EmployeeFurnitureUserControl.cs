@@ -289,10 +289,28 @@ namespace AAB_Furniture_Rentals.UserControls
             }
         }
 
-                
-     
 
-        //clicking on a row creates a cart object, if one didnt exist
+        //overloading the mouse click envents in order to achieve consistancy
+        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
+
+
+            if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
+            {
+
+                this.alreadyInCartPanel.Visible = true;
+                this.AddToCartGroupBox.Enabled = false;
+                this.searchDataGridView.ClearSelection();
+            }
+            else
+            {
+                this.AddToCartGroupBox.Enabled = true;
+                this.alreadyInCartPanel.Visible = false;
+            }
+        }
+
+        //overloading the mouse click envents in order to achieve consistancy
         private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
           
@@ -321,7 +339,7 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.ClearSelection();
         }
 
-      
+
         private void BlackListCartItmes() {
 
             if (FurnitureController.CurrentCart != null) {
@@ -364,5 +382,8 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             this.searchDataGridView.ClearSelection();
         }
+
+     
+       
     }
 }
