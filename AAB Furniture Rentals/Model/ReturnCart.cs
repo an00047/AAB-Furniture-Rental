@@ -69,6 +69,9 @@ namespace AAB_Furniture_Rentals.Model
             newReturnedtransaction.DateTimeCreated = DateTime.Now;
             this.ReturnedDate = newReturnedtransaction.DateTimeCreated;
             this.ReturnTransactionID = FurnitureController.InsertReturnTransaction(newReturnedtransaction, this.IsReturnedList);
+
+            this.IsReturnedList = new List<IsReturnedModel>();
+            this.FurnitureList = new List<Furniture>();
         }
       
         /// <summary>
