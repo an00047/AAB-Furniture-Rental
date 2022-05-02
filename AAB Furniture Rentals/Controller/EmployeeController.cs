@@ -10,6 +10,7 @@ namespace AAB_Furniture_Rentals.Controller
     public static class EmployeeController
     {
         private static EmployeesDAL localEmployeeDAL;
+        private static LoginDataDAL localLoginDataDAL;
         
         /// <summary>
         /// holds the currently logged in employee
@@ -21,6 +22,7 @@ namespace AAB_Furniture_Rentals.Controller
         static EmployeeController()
         {
             localEmployeeDAL = new EmployeesDAL();
+            localLoginDataDAL = new LoginDataDAL();
         }
 
         /// <summary>
@@ -84,9 +86,23 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="username"></param>
         /// <param name="password"></param>
         public static void AddUser(string username, string  password) {
-            localEmployeeDAL.AddUser(username, password);
+            localLoginDataDAL.InsertNewLoginData(username, password);
         }
 
-  
+        /// <summary>
+        /// Updates the username and password.
+        /// </summary>
+        /// <param name="newUsername">The new username.</param>
+        /// <param name="newPassword">The new password.</param>
+        /// <param name="oldUsername">The old username.</param>
+        public static void UpdateUsernameAndPassword(string newUsername, string newPassword, string oldUsername)
+        {
+
+            localLoginDataDAL.UpdateUsernameAndPassword(newUsername, newPassword, oldUsername);
+        }
+
+
+
+
     }
 }

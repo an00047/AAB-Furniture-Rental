@@ -8,14 +8,17 @@ namespace AAB_Furniture_Rentals.DAL
     /// </summary>
     class LoginDataDAL
     {
+        string EncryptionKey = "DatabasesAreAwsome";
+
         public void UpdateUsernameAndPassword(string newUsername, string newPassword, string oldUsername)
         {
             if (newPassword != "")
             {
+                newPassword = EncryptionHandler.Encrypt(newPassword, this.EncryptionKey);
                 string query = "UPDATE login_data SET " +
 
                     "username = @username, " +
-                    "password = @password, " +
+                    "password = @password " +
                     "WHERE username = @oldUsername ";
 
                 using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -35,7 +38,7 @@ namespace AAB_Furniture_Rentals.DAL
             {
                 string queryUsername = "UPDATE login_data SET " +
 
-                    "username = @username, " +
+                    "username = @username " +
                     "WHERE username = @oldUsername ";
 
                 using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -55,10 +58,10 @@ namespace AAB_Furniture_Rentals.DAL
 
         public void InsertNewLoginData(string username, string password)
         {
-            string query = "INSERT INTO login_data " +
-
-                "username = @username, " +
-                "password = @password, ";
+            password = EncryptionHandler.Encrypt(password, this.EncryptionKey);
+            string query = "INSERT INTO " +
+                  "login_data (username, password ) " +
+                  "VALUES(@username, @password ) ";
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
             {

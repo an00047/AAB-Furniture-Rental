@@ -91,7 +91,7 @@ namespace AAB_Furniture_Rentals.View
             this.adminCheckBox.Checked = theEmployee.Admin;
 
 
-            this.passwordTextBox.Enabled = false;
+            
             this.SetViewOnly();
         }
 
@@ -110,6 +110,7 @@ namespace AAB_Furniture_Rentals.View
             this.activeCheckBox.Enabled = false;
             this.userNameTextBox.Enabled = false;
             this.adminCheckBox.Enabled = false;
+            this.passwordTextBox.Enabled = false;
         }
 
         private void SetEditable()
@@ -127,6 +128,8 @@ namespace AAB_Furniture_Rentals.View
             this.activeCheckBox.Enabled = true;
             this.userNameTextBox.Enabled = true;
             this.adminCheckBox.Enabled = true;
+            this.passwordTextBox.Enabled = true;
+            this.userNameTextBox.Enabled = true;
         }
 
         private bool ValidateForm()
@@ -280,10 +283,6 @@ namespace AAB_Furniture_Rentals.View
                     newEmployee.Admin = this.adminCheckBox.Checked;
                     newEmployee.Username = this.userNameTextBox.Text;
 
-                    if(this.passwordTextBox.Text != "")
-                    {
-                        
-                    }
                     
                     
 
@@ -323,6 +322,7 @@ namespace AAB_Furniture_Rentals.View
 
 
                 EmployeeController.SaveEmployee(newEmployee);
+                EmployeeController.UpdateUsernameAndPassword(newEmployee.Username, this.passwordTextBox.Text, editEmployee.Username);
                 MessageBox.Show("Successfully edited employee.");
                 DialogResult = DialogResult.OK;
             }
@@ -366,10 +366,7 @@ namespace AAB_Furniture_Rentals.View
                 else if (this.EmployeeButton.Text == "Edit Employee")
                 {
                     this.SetEditable();
-                    this.ee.Text = "To update the password call us at (719) 266-2837";
-                    this.ee.Enabled = false;
-                    this.passwordTextBox.Enabled = false;
-                    this.userNameTextBox.Enabled = false;
+                    this.ee.Text = "";
                     this.EmployeeButton.Text = "Save Employee";
 
                 }
