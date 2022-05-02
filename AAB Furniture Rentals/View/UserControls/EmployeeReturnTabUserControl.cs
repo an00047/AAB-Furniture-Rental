@@ -64,7 +64,6 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 foreach (var grp in g)
                 {
                     FurnitureAndAmount.Add(grp.Key, grp.Count());   
-                   
                 }
        
                 FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
