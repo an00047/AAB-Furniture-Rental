@@ -269,6 +269,9 @@
     <EmbeddedResource Include="View\UserControls\EmployeeReturnTabUserControl.resx">
       <DependentUpon>EmployeeReturnTabUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserControls\EmployeeSearchTransactionsUserControl.resx">
+      <DependentUpon>EmployeeSearchTransactionsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\AAB Furniture Rentals.exe.config" />
     <None Include="DB\cs6232-g4_v3.bak" />
