@@ -291,20 +291,23 @@ namespace AAB_Furniture_Rentals.UserControls
 
         private void mouseEventactions() {
             int currentRow = this.searchDataGridView.CurrentCell.RowIndex;
-
-
             if (searchDataGridView.Rows[currentRow].DefaultCellStyle.BackColor == Color.OrangeRed)
             {
-
                 this.alreadyInCartPanel.Visible = true;
                 this.AddToCartGroupBox.Enabled = false;
                 this.searchDataGridView.ClearSelection();
             }
             else
             {
-
-                this.qtyUpDown.Maximum = Convert.ToDecimal(searchDataGridView.Rows[currentRow].Cells[5].Value);
-                this.AddToCartGroupBox.Enabled = true;
+                decimal qty = Convert.ToDecimal(searchDataGridView.Rows[currentRow].Cells[5].Value);
+                _ = qty > 0 ? this.qtyUpDown.Maximum = qty : this.qtyUpDown.Maximum = 1;
+                if (qty == 0) {
+                    this.AddToCartGroupBox.Enabled = false;
+                   
+                } else {
+                    this.AddToCartGroupBox.Enabled = true;
+                }
+                                   
                 this.alreadyInCartPanel.Visible = false;
             }
         }

@@ -48,13 +48,13 @@ namespace AAB_Furniture_Rentals.View
             this.cartDetailsGroupBox = new System.Windows.Forms.GroupBox();
             this.fineRate = new System.Windows.Forms.Label();
             this.feeLabel = new System.Windows.Forms.Label();
-            this.CartTotal = new System.Windows.Forms.Label();
+            this.CartTotalValue = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
-            this.tutorialLabel = new System.Windows.Forms.Label();
             this.MemberGroupBox = new System.Windows.Forms.GroupBox();
             this.MemberNameValue = new System.Windows.Forms.LinkLabel();
             this.MemberNameLabel = new System.Windows.Forms.Label();
             this.MemberIDValue = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FurnitureDataGridView)).BeginInit();
             this.updateQtyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyUpDown)).BeginInit();
@@ -236,7 +236,7 @@ namespace AAB_Furniture_Rentals.View
             // 
             this.cartDetailsGroupBox.Controls.Add(this.fineRate);
             this.cartDetailsGroupBox.Controls.Add(this.feeLabel);
-            this.cartDetailsGroupBox.Controls.Add(this.CartTotal);
+            this.cartDetailsGroupBox.Controls.Add(this.CartTotalValue);
             this.cartDetailsGroupBox.Controls.Add(this.totalLabel);
             this.cartDetailsGroupBox.Location = new System.Drawing.Point(232, 288);
             this.cartDetailsGroupBox.Name = "cartDetailsGroupBox";
@@ -264,14 +264,14 @@ namespace AAB_Furniture_Rentals.View
             this.feeLabel.TabIndex = 2;
             this.feeLabel.Text = "Daily Fine Rate:";
             // 
-            // CartTotal
+            // CartTotalValue
             // 
-            this.CartTotal.AutoSize = true;
-            this.CartTotal.Location = new System.Drawing.Point(120, 20);
-            this.CartTotal.Name = "CartTotal";
-            this.CartTotal.Size = new System.Drawing.Size(13, 13);
-            this.CartTotal.TabIndex = 1;
-            this.CartTotal.Text = "?";
+            this.CartTotalValue.AutoSize = true;
+            this.CartTotalValue.Location = new System.Drawing.Point(120, 20);
+            this.CartTotalValue.Name = "CartTotalValue";
+            this.CartTotalValue.Size = new System.Drawing.Size(13, 13);
+            this.CartTotalValue.TabIndex = 1;
+            this.CartTotalValue.Text = "?";
             // 
             // totalLabel
             // 
@@ -282,17 +282,6 @@ namespace AAB_Furniture_Rentals.View
             this.totalLabel.Size = new System.Drawing.Size(67, 13);
             this.totalLabel.TabIndex = 0;
             this.totalLabel.Text = "Cart Total:";
-            // 
-            // tutorialLabel
-            // 
-            this.tutorialLabel.AutoSize = true;
-            this.tutorialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tutorialLabel.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.tutorialLabel.Location = new System.Drawing.Point(166, 236);
-            this.tutorialLabel.Name = "tutorialLabel";
-            this.tutorialLabel.Size = new System.Drawing.Size(308, 13);
-            this.tutorialLabel.TabIndex = 25;
-            this.tutorialLabel.Text = "*SELECT LINE-ITEM TO UPDATE / DELETE ENTRY";
             // 
             // MemberGroupBox
             // 
@@ -336,13 +325,25 @@ namespace AAB_Furniture_Rentals.View
             this.MemberIDValue.TabIndex = 14;
             this.MemberIDValue.Text = "?";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Marlett", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label1.Location = new System.Drawing.Point(228, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(171, 15);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "*Select Line Items of Interest";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CartDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 404);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.MemberGroupBox);
-            this.Controls.Add(this.tutorialLabel);
             this.Controls.Add(this.cartDetailsGroupBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.updateQtyPanel);
@@ -386,11 +387,11 @@ namespace AAB_Furniture_Rentals.View
         private System.Windows.Forms.Label totalLabel;
         private System.Windows.Forms.Label fineRate;
         private System.Windows.Forms.Label feeLabel;
-        private System.Windows.Forms.Label CartTotal;
-        private System.Windows.Forms.Label tutorialLabel;
+        private System.Windows.Forms.Label CartTotalValue;
         private System.Windows.Forms.GroupBox MemberGroupBox;
         private System.Windows.Forms.Label MemberNameLabel;
         private System.Windows.Forms.Label MemberIDValue;
         private System.Windows.Forms.LinkLabel MemberNameValue;
+        private System.Windows.Forms.Label label1;
     }
 }

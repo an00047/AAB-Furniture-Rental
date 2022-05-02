@@ -25,6 +25,7 @@ namespace AAB_Furniture_Rentals.View
             InitializeComponent();
            
             this.returnDateTimePicker.MinDate = DateTime.Now.AddDays(1);
+         
             this.RefreshDataGrid();
             this.CheckMemberSelection();
         }
@@ -43,22 +44,27 @@ namespace AAB_Furniture_Rentals.View
             this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
         }
 
-        /// <summary>
-        /// really cool magical gridhandler that fixes everything
-        /// </summary>
         private void RefreshDataGrid() {
 
             this.FurnitureDataGridView.DataSource = null;
             this.FurnitureDataGridView.DataSource = FurnitureController.CurrentCart.FurnitureList;
-            this.CartTotal.Text = (FurnitureController.CurrentCart.CalculateTotalCost(this.returnDateTimePicker.Value)).ToString("0.00");
+            this.CartTotalValue.Text = (FurnitureController.CurrentCart.CalculateTotalCost(this.returnDateTimePicker.Value)).ToString("0.00");
             this.fineRate.Text = (FurnitureController.CurrentCart.CalculateDailyFineRate()).ToString("0.00");
         }
 
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
-
             RefreshDataGrid();
             try {
+
+                string message = "You are placing a rental order for a total of $" + this.CartTotalValue.Text + " \n\n" +
+                    $"Do you wish to Proceede? ";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, "Please confirm", buttons);
+                if (result == DialogResult.Yes) { 
+                
+               
+
 
                 CheckMemberSelection();
 
@@ -69,10 +75,10 @@ namespace AAB_Furniture_Rentals.View
 
 
                 RentalTransactionConfirmationDialog checkoutComplete = new RentalTransactionConfirmationDialog();
-               // this.Hide();
+             
                 checkoutComplete.ShowDialog();
                 this.Close();
-               
+                }
 
             } catch (Exception ex) {
 

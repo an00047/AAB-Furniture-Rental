@@ -31,6 +31,7 @@ namespace AAB_Furniture_Rentals.UserControls
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clear = new System.Windows.Forms.Button();
             this.AddToCartButton = new System.Windows.Forms.Button();
             this.styleComboBox = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,6 @@ namespace AAB_Furniture_Rentals.UserControls
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tutorialLabel = new System.Windows.Forms.Label();
             this.serchBygroup = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.alreadyInCartPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
             this.AddToCartGroupBox.SuspendLayout();
@@ -148,6 +148,14 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchDataGridView.MultiSelect = false;
             this.searchDataGridView.Name = "searchDataGridView";
             this.searchDataGridView.ReadOnly = true;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.searchDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.searchDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.searchDataGridView.Size = new System.Drawing.Size(458, 139);
             this.searchDataGridView.TabIndex = 12;
@@ -259,7 +267,6 @@ namespace AAB_Furniture_Rentals.UserControls
             // 
             // serchBygroup
             // 
-            this.serchBygroup.Controls.Add(this.button1);
             this.serchBygroup.Controls.Add(this.idComboBox);
             this.serchBygroup.Controls.Add(this.clear);
             this.serchBygroup.Controls.Add(this.tutorialLabel);
@@ -272,15 +279,6 @@ namespace AAB_Furniture_Rentals.UserControls
             this.serchBygroup.TabIndex = 28;
             this.serchBygroup.TabStop = false;
             this.serchBygroup.Text = "Search By:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(263, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(20, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // alreadyInCartPanel
             // 
@@ -333,6 +331,5 @@ namespace AAB_Furniture_Rentals.UserControls
         private System.Windows.Forms.GroupBox serchBygroup;
         private System.Windows.Forms.Label InCartWarning;
         private System.Windows.Forms.Panel alreadyInCartPanel;
-        private System.Windows.Forms.Button button1;
     }
 }
