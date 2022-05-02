@@ -66,7 +66,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
                     FurnitureAndAmount.Add(grp.Key, grp.Count());   
                    
                 }
-               
+       
                 FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
                 FurnitureController.CurrentReturnCart.ProcessInsertReturnTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
                 memberID: MemberController.CurrentMember.MemberID);
@@ -116,8 +116,8 @@ namespace AAB_Furniture_Rentals.View.UserControls
             try
             {
                 //TODO: prompt user for member information if NOT exists. 
-                int customerID = int.Parse(this.idTextBox.Text);
-                AllRentals = RentalController.GetAllRentalsByCustomerID(customerID);
+                MemberController.CurrentMember = MemberController.GetCustomerByID(int.Parse(this.idTextBox.Text));
+                AllRentals = RentalController.GetAllRentalsByCustomerID(MemberController.CurrentMember.MemberID);
                 this.populateItems();
 
             }

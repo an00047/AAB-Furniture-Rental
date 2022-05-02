@@ -1,4 +1,5 @@
 ﻿using AAB_Furniture_Rentals.Controller;
+using AAB_Furniture_Rentals.View.Dialogs;
 using System;
 using System.Collections.Generic;
 
@@ -59,6 +60,7 @@ namespace AAB_Furniture_Rentals.Model
             
         }
 
+
         public void ProcessInsertReturnTransaction(int memberID, int employeeID)
         {
             Returns newReturnedtransaction = new Returns();
@@ -74,62 +76,7 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         /// <param name="returnDate"></param>
         /// <returns></returns>
-        public double CalculateTotalCost(DateTime returnDate)
-        {
-            int daysRented = Math.Abs(returnDate.Day - DateTime.Now.Date.Day);
-            double total = 0;
-            this.FurnitureList.ForEach((item) => {
-                total += item.DailyRentalRate * daysRented * item.QuantityOnHand;
-            });
 
-            return total;
-        }
-
-        public String GetReturnCartContents()
-        {
-            //Clear lists after returning
-            string currentContents = "";
-            
-            foreach(IsReturnedModel item in this.IsReturnedList)
-            {
-                currentContents += "\nQuantity: " + item.QuantityIn + " FurnitureID:" + item.IsRentedFurnitureID;
-             }
-
-            return currentContents;
-        }
-        public double GetRefund()
-        {
-         
-            double total = 0;
-            this.FurnitureList.ForEach((item) => {
-                if(item.DueDate > DateTime.Now)
-                {
-                    TimeSpan daysRemaining = DateTime.Now.Date - item.DueDate.Date;
-                    total += item.DailyRentalRate * daysRemaining.TotalDays * item.QuantityOnHand;
-                }
-            });
-
-            return total;
-        }
-
-        /// <summary>
-        /// calculates the daily fine rate
-        /// </summary>
-        /// <returns></returns>
-        public double GetFines()
-        {
-            double total = 0;
-            this.FurnitureList.ForEach((item) => {
-                if (item.DueDate < DateTime.Now)
-                {
-                    double totalFineRate = item.FineRate * item.QuantityOnHand;
-                    TimeSpan daysOverDue = item.DueDate.Date - DateTime.Now.Date;
-                    total += item.FineRate * Math.Abs((double)daysOverDue.TotalDays);
-                }
-            });
-
-            return total;
-        }
     }
 }
  

@@ -17,9 +17,9 @@ namespace AAB_Furniture_Returns.DAL
         {
             int ReturnID = 0;
             string query = "INSERT INTO " +
-             "Returns (returnTransactionID, datetime_created, employee_employeeID) " +
+             "Returns (datetime_created, employee_employeeID) " +
              "OUTPUT Inserted.ReturnTransactionID " +
-             "VALUES(@RETURNTRANSACTION_ID, @DATETIME_CREATED, @EMPLOYEE_ID) ";
+             "VALUES(@DATETIME_CREATED, @EMPLOYEE_ID) ";
 
 
             using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -28,7 +28,7 @@ namespace AAB_Furniture_Returns.DAL
                 using (SqlCommand command = new SqlCommand(query, connection))
 
                 {
-                    command.Parameters.AddWithValue("@RETURNTRANSACTION_ID", newReturn.ReturnTransactionID);
+                    
                     command.Parameters.AddWithValue("@DATETIME_CREATED", newReturn.DateTimeCreated);
                     command.Parameters.AddWithValue("@EMPLOYEE_ID", newReturn.EmployeeID);
 
@@ -48,7 +48,7 @@ namespace AAB_Furniture_Returns.DAL
 
                     string isReturnedQuery = "INSERT INTO " +
                 "is_returned (returns_returnTransactionID, quantityIn, is_rented_transactionID, is_rented_furnitureID) " +
-                "VALUES(@RETURNTRANSACTION_ID, @QUANTITY_IN @ISRENTED_TRANSACTION_ID, @ISRENTED_FURNITURE_ID) ";
+                "VALUES(@RETURNTRANSACTION_ID, @QUANTITY_IN, @ISRENTED_TRANSACTION_ID, @ISRENTED_FURNITURE_ID) ";
 
                     using (SqlConnection connection = RentMeDBConnection.GetConnection())
                     {
@@ -80,9 +80,29 @@ namespace AAB_Furniture_Returns.DAL
                             command.ExecuteScalar();
                         }
                     }
+
+
+                    string updateIsRentedQuery =
+                       "UPDATE is_rented SET quantityOut = is_rented.quantityOut - @quantityIn " +
+                       "WHERE is_rented.furnitureID = @furnitureID ";
+
+                    using (SqlConnection connection = RentMeDBConnection.GetConnection())
+                    {
+                        connection.Open();
+                        using (SqlCommand command = new SqlCommand(updateIsRentedQuery, connection))
+
+                        {
+                            command.Parameters.AddWithValue("@quantityIn", entry.QuantityIn);
+                            command.Parameters.AddWithValue("@furnitureID", entry.IsRentedFurnitureID);
+
+                            command.ExecuteScalar();
+                        }
+                    }
                 });
 
             }
+
+
             return ReturnID;
         }
     }
