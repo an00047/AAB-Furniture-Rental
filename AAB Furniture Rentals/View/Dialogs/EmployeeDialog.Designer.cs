@@ -504,7 +504,7 @@ namespace AAB_Furniture_Rentals.View
             this.Controls.Add(this.EmployeeButton);
             this.Name = "EmployeeDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Employee Dialog:";
+            this.Text = "Add/Edit Employee Form";
             this.EmpoyeeInfoGroupBox.ResumeLayout(false);
             this.EmpoyeeInfoGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
