@@ -65,14 +65,6 @@ namespace AAB_Furniture_Rentals.UserControls
             this.searchComboBox.Size = new System.Drawing.Size(65, 21);
             this.searchComboBox.TabIndex = 2;
             // 
-            // searchCustomerIDTextBox
-            // 
-            this.searchCustomerIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.searchCustomerIDTextBox.Location = new System.Drawing.Point(58, 94);
-            this.searchCustomerIDTextBox.Name = "searchCustomerIDTextBox";
-            this.searchCustomerIDTextBox.Size = new System.Drawing.Size(65, 20);
-            this.searchCustomerIDTextBox.TabIndex = 1;
-            // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);

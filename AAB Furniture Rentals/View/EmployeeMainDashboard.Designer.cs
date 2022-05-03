@@ -155,9 +155,10 @@ namespace AAB_Furniture_Rentals.View
             // 
             // employeeReturnTabUserControl1
             // 
-            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(200, 53);
+            this.employeeReturnTabUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(0, 0);
             this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
-            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(330, 268);
+            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(687, 376);
             this.employeeReturnTabUserControl1.TabIndex = 0;
             // 
             // rentalsTab
