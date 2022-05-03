@@ -66,9 +66,6 @@ namespace AAB_Furniture_Rentals.View
                 DialogResult result = MessageBox.Show(message, "Please confirm", buttons);
                 if (result == DialogResult.Yes) { 
                 
-               
-
-
                 CheckMemberSelection();
 
                 FurnitureController.CurrentCart.ProcessInsertRentalTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
@@ -140,7 +137,6 @@ namespace AAB_Furniture_Rentals.View
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message,
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
