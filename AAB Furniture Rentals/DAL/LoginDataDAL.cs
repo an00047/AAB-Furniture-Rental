@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
@@ -17,6 +18,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="oldUsername">the old password</param>
         public void UpdateUsernameAndPassword(string newUsername, string newPassword, string oldUsername)
         {
+            if (newUsername == "" || oldUsername == "")
+            {
+                throw new ArgumentException("username and password Cannot be empty");
+            }
             if (newPassword != "")
             {
                 newPassword = EncryptionHandler.Encrypt(newPassword, this.EncryptionKey);
@@ -68,6 +73,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="password">the password</param>
         public void InsertNewLoginData(string username, string password)
         {
+            if (username == null || password == null)
+            {
+                throw new ArgumentException("username and password Cannot be empty");
+            }
             password = EncryptionHandler.Encrypt(password, this.EncryptionKey);
             string query = "INSERT INTO " +
                   "login_data (username, password ) " +

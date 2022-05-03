@@ -18,6 +18,10 @@ namespace AAB_Furniture_Returns.DAL
         /// <param name="isReturnedList">The is return list.</param>
         public int InsertReturnTransaction(Returns newReturn, List<IsReturnedModel> isReturnedList)
         {
+            if (newReturn == null || isReturnedList == null)
+            {
+                throw new ArgumentException("newReturn and isReturnedList Cannot be empty");
+            }
             int ReturnID = 0;
             string query = "INSERT INTO " +
              "Returns (datetime_created, employee_employeeID) " +
