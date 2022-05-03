@@ -33,6 +33,7 @@ namespace AAB_Furniture_Rentals.View
             this.CheckMemberSelection();
         }
 
+      
         private void CheckMemberSelection() {
            
             while (MemberController.CurrentMember == null)

@@ -26,7 +26,7 @@ namespace AAB_Furniture_Rentals.Controller
             }
 
         /// <summary>
-        /// Returns a member by the customerID
+        /// Returns a list of members by the customerID
         /// </summary>
         /// <param name="customerID"></param>
         /// <returns></returns>
@@ -40,7 +40,11 @@ namespace AAB_Furniture_Rentals.Controller
            return localMemberDAL.GetCustomersByID(customerID);
         }
 
-
+        /// <summary>
+        /// Returns the member by the customerID
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <returns></returns>
         public static Member GetCustomerByID(int customerID)
         {
             if (!(customerID > 0))

@@ -62,6 +62,9 @@ namespace AAB_Furniture_Rentals.Model
             this.DateTimeDue = dateTimeDue;
         }
 
+        /// <summary>
+        /// empty constructor for null initialization
+        /// </summary>
         public Rental() { }
     }
 }

@@ -1,18 +1,21 @@
 ﻿using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
-
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AAB_Furniture_Returns.DAL
 {
+
+    /// <summary>
+    /// Responsible for inserting returns into the database
+    /// </summary>
     class InsertReturnDAL
     {
-
+        /// <summary>
+        /// Inserts the return transaction.
+        /// </summary>
+        /// <param name="newReturn">The new return.</param>
+        /// <param name="isReturnedList">The is return list.</param>
         public int InsertReturnTransaction(Returns newReturn, List<IsReturnedModel> isReturnedList)
         {
             int ReturnID = 0;

@@ -15,6 +15,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// holds the current cart object for the member's checkout experiance
         /// </summary>
         public static Cart CurrentCart { get; set; }
+
+        /// <summary>
+        /// holds the current return cart for the member's return experience
+        /// </summary>
         public static ReturnCart CurrentReturnCart { get; set; }
 
         private static FurnitureDAL localFurnitureDAL;
@@ -63,6 +67,17 @@ namespace AAB_Furniture_Rentals.Controller
 
            return localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
         }
+
+        /// <summary>
+        /// Inserts the return transaction.
+        /// </summary>
+        /// <param name="newReturn">The new return.</param>
+        /// <param name="isReturnedList">The is return list.</param>
+        /// <exception cref="ArgumentException">
+        /// The return is null
+        /// or
+        /// The isReturnedList is null
+        /// </exception>
         internal static int InsertReturnTransaction(Returns newReturn, List<IsReturnedModel> isReturnedList)
         {
             if (newReturn == null)

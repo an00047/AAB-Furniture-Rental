@@ -6,8 +6,7 @@ using System.Collections.Generic;
 namespace AAB_Furniture_Rentals.Controller
 {
     /// <summary>
-    /// 
-    /// Controls the IsReturned Data
+    /// Controls the IsReturned query data
     /// </summary>
     class IsReturnedController
     {

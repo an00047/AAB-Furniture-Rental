@@ -36,12 +36,23 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="employeeID">The employee identifier.</param>
         /// 
         public int MemberID { get; set; }
+
+        /// <summary>
+        /// Constructor for the Returns object
+        /// </summary>
+        /// <param name="returnTransactionID"></param>
+        /// <param name="dateTimeCreated"></param>
+        /// <param name="employeeID"></param>
         public Returns(int returnTransactionID, DateTime dateTimeCreated, int employeeID)
         {
             this.ReturnTransactionID = returnTransactionID;
             this.DateTimeCreated = dateTimeCreated;
             this.EmployeeID = employeeID;
         }
+
+        /// <summary>
+        /// empty constructor for null initialization
+        /// </summary>
         public Returns() { }
     
     }
