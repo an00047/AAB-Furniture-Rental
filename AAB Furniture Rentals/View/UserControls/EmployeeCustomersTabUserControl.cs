@@ -47,7 +47,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             //MEMBER IS SET ON THE DIALOG
             if (result != DialogResult.Cancel)
             {
-                this.CustomerIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
+                this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
                 this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
                 this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
 
