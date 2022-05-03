@@ -59,7 +59,7 @@ namespace AAB_Furniture_Rentals.View.Dialogs
             this.Controls.Add(this.employeeCustomersTabUserControl1);
             this.Name = "SelectShoppingMemberDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SelectShoppingMemberDialog";
+            this.Text = "Select Shopping Member";
             this.ResumeLayout(false);
 
         }
