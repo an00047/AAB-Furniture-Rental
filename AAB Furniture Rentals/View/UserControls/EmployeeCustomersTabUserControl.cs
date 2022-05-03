@@ -43,11 +43,17 @@ namespace AAB_Furniture_Rentals.View.UserControls
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
         {
             Form newCustomerDialog = new CustomerDialog(this);
-            //newCustomerDialog.ShowDialog();
+            DialogResult result = newCustomerDialog.ShowDialog();
             //MEMBER IS SET ON THE DIALOG
-            this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
-            this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
-            this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
+            if (result != DialogResult.Cancel)
+            {
+                this.CustomerIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
+                this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
+                this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
+
+            }
+
+
         }
 
         private void EditCustomerButton_Click(object sender, System.EventArgs e)
