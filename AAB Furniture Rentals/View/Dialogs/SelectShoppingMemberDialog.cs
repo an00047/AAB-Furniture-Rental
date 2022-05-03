@@ -1,24 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.Dialogs
 {
+    /// <summary>
+    /// Partial class for the shipping member dialog
+    /// </summary>
     public partial class SelectShoppingMemberDialog : Form
     {
+        /// <summary>
+        /// initialized the component
+        /// </summary>
         public SelectShoppingMemberDialog()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent(); 
 
         }
+
 
         private void closeFromButton_Click(object sender, EventArgs e)
         {

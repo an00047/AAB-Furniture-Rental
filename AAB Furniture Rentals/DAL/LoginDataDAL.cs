@@ -9,7 +9,12 @@ namespace AAB_Furniture_Rentals.DAL
     class LoginDataDAL
     {
         string EncryptionKey = "DatabasesAreAwsome";
-
+        /// <summary>
+        /// updates the username and password in the login_data table
+        /// </summary>
+        /// <param name="newUsername">the new username</param>
+        /// <param name="newPassword">the new password</param>
+        /// <param name="oldUsername">the old password</param>
         public void UpdateUsernameAndPassword(string newUsername, string newPassword, string oldUsername)
         {
             if (newPassword != "")
@@ -56,6 +61,11 @@ namespace AAB_Furniture_Rentals.DAL
             }
         }
 
+        /// <summary>
+        /// inserts new login data
+        /// </summary>
+        /// <param name="username">the username</param>
+        /// <param name="password">the password</param>
         public void InsertNewLoginData(string username, string password)
         {
             password = EncryptionHandler.Encrypt(password, this.EncryptionKey);

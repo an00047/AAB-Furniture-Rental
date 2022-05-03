@@ -65,7 +65,11 @@ namespace AAB_Furniture_Rentals.DAL
 
             }
         }
-
+        /// <summary>
+        /// Query for getting the member by the memberID
+        /// </summary>
+        /// <param name="customerID">the customerID for the requested customer</param>
+        /// <returns></returns>
         public Member GetCustomerByID(int customerID)
         {
 

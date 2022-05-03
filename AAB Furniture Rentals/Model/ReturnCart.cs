@@ -1,5 +1,4 @@
 ﻿using AAB_Furniture_Rentals.Controller;
-using AAB_Furniture_Rentals.View.Dialogs;
 using System;
 using System.Collections.Generic;
 
@@ -60,7 +59,11 @@ namespace AAB_Furniture_Rentals.Model
             
         }
 
-
+        /// <summary>
+        /// builds the is_returned list and the new returns; then hands off to the controller. 
+        /// </summary>
+        /// <param name="memberID"></param>
+        /// <param name="employeeID"></param>
         public void ProcessInsertReturnTransaction(int memberID, int employeeID)
         {
             Returns newReturnedtransaction = new Returns();
@@ -74,12 +77,7 @@ namespace AAB_Furniture_Rentals.Model
             this.FurnitureList = new List<Furniture>();
         }
       
-        /// <summary>
-        /// Calculates the total rental cost (w/o taxes)
-        /// </summary>
-        /// <param name="returnDate"></param>
-        /// <returns></returns>
-
+ 
     }
 }
  

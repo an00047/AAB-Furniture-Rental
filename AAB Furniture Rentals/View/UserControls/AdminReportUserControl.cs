@@ -5,8 +5,15 @@ using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View.UserControls
 {
+    /// <summary>
+    /// Partial class for AdminReportUserControl
+    /// </summary>
     public partial class AdminReportUserControl : UserControl
     {
+        /// <summary>
+        /// Initializes the component. 
+        /// Initializes the startdatepicker and enddatepicker.
+        /// </summary>
         public AdminReportUserControl()
         {
             

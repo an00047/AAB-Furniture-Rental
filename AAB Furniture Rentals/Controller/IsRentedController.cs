@@ -6,11 +6,13 @@ using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
 {
+    /// <summary>
+    /// Standards controller class meant to hold all IsRented queries
+    /// </summary>
     class IsRentedController
     {
-        private static IsRentedDAL localIsRentedDAL;
-
      
+        private static IsRentedDAL localIsRentedDAL;
 
         static IsRentedController()
         {
