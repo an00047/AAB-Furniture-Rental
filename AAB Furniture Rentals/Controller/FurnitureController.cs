@@ -63,7 +63,6 @@ namespace AAB_Furniture_Rentals.Controller
 
            return localInsertRentalDAL.InsertRentalTransaction(newRental, isRentedList);
         }
-
         internal static int InsertReturnTransaction(Returns newReturn, List<IsReturnedModel> isReturnedList)
         {
             if (newReturn == null)
@@ -78,8 +77,6 @@ namespace AAB_Furniture_Rentals.Controller
 
             return localInsertReturnDAL.InsertReturnTransaction(newReturn, isReturnedList);
         }
-
-
         /// <summary>
         /// Gets the furniture by parameter.
         /// </summary>

@@ -15,6 +15,9 @@ namespace AAB_Furniture_Rentals.View.Dialogs
         public SelectShoppingMemberDialog()
         {
             InitializeComponent();
+
+            
+
         }
 
         private void closeFromButton_Click(object sender, EventArgs e)

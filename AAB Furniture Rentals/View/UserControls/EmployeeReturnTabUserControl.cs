@@ -1,5 +1,6 @@
 ﻿using AAB_Furniture_Rentals.Controller;
 using AAB_Furniture_Rentals.Model;
+using AAB_Furniture_Rentals.View.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,23 +27,43 @@ namespace AAB_Furniture_Rentals.View.UserControls
         public EmployeeReturnTabUserControl()
         {
             InitializeComponent();
-            this.getTransactionsButton.Enabled = true;
+        
             this.processReturnButton.Enabled = false;
             AllRentals = new List<Rental>();
             AllFurniture = new List<Furniture>();
 
             this.checkedItems = new List<Furniture>();
-
+           
             this.Fees = 0.00;
             this.Refund = 0.00;
             this.feesTextBox.Text = this.Fees.ToString("0.00");
             this.refundTextBox.Text = this.Refund.ToString("0.00");
+     
+
         }
 
-        
-            private void ProcessReturnButton_Click(object sender, EventArgs e)
+        private void checkMember()
         {
-           
+            while (MemberController.CurrentMember == null)
+            {
+                
+                SelectShoppingMemberDialog chooseMemberForm = new SelectShoppingMemberDialog();
+                chooseMemberForm.ShowDialog();
+
+            }
+
+        }
+
+    
+
+    private void ProcessReturnButton_Click(object sender, EventArgs e)
+        {
+            if (MemberController.CurrentMember == null)
+            {
+                MessageBox.Show("Customer not selected. Please select a customer.");
+            }
+            else
+            {
                 try
                 {
                     if (FurnitureController.CurrentReturnCart == null)
@@ -56,30 +77,32 @@ namespace AAB_Furniture_Rentals.View.UserControls
                         throw new Exception("You must select a piece of furniture to return!");
                     }
 
-                //make for list instead of individual in returncart
-                Dictionary<Furniture, int> FurnitureAndAmount = new Dictionary<Furniture, int>();
-            
-                var g = checkedItems.GroupBy(i => i);
 
-                foreach (var grp in g)
-                {
-                    FurnitureAndAmount.Add(grp.Key, grp.Count());   
-                }
-       
-                FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
-                FurnitureController.CurrentReturnCart.ProcessInsertReturnTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
-                memberID: MemberController.CurrentMember.MemberID);
+                    Dictionary<Furniture, int> FurnitureAndAmount = new Dictionary<Furniture, int>();
 
-                MessageBox.Show("Return successful.");
-                this.populateItems();
-                
+                    var g = checkedItems.GroupBy(i => i);
+
+                    foreach (var grp in g)
+                    {
+                        FurnitureAndAmount.Add(grp.Key, grp.Count());
+                    }
+
+                    FurnitureController.CurrentReturnCart.AddFurnitureToReturnCart(FurnitureAndAmount);
+                    FurnitureController.CurrentReturnCart.ProcessInsertReturnTransaction(employeeID: EmployeeController.CurrentEmployee.EmployeeID,
+                    memberID: MemberController.CurrentMember.MemberID);
+
+                    MessageBox.Show("Return successful.");
+                    this.processReturnButton.Enabled = false;
+                    this.populateItems();
+
                 }
                 catch (Exception ex)
                 {
                     FurnitureController.CurrentCart = null;
                     MessageBox.Show(ex.Message, "Error!");
-                this.populateItems();
+                    this.populateItems();
                 }
+            }
             
         }
 
@@ -107,15 +130,15 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
 
 
-        private void getTransactionsButton_Click(object sender, EventArgs e)
+        private void ChangeMember_Click(object sender, EventArgs e)
         {
             AllRentals.Clear();
             AllFurniture.Clear();
 
             try
             {
-                //TODO: prompt user for member information if NOT exists. 
-                MemberController.CurrentMember = MemberController.GetCustomerByID(int.Parse(this.idTextBox.Text));
+                this.checkMember();
+            
                 AllRentals = RentalController.GetAllRentalsByCustomerID(MemberController.CurrentMember.MemberID);
                 this.populateItems();
 
@@ -131,7 +154,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.itemsReturnedCheckedListBox.Items.Clear();
             this.feesTextBox.Text = "0.00";
             this.refundTextBox.Text = "0.00";
-            this.getTransactionsButton.Enabled = true;
+          
             this.processReturnButton.Enabled = false;
 
         }
@@ -153,15 +176,12 @@ namespace AAB_Furniture_Rentals.View.UserControls
                     currentFurniture.Category = tempFurniture.Category;
                     currentFurniture.DueDate = currentRental.DateTimeDue;
                     currentFurniture.TransactionID = currentRental.RentalTransactionID;
-                    currentFurniture.RentalDescription = currentRental.RentalTransactionID + " :(1) " + currentFurniture.Style + " " + currentFurniture.Category + "( " + currentFurniture.FurnitureID + " )";
+                    currentFurniture.RentalDescription = "Transaction ID: " + currentRental.RentalTransactionID + " | " + "Furniture ID: " + currentFurniture.FurnitureID + " | (" + currentFurniture.Style + " " + currentFurniture.Category + " )";
 
                     for (int i = 0; i < currentFurniture.QuantityRented; i++)
                     {
                         this.itemsReturnedCheckedListBox.Items.Add(currentFurniture, false);
                     }
-
-                    this.getTransactionsButton.Enabled = false;
-
 
                 }
             }
@@ -206,10 +226,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             }
         }
 
-        private void EmployeeReturnTabUserControl_Load(object sender, EventArgs e)
-        {
-
-        }
+    
     }
 
 

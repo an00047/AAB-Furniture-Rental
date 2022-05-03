@@ -89,7 +89,7 @@ namespace AAB_Furniture_Rentals.View
             this.furnitureTab.Padding = new System.Windows.Forms.Padding(3);
             this.furnitureTab.Size = new System.Drawing.Size(687, 376);
             this.furnitureTab.TabIndex = 0;
-            this.furnitureTab.Text = "Furniture";
+            this.furnitureTab.Text = "Furniture Search / Cart";
             this.furnitureTab.UseVisualStyleBackColor = true;
             // 
             // employeeFurnitureUserControl
@@ -109,15 +109,19 @@ namespace AAB_Furniture_Rentals.View
             this.searchTransactions.Padding = new System.Windows.Forms.Padding(3);
             this.searchTransactions.Size = new System.Drawing.Size(687, 376);
             this.searchTransactions.TabIndex = 1;
-            this.searchTransactions.Text = "Rentals";
+            this.searchTransactions.Text = "Search Transactions";
             this.searchTransactions.UseVisualStyleBackColor = true;
             // 
             // employeeRentalsUserControl2
             // 
-            this.employeeRentalsUserControl2.Location = new System.Drawing.Point(-20, -45);
+            this.employeeRentalsUserControl2.AutoScroll = true;
+            this.employeeRentalsUserControl2.AutoSize = true;
+            this.employeeRentalsUserControl2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.employeeRentalsUserControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeRentalsUserControl2.Location = new System.Drawing.Point(3, 3);
             this.employeeRentalsUserControl2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeRentalsUserControl2.Name = "employeeRentalsUserControl2";
-            this.employeeRentalsUserControl2.Size = new System.Drawing.Size(700, 450);
+            this.employeeRentalsUserControl2.Size = new System.Drawing.Size(681, 370);
             this.employeeRentalsUserControl2.TabIndex = 0;
             // 
             // customersTab
@@ -127,7 +131,7 @@ namespace AAB_Furniture_Rentals.View
             this.customersTab.Name = "customersTab";
             this.customersTab.Size = new System.Drawing.Size(687, 376);
             this.customersTab.TabIndex = 2;
-            this.customersTab.Text = "Customers";
+            this.customersTab.Text = "Members (Select | Create | Edit)";
             this.customersTab.UseVisualStyleBackColor = true;
             // 
             // employeeCustomersTabUserControl
@@ -146,14 +150,15 @@ namespace AAB_Furniture_Rentals.View
             this.returnsTab.Name = "returnsTab";
             this.returnsTab.Size = new System.Drawing.Size(687, 376);
             this.returnsTab.TabIndex = 3;
-            this.returnsTab.Text = "Returns";
+            this.returnsTab.Text = "Return Rented Furniture";
             this.returnsTab.UseVisualStyleBackColor = true;
             // 
             // employeeReturnTabUserControl1
             // 
-            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(200, 53);
+            this.employeeReturnTabUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeReturnTabUserControl1.Location = new System.Drawing.Point(0, 0);
             this.employeeReturnTabUserControl1.Name = "employeeReturnTabUserControl1";
-            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(330, 268);
+            this.employeeReturnTabUserControl1.Size = new System.Drawing.Size(687, 376);
             this.employeeReturnTabUserControl1.TabIndex = 0;
             // 
             // rentalsTab
@@ -174,7 +179,7 @@ namespace AAB_Furniture_Rentals.View
             this.EmployeeDetailsBox.Controls.Add(this.EmployeeNameLabel);
             this.EmployeeDetailsBox.Controls.Add(this.EmployeeIDValue);
             this.EmployeeDetailsBox.Controls.Add(this.EmpployeeIDLabel);
-            this.EmployeeDetailsBox.Location = new System.Drawing.Point(338, 12);
+            this.EmployeeDetailsBox.Location = new System.Drawing.Point(343, 4);
             this.EmployeeDetailsBox.Name = "EmployeeDetailsBox";
             this.EmployeeDetailsBox.Size = new System.Drawing.Size(350, 45);
             this.EmployeeDetailsBox.TabIndex = 23;
@@ -239,6 +244,7 @@ namespace AAB_Furniture_Rentals.View
             this.AdminTabControl.ResumeLayout(false);
             this.furnitureTab.ResumeLayout(false);
             this.searchTransactions.ResumeLayout(false);
+            this.searchTransactions.PerformLayout();
             this.customersTab.ResumeLayout(false);
             this.customersTab.PerformLayout();
             this.returnsTab.ResumeLayout(false);
