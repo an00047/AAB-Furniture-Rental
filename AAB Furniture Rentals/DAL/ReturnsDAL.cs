@@ -1,4 +1,5 @@
 ﻿using AAB_Furniture_Rentals.Model;
+using System;
 using System.Data.SqlClient;
 
 namespace AAB_Furniture_Rentals.DAL
@@ -15,6 +16,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns>The return with the matching transaction identifier</returns>
         public Returns GetReturnByTransactionID(int transactionID)
         {
+            if (transactionID < 0)
+            {
+                throw new ArgumentException("transactionID cannot be negative");
+            }
             Returns newReturn = null;
             string selectStatement = @"SELECT * FROM returns 
                                         WHERE returnTransactionID = @transactionID";

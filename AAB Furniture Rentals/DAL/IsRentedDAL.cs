@@ -17,6 +17,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns>The list of IsRented items with the matching memberID</returns>
         public List<IsRented> GetIsRentedByMemberID(int newMemberID)
         {
+            if (newMemberID < 0)
+            {
+                throw new ArgumentException("newMemberID cannot be less than 0");
+            }
             List<IsRented> rentals = new List<IsRented>();
             string selectStatement = @"SELECT * FROM is_rented
                                         JOIN rentals ON is_rented.transactionID = rentals.rentalTransactionID
@@ -64,6 +68,10 @@ namespace AAB_Furniture_Rentals.DAL
 
         public List<Furniture> GetAllFurnitureByTransactionID(int customerID)
         {
+            if (customerID < 0 )
+            {
+                throw new ArgumentException("customerID cannot be less than 0");
+            }
 
             string selectStatement =
               "SELECT furnitureID, quantityOut " +

@@ -289,6 +289,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// </summary>
         /// <param name="updatedEmployee"></param>
         public void SaveEmployee(Employee updatedEmployee) {
+            if (updatedEmployee == null)
+            {
+                throw new ArgumentException("updatedEmployee Cannot be empty");
+            }
 
             string query = "UPDATE employee SET " +
               
@@ -339,6 +343,10 @@ namespace AAB_Furniture_Rentals.DAL
      /// </summary>
      /// <param name="newEmployee"></param>
         public void AddEmployee(Employee newEmployee) {
+            if (newEmployee == null)
+            {
+                throw new ArgumentException("newEmployee Cannot be empty");
+            }
             string query = "INSERT INTO " +
                 "Employee (fName, lName, sex, dob, address, phone, active, city, state, admin, zip, login_data_username ) " +
                 "VALUES(@FIRST_NAME, @LAST_NAME, @GENDER, @DOB, @ADDRESS, @PHONE_NUMBER, @ACTIVE, @CITY, @STATE, @ADMIN, @ZIP,@USERNAME ) ";

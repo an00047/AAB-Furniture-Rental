@@ -18,6 +18,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public List<Member> GetCustomersByID(int customerID)
         {
+            if (customerID < 0 )
+            {
+                throw new ArgumentException("customerID cannot be negative");
+            }
 
             string selectStatement =
               "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
@@ -68,7 +72,10 @@ namespace AAB_Furniture_Rentals.DAL
 
         public Member GetCustomerByID(int customerID)
         {
-
+            if (customerID < 0)
+            {
+                throw new ArgumentException("customerID cannot be negative");
+            }
             string selectStatement =
               "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
               "FROM Member " +
@@ -121,6 +128,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="customer"></param>
         public void EditCustomer(Member customer)
         {
+            if (customer == null)
+            {
+                throw new ArgumentException("customer Cannot be empty");
+            }
 
             string query = "UPDATE Member " +
                 "SET fName=@firstName, lname=@lastName, sex=@gender, dob=@dateOfBirth, address=@address, phone=@phoneNumber, city=@city, state=@state, zip=@zip " +
@@ -175,6 +186,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="customer"></param>
         public int AddCustomer(Member customer)
         {
+            if (customer == null)
+            {
+                throw new ArgumentException("customer Cannot be empty");
+            }
 
             string query = "INSERT INTO " +
                 "Member (fName, lName, sex, dob, address, phone, city, state, zip) " +
@@ -263,6 +278,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public int CheckCustomerID(int customerID)
         {
+            if (customerID < 0)
+            {
+                throw new ArgumentException("customerID cannot be negative");
+            }
 
             string selectStatement =
               "SELECT COUNT(*) FROM Member " +
@@ -299,6 +318,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public int CheckCustomerName(string firstName, string lastName)
         {
+            if (firstName == null || lastName == null)
+            {
+                throw new ArgumentException("firstname and lastname Cannot be empty");
+            }
 
             string selectStatement =
               "SELECT COUNT(*) FROM Member " +
@@ -338,6 +361,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public int CheckCustomerPhoneNumber(string phoneNumber)
         {
+            if (phoneNumber== null)
+            {
+                throw new ArgumentException("phoneNumber Cannot be empty");
+            }
 
             string selectStatement =
               "SELECT COUNT(*) FROM Member " +
@@ -375,6 +402,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public List<Member> GetCustomersByPhoneNumber(string phoneNumber)
         {
+            if (phoneNumber == null)
+            {
+                throw new ArgumentException("phoneNumber Cannot be empty");
+            }
             List<Member> allMembers = new List<Member>();
             string selectStatement =
               "SELECT memberID, fName, lName, sex, dob, address, phone, city, state, zip " +
@@ -430,6 +461,10 @@ namespace AAB_Furniture_Rentals.DAL
     /// <returns></returns>
     public List<Member> GetCustomersByFirstAndLastName(string firstName, string lastName)
     {
+            if (firstName == null || lastName == null)
+            {
+                throw new ArgumentException("firstname and lastname Cannot be empty");
+            }
 
             List<Member> allMembers = new List<Member>();
             string selectStatement =

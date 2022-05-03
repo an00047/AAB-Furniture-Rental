@@ -75,6 +75,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns>The furniture with the identifier</returns>
         public Furniture GetFurnitureByID(int searchFurnitureID)
         {
+            if (searchFurnitureID < 0)
+            {
+                throw new ArgumentException("furnitureID cannot be negative");
+            }
 
             Furniture furniture = null;
 
@@ -136,7 +140,7 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns>A list of furniture</returns>
         public List<Furniture> GetFurnitureByParameter(string style, string category, int? id)
         {
-
+           
             List<Furniture> FurnitureList = new List<Furniture>();
 
             string selectStatement = @"SELECT *
@@ -222,6 +226,11 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="updatedFurniture"></param>
         public void UpdateFurnitureItem(Furniture updatedFurniture) {
 
+            if (updatedFurniture == null)
+            {
+                throw new ArgumentException("updatedFurniture Cannot be empty");
+            }
+
             string query = "UPDATE furniture SET " +
            "style_type=@STYLE, " +
            "category_type=@CATEGORY, " +
@@ -263,6 +272,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public Furniture GetRatesForReturns(Furniture currentFurniture)
         {
+            if (currentFurniture == null)
+            {
+                throw new ArgumentException("currentFurniture Cannot be empty");
+            }
 
             List<Furniture> FurnitureList = new List<Furniture>();
 

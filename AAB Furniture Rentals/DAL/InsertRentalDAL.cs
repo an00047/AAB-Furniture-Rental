@@ -1,4 +1,5 @@
 ﻿using AAB_Furniture_Rentals.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -17,6 +18,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <param name="isRentedList">The is rented list.</param>
         public int InsertRentalTransaction(Rental newRental, List<IsRentedModel> isRentedList)
         {
+            if (newRental == null || isRentedList == null)
+            {
+                throw new ArgumentException("newRental and isRentedList Cannot be empty");
+            }
             int rentalID = 0;
             string query = "INSERT INTO " +
              "rentals (memberId, employeeID, datetime_due) " +

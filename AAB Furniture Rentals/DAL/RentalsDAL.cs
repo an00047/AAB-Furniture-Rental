@@ -18,6 +18,10 @@ namespace AAB_Furniture_Rentals.DAL
       /// <returns></returns>
     public Rental GetRentalByTransactionID(int newTransactionID)
     {
+        if (newTransactionID < 0)
+        {
+            throw new ArgumentException("newTransactionID cannot be negative");
+        }
         Rental rental = null;
         string selectStatement = "SELECT * FROM rentals WHERE rentalTransactionID = @newTransactionID";
         using (SqlConnection connection = RentMeDBConnection.GetConnection())
@@ -67,7 +71,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns></returns>
         public List<Rental> GetAllRentalsByCustomerID(int customerID)
         {
-
+            if (customerID < 0)
+            {
+                throw new ArgumentException("customerID cannot be negative");
+            }
             string selectStatement =
               "SELECT rentalTransactionID, dateTime_created, dateTime_due " +
               "FROM Rentals " +

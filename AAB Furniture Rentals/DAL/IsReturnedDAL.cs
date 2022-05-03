@@ -17,6 +17,10 @@ namespace AAB_Furniture_Rentals.DAL
         /// <returns>The list of isReturned items with matching memberID</returns>
         public List<IsReturned> GetIsReturnedByMemberID(int searchMemberID)
         {
+            if (searchMemberID < 0)
+            {
+                throw new ArgumentException("searchMemberID cannot be negative");
+            }
             List<IsReturned> returns = new List<IsReturned>();
             string selectStatement = @"SELECT * FROM is_returned
                                         JOIN rentals ON is_returned.is_rented_transactionID = rentals.rentalTransactionID
