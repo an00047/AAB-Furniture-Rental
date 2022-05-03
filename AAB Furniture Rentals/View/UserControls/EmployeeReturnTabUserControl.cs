@@ -38,19 +38,16 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.Refund = 0.00;
             this.feesTextBox.Text = this.Fees.ToString("0.00");
             this.refundTextBox.Text = this.Refund.ToString("0.00");
+         
      
 
         }
 
         private void checkMember()
         {
-            while (MemberController.CurrentMember == null)
-            {
-                
-                SelectShoppingMemberDialog chooseMemberForm = new SelectShoppingMemberDialog();
-                chooseMemberForm.ShowDialog();
-
-            }
+           
+            SelectShoppingMemberDialog chooseMemberForm = new SelectShoppingMemberDialog();
+            chooseMemberForm.ShowDialog();            
 
         }
 
@@ -93,14 +90,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
                     MessageBox.Show("Return successful.");
                     this.processReturnButton.Enabled = false;
-                    this.populateItems();
+                    this.PopulateItems();
 
                 }
                 catch (Exception ex)
                 {
                     FurnitureController.CurrentCart = null;
                     MessageBox.Show(ex.Message, "Error!");
-                    this.populateItems();
+                    this.PopulateItems();
                 }
             }
             
@@ -138,9 +135,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             try
             {
                 this.checkMember();
-            
-                AllRentals = RentalController.GetAllRentalsByCustomerID(MemberController.CurrentMember.MemberID);
-                this.populateItems();
+                this.PopulateItems();
 
             }
             catch (FormatException)
@@ -159,9 +154,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
 
         }
 
-        private void populateItems()
+        /// <summary>
+        /// Populates the check list box with the current furniture based on the member selected.
+        /// </summary>
+       public void PopulateItems()
         {
             this.itemsReturnedCheckedListBox.Items.Clear();
+           
+            AllRentals = RentalController.GetAllRentalsByCustomerID(MemberController.CurrentMember.MemberID);
             foreach (Rental currentRental in AllRentals)
             {
                 AllFurniture = IsRentedController.GetAllFurnitureByTransactionID(currentRental.RentalTransactionID);

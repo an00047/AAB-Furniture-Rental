@@ -152,6 +152,7 @@ namespace AAB_Furniture_Rentals.View
             this.returnsTab.TabIndex = 3;
             this.returnsTab.Text = "Return Rented Furniture";
             this.returnsTab.UseVisualStyleBackColor = true;
+            this.returnsTab.Enter += new System.EventHandler(this.Returns_Enter);
             // 
             // employeeReturnTabUserControl1
             // 
@@ -189,11 +190,11 @@ namespace AAB_Furniture_Rentals.View
             // EmployeeNameValue
             // 
             this.EmployeeNameValue.AutoSize = true;
-            this.EmployeeNameValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeNameValue.ForeColor = System.Drawing.Color.Black;
             this.EmployeeNameValue.Location = new System.Drawing.Point(47, 21);
             this.EmployeeNameValue.Name = "EmployeeNameValue";
-            this.EmployeeNameValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeNameValue.Size = new System.Drawing.Size(16, 18);
             this.EmployeeNameValue.TabIndex = 19;
             this.EmployeeNameValue.Text = "?";
             // 
@@ -209,11 +210,11 @@ namespace AAB_Furniture_Rentals.View
             // EmployeeIDValue
             // 
             this.EmployeeIDValue.AutoSize = true;
-            this.EmployeeIDValue.Font = new System.Drawing.Font("ModeNine", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmployeeIDValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmployeeIDValue.ForeColor = System.Drawing.Color.Black;
             this.EmployeeIDValue.Location = new System.Drawing.Point(262, 19);
             this.EmployeeIDValue.Name = "EmployeeIDValue";
-            this.EmployeeIDValue.Size = new System.Drawing.Size(16, 15);
+            this.EmployeeIDValue.Size = new System.Drawing.Size(16, 18);
             this.EmployeeIDValue.TabIndex = 17;
             this.EmployeeIDValue.Text = "?";
             // 
@@ -240,7 +241,6 @@ namespace AAB_Furniture_Rentals.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Employee Main DashBoard:  Turning Customers Into Members is Our Priority";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeMainDashboard_FormClose);
-            this.Load += new System.EventHandler(this.EmployeeMainDashboard_Load);
             this.AdminTabControl.ResumeLayout(false);
             this.furnitureTab.ResumeLayout(false);
             this.searchTransactions.ResumeLayout(false);
