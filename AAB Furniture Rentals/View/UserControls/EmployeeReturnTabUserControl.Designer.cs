@@ -102,7 +102,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.itemsReturnedCheckedListBox.FormattingEnabled = true;
             this.itemsReturnedCheckedListBox.Location = new System.Drawing.Point(55, 60);
             this.itemsReturnedCheckedListBox.Name = "itemsReturnedCheckedListBox";
-            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(594, 193);
+            this.itemsReturnedCheckedListBox.Size = new System.Drawing.Size(594, 194);
             this.itemsReturnedCheckedListBox.TabIndex = 9;
             this.itemsReturnedCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.ItemsReturned_Selected);
             // 
@@ -122,7 +122,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             // 
             this.selectInfoLabel.AutoSize = true;
             this.selectInfoLabel.ForeColor = System.Drawing.Color.DarkCyan;
-            this.selectInfoLabel.Location = new System.Drawing.Point(269, 254);
+            this.selectInfoLabel.Location = new System.Drawing.Point(254, 257);
             this.selectInfoLabel.Name = "selectInfoLabel";
             this.selectInfoLabel.Size = new System.Drawing.Size(205, 13);
             this.selectInfoLabel.TabIndex = 11;

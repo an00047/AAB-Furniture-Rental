@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AAB_Furniture_Rentals.Controller;
+using System;
 using System.Windows.Forms;
 
 namespace AAB_Furniture_Rentals.View
@@ -48,8 +49,12 @@ namespace AAB_Furniture_Rentals.View
             }
         }
 
-        private void EmployeeMainDashboard_Load(object sender, EventArgs e)
+        private void Returns_Enter(object sender, EventArgs e)
         {
+            if (MemberController.CurrentMember != null)
+            {
+                employeeReturnTabUserControl1.PopulateItems();
+            }
 
         }
     }

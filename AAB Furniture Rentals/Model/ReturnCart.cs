@@ -7,7 +7,7 @@ namespace AAB_Furniture_Rentals.Model
 {
     public class ReturnCart
     {
-        bool activeInventoryFeatureIsON = false;
+       
         /// <summary>
         /// the list of items to be rented in this transaction
         /// </summary>           
