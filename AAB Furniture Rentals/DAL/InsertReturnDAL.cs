@@ -84,14 +84,15 @@ namespace AAB_Furniture_Returns.DAL
 
                     string updateIsRentedQuery =
                        "UPDATE is_rented SET quantityOut = is_rented.quantityOut - @quantityIn " +
-                       "WHERE is_rented.furnitureID = @furnitureID ";
-
+                       "WHERE is_rented.furnitureID = @furnitureID " +
+                       "AND is_rented.transactionID = @transactionID";
                     using (SqlConnection connection = RentMeDBConnection.GetConnection())
                     {
                         connection.Open();
                         using (SqlCommand command = new SqlCommand(updateIsRentedQuery, connection))
 
                         {
+                            command.Parameters.AddWithValue("transactionID", entry.IsRentedTransactionID);
                             command.Parameters.AddWithValue("@quantityIn", entry.QuantityIn);
                             command.Parameters.AddWithValue("@furnitureID", entry.IsRentedFurnitureID);
 

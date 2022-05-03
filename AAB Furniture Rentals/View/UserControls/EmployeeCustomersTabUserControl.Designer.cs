@@ -69,7 +69,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchButton.Location = new System.Drawing.Point(203, 33);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(97, 23);
-            this.searchButton.TabIndex = 2;
+            this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
@@ -79,7 +79,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.newCustomerButton.Location = new System.Drawing.Point(19, 326);
             this.newCustomerButton.Name = "newCustomerButton";
             this.newCustomerButton.Size = new System.Drawing.Size(174, 23);
-            this.newCustomerButton.TabIndex = 4;
+            this.newCustomerButton.TabIndex = 9;
             this.newCustomerButton.Text = "New Member";
             this.newCustomerButton.UseVisualStyleBackColor = true;
             this.newCustomerButton.Click += new System.EventHandler(this.NewCustomerButton_Click);
@@ -89,7 +89,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.editCustomerButton.Location = new System.Drawing.Point(487, 331);
             this.editCustomerButton.Name = "editCustomerButton";
             this.editCustomerButton.Size = new System.Drawing.Size(174, 23);
-            this.editCustomerButton.TabIndex = 5;
+            this.editCustomerButton.TabIndex = 7;
             this.editCustomerButton.Text = "Edit Member";
             this.editCustomerButton.UseVisualStyleBackColor = true;
             this.editCustomerButton.Click += new System.EventHandler(this.EditCustomerButton_Click);
@@ -99,7 +99,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchTextBox.Location = new System.Drawing.Point(203, 9);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(97, 20);
-            this.searchTextBox.TabIndex = 1;
+            this.searchTextBox.TabIndex = 4;
             this.searchTextBox.TextChanged += new System.EventHandler(this.CustomerTextBox_Changed);
             // 
             // customerDataGridView
@@ -149,7 +149,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.NameRadioBtn.Location = new System.Drawing.Point(17, 59);
             this.NameRadioBtn.Name = "NameRadioBtn";
             this.NameRadioBtn.Size = new System.Drawing.Size(160, 17);
-            this.NameRadioBtn.TabIndex = 10;
+            this.NameRadioBtn.TabIndex = 3;
             this.NameRadioBtn.TabStop = true;
             this.NameRadioBtn.Text = "Member First and Last Name";
             this.NameRadioBtn.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.PhoneRadioBtn.Location = new System.Drawing.Point(17, 37);
             this.PhoneRadioBtn.Name = "PhoneRadioBtn";
             this.PhoneRadioBtn.Size = new System.Drawing.Size(137, 17);
-            this.PhoneRadioBtn.TabIndex = 11;
+            this.PhoneRadioBtn.TabIndex = 2;
             this.PhoneRadioBtn.TabStop = true;
             this.PhoneRadioBtn.Text = "Member Phone Number";
             this.PhoneRadioBtn.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.CustIdRadioBtn.Location = new System.Drawing.Point(17, 16);
             this.CustIdRadioBtn.Name = "CustIdRadioBtn";
             this.CustIdRadioBtn.Size = new System.Drawing.Size(77, 17);
-            this.CustIdRadioBtn.TabIndex = 12;
+            this.CustIdRadioBtn.TabIndex = 1;
             this.CustIdRadioBtn.TabStop = true;
             this.CustIdRadioBtn.Text = "Member ID";
             this.CustIdRadioBtn.UseVisualStyleBackColor = true;
