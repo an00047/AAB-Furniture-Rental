@@ -202,7 +202,7 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
 
             this.customerList.Clear();
-            this.search();
+            this.newSearchAll();
       
         }
 
