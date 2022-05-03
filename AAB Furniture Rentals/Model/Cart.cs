@@ -1,15 +1,11 @@
-﻿
-
-using AAB_Furniture_Rentals.Controller;
+﻿using AAB_Furniture_Rentals.Controller;
 using System;
 using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Model
 {
-
-
     /// <summary>
-    /// The cart object model is created when the employee Dashboard is created (not within user control)
+    /// 
     ///  -> holds a rental object model instance (sans datetime which is generated upon checkout/ COMPLETION.
     ///  -> holds an "is_rented"  object model List
     ///    -> DURING CREATION, checks that the requested quantity is available; warns if not. 
@@ -34,25 +30,20 @@ namespace AAB_Furniture_Rentals.Model
         /// the selectedDueDate finalized upon checkout
         /// </summary>
         public DateTime ScheduledDueDate { get; private set; }
-
         /// <summary>
         /// the rental transactionID after checkout
         /// </summary>
         public int rentalTransactionID { get; private set; }
-
         /// <summary>
         /// Stores the last cart calculation before checkout
         /// </summary>
         public double CartTotalCost { get; private set; }
-
         private List<IsRentedModel> IsRentedList;
-
         public Cart()
         {
             this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
-
         /// <summary>
         ///retreives Furniture information from the DB based on Furniture ID
         /// ensures there is an appropriate quantity (qty of 1, needs multiple clicks
@@ -61,43 +52,44 @@ namespace AAB_Furniture_Rentals.Model
         /// <param name="quantityToAdd"></param>
         /// <returns></returns>
         public bool AddFurnitureToCart(Furniture furnitureToAdd, int quantityToAdd) {
-
             int quantityToRent = quantityToAdd;
             furnitureToAdd.QuantityOnHand = quantityToAdd;
             // get most recent information on this furniture item
             // it is assumed that if the prices (or anyhting) changes except quantity, the memebr has their "deal" locked in. 
             Furniture InventoryItem = FurnitureController.GetFurnitureByID(furnitureToAdd.FurnitureID);
-
             //check to see if Qty is still available
             if (InventoryItem.QuantityOnHand < quantityToRent)
             {
-
                 if (this.activeInventoryFeatureIsON) {
                     this.PutFurnitureBackIntoInventory();
                 }
                 return false;
-                
             }
-
             // We have ensured there is enough inventory, 
             InventoryItem.QuantityOnHand = InventoryItem.QuantityOnHand - quantityToRent;
-
             if (this.activeInventoryFeatureIsON) { 
             FurnitureController.UpdateFurnitureItem(InventoryItem);
              }
-
-            //then build the IsRentedModel (transactionID is currently blank, becasue the DbHasnt generated it yet. will do at checkout.)
-            IsRentedModel newIsRentedAdapter = new IsRentedModel();
-            newIsRentedAdapter.QuantityOut = quantityToRent;
-            newIsRentedAdapter.FurnitureID = furnitureToAdd.FurnitureID;
-            this.IsRentedList.Add(newIsRentedAdapter);
             this.FurnitureList.Add(furnitureToAdd);
-
             return true;
-
         }
+        /// <summary>
+        /// builds the is_rented list and the new transactions; then hands off to the controller. 
+        /// </summary>
+        /// <param name="memberID"></param>
+        /// <param name="employeeID"></param>
+        /// <param name="dueDate"></param>
         public void ProcessInsertRentalTransaction(int memberID, int employeeID, DateTime dueDate)
         {
+            //We are ready to checkout. Now we wnat to build the IsRentedModel
+            //(transactionID in the model is currently blank, becasue the DB Hasnt generated it yet.)
+            this.FurnitureList.ForEach((item)=> {
+                IsRentedModel newIsRentedAdapter = new IsRentedModel();
+                newIsRentedAdapter.QuantityOut = item.QuantityOnHand;
+                newIsRentedAdapter.FurnitureID = item.FurnitureID;
+                this.IsRentedList.Add(newIsRentedAdapter);
+            });
+
             Rental newRentaltransaction = new Rental();
             newRentaltransaction.MemberID = memberID;
             newRentaltransaction.EmployeeID = employeeID;
@@ -110,18 +102,13 @@ namespace AAB_Furniture_Rentals.Model
         /// </summary>
         public void PutFurnitureBackIntoInventory()
         {
-            
             // add each furniture in the last back... 
-
             this.FurnitureList.ForEach((item) =>
             {
                 Furniture inventoryItem = FurnitureController.GetFurnitureByID(item.FurnitureID);
                 inventoryItem.QuantityOnHand += item.QuantityOnHand;
                 FurnitureController.UpdateFurnitureItem(inventoryItem);
-
             });
-
-
             this.IsRentedList = new List<IsRentedModel>();
             this.FurnitureList = new List<Furniture>();
         }
@@ -137,26 +124,6 @@ namespace AAB_Furniture_Rentals.Model
                 item.TransactionID = transactionID;
             });
         }
-        ///// <summary>
-        ///// Updates the IsRented Database
-        ///// </summary>
-        //public void ProcessIsRentedList() => FurnitureController.ProcessIsRentedList(this.IsRentedList);
-
-        ///// <summary>
-        ///// generates the transaction in the Database. Returns the Id. 
-        ///// </summary>
-        ///// <returns></returns>
-        //public int ProcessRentalTransaction(int memberID, int employeeID, DateTime dueDate)
-        //{
-        //    Rental newRentaltransaction = new Rental();
-        //    newRentaltransaction.MemberID = memberID;
-        //    newRentaltransaction.EmployeeID = employeeID;
-        //    newRentaltransaction.DueDate = dueDate;
-        //
-        //    return FurnitureController.ProcessRentalTransaction(newRentaltransaction);
-        //}
-
-
         /// <summary>
         /// Calculates the total rental cost (w/o taxes)
         /// </summary>
@@ -173,7 +140,6 @@ namespace AAB_Furniture_Rentals.Model
             this.CartTotalCost = total;
             return total;
         }
-
         /// <summary>
         /// calculates the daily fine rate
         /// </summary>
@@ -188,5 +154,4 @@ namespace AAB_Furniture_Rentals.Model
             return total;
         }
     }
-
 }
