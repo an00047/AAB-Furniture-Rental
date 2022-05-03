@@ -80,7 +80,9 @@ namespace AAB_Furniture_Rentals.Model
             this.QuantityOnHand = quantityOnHand;
             this.FineRate = fineRate;
     }
-        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Furniture"/> class.
+        /// </summary>
         public Furniture() { }
 
 }
