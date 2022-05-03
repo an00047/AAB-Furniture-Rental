@@ -1,5 +1,6 @@
 ﻿using AAB_Furniture_Rentals.DAL;
 using AAB_Furniture_Rentals.Model;
+using System;
 using System.Collections.Generic;
 
 namespace AAB_Furniture_Rentals.Controller
@@ -40,17 +41,24 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <returns>True if the login credentials correspond to valid Employee</returns>
         public static bool ValidateEmployeeLogin(string userName, string password)
+        {
+            if (userName == null || password == null)
             {
-   
-            return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
+                throw new ArgumentException("username and password Cannot be empty");
             }
+            return localEmployeeDAL.ValidateEmployeeLogin( userName,  password);
+        }
         /// <summary>
         /// retrieves an employye object form the DAL based on the username
         /// </summary>
         /// <returns>An employee object with appropriate username</returns>
         public static Employee GetEmployeeByUserName(string userName)
         {
-           return localEmployeeDAL.GetEmployeeByUserName(userName);
+            if (userName == null)
+            {
+                throw new ArgumentException("username Cannot be empty");
+            }
+            return localEmployeeDAL.GetEmployeeByUserName(userName);
            
         }
 
@@ -59,6 +67,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// </summary>
         /// <param name="newEmployee"></param>
         public static void SaveEmployee(Employee newEmployee) {
+            if (newEmployee == null)
+            {
+                throw new ArgumentException("newEmployee Cannot be empty");
+            }
             localEmployeeDAL.SaveEmployee(newEmployee);
         }
 
@@ -68,6 +80,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="employeeID"></param>
         /// <returns></returns>
         public static Employee GetEmployeeByID(int employeeID) {
+            if (employeeID < 0)
+            {
+                throw new ArgumentException("employeeID cannot be negative");
+            }
             return localEmployeeDAL.GetEmployeeByID(employeeID);
         }
 
@@ -77,6 +93,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="newEmployee"></param>
         public static void AddNewEmployee(Employee newEmployee)
         {
+            if (newEmployee == null)
+            {
+                throw new ArgumentException("newEmployee Cannot be empty");
+            }
             localEmployeeDAL.AddEmployee(newEmployee);
         }
 
@@ -86,6 +106,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="username"></param>
         /// <param name="password"></param>
         public static void AddUser(string username, string  password) {
+            if (username == null || password == null)
+            {
+                throw new ArgumentException("username and password Cannot be empty");
+            }
             localLoginDataDAL.InsertNewLoginData(username, password);
         }
 
@@ -97,7 +121,10 @@ namespace AAB_Furniture_Rentals.Controller
         /// <param name="oldUsername">The old username.</param>
         public static void UpdateUsernameAndPassword(string newUsername, string newPassword, string oldUsername)
         {
-
+            if (oldUsername == null)
+            {
+                throw new ArgumentException("oldUsername cannot be empty");
+            }
             localLoginDataDAL.UpdateUsernameAndPassword(newUsername, newPassword, oldUsername);
         }
 
