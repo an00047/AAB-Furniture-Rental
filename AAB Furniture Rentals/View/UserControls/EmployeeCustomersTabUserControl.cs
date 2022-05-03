@@ -22,23 +22,22 @@ namespace AAB_Furniture_Rentals.View.UserControls
         {
             InitializeComponent();
             this.customerList = new List<Member>();
-
+            this.newSearchAll();
+            this.customerDataGridView.ClearSelection();
             this.editCustomerButton.Enabled = false;
-            this.SetCurrentMemberButton.Enabled = false;
+            
             this.CustIdRadioBtn.Checked = true;
             if (MemberController.CurrentMember != null)
             {
-                this.CustomerIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
+                this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
                 this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
                 this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
             }
             else {
-                this.CustomerIDValue.Text = "N/A";
+                this.MemberIDValue.Text = "N/A";
                 this.CustomerPhoneValue.Text = "--- --- ----";
                 this.CustoemrNameValue.Text = "N/A";
             }
-
-
         }
 
         private void NewCustomerButton_Click(object sender, System.EventArgs e)
@@ -71,15 +70,10 @@ namespace AAB_Furniture_Rentals.View.UserControls
             }
         }
 
-        private void SearchButton_Click(object sender, System.EventArgs e)
-        {
-            SetCurrentMemberButton.Enabled = false;
-            this.search();
-        }
-
+        private void SearchButton_Click(object sender, System.EventArgs e) => this.search();
+ 
         private void search()
         {
-
             if (this.searchTextBox.Text == "")
             {
                 MessageBox.Show("Search cannot be empty!");
@@ -97,20 +91,14 @@ namespace AAB_Furniture_Rentals.View.UserControls
                 this.searchByFirstAndLastName();
             }
         }
-
-    
-
         private void searchByCustomerID()
         {
             try
             {
-
                 var customerID = int.Parse(this.searchTextBox.Text);
                 this.customerList.Clear();
-                customerList = MemberController.GetCustomersByID(customerID);
+                this.customerList = MemberController.GetCustomersByID(customerID);
                 this.RefreshDataGrid();
-                this.editCustomerButton.Enabled = true;
-
             }
             catch (FormatException)
             {
@@ -225,33 +213,24 @@ namespace AAB_Furniture_Rentals.View.UserControls
           
         }
 
-        private void SearchComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-      
-        }
 
-        private void customerDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
+        private void customerDataGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e) => setcurrentMember();
+        private void customerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e) => this.setcurrentMember();
+        private void SetCurrentMemberButton_Click(object sender, EventArgs e) => this.setcurrentMember();
+
+        private void setcurrentMember() {
+            //MessageBox.Show("Curent Shopper set to:" +
+            //    " " + this.selectedMember.FirstName +
+            //    " " + this.selectedMember.LastName +
+            //    " | Member ID: " + this.selectedMember.MemberID.ToString());
+
             this.selectedMember = ((Member)this.customerDataGridView.SelectedRows[0].DataBoundItem);
-            this.SetCurrentMemberButton.Enabled = true;
-
-        }
-
-        private void SetCurrentMemberButton_Click(object sender, EventArgs e)
-        {
-            
-            MessageBox.Show("Curent Shopper set to:" +
-                " " + this.selectedMember.FirstName +
-                " " + this.selectedMember.LastName + 
-                " | Member ID: " + this.selectedMember.MemberID.ToString());
-
-
             MemberController.CurrentMember = this.selectedMember;
-            this.CustomerIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
+            this.MemberIDValue.Text = MemberController.CurrentMember.MemberID.ToString();
             this.CustomerPhoneValue.Text = MemberController.CurrentMember.PhoneNumber.ToString();
             this.CustoemrNameValue.Text = MemberController.CurrentMember.FirstName + " " + MemberController.CurrentMember.LastName;
-
-            this.SetCurrentMemberButton.Enabled = false;
+            this.editCustomerButton.Enabled = true;
+            
         }
 
         private void SetLabel(object sender, EventArgs e)
@@ -259,22 +238,31 @@ namespace AAB_Furniture_Rentals.View.UserControls
             this.searchTextBox.Clear();
             if (this.CustIdRadioBtn.Checked == true)
             {
-                this.searchTypeLabel.Text = "Customer ID:";
+                this.searchButton.Text = "Search by ID";
                 this.searchButton.Show();
                 this.searchTextBox.Show();
             }
             else if (this.PhoneRadioBtn.Checked == true)
             {
-                this.searchTypeLabel.Text = "Phone Number:";
+                this.searchButton.Text = "Search by Phone";
                 this.searchButton.Show();
                 this.searchTextBox.Show();
             }
             else if (this.NameRadioBtn.Checked == true)
             {
-                this.searchTypeLabel.Text = "First and Last Name:";
+                this.searchButton.Text = "Search by Name";
                 this.searchButton.Show();
                 this.searchTextBox.Show();
             }
         }
+
+        private void clearButton_Click(object sender, EventArgs e) =>this.newSearchAll();
+        private void clear_Click(object sender, EventArgs e) => this.newSearchAll();
+
+        private void  newSearchAll() {
+            this.customerList = MemberController.GetAllCustomers();
+            this.RefreshDataGrid();
+        }
+                
     }
   }
